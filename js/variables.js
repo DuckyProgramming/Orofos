@@ -1,21 +1,25 @@
-entityTypes={
+types={
     combatant:[
         {
-            life:0,
+            life:0,speed:0,
         },{
-            life:10,
+            life:10,speed:10,
         }
     ],
 }
 stage={scene:'battle'}
-graphics={full:0}
+graphics={main:0}
+transition={trigger:false,anim:0,scene:stage.scene}
 combatants=[
-    {id:1,position:{x:0,y:0},life:0},
-    {id:0,position:{x:0,y:0},life:0},
-    {id:0,position:{x:0,y:0},life:0},
-    {id:0,position:{x:0,y:0},life:0},
-    {id:0,position:{x:0,y:0},life:0},
-    {id:0,position:{x:0,y:0},life:0},
-    {id:0,position:{x:0,y:0},life:0},
-    {id:0,position:{x:0,y:0},life:0},
+    {id:1,team:0},
+    {id:0,team:0},
+    {id:0,team:0},
+    {id:0,team:0},
+    {id:0,team:1},
+    {id:0,team:1},
+    {id:0,team:1},
+    {id:1,team:1},
 ]
+stack={main:[],fade:[],x:[]}
+a=0;b=0;c=0;d=0;e=0;f=0;g=0;h=0;i=0;j=0;k=0;l=0;m=0;n=0;o=0;p=0
+la=0;lb=0;lc=0;ld=0;le=0;lf=0;lg=0;lh=0;li=0;lj=0;lk=0;ll=0;lm=0;ln=0;lo=0;lp=0
