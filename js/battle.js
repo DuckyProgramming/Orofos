@@ -1,19 +1,70 @@
 class battle{
 	constructor(layer,combatants){
 		this.layer=layer
+        this.stack=[]
 		this.combatants=[]
 		for(e=0,le=combatants.length;e<le;e++){
-			this.combatants.push(new combatant(this.layer,e*100+50,400,combatants[e].id,combatants[e].team))
+			this.combatants.push(new combatant(this.layer,e*100+50+combatants[e].team*100,400,combatants[e].id,combatants[e].team))
 		}
+        this.stacking={use:false}
+        this.addTimer=0
 	}
+    create(){
+        while(this.stack.length<20){
+            for(e=0,le=this.combatants.length;e<le;e++){
+                if(this.combatants[e].speed>0){
+                    if(this.combatants[e].stacking<=0){
+                        this.combatants[e].stacking=this.combatants[e].speed;
+                        this.stack.push(new stack(this.layer,this.stack.length*48+48,18,e))
+                    }else{
+                        this.combatants[e].stacking--
+                    }
+                }
+            }
+        }
+    }
 	display(){
 		for(e=0,le=this.combatants.length;e<le;e++){
 			this.combatants[e].display()
-			this.combatants[e].update()
+		}
+        for(e=0,le=this.combatants.length;e<le;e++){
 			this.combatants[e].displayLife()
+		}
+        this.layer.noStroke()
+        this.layer.fill(120)
+        this.layer.rect(450,24,900,48)
+        for(e=0,le=this.stack.length;e<le;e++){
+			this.stack[e].display()
 		}
 	}
 	update(){
-
+        for(e=0,le=this.combatants.length;e<le;e++){
+			this.combatants[e].update()
+		}
+        for(e=0,le=this.stack.length;e<le;e++){
+			this.stack[e].update(e)
+            if(this.stack[e].remove){
+                this.stack.splice(e,1)
+                e--
+                le--
+            }
+		}
+        if(this.stack.length<20){
+            if(this.addTimer>0){
+                this.addTimer--
+            }else{
+                for(e=0,le=this.combatants.length;e<le;e++){
+                    if(this.combatants[e].speed>0){
+                        if(this.combatants[e].stacking<=0){
+                            this.combatants[e].stacking=this.combatants[e].speed;
+                            this.stack.push(new stack(this.layer,960+this.addTimer*3,18,e))
+                            this.addTimer+=16
+                        }else{
+                            this.combatants[e].stacking--
+                        }
+                    }
+                }
+            }
+        }
 	}
 }

@@ -15,6 +15,7 @@ class combatant{
 		this.life=types.combatant[this.type].life
 		this.speed=types.combatant[this.type].speed
 		this.base={life:this.life,speed:this.speed}
+		this.stacking=this.speed
 	}
 	displayLife(){
 		this.layer.translate(this.position.x,this.position.y)
@@ -57,6 +58,9 @@ class combatant{
 		this.layer.translate(-this.position.x,-this.position.y)
 	}
 	update(){
-
+		if(this.life<=0&&this.fade>0){
+			this.fade-=1/30
+		}
+		this.life-=this.team/10
 	}
 }
