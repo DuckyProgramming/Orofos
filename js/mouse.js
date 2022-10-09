@@ -18,7 +18,7 @@ function mouseClicked(){
         for(a=0,la=current.combatants[current.stack[0].type].attacks.length;a<la;a++){
             if(pointInsideBox({position:inputs.rel},{position:{x:50+a*90,y:110},width:80,height:80})){
                 current.attack.trigger=true
-                current.attack.damage=types.attack[current.combatants[current.stack[0].type].attacks[a]].damage*current.combatants[current.stack[0].type].damage
+                current.attack.damage=types.attack[current.combatants[current.stack[0].type].attacks[a]].damage*current.combatants[current.stack[0].type].damage*(2+max(0,current.combatants[current.stack[0].type].boost[0]))/(2-min(0,current.combatants[current.stack[0].type].boost[0]))
                 current.attack.type=current.combatants[current.stack[0].type].attacks[a]
             }
         }

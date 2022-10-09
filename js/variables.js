@@ -1,22 +1,25 @@
 types={
     combatant:[
         {name:'',life:0,speed:0,damage:0,attacks:[]},
-        {name:'Human',life:10,speed:10,damage:1,attacks:[0]},
+        {name:'Human',life:10,speed:10,damage:1,attacks:[0,1]},
     ],attack:[
         {name:'Punch',damage:1,target:0},
+        {name:'Nerf',damage:0,target:0},
     ]
 }
 stage={scene:'battle',scale:1}
 graphics={main:0}
 transition={trigger:false,anim:0,scene:stage.scene}
 inputs={mouse:{x:0,y:0},rel:{x:0,y:0}}
+entities={particles:[]}
+run={fore:[]}
 combatants=[
     {id:0,team:0},
     {id:0,team:0},
-    {id:0,team:0},
+    {id:1,team:0},
     {id:1,team:0},
     {id:1,team:1},
-    {id:0,team:1},
+    {id:1,team:1},
     {id:0,team:1},
     {id:0,team:1},
 ]

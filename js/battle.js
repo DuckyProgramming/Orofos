@@ -2,7 +2,7 @@ class battle{
 	constructor(layer,combatants){
 		this.layer=layer
         this.stack=[]
-        this.attack=new attack(this)
+        this.attack=new attack(this.layer,this)
 		this.combatants=[]
 		for(e=0,le=combatants.length;e<le;e++){
 			this.combatants.push(new combatant(this.layer,e*100+50+combatants[e].team*100,400,combatants[e].id,combatants[e].team))
@@ -10,16 +10,17 @@ class battle{
         this.stacking={use:false}
         this.max=0
         this.partyAlive=[]
+        this.combatantListing=[3,2,1,0,4,5,6,7]
 	}
     create(){
         while(this.stack.length<20){
-            for(e=0,le=this.combatants.length;e<le;e++){
-                if(this.combatants[e].speed>0){
-                    if(this.combatants[e].stacking<=0){
-                        this.combatants[e].stacking=this.combatants[e].speed;
-                        this.stack.push(new stack(this.layer,this.stack.length*48+48,18,e))
+            for(e=0,le=this.combatantListing.length;e<le;e++){
+                if(this.combatants[this.combatantListing[e]].speed>0){
+                    if(this.combatants[this.combatantListing[e]].stacking<=0){
+                        this.combatants[this.combatantListing[e]].stacking=this.combatants[this.combatantListing[e]].speed;
+                        this.stack.push(new stack(this.layer,this.stack.length*48+48,18,this.combatantListing[e]))
                     }else{
-                        this.combatants[e].stacking--
+                        this.combatants[this.combatantListing[e]].stacking--
                     }
                 }
             }
@@ -34,7 +35,7 @@ class battle{
 		}
         this.layer.noStroke()
         this.layer.fill(120)
-        this.layer.rect(450,24,900,48)
+        this.layer.rect(450,24,910,48)
         for(e=0,le=this.stack.length;e<le;e++){
 			this.stack[e].display()
 		}
@@ -62,9 +63,9 @@ class battle{
         }
         if(this.attack.timer<=0){
             if(this.attack.trigger){
-                this.layer.stroke(0)
-                this.layer.strokeWeight(2)
-                this.layer.fill(80)
+                this.layer.stroke(100,85,60)
+                this.layer.strokeWeight(4)
+                this.layer.fill(125,105,75)
                 this.layer.rect(50,110,80,80)
                 this.layer.fill(0)
                 this.layer.noStroke()
@@ -79,14 +80,14 @@ class battle{
             }
             else if(this.stack[0].type<4&&!this.stacking.use){
                 for(e=0,le=this.combatants[this.stack[0].type].attacks.length;e<le;e++){
-                    this.layer.stroke(0)
-                    this.layer.strokeWeight(2)
-                    this.layer.fill(80)
+                    this.layer.stroke(100,85,60)
+                    this.layer.strokeWeight(4)
+                    this.layer.fill(125,105,75)
                     this.layer.rect(50+e*90,110,80,80)
                     this.layer.fill(0)
                     this.layer.noStroke()
                     this.layer.textSize(20)
-                    this.layer.text(types.attack[this.combatants[this.stack[0].type].attacks[e]].name,50+k*90,110)
+                    this.layer.text(types.attack[this.combatants[this.stack[0].type].attacks[e]].name,50+e*90,110)
                 }
             }
         }
@@ -96,16 +97,16 @@ class battle{
             this.attack.user=this.stack[0].type
         }
         if(!this.stacking.use&&this.stack[0].type>=4&&!this.attack.trigger&&this.attack.timer<=0){
-            this.attack.user=this.stack[0].type-4;
-            this.partyAlive=[];
+            this.attack.user=this.stack[0].type-4
+            this.partyAlive=[]
             for(e=0;e<4;e++){
                 if(this.combatants[e].life>0){
-                    this.partyAlive.push(e);
+                    this.partyAlive.push(e)
                 }
             }
-            this.attack.target[1]=this.partyAlive[min(floor(random(0,this.partyAlive.length)),this.partyAlive.length-1)];
-            this.attack.type=this.combatants[this.stack[0].type].attacks[min(floor(random(0,this.combatants[this.stack[0].type].attacks.length)),this.combatants[this.stack[0].type].attacks.length-1)];
-            this.attack.damage=types.attack[this.attack.type].damage*this.combatants[this.stack[0].type].damage;
+            this.attack.target[1]=this.partyAlive[min(floor(random(0,this.partyAlive.length)),this.partyAlive.length-1)]
+            this.attack.type=this.combatants[this.stack[0].type].attacks[min(floor(random(0,this.combatants[this.stack[0].type].attacks.length)),this.combatants[this.stack[0].type].attacks.length-1)]
+            this.attack.damage=types.attack[this.attack.type].damage*this.combatants[this.stack[0].type].damage*(2+max(0,current.combatants[current.stack[0].type].boost[0]))/(2-min(0,current.combatants[current.stack[0].type].boost[0]))
             this.attack.set()
         }
         for(e=0;e<4;e++){
@@ -130,6 +131,12 @@ class battle{
                 else if(this.combatants[e].infoFade>0&&e!=this.attack.target[1]){
                     this.combatants[e].infoFade-=0.1;
                 }
+                if(this.combatants[e+4].infoFade<1&&e==this.attack.user){
+                    this.combatants[e+4].infoFade+=0.1;
+                }
+                else if(this.combatants[e+4].infoFade>0&&e!=this.attack.user){
+                    this.combatants[e+4].infoFade-=0.1;
+                }
             }
         }
         for(e=0,le=this.combatants.length;e<le;e++){
@@ -153,14 +160,14 @@ class battle{
                 this.max=max(this.max,this.stack[e].position.x)
             }
             if(this.max<960){
-                for(e=0,le=this.combatants.length;e<le;e++){
-                    if(this.combatants[e].speed>0&&this.combatants[e].life>0){
-                        if(this.combatants[e].stacking<=0){
-                            this.combatants[e].stacking=this.combatants[e].speed;
-                            this.stack.push(new stack(this.layer,this.max+48,18,e))
+                for(e=0,le=this.combatantListing.length;e<le;e++){
+                    if(this.combatants[this.combatantListing[e]].speed>0&&this.combatants[this.combatantListing[e]].life>0){
+                        if(this.combatants[this.combatantListing[e]].stacking<=0){
+                            this.combatants[this.combatantListing[e]].stacking=this.combatants[this.combatantListing[e]].speed;
+                            this.stack.push(new stack(this.layer,this.max+48,18,this.combatantListing[e]))
                             this.max+=48
                         }else{
-                            this.combatants[e].stacking--
+                            this.combatants[this.combatantListing[e]].stacking--
                         }
                     }
                 }

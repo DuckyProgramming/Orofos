@@ -17,25 +17,39 @@ class combatant{
 		this.speed=types.combatant[this.type].speed
 		this.damage=types.combatant[this.type].damage
 		this.attacks=types.combatant[this.type].attacks
-		this.base={life:this.life}
+		this.base={position:{x:this.position.x,y:this.position.y},life:this.life}
+		this.collect={life:this.life}
+		this.boost=[0]
+		this.boostFade=[0]
+		this.boostDisplay=[]
+		this.boostColor=[[200,0,0]]
 		this.infoFade=0
 		this.stacking=this.speed
 	}
 	displayLife(){
-		this.layer.translate(this.position.x,this.position.y)
+		this.layer.translate(this.base.position.x,this.base.position.y)
 		this.layer.noStroke()
 		this.layer.fill(0,this.fade)
 		this.layer.rect(0,20,62,10,5)
 		this.layer.fill(150,this.fade)
 		this.layer.rect(0,20,60,8,4)
+		this.layer.fill(240,0,0,this.fade)
+		this.layer.rect((max(0,this.collect.life)/this.base.life)*30-30,20,(max(0,this.collect.life)/this.base.life)*60,min((max(0,this.collect.life)/this.base.life)*120,8),4)
 		this.layer.fill(min(255,510-max(0,this.life)/this.base.life*510)-max(0,5-max(0,this.life)/this.base.life*30)*25,max(0,this.life)/this.base.life*510,0,this.fade)
 		this.layer.rect((max(0,this.life)/this.base.life)*30-30,20,(max(0,this.life)/this.base.life)*60,min((max(0,this.life)/this.base.life)*120,8),4)
+		for(g=0,lg=this.boostDisplay.length;g<lg;g++){
+			this.layer.fill(this.boostColor[this.boostDisplay[g]][0],this.boostColor[this.boostDisplay[g]][1],this.boostColor[this.boostDisplay[g]][2],this.boostFade[this.boostDisplay[g]])
+			this.layer.ellipse(-21+g*14,42,12,12)
+		}
 		this.layer.fill(0,this.fade)
 		this.layer.textSize(8)
 		this.layer.text(max(0,ceil(this.life))+"/"+max(0,ceil(this.base.life)),0,21)
 		this.layer.textSize(10)
 		this.layer.text(this.name,0,33)
-		this.layer.translate(-this.position.x,-this.position.y)
+		for(g=0,lg=this.boostDisplay.length;g<lg;g++){
+			this.layer.text(this.boost[this.boostDisplay[g]],-21+g*14,42)
+		}
+		this.layer.translate(-this.base.position.x,-this.base.position.y)
 	}
 	display(){
 		this.layer.translate(this.position.x,this.position.y)
@@ -64,8 +78,22 @@ class combatant{
 		this.layer.translate(-this.position.x,-this.position.y)
 	}
 	update(){
+		this.boostDisplay=[]
+		for(g=0,lg=this.boost.length;g<lg;g++){
+			if(this.boostFade[g]!=0){
+				this.boostDisplay.push(g)
+			}
+			if(this.boostFade[g]<1&&this.boost[g]!=0){
+				this.boostFade[g]+=0.1
+			}
+			if(this.boostFade[g]>0&&this.boost[g]==0){
+				this.boostFade[g]-=0.1
+			}
+			this.boost[g]=constrain(this.boost[g],-4,4)
+		}
 		if(this.life<=0&&this.fade>0){
 			this.fade-=1/30
 		}
+		this.collect.life=this.collect.life*0.9+this.life*0.1
 	}
 }
