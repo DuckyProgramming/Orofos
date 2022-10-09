@@ -3,8 +3,13 @@ class stack{
         this.layer=layer
         this.position={x:x,y:y}
         this.type=type
-        this.fade=1
+        this.fade=0
         this.remove=false
+        this.cancel=false
+        this.stackers=[]
+        for(g=0,lg=current.combatants.length;g<lg;g++){
+            this.stackers.push(round(current.combatants[g].stacking*100)/100)
+        }
     }
     display(){
         this.layer.stroke(0,this.fade)
@@ -27,8 +32,11 @@ class stack{
         }
     }
     update(index,combatants){
-        if(combatants[this.type].life<=0||index==0&&current.stacking.use){
+        if(combatants[this.type].life<=0||index==0&&current.stacking.use||this.cancel){
             this.fade-=1/15
+        }
+        else if(this.fade<1){
+            this.fade+=1/15
         }
         if(this.position.x>=index*48+24){
             this.position.x-=3

@@ -14,7 +14,7 @@ class particle{
                 this.fade=0
                 this.trigger=false
             break
-            case 1:
+            case 1: case 2:
                 this.sizing=0
                 this.fade=1
             break
@@ -26,7 +26,7 @@ class particle{
             this.layer.rotate(this.direction)
             this.layer.scale(this.size*this.sizing)
             switch(this.type){
-                case 0: case 1:
+                case 0: case 1: case 2:
                     this.layer.fill(this.color[0],this.color[1],this.color[2],this.fade)
                     this.layer.ellipse(0,0,1,1)
                 break
@@ -58,6 +58,10 @@ class particle{
             case 1:
                 this.position.x+=sin(this.direction)*this.speed*8
                 this.position.y-=cos(this.direction)*this.speed*8
+                this.fade-=0.1*this.speed
+                this.sizing+=0.1*this.speed
+            break
+            case 2:
                 this.fade-=0.1*this.speed
                 this.sizing+=0.1*this.speed
             break

@@ -1,10 +1,15 @@
 types={
     combatant:[
         {name:'',life:0,speed:0,damage:0,attacks:[]},
-        {name:'Human',life:10,speed:10,damage:1,attacks:[0,1]},
+        {name:'Human',life:10,speed:10,damage:1,attacks:[0,1,2,3,4,5,6]},
     ],attack:[
         {name:'Punch',damage:1,target:0},
-        {name:'Nerf',damage:0,target:0},
+        {name:'Nerf\nDamage',damage:0,target:0},
+        {name:'Nerf\nDefense',damage:0,target:0},
+        {name:'Nerf\nSpeed',damage:0,target:0},
+        {name:'Buff\nDamage',damage:0,target:1},
+        {name:'Buff\nDefense',damage:0,target:1},
+        {name:'Buff\nSpeed',damage:0,target:1},
     ]
 }
 stage={scene:'battle',scale:1}

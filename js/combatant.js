@@ -19,10 +19,10 @@ class combatant{
 		this.attacks=types.combatant[this.type].attacks
 		this.base={position:{x:this.position.x,y:this.position.y},life:this.life}
 		this.collect={life:this.life}
-		this.boost=[0]
-		this.boostFade=[0]
+		this.boost=[0,0,0]
+		this.boostFade=[0,0,0]
 		this.boostDisplay=[]
-		this.boostColor=[[200,0,0]]
+		this.boostColor=[[200,0,0],[0,150,255],[255,255,50]]
 		this.infoFade=0
 		this.stacking=this.speed
 	}
@@ -38,16 +38,21 @@ class combatant{
 		this.layer.fill(min(255,510-max(0,this.life)/this.base.life*510)-max(0,5-max(0,this.life)/this.base.life*30)*25,max(0,this.life)/this.base.life*510,0,this.fade)
 		this.layer.rect((max(0,this.life)/this.base.life)*30-30,20,(max(0,this.life)/this.base.life)*60,min((max(0,this.life)/this.base.life)*120,8),4)
 		for(g=0,lg=this.boostDisplay.length;g<lg;g++){
-			this.layer.fill(this.boostColor[this.boostDisplay[g]][0],this.boostColor[this.boostDisplay[g]][1],this.boostColor[this.boostDisplay[g]][2],this.boostFade[this.boostDisplay[g]])
+			this.layer.fill(this.boostColor[this.boostDisplay[g]][0],this.boostColor[this.boostDisplay[g]][1],this.boostColor[this.boostDisplay[g]][2],this.boostFade[this.boostDisplay[g]]*this.fade)
 			this.layer.ellipse(-21+g*14,42,12,12)
 		}
 		this.layer.fill(0,this.fade)
 		this.layer.textSize(8)
-		this.layer.text(max(0,ceil(this.life))+"/"+max(0,ceil(this.base.life)),0,21)
+		this.layer.text(max(0,ceil(this.life*10)/10)+"/"+max(0,ceil(this.base.life)),0,21)
 		this.layer.textSize(10)
 		this.layer.text(this.name,0,33)
 		for(g=0,lg=this.boostDisplay.length;g<lg;g++){
-			this.layer.text(this.boost[this.boostDisplay[g]],-21+g*14,42)
+			this.layer.fill(0,this.boostFade[this.boostDisplay[g]]*this.fade)
+			if(this.boost[this.boostDisplay[g]]>0){
+				this.layer.text('+'+this.boost[this.boostDisplay[g]],-21+g*14,42)
+			}else{
+				this.layer.text(this.boost[this.boostDisplay[g]],-21+g*14,42)
+			}
 		}
 		this.layer.translate(-this.base.position.x,-this.base.position.y)
 	}
@@ -84,10 +89,10 @@ class combatant{
 				this.boostDisplay.push(g)
 			}
 			if(this.boostFade[g]<1&&this.boost[g]!=0){
-				this.boostFade[g]+=0.1
+				this.boostFade[g]=round(this.boostFade[g]*10+1)/10
 			}
 			if(this.boostFade[g]>0&&this.boost[g]==0){
-				this.boostFade[g]-=0.1
+				this.boostFade[g]=round(this.boostFade[g]*10-1)/10
 			}
 			this.boost[g]=constrain(this.boost[g],-4,4)
 		}
