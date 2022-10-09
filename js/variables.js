@@ -1,23 +1,23 @@
 types={
     combatant:[
-        {
-            life:0,speed:0,
-        },{
-            life:10,speed:10,
-        }
-    ],
+        {name:'',life:0,speed:0,damage:0,attacks:[]},
+        {name:'Human',life:10,speed:10,damage:1,attacks:[0]},
+    ],attack:[
+        {name:'Punch',damage:1,target:0},
+    ]
 }
 stage={scene:'battle'}
 graphics={main:0}
 transition={trigger:false,anim:0,scene:stage.scene}
+inputs={mouse:{x:0,y:0}}
 combatants=[
     {id:0,team:0},
-    {id:1,team:0},
-    {id:1,team:0},
+    {id:0,team:0},
+    {id:0,team:0},
     {id:1,team:0},
     {id:1,team:1},
-    {id:1,team:1},
-    {id:1,team:1},
+    {id:0,team:1},
+    {id:0,team:1},
     {id:0,team:1},
 ]
 a=0;b=0;c=0;d=0;e=0;f=0;g=0;h=0;i=0;j=0;k=0;l=0;m=0;n=0;o=0;p=0

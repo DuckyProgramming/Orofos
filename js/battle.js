@@ -2,12 +2,13 @@ class battle{
 	constructor(layer,combatants){
 		this.layer=layer
         this.stack=[]
+        this.attack=new attack(this)
 		this.combatants=[]
 		for(e=0,le=combatants.length;e<le;e++){
 			this.combatants.push(new combatant(this.layer,e*100+50+combatants[e].team*100,400,combatants[e].id,combatants[e].team))
 		}
         this.stacking={use:false}
-        this.addTimer=0
+        this.max=0
 	}
     create(){
         while(this.stack.length<20){
@@ -36,29 +37,84 @@ class battle{
         for(e=0,le=this.stack.length;e<le;e++){
 			this.stack[e].display()
 		}
+        for(e=0;e<4;e++){
+            this.layer.stroke(220,225,230,this.combatants[e].infoFade);
+            this.layer.strokeWeight(5);
+            this.layer.line(86+e*100,288,68+e*100,288);
+            this.layer.line(14+e*100,288,32+e*100,288);
+            this.layer.line(86+e*100,432,68+e*100,432);
+            this.layer.line(14+e*100,432,32+e*100,432);
+            this.layer.line(86+e*100,288,86+e*100,324);
+            this.layer.line(14+e*100,288,14+e*100,324);
+            this.layer.line(86+e*100,432,86+e*100,396);
+            this.layer.line(14+e*100,432,14+e*100,396);
+            this.layer.stroke(220,225,230,this.combatants[e+4].infoFade);
+            this.layer.strokeWeight(5);
+            this.layer.line(586+e*100,288,568+e*100,288);
+            this.layer.line(514+e*100,288,532+e*100,288);
+            this.layer.line(586+e*100,432,568+e*100,432);
+            this.layer.line(514+e*100,432,532+e*100,432);
+            this.layer.line(586+e*100,288,586+e*100,324);
+            this.layer.line(514+e*100,288,514+e*100,324);
+            this.layer.line(586+e*100,432,586+e*100,396);
+            this.layer.line(514+e*100,432,514+e*100,396);
+        }
 	}
 	update(){
+        if(this.stack[0].type<4){
+            this.attack.user=this.stack[0].type
+        }
+        for(e=0;e<4;e++){
+            if(this.stack[0].type<4){
+                if(this.combatants[e].infoFade<1&&e==this.attack.user&&this.attack.timer<=0){
+                    this.combatants[e].infoFade+=0.1;
+                }
+                else if(this.combatants[e].infoFade>0&&(e!=this.attack.user||this.attack.timer>0)){
+                    this.combatants[e].infoFade-=0.1;
+                }
+                if(this.combatants[e+4].infoFade<1&&e==this.attack.target[0]&&this.attack.trigger){
+                    this.combatants[e+4].infoFade+=0.1;
+                }
+                else if(this.combatants[e+4].infoFade>0&&(e!=this.attack.target[0]||!this.attack.trigger)){
+                    this.combatants[e+4].infoFade-=0.1;
+                }
+            }
+            else{
+                if(this.combatants[e].infoFade<1&&e==3-this.attack.target[1]){
+                    this.combatants[e].infoFade+=0.1;
+                }
+                else if(this.combatants[e].infoFade>0&&e!=3-this.attack.target[1]){
+                    this.combatants[e].infoFade-=0.1;
+                }
+            }
+        }
         for(e=0,le=this.combatants.length;e<le;e++){
 			this.combatants[e].update()
 		}
         for(e=0,le=this.stack.length;e<le;e++){
-			this.stack[e].update(e)
+			this.stack[e].update(e,this.combatants)
             if(this.stack[e].remove){
                 this.stack.splice(e,1)
                 e--
                 le--
             }
 		}
+        if(this.attack.timer>0){
+            this.attack.timer--
+            this.attack.update()
+        }
         if(this.stack.length<20){
-            if(this.addTimer>0){
-                this.addTimer--
-            }else{
+            this.max=0
+            for(e=0,le=this.stack.length;e<le;e++){
+                this.max=max(this.max,this.stack[e].position.x)
+            }
+            if(this.max<960){
                 for(e=0,le=this.combatants.length;e<le;e++){
-                    if(this.combatants[e].speed>0){
+                    if(this.combatants[e].speed>0&&this.combatants[e].life>0){
                         if(this.combatants[e].stacking<=0){
                             this.combatants[e].stacking=this.combatants[e].speed;
-                            this.stack.push(new stack(this.layer,960+this.addTimer*3,18,e))
-                            this.addTimer+=16
+                            this.stack.push(new stack(this.layer,this.max+48,18,e))
+                            this.max+=48
                         }else{
                             this.combatants[e].stacking--
                         }

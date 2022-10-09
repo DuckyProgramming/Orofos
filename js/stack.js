@@ -26,8 +26,8 @@ class stack{
             this.layer.text(this.type-3,this.position.x+6,this.position.y+8)
         }
     }
-    update(index){
-        if(current.combatants[this.type].life<=0||index==0&&current.stacking.use){
+    update(index,combatants){
+        if(combatants[this.type].life<=0||index==0&&current.stacking.use){
             this.fade-=1/15
         }
         if(this.position.x>=index*48+24){

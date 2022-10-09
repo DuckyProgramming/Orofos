@@ -28,3 +28,15 @@ function displayTransition(layer,transition){
 		transition.anim=round(transition.anim*10-1)/10
 	}
 }
+function pointInsideBox(point,box){
+	if(point.position.x>box.position.x-box.width/2&&point.position.x<box.position.x+box.width/2&&point.position.y>box.position.y-box.height/2&&point.position.y<box.position.y+box.height/2){
+		return true
+	}
+	else{
+		return false
+	}
+}
+function updateMouse(){
+	inputs.mouse.x=mouseX
+	inputs.mouse.y=mouseY
+}

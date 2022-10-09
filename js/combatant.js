@@ -12,9 +12,13 @@ class combatant{
 		}else{
 			this.fade=1
 		}
+		this.name=types.combatant[this.type].name
 		this.life=types.combatant[this.type].life
 		this.speed=types.combatant[this.type].speed
-		this.base={life:this.life,speed:this.speed}
+		this.damage=types.combatant[this.type].damage
+		this.attacks=types.combatant[this.type].attacks
+		this.base={life:this.life}
+		this.infoFade=0
 		this.stacking=this.speed
 	}
 	displayLife(){
@@ -29,6 +33,8 @@ class combatant{
 		this.layer.fill(0,this.fade)
 		this.layer.textSize(8)
 		this.layer.text(max(0,ceil(this.life))+"/"+max(0,ceil(this.base.life)),0,21)
+		this.layer.textSize(10)
+		this.layer.text(this.name,0,33)
 		this.layer.translate(-this.position.x,-this.position.y)
 	}
 	display(){
@@ -61,6 +67,5 @@ class combatant{
 		if(this.life<=0&&this.fade>0){
 			this.fade-=1/30
 		}
-		this.life-=this.team/10
 	}
 }
