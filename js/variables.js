@@ -6,10 +6,10 @@ types={
         {name:'Punch',damage:1,target:0},
     ]
 }
-stage={scene:'battle'}
+stage={scene:'battle',scale:1}
 graphics={main:0}
 transition={trigger:false,anim:0,scene:stage.scene}
-inputs={mouse:{x:0,y:0}}
+inputs={mouse:{x:0,y:0},rel:{x:0,y:0}}
 combatants=[
     {id:0,team:0},
     {id:0,team:0},

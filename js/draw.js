@@ -7,7 +7,7 @@ function draw(){
             current.update()
         break
     }
-    image(graphics.main,width/2-min(width/graphics.main.width,height/graphics.main.height)*graphics.main.width/2,height/2-min(width/graphics.main.width,height/graphics.main.height)*graphics.main.height/2,
-    min(width/graphics.main.width,height/graphics.main.height)*graphics.main.width,min(width/graphics.main.width,height/graphics.main.height)*graphics.main.height)
+    stage.scale=min(width/graphics.main.width,height/graphics.main.height)
+    image(graphics.main,width/2-stage.scale*graphics.main.width/2,height/2-stage.scale*graphics.main.height/2,stage.scale*graphics.main.width,stage.scale*graphics.main.height)
     displayTransition(graphics.main,transition)
 }

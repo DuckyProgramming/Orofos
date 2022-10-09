@@ -35,6 +35,7 @@ class stack{
         }
         if(this.fade<=0){
             this.remove=true
+            current.stacking.use=false
         }
     }
 }

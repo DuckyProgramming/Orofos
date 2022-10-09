@@ -36,7 +36,9 @@ function pointInsideBox(point,box){
 		return false
 	}
 }
-function updateMouse(){
+function updateMouse(layer){
 	inputs.mouse.x=mouseX
 	inputs.mouse.y=mouseY
+	inputs.rel.x=(inputs.mouse.x-width/2)/stage.scale+layer.width/2
+	inputs.rel.y=(inputs.mouse.y-height/2)/stage.scale+layer.height/2
 }
