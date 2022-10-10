@@ -31,8 +31,9 @@ class combatant{
 		this.boostDisplay=[]
 		this.boostColor=[[200,0,0],[0,150,255],[255,255,50]]
 		this.infoFade=0
-		this.rate=0
+		this.rate=[0,0]
 		this.stacking=this.speed
+		this.anim=[0]
 	}
 	displayLife(){
 		this.layer.translate(this.base.position.x,this.base.position.y)
@@ -73,10 +74,10 @@ class combatant{
 			case 1:
 				this.layer.stroke(80,this.fade)
 				this.layer.strokeWeight(4)
-				this.layer.line(-4,-30,-8-sin(this.rate)*3,0)
-				this.layer.line(4,-30,8+sin(this.rate)*3,0)
-				this.layer.line(-6*cos(this.rate),-48,-15*cos(this.rate),-24)
-				this.layer.line(6*cos(this.rate),-48,15*cos(this.rate),-24)
+				this.layer.line(-4,-30,-8-sin(this.rate[0]*2)*3,0)
+				this.layer.line(4,-30,8+sin(this.rate[0]*2)*3,0)
+				this.layer.line(-6*cos(this.rate[1]),-48,-15*cos(this.rate[1])+this.anim[0]*30,-24-this.anim[0]*12)
+				this.layer.line(6*cos(this.rate[1]),-48,15*cos(this.rate[1])+this.anim[0]*15,-24-this.anim[0]*12)
 				this.layer.noStroke()
 				this.layer.fill(80,this.fade)
 				this.layer.ellipse(0,-45,18,36)

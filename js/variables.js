@@ -4,6 +4,7 @@ types={
         {name:'Human',life:10,speed:10,damage:1,attacks:[1]},
     ],weapon:[
         {name:'Unarmed',damage:1,attacks:[0]},
+        {name:'Stick',damage:2,attacks:[8]},
     ],attack:[
         {name:'Punch',damage:1,target:0},
         {name:'Nerf\nDamage',damage:0,target:0},
@@ -13,6 +14,7 @@ types={
         {name:'Buff\nDefense',damage:0,target:1},
         {name:'Buff\nSpeed',damage:0,target:1},
         {name:'Attack\nAll',damage:1,target:2},
+        {name:'Whack',damage:1,target:0},
     ]
 }
 stage={scene:'battle',scale:1}
