@@ -1,9 +1,10 @@
 class combatant{
-	constructor(layer,x,y,type,team){
+	constructor(layer,x,y,type,weapon,team){
 		this.layer=layer
 		this.position={x:x,y:y}
 		this.type=type
 		this.team=team
+		this.weapon=weapon
 		this.size=1
 		this.flip=1-this.team*2
 		this.direction=0
@@ -16,7 +17,13 @@ class combatant{
 		this.life=types.combatant[this.type].life
 		this.speed=types.combatant[this.type].speed
 		this.damage=types.combatant[this.type].damage
-		this.attacks=types.combatant[this.type].attacks
+		this.attacks=[]
+		for(g=0,lg=types.weapon[this.weapon].attacks.length;g<lg;g++){
+			this.attacks.push(types.weapon[this.weapon].attacks[g])
+		}
+		for(g=0,lg=types.combatant[this.type].attacks.length;g<lg;g++){
+			this.attacks.push(types.combatant[this.type].attacks[g])
+		}
 		this.base={position:{x:this.position.x,y:this.position.y},life:this.life}
 		this.collect={life:this.life}
 		this.boost=[0,0,0]
@@ -24,6 +31,7 @@ class combatant{
 		this.boostDisplay=[]
 		this.boostColor=[[200,0,0],[0,150,255],[255,255,50]]
 		this.infoFade=0
+		this.rate=0
 		this.stacking=this.speed
 	}
 	displayLife(){
@@ -39,19 +47,20 @@ class combatant{
 		this.layer.rect((max(0,this.life)/this.base.life)*30-30,20,(max(0,this.life)/this.base.life)*60,min((max(0,this.life)/this.base.life)*120,8),4)
 		for(g=0,lg=this.boostDisplay.length;g<lg;g++){
 			this.layer.fill(this.boostColor[this.boostDisplay[g]][0],this.boostColor[this.boostDisplay[g]][1],this.boostColor[this.boostDisplay[g]][2],this.boostFade[this.boostDisplay[g]]*this.fade)
-			this.layer.ellipse(-21+g*14,42,12,12)
+			this.layer.ellipse(-21+g*14,50,12,12)
 		}
 		this.layer.fill(0,this.fade)
 		this.layer.textSize(8)
 		this.layer.text(max(0,ceil(this.life*10)/10)+"/"+max(0,ceil(this.base.life)),0,21)
 		this.layer.textSize(10)
 		this.layer.text(this.name,0,32)
+		this.layer.text(types.weapon[this.weapon].name,0,40)
 		for(g=0,lg=this.boostDisplay.length;g<lg;g++){
 			this.layer.fill(0,this.boostFade[this.boostDisplay[g]]*this.fade)
 			if(this.boost[this.boostDisplay[g]]>0){
-				this.layer.text('+'+this.boost[this.boostDisplay[g]],-21+g*14,42)
+				this.layer.text('+'+this.boost[this.boostDisplay[g]],-21+g*14,50)
 			}else{
-				this.layer.text(this.boost[this.boostDisplay[g]],-21+g*14,42)
+				this.layer.text(this.boost[this.boostDisplay[g]],-21+g*14,50)
 			}
 		}
 		this.layer.translate(-this.base.position.x,-this.base.position.y)
@@ -64,10 +73,10 @@ class combatant{
 			case 1:
 				this.layer.stroke(80,this.fade)
 				this.layer.strokeWeight(4)
-				this.layer.line(-4,-30,-8,0)
-				this.layer.line(4,-30,8,0)
-				this.layer.line(-6,-48,-15,-24)
-				this.layer.line(6,-48,15,-24)
+				this.layer.line(-4,-30,-8-sin(this.rate)*3,0)
+				this.layer.line(4,-30,8+sin(this.rate)*3,0)
+				this.layer.line(-6*cos(this.rate),-48,-15*cos(this.rate),-24)
+				this.layer.line(6*cos(this.rate),-48,15*cos(this.rate),-24)
 				this.layer.noStroke()
 				this.layer.fill(80,this.fade)
 				this.layer.ellipse(0,-45,18,36)

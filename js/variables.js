@@ -1,7 +1,9 @@
 types={
     combatant:[
         {name:'',life:0,speed:0,damage:0,attacks:[]},
-        {name:'Human',life:10,speed:10,damage:1,attacks:[0,1,2,3,4,5,6,7]},
+        {name:'Human',life:10,speed:10,damage:1,attacks:[1]},
+    ],weapon:[
+        {name:'Unarmed',damage:1,attacks:[0]},
     ],attack:[
         {name:'Punch',damage:1,target:0},
         {name:'Nerf\nDamage',damage:0,target:0},
@@ -20,14 +22,14 @@ inputs={mouse:{x:0,y:0},rel:{x:0,y:0}}
 entities={particles:[]}
 run={fore:[]}
 combatants=[
-    {id:0,team:0},
-    {id:0,team:0},
-    {id:1,team:0},
-    {id:1,team:0},
-    {id:1,team:1},
-    {id:1,team:1},
-    {id:0,team:1},
-    {id:0,team:1},
+    {id:0,weapon:0,team:0},
+    {id:0,weapon:0,team:0},
+    {id:1,weapon:0,team:0},
+    {id:1,weapon:0,team:0},
+    {id:1,weapon:0,team:1},
+    {id:1,weapon:0,team:1},
+    {id:0,weapon:0,team:1},
+    {id:0,weapon:0,team:1},
 ]
 a=0;b=0;c=0;d=0;e=0;f=0;g=0;h=0;i=0;j=0;k=0;l=0;m=0;n=0;o=0;p=0
 la=0;lb=0;lc=0;ld=0;le=0;lf=0;lg=0;lh=0;li=0;lj=0;lk=0;ll=0;lm=0;ln=0;lo=0;lp=0

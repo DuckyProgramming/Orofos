@@ -5,7 +5,7 @@ class battle{
         this.attack=new attack(this.layer,this)
 		this.combatants=[]
 		for(e=0,le=combatants.length;e<le;e++){
-			this.combatants.push(new combatant(this.layer,e*100+50+combatants[e].team*100,450,combatants[e].id,combatants[e].team))
+			this.combatants.push(new combatant(this.layer,e*100+50+combatants[e].team*100,450,combatants[e].id,combatants[e].weapon,combatants[e].team))
 		}
         this.stacking={use:false}
         this.max=0
@@ -120,7 +120,7 @@ class battle{
             }
             this.attack.target[1]=this.partyAlive[min(floor(random(0,this.partyAlive.length)),this.partyAlive.length-1)]
             this.attack.type=this.combatants[this.stack[0].type].attacks[min(floor(random(0,this.combatants[this.stack[0].type].attacks.length)),this.combatants[this.stack[0].type].attacks.length-1)]
-            this.attack.damage=types.attack[this.attack.type].damage*this.combatants[this.stack[0].type].damage*(2+max(0,current.combatants[current.stack[0].type].boost[0]))/(2-min(0,current.combatants[current.stack[0].type].boost[0]))
+            this.attack.damage=types.attack[this.attack.type].damage*this.combatants[this.stack[0].type].damage*types.weapon[this.combatants[this.stack[0].type].weapon].damage*(2+max(0,current.combatants[current.stack[0].type].boost[0]))/(2-min(0,current.combatants[current.stack[0].type].boost[0]))
             this.attack.set()
         }
         for(e=0;e<4;e++){
