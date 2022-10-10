@@ -45,7 +45,7 @@ class combatant{
 		this.layer.textSize(8)
 		this.layer.text(max(0,ceil(this.life*10)/10)+"/"+max(0,ceil(this.base.life)),0,21)
 		this.layer.textSize(10)
-		this.layer.text(this.name,0,33)
+		this.layer.text(this.name,0,32)
 		for(g=0,lg=this.boostDisplay.length;g<lg;g++){
 			this.layer.fill(0,this.boostFade[this.boostDisplay[g]]*this.fade)
 			if(this.boost[this.boostDisplay[g]]>0){
@@ -81,6 +81,9 @@ class combatant{
 		this.layer.scale(1/this.size/this.flip,1/this.size)
 		this.layer.rotate(-this.direction)
 		this.layer.translate(-this.position.x,-this.position.y)
+	}
+	take(damage){
+		this.life-=damage/(2+max(0,this.boost[1]))*(2-min(0,this.boost[1]))
 	}
 	update(){
 		this.boostDisplay=[]

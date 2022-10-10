@@ -10,23 +10,25 @@ class attack{
         this.damage=0
     }
     set(){
+        switch(this.type){
+            case 1: case 2: case 3: case 4: case 5: case 6:
+                this.timer=60
+            break
+            case 7:
+                this.timer=90
+            break
+        }
         if(this.battle.stack[0].type<4){
             switch(this.type){
                 case 0:
-                    this.timer=210-this.user*40+this.target[0]*40
-                break
-                case 1: case 2: case 3: case 4: case 5: case 6:
-                    this.timer=60
+                    this.timer=100-this.user*20+this.target[0]*20
                 break
             }
         }
         else{
             switch(this.type){
                 case 0:
-                    this.timer=210+this.user*40-this.target[1]*40
-                break
-                case 1: case 2: case 3: case 4: case 5: case 6:
-                    this.timer=60
+                    this.timer=100+this.user*20-this.target[1]*20
                 break
             }
         }
@@ -35,14 +37,14 @@ class attack{
         if(this.battle.stack[0].type<4){
             switch(this.type){
                 case 0:
-                    if(this.timer>=105-this.user*20+this.target[0]*20){
-                        this.battle.combatants[this.user].position.x+=4
+                    if(this.timer>=50-this.user*10+this.target[0]*10){
+                        this.battle.combatants[this.user].position.x+=8
                     }
                     else{
-                        this.battle.combatants[this.user].position.x-=4
+                        this.battle.combatants[this.user].position.x-=8
                     }
-                    if(this.timer==105-this.user*20+this.target[0]*20){
-                        this.battle.combatants[4+this.target[0]].life-=this.damage/(2+max(0,current.combatants[current.stack[0].type].boost[1]))*(2-min(0,current.combatants[current.stack[0].type].boost[1]))
+                    if(this.timer==50-this.user*10+this.target[0]*10){
+                        this.battle.combatants[4+this.target[0]].take(this.damage)
                     }
                 break
                 case 1: case 2: case 3:
@@ -63,19 +65,29 @@ class attack{
                         }
                     }
                 break
+                case 7:
+                    if(this.timer>30){
+                        this.battle.combatants[this.user].position.y+=cos(this.timer*3-90)*3
+                    }
+                    if(this.timer==30){
+                        for(g=0;g<4;g++){
+                            this.battle.combatants[4+g].take(this.damage)
+                        }
+                    }
+                break
             }
         }
         else{
             switch(this.type){
                 case 0:
-                    if(this.timer>=105+this.user*20-this.target[1]*20){
-                        this.battle.combatants[4+this.user].position.x-=4
+                    if(this.timer>=50+this.user*10-this.target[1]*10){
+                        this.battle.combatants[4+this.user].position.x-=8
                     }
                     else{
-                        this.battle.combatants[4+this.user].position.x+=4
+                        this.battle.combatants[4+this.user].position.x+=8
                     }
-                    if(this.timer==105+this.user*20-this.target[1]*20){
-                        this.battle.combatants[this.target[1]].life-=this.damage/(2+max(0,current.combatants[current.stack[0].type].boost[1]))*(2-min(0,current.combatants[current.stack[0].type].boost[1]))
+                    if(this.timer==50+this.user*10-this.target[1]*10){
+                        this.battle.combatants[this.target[1]].take(this.damage)
                     }
                 break
                 case 1: case 2: case 3:
@@ -93,6 +105,16 @@ class attack{
                         this.battle.combatants[this.user+4].boost[this.type-4]++
                         if(this.type==6){
                             this.battle.reset()
+                        }
+                    }
+                break
+                case 7:
+                    if(this.timer>30){
+                        this.battle.combatants[this.user].position.y+=cos(this.timer*3-90)*3
+                    }
+                    if(this.timer==30){
+                        for(g=0;g<4;g++){
+                            this.battle.combatants[g].take(this.damage)
                         }
                     }
                 break
