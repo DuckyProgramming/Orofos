@@ -3,6 +3,7 @@ function draw(){
     switch(stage.scene){
         case 'battle':
             graphics.main.background(200,170,120)
+            graphics.main.image(graphics.backgrounds[0],0,0)
             current.display()
             current.update()
             for(a=0,la=run.fore.length;a<la;a++){
@@ -16,6 +17,13 @@ function draw(){
                     }
                 }
             }
+        break
+        case 'walk':
+            graphics.main.background(200,170,120)
+            graphics.main.image(graphics.backgrounds[0],(-current.totalMoved/2)%1600-800,0)
+            graphics.main.image(graphics.backgrounds[0],(-current.totalMoved/2)%1600+800,0)
+            current.display()
+            current.update()
         break
     }
     stage.scale=min(width/graphics.main.width,height/graphics.main.height)

@@ -19,19 +19,19 @@ types={
         {name:'Shoot',damage:1,target:0,class:2},
     ]
 }
-stage={scene:'battle',scale:1}
-graphics={main:0}
+stage={scene:'walk',scale:1}
+graphics={main:0,backgrounds:[]}
 transition={trigger:false,anim:0,scene:stage.scene}
-inputs={mouse:{x:0,y:0},rel:{x:0,y:0}}
+inputs={mouse:{x:0,y:0},rel:{x:0,y:0},keys:[[false,false,false,false],[false,false,false,false]]}
 entities={particles:[]}
 run={fore:[]}
 combatants=[
     {id:0,weapon:0,team:0},
     {id:0,weapon:0,team:0},
-    {id:1,weapon:2,team:0},
-    {id:1,weapon:2,team:0},
-    {id:1,weapon:2,team:1},
-    {id:1,weapon:2,team:1},
+    {id:1,weapon:0,team:0},
+    {id:1,weapon:0,team:0},
+    {id:1,weapon:0,team:1},
+    {id:1,weapon:0,team:1},
     {id:0,weapon:0,team:1},
     {id:0,weapon:0,team:1},
 ]
