@@ -5,16 +5,18 @@ types={
     ],weapon:[
         {name:'Unarmed',damage:1,attacks:[0]},
         {name:'Stick',damage:2,attacks:[8]},
+        {name:'Pistol',damage:3,attacks:[9]},
     ],attack:[
-        {name:'Punch',damage:1,target:0},
-        {name:'Nerf\nDamage',damage:0,target:0},
-        {name:'Nerf\nDefense',damage:0,target:0},
-        {name:'Nerf\nSpeed',damage:0,target:0},
-        {name:'Buff\nDamage',damage:0,target:1},
-        {name:'Buff\nDefense',damage:0,target:1},
-        {name:'Buff\nSpeed',damage:0,target:1},
-        {name:'Attack\nAll',damage:1,target:2},
-        {name:'Whack',damage:1,target:0},
+        {name:'Punch',damage:1,target:0,class:0},
+        {name:'Nerf\nDamage',damage:0,target:0,class:1},
+        {name:'Nerf\nDefense',damage:0,target:0,class:1},
+        {name:'Nerf\nSpeed',damage:0,target:0,class:1},
+        {name:'Buff\nDamage',damage:0,target:1,class:1},
+        {name:'Buff\nDefense',damage:0,target:1,class:1},
+        {name:'Buff\nSpeed',damage:0,target:1,class:1},
+        {name:'Attack\nAll',damage:1,target:2,class:0},
+        {name:'Whack',damage:1,target:0,class:0},
+        {name:'Shoot',damage:1,target:0,class:2},
     ]
 }
 stage={scene:'battle',scale:1}
@@ -26,10 +28,10 @@ run={fore:[]}
 combatants=[
     {id:0,weapon:0,team:0},
     {id:0,weapon:0,team:0},
-    {id:1,weapon:0,team:0},
-    {id:1,weapon:0,team:0},
-    {id:1,weapon:0,team:1},
-    {id:1,weapon:0,team:1},
+    {id:1,weapon:2,team:0},
+    {id:1,weapon:2,team:0},
+    {id:1,weapon:2,team:1},
+    {id:1,weapon:2,team:1},
     {id:0,weapon:0,team:1},
     {id:0,weapon:0,team:1},
 ]

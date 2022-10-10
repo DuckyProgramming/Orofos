@@ -8,6 +8,7 @@ class particle{
         this.speed=speed
         this.color=color
         this.remove=false
+        this.time=0
         switch(this.type){
             case 0:
                 this.sizing=0
@@ -17,6 +18,11 @@ class particle{
             case 1: case 2:
                 this.sizing=0
                 this.fade=1
+            break
+            case 3:
+                this.sizing=1
+                this.fade=0
+                this.end=0
             break
         }
     }
@@ -30,6 +36,11 @@ class particle{
                     this.layer.fill(this.color[0],this.color[1],this.color[2],this.fade)
                     this.layer.ellipse(0,0,1,1)
                 break
+                case 3:
+                    this.layer.stroke(this.color[0],this.color[1],this.color[2],this.fade)
+                    this.layer.strokeWeight(1)
+                    this.layer.line(0,-3,0,3)
+                break
             }
             this.layer.scale(1/this.size/this.sizing)
             this.layer.rotate(-this.direction)
@@ -37,6 +48,7 @@ class particle{
         }
     }
     update(){
+        this.time++
         switch(this.type){
             case 0:
                 this.position.x+=sin(this.direction)*this.speed*5
@@ -60,10 +72,31 @@ class particle{
                 this.position.y-=cos(this.direction)*this.speed*8
                 this.fade-=0.1*this.speed
                 this.sizing+=0.1*this.speed
+                if(this.fade<0){
+                    this.remove=true
+                }
             break
             case 2:
                 this.fade-=0.1*this.speed
                 this.sizing+=0.1*this.speed
+                if(this.fade<0){
+                    this.remove=true
+                }
+            break
+            case 3:
+                this.position.x+=sin(this.direction)*this.speed
+                this.position.y-=cos(this.direction)*this.speed
+                if(this.time==this.end){
+                    entities.particles.push(new particle(this.layer,this.position.x,this.position.y,1,this.direction,this.size*10,this.speed/8,this.color))
+                }
+                if(this.time>=this.end){
+                    this.fade-=1/5
+                    if(this.fade<=0){
+                        this.remove=true
+                    }
+                }else if(this.fade<1){
+                    this.fade+=1/5
+                }
             break
         }
     }

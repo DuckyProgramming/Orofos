@@ -33,7 +33,7 @@ class combatant{
 		this.infoFade=0
 		this.rate=[0,0]
 		this.stacking=this.speed
-		this.anim=[0]
+		this.anim=[0,0]
 	}
 	displayLife(){
 		this.layer.translate(this.base.position.x,this.base.position.y)
@@ -76,8 +76,8 @@ class combatant{
 				this.layer.strokeWeight(4)
 				this.layer.line(-4,-30,-8-sin(this.rate[0]*2)*3,0)
 				this.layer.line(4,-30,8+sin(this.rate[0]*2)*3,0)
-				this.layer.line(-6*cos(this.rate[1]),-48,-15*cos(this.rate[1])+this.anim[0]*30,-24-this.anim[0]*12)
-				this.layer.line(6*cos(this.rate[1]),-48,15*cos(this.rate[1])+this.anim[0]*15,-24-this.anim[0]*12)
+				this.layer.line(-6*cos(this.rate[1]),-48,-15*cos(this.rate[1])+this.anim[0]*30+this.anim[1]*36,-24-this.anim[0]*12-this.anim[1]*30)
+				this.layer.line(6*cos(this.rate[1]),-48,15*cos(this.rate[1])+this.anim[0]*15+this.anim[1]*12,-24-this.anim[0]*12-this.anim[1]*30)
 				this.layer.noStroke()
 				this.layer.fill(80,this.fade)
 				this.layer.ellipse(0,-45,18,36)
