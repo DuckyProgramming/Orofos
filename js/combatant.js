@@ -46,7 +46,7 @@ class combatant{
 		this.infoFade=0
 		this.rate=[0,0]
 		this.stacking=this.speed
-		this.anim=[0,0,0]
+		this.anim=[0,0,0,0]
 	}
 	displayLife(){
 		this.layer.translate(this.base.position.x,this.base.position.y)
@@ -153,11 +153,11 @@ class combatant{
 				this.layer.fill(230,230,5,this.fade)
 				this.layer.ellipse(-10-sin(this.rate[0]*2)*2,-8,20,20)
 				this.layer.ellipse(10+sin(this.rate[0]*2)*2,-8,20,20)
-				this.layer.ellipse(cos(this.anim[2])*-(16+this.anim[1]),-30+sin(this.anim[2])*-(16+this.anim[1]),20,20);
+				this.layer.ellipse(cos(this.anim[2])*-(16+this.anim[3])+this.anim[1]*24,-30+sin(this.anim[2])*-(16+this.anim[3])-this.anim[1]*6,20,20);
 				this.layer.fill(235,235,55,this.fade)
 				this.layer.ellipse(0,-28,24,40)
 				this.layer.fill(240,240,60,this.fade)
-				this.layer.ellipse(cos(this.anim[2])*(16+this.anim[1]),-30+sin(this.anim[2])*(16+this.anim[1]),20,20);
+				this.layer.ellipse(cos(this.anim[2])*(16+this.anim[3])+this.anim[1]*24,-30+sin(this.anim[2])*(16+this.anim[3])-this.anim[1]*6,20,20);
 				this.layer.fill(245,245,65,this.fade)
 				this.layer.ellipse(0,-60,40,40)
 				this.layer.fill(240,160,20,this.fade);

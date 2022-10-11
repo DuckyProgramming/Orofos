@@ -38,6 +38,7 @@ class particle{
                     this.layer.ellipse(0,0,1,1)
                 break
                 case 3:
+                    print(this.size)
                     this.layer.stroke(this.color[0],this.color[1],this.color[2],this.fade)
                     this.layer.strokeWeight(1)
                     this.layer.line(0,-3,0,3)

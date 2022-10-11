@@ -19,6 +19,7 @@ types={
         {name:'Pistol',damage:2,attacks:[8,9]},
         {name:'Lighter',damage:1,attacks:[8,10]},
         {name:'Taser',damage:1,attacks:[8,11]},
+        {name:'Shotgun',damage:3,attacks:[8,15]},
     ],attack:[
         {name:'Punch',damage:1,target:0,class:0,uses:0},
         {name:'Nerf\nDamage',damage:0,target:0,class:1,uses:0},
@@ -34,7 +35,8 @@ types={
         {name:'Stun',damage:1,target:0,class:3,uses:5},
         {name:'Slap',damage:1,target:0,class:0,uses:0},
         {name:'Slap\nParade',damage:0.5,target:2,class:0,uses:0},
-        {name:'Thunder\nSlap',damage:1,target:0,class:0,uses:5},
+        {name:'Thunder\nSlap',damage:1,target:0,class:0,uses:10},
+        {name:'Shotgun',damage:2,target:0,class:2,uses:5},
     ]
 }
 stage={scene:'battle',scale:1}
@@ -44,10 +46,10 @@ inputs={mouse:{x:0,y:0},rel:{x:0,y:0},keys:[[false,false,false,false],[false,fal
 entities={particles:[]}
 run={fore:[]}
 combatants=[
-    {id:1,weapon:2,team:0},
-    {id:2,weapon:3,team:0},
-    {id:3,weapon:4,team:0},
-    {id:8,weapon:0,team:0},
+    {id:1,weapon:5,team:0},
+    {id:2,weapon:5,team:0},
+    {id:3,weapon:5,team:0},
+    {id:8,weapon:5,team:0},
     {id:9,weapon:0,team:1},
     {id:10,weapon:0,team:1},
     {id:11,weapon:0,team:1},
