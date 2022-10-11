@@ -55,13 +55,13 @@ class combatant{
 		this.layer.translate(this.base.position.x,this.base.position.y)
 		this.layer.noStroke()
 		this.layer.fill(0,this.fade)
-		this.layer.rect(0,20,62,10,5)
+		this.layer.rect(0,20,62,10,4)
 		this.layer.fill(150,this.fade)
-		this.layer.rect(0,20,60,8,4)
+		this.layer.rect(0,20,60,8,3)
 		this.layer.fill(240,0,0,this.fade)
-		this.layer.rect((max(0,this.collect.life)/this.base.life)*30-30,20,(max(0,this.collect.life)/this.base.life)*60,min((max(0,this.collect.life)/this.base.life)*120,8),4)
+		this.layer.rect((max(0,this.collect.life)/this.base.life)*30-30,20,(max(0,this.collect.life)/this.base.life)*60,2+min((max(0,this.collect.life)/this.base.life)*90,6),3)
 		this.layer.fill(min(255,510-max(0,this.life)/this.base.life*510)-max(0,5-max(0,this.life)/this.base.life*30)*25,max(0,this.life)/this.base.life*510,0,this.fade)
-		this.layer.rect((max(0,this.life)/this.base.life)*30-30,20,(max(0,this.life)/this.base.life)*60,min((max(0,this.life)/this.base.life)*120,8),4)
+		this.layer.rect((max(0,this.life)/this.base.life)*30-30,20,(max(0,this.life)/this.base.life)*60,2+min((max(0,this.life)/this.base.life)*90,6),3)
 		for(g=0,lg=this.boostDisplay.length;g<lg;g++){
 			this.layer.fill(this.boostColor[this.boostDisplay[g]][0],this.boostColor[this.boostDisplay[g]][1],this.boostColor[this.boostDisplay[g]][2],this.boostFade[this.boostDisplay[g]]*this.fade)
 			this.layer.ellipse(-21+g*14,50,12,12)
@@ -156,11 +156,11 @@ class combatant{
 				this.layer.fill(230,230,5,this.fade)
 				this.layer.ellipse(-10-sin(this.rate[0]*2)*2,-8,20,20)
 				this.layer.ellipse(10+sin(this.rate[0]*2)*2,-8,20,20)
-				this.layer.ellipse(cos(this.anim[2])*-(16+this.anim[3])+this.anim[1]*24,-30+sin(this.anim[2])*-(16+this.anim[3])-this.anim[1]*6,20,20);
+				this.layer.ellipse(cos(this.anim[2])*-(16+this.anim[3])+this.anim[1]*24+this.anim[0]*18,-30+sin(this.anim[2])*-(16+this.anim[3])-this.anim[1]*6-this.anim[0]*4,20,20);
 				this.layer.fill(235,235,55,this.fade)
 				this.layer.ellipse(0,-28,24,40)
 				this.layer.fill(240,240,60,this.fade)
-				this.layer.ellipse(cos(this.anim[2])*(16+this.anim[3])+this.anim[1]*24,-30+sin(this.anim[2])*(16+this.anim[3])-this.anim[1]*6,20,20);
+				this.layer.ellipse(cos(this.anim[2])*(16+this.anim[3])+this.anim[1]*24+this.anim[0]*18,-30+sin(this.anim[2])*(16+this.anim[3])-this.anim[1]*6-this.anim[0]*4,20,20);
 				this.layer.fill(245,245,65,this.fade)
 				this.layer.ellipse(0,-60,40,40)
 				this.layer.fill(240,160,20,this.fade);
@@ -237,6 +237,31 @@ class combatant{
 				this.layer.fill(0,this.fade)
 				this.layer.ellipse(4,-87,4,4)
 				this.layer.ellipse(12,-87,4,4)
+			break
+			case 13:
+				this.layer.stroke(65,85,85,this.fade)
+				this.layer.strokeWeight(4)
+				this.layer.line(-4,-30,-8-sin(this.rate[0]*2)*3,0)
+				this.layer.line(4,-30,8+sin(this.rate[0]*2)*3,0)
+				this.layer.stroke(85,135,195,this.fade)
+				this.layer.line(-6*cos(this.rate[1]),-48,-15*cos(this.rate[1])+this.anim[0]*30+this.anim[1]*36,-24-this.anim[0]*12-this.anim[1]*30)
+				this.layer.line(6*cos(this.rate[1]),-48,15*cos(this.rate[1])+this.anim[0]*15+this.anim[1]*12,-24-this.anim[0]*12-this.anim[1]*30)
+				this.layer.noStroke()
+				this.layer.fill(95,105,110,this.fade)
+				this.layer.ellipse(0,-47,18,39)
+				this.layer.fill(30,25,0,this.fade);
+				this.layer.rect(-7,-45,5,2);
+				this.layer.rect(0,-45,5,2);
+				this.layer.rect(7,-45,5,2);
+				this.layer.fill(240,220,180,this.fade)
+				this.layer.ellipse(0,-78,30,30)
+				this.layer.fill(0,this.fade)
+				this.layer.ellipse(4,-75,4,4)
+				this.layer.ellipse(12,-75,4,4)
+				this.layer.fill(80,85,90,this.fade)
+				this.layer.arc(0,-78,36,36,-180,0)
+				this.layer.fill(65,130,140,this.fade/2)
+				this.layer.rect(8,-75,20,6)
 			break
 		}
 		this.layer.scale(1/this.size/this.flip,1/this.size)

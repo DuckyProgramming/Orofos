@@ -112,11 +112,11 @@ class battle{
                         this.layer.stroke(100,85,60)
                         this.layer.strokeWeight(4)
                         this.layer.fill(125,105,75)
-                        this.layer.rect(50,110,80,80)
+                        this.layer.rect(170,90,300,40)
                         this.layer.fill(0)
                         this.layer.noStroke()
                         this.layer.textSize(20)
-                        this.layer.text("Select",50,110)
+                        this.layer.text("Select",170,90)
                         e=0
                         while(this.combatants[4+this.attack.target[0]].life<=0&&e<4){
                             e++
@@ -133,14 +133,16 @@ class battle{
                                 this.layer.fill(125,105,75)
                             }
                             this.layer.strokeWeight(4)
-                            this.layer.rect(50+e*90,110,80,80)
+                            this.layer.rect(170,90+e*50,300,40)
                             this.layer.fill(0)
                             this.layer.noStroke()
                             this.layer.textSize(20)
-                            this.layer.text(types.attack[this.combatants[this.stack[0].type].attacks[e]].name,50+e*90,110)
-                            this.layer.textSize(10)
                             if(types.attack[this.combatants[this.stack[0].type].attacks[e]].uses!=0){
-                                this.layer.text(round(this.combatants[this.stack[0].type].uses[e])+'/'+types.attack[this.combatants[this.stack[0].type].attacks[e]].uses,50+e*90,140)
+                                this.layer.text(types.attack[this.combatants[this.stack[0].type].attacks[e]].name,145,90+e*50)
+                                this.layer.textSize(10)
+                                this.layer.text(round(this.combatants[this.stack[0].type].uses[e])+'/'+types.attack[this.combatants[this.stack[0].type].attacks[e]].uses,295,90+e*50)
+                            }else{
+                                this.layer.text(types.attack[this.combatants[this.stack[0].type].attacks[e]].name,170,90+e*50)
                             }
                         }
                     }

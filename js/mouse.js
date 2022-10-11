@@ -3,7 +3,7 @@ function mouseClicked(){
         case 'battle':
             if(current.attack.timer<=0){
                 if(current.attack.trigger){
-                    if(pointInsideBox({position:inputs.rel},{position:{x:50,y:110},width:80,height:80})){
+                    if(pointInsideBox({position:inputs.rel},{position:{x:170,y:90},width:300,height:40})){
                         current.attack.set()
                     }
                     switch(types.attack[current.attack.type].target){
@@ -18,7 +18,7 @@ function mouseClicked(){
                 }
                 else if(current.stack[0].type<4&&!current.stacking.use){
                     for(a=0,la=current.combatants[current.stack[0].type].attacks.length;a<la;a++){
-                        if(pointInsideBox({position:inputs.rel},{position:{x:50+a*90,y:110},width:80,height:80})&&(current.combatants[current.stack[0].type].uses[a]>0||types.attack[current.combatants[current.stack[0].type].attacks[a]].uses==0)&&current.combatants[current.stack[0].type].status[1]<=0){
+                        if(pointInsideBox({position:inputs.rel},{position:{x:170,y:90+a*50},width:300,height:40})&&(current.combatants[current.stack[0].type].uses[a]>0||types.attack[current.combatants[current.stack[0].type].attacks[a]].uses==0)&&current.combatants[current.stack[0].type].status[1]<=0){
                             current.attack.trigger=true
                             current.attack.type=current.combatants[current.stack[0].type].attacks[a]
                             if(current.combatants[current.stack[0].type].attackClass[a]==0){
