@@ -11,7 +11,7 @@ types={
         {name:'Duckit',life:10,speed:8,damage:1,attacks:[12,13,14],height:60},
         {name:'Human',life:10,speed:10,damage:1,attacks:[1],height:75},
         {name:'Fatty',life:25,speed:15,damage:1,attacks:[5],height:66},
-        {name:'Long',life:15,speed:7,damage:1,attacks:[6],height:84},
+        {name:'Long',life:15,speed:7,damage:1,attacks:[4],height:84},
         {name:'Human',life:10,speed:10,damage:1,attacks:[1],height:75},
     ],weapon:[
         {name:'Unarmed',damage:1,attacks:[0]},
@@ -20,6 +20,7 @@ types={
         {name:'Lighter',damage:1,attacks:[8,10]},
         {name:'Taser',damage:1,attacks:[8,11]},
         {name:'Shotgun',damage:3,attacks:[8,15]},
+        {name:'Sniper',damage:3,attacks:[8,9,16]},
     ],attack:[
         {name:'Punch',damage:1,target:0,class:0,uses:0},
         {name:'Nerf\nDamage',damage:0,target:0,class:1,uses:0},
@@ -37,6 +38,7 @@ types={
         {name:'Slap\nParade',damage:0.5,target:2,class:0,uses:0},
         {name:'Thunder\nSlap',damage:1,target:0,class:0,uses:10},
         {name:'Shotgun',damage:2,target:0,class:2,uses:5},
+        {name:'Snipe',damage:3,target:0,class:2,uses:5},
     ]
 }
 stage={scene:'battle',scale:1}
@@ -46,10 +48,10 @@ inputs={mouse:{x:0,y:0},rel:{x:0,y:0},keys:[[false,false,false,false],[false,fal
 entities={particles:[]}
 run={fore:[]}
 combatants=[
-    {id:1,weapon:5,team:0},
-    {id:2,weapon:5,team:0},
-    {id:3,weapon:5,team:0},
-    {id:8,weapon:5,team:0},
+    {id:1,weapon:6,team:0},
+    {id:2,weapon:6,team:0},
+    {id:3,weapon:6,team:0},
+    {id:8,weapon:6,team:0},
     {id:9,weapon:0,team:1},
     {id:10,weapon:0,team:1},
     {id:11,weapon:0,team:1},

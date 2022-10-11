@@ -224,8 +224,15 @@ class combatant{
 		this.layer.rotate(-this.direction)
 		this.layer.translate(-this.position.x,-this.position.y)
 	}
-	take(damage){
-		this.life-=damage/(2+max(0,this.boost[1]))*(2-min(0,this.boost[1]))
+	take(damage,spec){
+		switch(spec){
+			case 0:
+				this.life-=damage/(2+max(0,this.boost[1]))*(2-min(0,this.boost[1]))
+			break
+			case 1:
+				this.life-=damage/2*(2-min(0,this.boost[1]))
+			break
+		}
 	}
 	update(){
 		this.boostDisplay=[]
