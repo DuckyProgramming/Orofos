@@ -48,6 +48,7 @@ class battle{
                     this.combatants[e].position.y=450
                     this.combatants[e].base.position.x=e*100+50+this.combatants[e].team*100
                     this.combatants[e].base.position.y=450
+                    this.combatants[e].rate[0]=random(0,360)
                 }
             break
             case 'walk':
@@ -62,6 +63,7 @@ class battle{
                     this.combatants[e].position.y=450
                     this.combatants[e].base.position.x=e*100+400-this.max*50
                     this.combatants[e].base.position.y=450
+                    this.combatants[e].rate[0]=random(0,360)
                 }
             break
         }
@@ -175,10 +177,21 @@ class battle{
 	update(){
         switch(stage.scene){
             case 'battle':
+                if(this.combatants[this.stack[0].type].status[1]>0&&!this.stack[0].click){
+                    this.combatants[this.stack[0].type].status[1]--
+                    this.stack[0].cancel=true
+                }
+                if(this.combatants[this.stack[0].type].status[2]>0&&!this.stack[0].click){
+                    this.combatants[this.stack[0].type].status[2]--
+                    if(floor(random(0,4))==0){
+                        this.stack[0].cancel=true
+                        this.combatants[this.stack[0].type].life-=this.combatants[this.stack[0].type].damage
+                    }
+                }
+                this.stack[0].click=true
                 if(this.stack[0].type<4&&!this.stacking.use&&this.attack.timer<=0){
                     this.attack.user=this.stack[0].type
-                }
-                if(!this.stacking.use&&this.stack[0].type>=4&&!this.attack.trigger&&this.attack.timer<=0){
+                }else if(!this.stacking.use&&this.stack[0].type>=4&&!this.attack.trigger&&this.attack.timer<=0){
                     this.attack.user=this.stack[0].type-4
                     this.partyAlive=[]
                     for(e=0;e<4;e++){
@@ -200,7 +213,9 @@ class battle{
                     this.attack.target[1]=this.partyAlive[min(floor(random(0,this.partyAlive.length)),this.partyAlive.length-1)]
                     this.attack.damage=types.attack[this.attack.type].damage*this.combatants[this.stack[0].type].damage*types.weapon[this.combatants[this.stack[0].type].weapon].damage*(2+max(0,current.combatants[current.stack[0].type].boost[0]))/(2-min(0,current.combatants[current.stack[0].type].boost[0]))
                     this.attack.class=types.attack[this.attack.type].class
-                    this.attack.set()
+                    if(!this.stack[0].cancel){
+                        this.attack.set()
+                    }
                 }
                 for(e=0;e<4;e++){
                     if(this.stack[0].type<4){

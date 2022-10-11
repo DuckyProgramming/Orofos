@@ -31,6 +31,7 @@ class particle{
             this.layer.translate(this.position.x,this.position.y)
             this.layer.rotate(this.direction)
             this.layer.scale(this.size*this.sizing)
+            this.layer.noStroke()
             switch(this.type){
                 case 0: case 1: case 2:
                     this.layer.fill(this.color[0],this.color[1],this.color[2],this.fade)

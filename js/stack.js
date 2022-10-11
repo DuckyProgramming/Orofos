@@ -7,6 +7,7 @@ class stack{
         this.remove=false
         this.cancel=false
         this.stackers=[]
+        this.click=false
         for(g=0,lg=current.combatants.length;g<lg;g++){
             this.stackers.push(round(current.combatants[g].stacking*100)/100)
         }
