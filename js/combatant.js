@@ -19,11 +19,14 @@ class combatant{
 		this.damage=types.combatant[this.type].damage
 		this.height=types.combatant[this.type].height
 		this.attacks=[]
+		this.attackClass=[]
 		for(g=0,lg=types.weapon[this.weapon].attacks.length;g<lg;g++){
 			this.attacks.push(types.weapon[this.weapon].attacks[g])
+			this.attackClass.push(0)
 		}
 		for(g=0,lg=types.combatant[this.type].attacks.length;g<lg;g++){
 			this.attacks.push(types.combatant[this.type].attacks[g])
+			this.attackClass.push(1)
 		}
 		this.uses=[]
 		for(g=0,lg=this.attacks.length;g<lg;g++){
@@ -171,7 +174,7 @@ class combatant{
 				this.layer.point(9-6,-64);
 				this.layer.point(9+6,-64);
 			break
-			case 9: case 12:
+			case 9:
 				this.layer.stroke(80,this.fade)
 				this.layer.strokeWeight(4)
 				this.layer.line(-4,-30,-8-sin(this.rate[0]*2)*3,0)
@@ -215,6 +218,22 @@ class combatant{
 				this.layer.ellipse(0,-48,15,45)
 				this.layer.fill(240,220,180,this.fade)
 				this.layer.ellipse(0,-84,30,30)
+				this.layer.fill(0,this.fade)
+				this.layer.ellipse(4,-84,4,4)
+				this.layer.ellipse(12,-84,4,4)
+			break
+			case 12:
+				this.layer.stroke(80,this.fade)
+				this.layer.strokeWeight(4)
+				this.layer.line(-6,-30,-12-sin(this.rate[0]*2)*4,0)
+				this.layer.line(6,-30,12+sin(this.rate[0]*2)*4,0)
+				this.layer.line(-12*cos(this.rate[1]),-60,-25*cos(this.rate[1])+this.anim[0]*36+this.anim[1]*45,-30-this.anim[0]*12-this.anim[1]*30)
+				this.layer.line(12*cos(this.rate[1]),-60,25*cos(this.rate[1])+this.anim[0]*18+this.anim[1]*15,-30-this.anim[0]*12-this.anim[1]*30)
+				this.layer.noStroke()
+				this.layer.fill(80,this.fade)
+				this.layer.ellipse(0,-51,30,54)
+				this.layer.fill(240,220,180,this.fade)
+				this.layer.ellipse(0,-90,30,30)
 				this.layer.fill(0,this.fade)
 				this.layer.ellipse(4,-87,4,4)
 				this.layer.ellipse(12,-87,4,4)

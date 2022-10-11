@@ -10,9 +10,9 @@ types={
         {name:'Human',life:10,speed:10,damage:1,attacks:[1],height:75},
         {name:'Duckit',life:10,speed:8,damage:1,attacks:[12,13,14],height:60},
         {name:'Human',life:10,speed:10,damage:1,attacks:[1],height:75},
-        {name:'Fatty',life:25,speed:15,damage:1,attacks:[5],height:66},
-        {name:'Long',life:15,speed:7,damage:1,attacks:[4],height:84},
-        {name:'Human',life:10,speed:10,damage:1,attacks:[1],height:75},
+        {name:'Fat Human',life:25,speed:15,damage:1,attacks:[5],height:66},
+        {name:'Long Human',life:15,speed:7,damage:1,attacks:[4],height:84},
+        {name:'Big Human',life:30,speed:12,damage:2,attacks:[2,7],height:90},
     ],weapon:[
         {name:'Unarmed',damage:1,attacks:[0]},
         {name:'Stick',damage:2,attacks:[8]},
@@ -21,6 +21,7 @@ types={
         {name:'Taser',damage:1,attacks:[8,11]},
         {name:'Shotgun',damage:3,attacks:[8,15]},
         {name:'Sniper',damage:3,attacks:[8,9,16]},
+        {name:'Metal Beam',damage:4,attacks:[8,17]},
     ],attack:[
         {name:'Punch',damage:1,target:0,class:0,uses:0},
         {name:'Nerf\nDamage',damage:0,target:0,class:1,uses:0},
@@ -29,16 +30,17 @@ types={
         {name:'Buff\nDamage',damage:0,target:1,class:1,uses:0},
         {name:'Buff\nDefense',damage:0,target:1,class:1,uses:0},
         {name:'Buff\nSpeed',damage:0,target:1,class:1,uses:0},
-        {name:'Attack\nAll',damage:1,target:2,class:0},
+        {name:'Attack\nAll',damage:0.5,target:2,class:0},
         {name:'Whack',damage:1,target:0,class:0,uses:0},
         {name:'Shoot',damage:2,target:0,class:2,uses:10},
         {name:'Ignite',damage:1,target:0,class:3,uses:20},
         {name:'Stun',damage:1,target:0,class:3,uses:5},
         {name:'Slap',damage:1,target:0,class:0,uses:0},
-        {name:'Slap\nParade',damage:0.5,target:2,class:0,uses:0},
+        {name:'Slap\nParade',damage:1,target:2,class:0,uses:20},
         {name:'Thunder\nSlap',damage:1,target:0,class:0,uses:10},
         {name:'Shotgun',damage:2,target:0,class:2,uses:5},
         {name:'Snipe',damage:3,target:0,class:2,uses:5},
+        {name:'Smash',damage:1.5,target:0,class:0,uses:5},
     ]
 }
 stage={scene:'battle',scale:1}
@@ -49,13 +51,13 @@ entities={particles:[]}
 run={fore:[]}
 combatants=[
     {id:1,weapon:6,team:0},
-    {id:2,weapon:6,team:0},
-    {id:3,weapon:6,team:0},
-    {id:8,weapon:6,team:0},
-    {id:9,weapon:0,team:1},
-    {id:10,weapon:0,team:1},
-    {id:11,weapon:0,team:1},
-    {id:12,weapon:0,team:1},
+    {id:2,weapon:5,team:0},
+    {id:3,weapon:3,team:0},
+    {id:8,weapon:4,team:0},
+    {id:9,weapon:7,team:1},
+    {id:10,weapon:7,team:1},
+    {id:11,weapon:7,team:1},
+    {id:12,weapon:7,team:1},
 ]
 a=0;b=0;c=0;d=0;e=0;f=0;g=0;h=0;i=0;j=0;k=0;l=0;m=0;n=0;o=0;p=0
 la=0;lb=0;lc=0;ld=0;le=0;lf=0;lg=0;lh=0;li=0;lj=0;lk=0;ll=0;lm=0;ln=0;lo=0;lp=0

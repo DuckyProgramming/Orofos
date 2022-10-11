@@ -117,11 +117,10 @@ class battle{
                         this.layer.noStroke()
                         this.layer.textSize(20)
                         this.layer.text("Select",50,110)
-                        if(this.combatants[4+this.attack.target[0]].life<=0){
-                            this.attack.target[0]++
-                            if(this.attack.target[0]>=4){
-                                this.attack.target[0]-=4
-                            }
+                        e=0
+                        while(this.combatants[4+this.attack.target[0]].life<=0&&e<4){
+                            e++
+                            this.attack.target[0]=(this.attack.target[0]+1)%4
                         }
                     }
                     else if(this.stack[0].type<4&&!this.stacking.use){
@@ -211,7 +210,11 @@ class battle{
                     }
                     this.attack.type=this.combatants[this.stack[0].type].attacks[this.attack.type]
                     this.attack.target[1]=this.partyAlive[min(floor(random(0,this.partyAlive.length)),this.partyAlive.length-1)]
-                    this.attack.damage=types.attack[this.attack.type].damage*this.combatants[this.stack[0].type].damage*types.weapon[this.combatants[this.stack[0].type].weapon].damage*(2+max(0,current.combatants[current.stack[0].type].boost[0]))/(2-min(0,current.combatants[current.stack[0].type].boost[0]))
+                    if(this.combatants[this.stack[0].type].attackClass[a]==0){
+                        this.attack.damage=types.attack[this.attack.type].damage*types.weapon[this.combatants[this.stack[0].type].weapon].damage*this.combatants[this.stack[0].type].damage*(2+max(0,current.combatants[current.stack[0].type].boost[0]))/(2-min(0,current.combatants[current.stack[0].type].boost[0]))
+                    }else{
+                        this.attack.damage=types.attack[this.attack.type].damage*this.combatants[this.stack[0].type].damage*(2+max(0,current.combatants[current.stack[0].type].boost[0]))/(2-min(0,current.combatants[current.stack[0].type].boost[0]))
+                    }
                     this.attack.class=types.attack[this.attack.type].class
                     if(!this.stack[0].cancel){
                         this.attack.set()

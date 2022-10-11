@@ -33,7 +33,7 @@ class stack{
         }
     }
     update(index,combatants){
-        if(combatants[this.type].life<=0||index==0&&current.stacking.use||this.cancel){
+        if(combatants[this.type].life<=0||this.cancel){
             this.fade-=1/15
         }
         else if(this.fade<1){
