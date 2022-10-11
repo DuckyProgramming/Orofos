@@ -34,6 +34,14 @@ class combatant{
 		this.boostFade=[0,0,0]
 		this.boostDisplay=[]
 		this.boostColor=[[200,0,0],[0,150,255],[255,255,50]]
+		this.boostInfoFade=[0,0,0]
+		this.boostName=['Attack','Defense','Speed']
+		this.status=[0]
+		this.statusFade=[0]
+		this.statusDisplay=[]
+		this.statusColor=[[200,100,0]]
+		this.statusInfoFade=[0]
+		this.statusName=['Burned']
 		this.infoFade=0
 		this.rate=[0,0]
 		this.stacking=this.speed
@@ -53,6 +61,14 @@ class combatant{
 		for(g=0,lg=this.boostDisplay.length;g<lg;g++){
 			this.layer.fill(this.boostColor[this.boostDisplay[g]][0],this.boostColor[this.boostDisplay[g]][1],this.boostColor[this.boostDisplay[g]][2],this.boostFade[this.boostDisplay[g]]*this.fade)
 			this.layer.ellipse(-21+g*14,50,12,12)
+			this.layer.fill(150,this.fade*this.boostFade[this.boostDisplay[g]]*this.boostInfoFade[g])
+			this.layer.rect(0,80,45,15,3)
+		}
+		for(g=0,lg=this.statusDisplay.length;g<lg;g++){
+			this.layer.fill(this.statusColor[this.statusDisplay[g]][0],this.statusColor[this.statusDisplay[g]][1],this.statusColor[this.statusDisplay[g]][2],this.statusFade[this.statusDisplay[g]]*this.fade)
+			this.layer.ellipse(-21+g*14,64,12,12)
+			this.layer.fill(150,this.fade*this.statusFade[this.statusDisplay[g]]*this.statusInfoFade[g])
+			this.layer.rect(0,80,45,15,3)
 		}
 		this.layer.fill(0,this.fade)
 		this.layer.textSize(8)
@@ -67,6 +83,14 @@ class combatant{
 			}else{
 				this.layer.text(this.boost[this.boostDisplay[g]],-21+g*14,50)
 			}
+			this.layer.fill(0,this.fade*this.boostFade[this.boostDisplay[g]]*this.boostInfoFade[g])
+			this.layer.text(this.boostName[this.boostDisplay[g]],0,80)
+		}
+		for(g=0,lg=this.statusDisplay.length;g<lg;g++){
+			this.layer.fill(0,this.statusFade[this.statusDisplay[g]]*this.fade)
+			this.layer.text(this.status[this.statusDisplay[g]],-21+g*14,64)
+			this.layer.fill(0,this.fade*this.statusFade[this.statusDisplay[g]]*this.statusInfoFade[g])
+			this.layer.text(this.statusName[this.statusDisplay[g]],0,80)
 		}
 		this.layer.translate(-this.base.position.x,-this.base.position.y)
 	}
@@ -91,6 +115,22 @@ class combatant{
 				this.layer.ellipse(4,-72,4,4)
 				this.layer.ellipse(12,-72,4,4)
 			break
+			case 2:
+				this.layer.stroke(80,this.fade)
+				this.layer.strokeWeight(4)
+				this.layer.line(-4,-30,-8-sin(this.rate[0]*2)*3,0)
+				this.layer.line(4,-30,8+sin(this.rate[0]*2)*3,0)
+				this.layer.line(-12*cos(this.rate[1]),-48,-24*cos(this.rate[1])+this.anim[0]*30+this.anim[1]*36,-24-this.anim[0]*12-this.anim[1]*30)
+				this.layer.line(12*cos(this.rate[1]),-48,24*cos(this.rate[1])+this.anim[0]*15+this.anim[1]*12,-24-this.anim[0]*12-this.anim[1]*30)
+				this.layer.noStroke()
+				this.layer.fill(80,this.fade)
+				this.layer.ellipse(0,-39,36,30)
+				this.layer.fill(240,220,180,this.fade)
+				this.layer.ellipse(0,-66,30,30)
+				this.layer.fill(0,this.fade)
+				this.layer.ellipse(4,-63,4,4)
+				this.layer.ellipse(12,-63,4,4)
+			break
 		}
 		this.layer.scale(1/this.size/this.flip,1/this.size)
 		this.layer.rotate(-this.direction)
@@ -101,6 +141,7 @@ class combatant{
 	}
 	update(){
 		this.boostDisplay=[]
+		this.statusDisplay=[]
 		for(g=0,lg=this.boost.length;g<lg;g++){
 			if(this.boostFade[g]!=0){
 				this.boostDisplay.push(g)
@@ -112,6 +153,32 @@ class combatant{
 				this.boostFade[g]=round(this.boostFade[g]*10-1)/10
 			}
 			this.boost[g]=constrain(this.boost[g],-4,4)
+		}
+		for(g=0,lg=this.status.length;g<lg;g++){
+			if(this.statusFade[g]!=0){
+				this.statusDisplay.push(g)
+			}
+			if(this.statusFade[g]<1&&this.status[g]!=0){
+				this.statusFade[g]=round(this.statusFade[g]*10+1)/10
+			}
+			if(this.statusFade[g]>0&&this.status[g]==0){
+				this.statusFade[g]=round(this.statusFade[g]*10-1)/10
+			}
+			this.status[g]=constrain(this.status[g],-100,100)
+		}
+		for(g=0,lg=this.boostDisplay.length;g<lg;g++){
+			if(dist(inputs.rel.x,inputs.rel.y,this.position.x-21+g*14,this.position.y+50)<=6&&this.boostInfoFade[g]<1){
+				this.boostInfoFade[g]+=1/10
+			}else if(dist(inputs.rel.x,inputs.rel.y,this.position.x-21+g*14,this.position.y+50)>6&&this.boostInfoFade[g]>0){
+				this.boostInfoFade[g]-=1/10
+			}
+		}
+		for(g=0,lg=this.statusDisplay.length;g<lg;g++){
+			if(dist(inputs.rel.x,inputs.rel.y,this.position.x-21+g*14,this.position.y+64)<=6&&this.statusInfoFade[g]<1){
+				this.statusInfoFade[g]+=1/10
+			}else if(dist(inputs.rel.x,inputs.rel.y,this.position.x-21+g*14,this.position.y+64)>6&&this.statusInfoFade[g]>0){
+				this.statusInfoFade[g]-=1/10
+			}
 		}
 		if(this.life<=0&&this.fade>0){
 			this.fade-=1/30

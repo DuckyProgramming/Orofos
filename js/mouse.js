@@ -1,5 +1,4 @@
 function mouseClicked(){
-    updateMouse(graphics.main)
     switch(stage.scene){
         case 'battle':
             if(current.attack.timer<=0){

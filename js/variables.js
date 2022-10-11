@@ -2,10 +2,12 @@ types={
     combatant:[
         {name:'',life:0,speed:0,damage:0,attacks:[]},
         {name:'Human',life:10,speed:10,damage:1,attacks:[1]},
+        {name:'Fatty',life:25,speed:15,damage:1,attacks:[5]},
     ],weapon:[
         {name:'Unarmed',damage:1,attacks:[0]},
         {name:'Stick',damage:2,attacks:[8]},
         {name:'Pistol',damage:2,attacks:[8,9]},
+        {name:'Lighter',damage:1,attacks:[8,10]},
     ],attack:[
         {name:'Punch',damage:1,target:0,class:0,uses:0},
         {name:'Nerf\nDamage',damage:0,target:0,class:1,uses:0},
@@ -16,7 +18,8 @@ types={
         {name:'Buff\nSpeed',damage:0,target:1,class:1,uses:0},
         {name:'Attack\nAll',damage:1,target:2,class:0},
         {name:'Whack',damage:1,target:0,class:0,uses:0},
-        {name:'Shoot',damage:2,target:0,class:2,uses:1},
+        {name:'Shoot',damage:2,target:0,class:2,uses:10},
+        {name:'Ignite',damage:1,target:0,class:3,uses:20},
     ]
 }
 stage={scene:'battle',scale:1}
@@ -25,11 +28,11 @@ transition={trigger:false,anim:0,scene:stage.scene}
 inputs={mouse:{x:0,y:0},rel:{x:0,y:0},keys:[[false,false,false,false],[false,false,false,false]]}
 entities={particles:[]}
 run={fore:[]}
-combatants=[
+combatants=[ 
     {id:0,weapon:0,team:0},
     {id:0,weapon:0,team:0},
-    {id:1,weapon:2,team:0},
-    {id:1,weapon:2,team:0},
+    {id:1,weapon:3,team:0},
+    {id:1,weapon:3,team:0},
     {id:1,weapon:2,team:1},
     {id:1,weapon:2,team:1},
     {id:0,weapon:0,team:1},

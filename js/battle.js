@@ -124,9 +124,14 @@ class battle{
                     }
                     else if(this.stack[0].type<4&&!this.stacking.use){
                         for(e=0,le=this.combatants[this.stack[0].type].attacks.length;e<le;e++){
-                            this.layer.stroke(100,85,60)
+                            if(types.attack[this.combatants[this.stack[0].type].attacks[e]].uses!=0&&this.combatants[this.stack[0].type].uses[e]<=0){
+                                this.layer.stroke(60)
+                                this.layer.fill(75)
+                            }else{
+                                this.layer.stroke(100,85,60)
+                                this.layer.fill(125,105,75)
+                            }
                             this.layer.strokeWeight(4)
-                            this.layer.fill(125,105,75)
                             this.layer.rect(50+e*90,110,80,80)
                             this.layer.fill(0)
                             this.layer.noStroke()
@@ -158,6 +163,13 @@ class battle{
                 this.layer.textSize(20)
                 this.layer.text(ceil(this.totalMoved/150)+'m',450,580)
             break
+        }
+    }
+    turn(){
+        for(e=0,le=this.combatants.length;e<le;e++){
+            if(this.combatants[e].status[0]>0){
+                this.combatants[e].life-=this.combatants[e].status[0]
+            }
         }
     }
 	update(){
