@@ -10,6 +10,7 @@ class battle{
         this.stacking={use:false}
         this.max=0
         this.partyAlive=[]
+        this.possibleAttack=[]
         this.combatantListing=[3,2,1,0,4,5,6,7]
         this.stackers=[]
         this.reseting=false
@@ -131,6 +132,10 @@ class battle{
                             this.layer.noStroke()
                             this.layer.textSize(20)
                             this.layer.text(types.attack[this.combatants[this.stack[0].type].attacks[e]].name,50+e*90,110)
+                            this.layer.textSize(10)
+                            if(types.attack[this.combatants[this.stack[0].type].attacks[e]].uses!=0){
+                                this.layer.text(round(this.combatants[this.stack[0].type].uses[e])+'/'+types.attack[this.combatants[this.stack[0].type].attacks[e]].uses,50+e*90,140)
+                            }
                         }
                     }
                 }
@@ -169,8 +174,18 @@ class battle{
                             this.partyAlive.push(e)
                         }
                     }
+                    this.possibleAttack=[]
+                    for(e=0,le=this.combatants[this.stack[0].type].attacks.length;e<le;e++){
+                        if(this.combatants[this.stack[0].type].uses[e]>0||types.attack[this.combatants[this.stack[0].type].attacks[e]].uses==0){
+                            this.possibleAttack.push(e)
+                        }
+                    }
+                    this.attack.type=this.possibleAttack[min(floor(random(0,this.possibleAttack.length)),this.possibleAttack.length-1)]
+                    if(this.combatants[this.stack[0].type].uses[this.attack.type]>0){
+                        this.combatants[this.stack[0].type].uses[this.attack.type]--
+                    }
+                    this.attack.type=this.combatants[this.stack[0].type].attacks[this.attack.type]
                     this.attack.target[1]=this.partyAlive[min(floor(random(0,this.partyAlive.length)),this.partyAlive.length-1)]
-                    this.attack.type=this.combatants[this.stack[0].type].attacks[min(floor(random(0,this.combatants[this.stack[0].type].attacks.length)),this.combatants[this.stack[0].type].attacks.length-1)]
                     this.attack.damage=types.attack[this.attack.type].damage*this.combatants[this.stack[0].type].damage*types.weapon[this.combatants[this.stack[0].type].weapon].damage*(2+max(0,current.combatants[current.stack[0].type].boost[0]))/(2-min(0,current.combatants[current.stack[0].type].boost[0]))
                     this.attack.class=types.attack[this.attack.type].class
                     this.attack.set()

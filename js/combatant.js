@@ -24,6 +24,10 @@ class combatant{
 		for(g=0,lg=types.combatant[this.type].attacks.length;g<lg;g++){
 			this.attacks.push(types.combatant[this.type].attacks[g])
 		}
+		this.uses=[]
+		for(g=0,lg=this.attacks.length;g<lg;g++){
+			this.uses.push(types.attack[this.attacks[g]].uses)
+		}
 		this.base={position:{x:this.position.x,y:this.position.y},life:this.life}
 		this.collect={life:this.life}
 		this.boost=[0,0,0]
