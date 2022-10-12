@@ -194,12 +194,6 @@ class battle{
                     this.attack.user=this.stack[0].type
                 }else if(!this.stacking.use&&this.stack[0].type>=4&&!this.attack.trigger&&this.attack.timer<=0){
                     this.attack.user=this.stack[0].type-4
-                    this.partyAlive=[]
-                    for(e=0;e<4;e++){
-                        if(this.combatants[e].life>0){
-                            this.partyAlive.push(e)
-                        }
-                    }
                     this.possibleAttack=[]
                     for(e=0,le=this.combatants[this.stack[0].type].attacks.length;e<le;e++){
                         if(this.combatants[this.stack[0].type].uses[e]>0||types.attack[this.combatants[this.stack[0].type].attacks[e]].uses==0){
@@ -217,6 +211,12 @@ class battle{
                         this.attack.type=this.combatants[this.stack[0].type].attacks[this.attack.type]
                         this.attack.damage=types.attack[this.attack.type].damage*this.combatants[this.stack[0].type].damage*(2+max(0,current.combatants[current.stack[0].type].boost[0]))/(2-min(0,current.combatants[current.stack[0].type].boost[0]))
                     }
+                    this.partyAlive=[]
+                    for(e=0;e<4;e++){
+                        if(this.combatants[e+4].life>0&&types.attack[this.attack.type].target==3||this.combatants[e].life>0&&types.attack[this.attack.type].target!=3){
+                            this.partyAlive.push(e)
+                        }
+                    }
                     this.attack.target[1]=this.partyAlive[min(floor(random(0,this.partyAlive.length)),this.partyAlive.length-1)]
                     this.attack.class=types.attack[this.attack.type].class
                     if(!this.stack[0].cancel){
@@ -225,9 +225,9 @@ class battle{
                 }
                 for(e=0;e<4;e++){
                     if(this.stack[0].type<4){
-                        if(this.combatants[e].infoFade<1&&(e==this.attack.user&&this.attack.timer<=0||e==this.attack.target[0]&&types.attack[this.attack.type].target==3)){
+                        if(this.combatants[e].infoFade<1&&(e==this.attack.user&&this.attack.timer<=0||e==this.attack.target[0]&&types.attack[this.attack.type].target==3||types.attack[this.attack.type].target==4)){
                             this.combatants[e].infoFade+=0.1;
-                        }else if(this.combatants[e].infoFade>0&&!(e==this.attack.user&&this.attack.timer<=0||e==this.attack.target[0]&&types.attack[this.attack.type].target==3)){
+                        }else if(this.combatants[e].infoFade>0&&!(e==this.attack.user&&this.attack.timer<=0||e==this.attack.target[0]&&types.attack[this.attack.type].target==3||types.attack[this.attack.type].target==4)){
                             this.combatants[e].infoFade-=0.1;
                         }
                         if(this.combatants[e+4].infoFade<1&&(e==this.attack.target[0]&&types.attack[this.attack.type].target==0||types.attack[this.attack.type].target==2&&this.combatants[e+4].life>0)&&this.attack.trigger){
@@ -242,9 +242,9 @@ class battle{
                         }else if(this.combatants[e].infoFade>0&&!(e==this.attack.target[1]&&types.attack[this.attack.type].target==0||types.attack[this.attack.type].target==2&&this.combatants[e].life>0)){
                             this.combatants[e].infoFade-=0.1;
                         }
-                        if(this.combatants[e+4].infoFade<1&&(e==this.attack.user||e==this.attack.target[1]&&types.attack[this.attack.type].target==3)){
+                        if(this.combatants[e+4].infoFade<1&&(e==this.attack.user||e==this.attack.target[1]&&types.attack[this.attack.type].target==3||types.attack[this.attack.type].target==4)){
                             this.combatants[e+4].infoFade+=0.1;
-                        }else if(this.combatants[e+4].infoFade>0&&!(e==this.attack.user||e==this.attack.target[1]&&types.attack[this.attack.type].target==3)){
+                        }else if(this.combatants[e+4].infoFade>0&&!(e==this.attack.user||e==this.attack.target[1]&&types.attack[this.attack.type].target==3||types.attack[this.attack.type].target==4)){
                             this.combatants[e+4].infoFade-=0.1;
                         }
                     }

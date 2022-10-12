@@ -1,7 +1,7 @@
 types={
     combatant:[
         {name:'',life:0,speed:0,damage:0,attacks:[],height:0},
-        {name:'Human',life:20,speed:10,damage:1,attacks:[1],height:75},
+        {name:'Bill',life:24,speed:15,damage:2,attacks:[24,25,26],height:75},
         {name:'Human',life:20,speed:10,damage:1,attacks:[1],height:75},
         {name:'Human',life:20,speed:10,damage:1,attacks:[1],height:75},
         {name:'Human',life:20,speed:10,damage:1,attacks:[1],height:75},
@@ -38,7 +38,7 @@ types={
         {name:'Buff Damage',damage:0,target:1,class:1,uses:0},
         {name:'Buff Defense',damage:0,target:1,class:1,uses:0},
         {name:'Buff Speed',damage:0,target:1,class:1,uses:0},
-        {name:'Attack All',damage:0.5,target:2,class:0},
+        {name:'Shockwave',damage:0.5,target:2,class:0},
         {name:'Whack',damage:1,target:0,class:0,uses:0},
         {name:'Shoot',damage:2,target:0,class:2,uses:10},
         {name:'Ignite',damage:1,target:0,class:3,uses:20},
@@ -50,11 +50,15 @@ types={
         {name:'Snipe',damage:3,target:0,class:2,uses:5},
         {name:'Smash',damage:1.5,target:0,class:0,uses:5},
         {name:'Sustain Fire',damage:2,target:0,class:2,uses:5},
-        {name:'Overwhelming Force',damage:1,target:0,class:2,uses:25},
+        {name:'Overwhelming Force',damage:1,target:0,class:2,uses:20},
         {name:'Concentrated Elimination',damage:4,target:0,class:2,uses:50},
         {name:'Perfected Strike',damage:6,target:0,class:2,uses:10},
         {name:'Heal',damage:3,target:3,class:0,uses:10},
         {name:'Combo',damage:1,target:0,class:0,uses:20},
+        {name:'Ally Buff Damage',damage:0,target:3,class:1,uses:0},
+        {name:'Ally Buff Defense',damage:0 ,target:3,class:1,uses:0},
+        {name:'Ally Buff Speed',damage:0,target:3,class:1,uses:0},
+        {name:'Supply',damage:1,target:4,class:1,uses:20},
     ]
 }
 stage={scene:'battle',scale:1}
