@@ -30,7 +30,7 @@ class attack{
                 case 8: case 10: case 11:
                     this.timer=170-this.user*30+this.target[0]*30
                 break
-                case 9: case 15:
+                case 9: case 15: case 20:
                     this.timer=55-this.user*8+this.target[0]*8
                 break
                 case 12: case 14:
@@ -48,6 +48,9 @@ class attack{
                 case 19:
                     this.timer=115-this.user*8+this.target[0]*8
                 break
+                case 21:
+                    this.timer=35-this.user*4+this.target[0]*4
+                break
             }
         }
         else{
@@ -58,7 +61,7 @@ class attack{
                 case 8: case 10: case 11:
                     this.timer=170+this.user*30-this.target[1]*30
                 break
-                case 9: case 15:
+                case 9: case 15: case 20:
                     this.timer=55+this.user*8-this.target[1]*8
                 break
                 case 12: case 14:
@@ -75,6 +78,9 @@ class attack{
                 break
                 case 19:
                     this.timer=115+this.user*8-this.target[1]*8
+                break
+                case 21:
+                    this.timer=35+this.user*4-this.target[1]*4
                 break
             }
         }
@@ -142,7 +148,7 @@ class attack{
                         this.battle.combatants[this.target[0]+4].status[this.type-10]+=this.damage
                     }
                 break
-                case 9: case 15:
+                case 9: case 15: case 20:
                     if(this.timer>=40-this.user*8+this.target[0]*8){
                         this.battle.combatants[this.user].anim[1]+=1/15
                     }else if(this.timer>=25-this.user*8+this.target[0]*8){
@@ -152,7 +158,7 @@ class attack{
                         entities.particles.push(new particle(this.layer,this.battle.combatants[this.user].position.x+25,this.battle.combatants[this.user].position.y-this.battle.combatants[this.user].height*0.7,3,90,3,25/2,[50,255,50]))
                         entities.particles[entities.particles.length-1].end=35-this.user*8+this.target[0]*8
                     }
-                    if(this.timer==5&&this.type==9){
+                    if(this.timer==5&&(this.type==9||this.type==20)){
                         this.battle.combatants[this.target[0]+4].take(this.damage,0)
                     }
                     if(this.timer==40-this.user*8+this.target[0]*8&&this.type==15){
@@ -169,6 +175,10 @@ class attack{
                         if(this.target[0]<3){
                             this.battle.combatants[this.target[0]+5].take(this.damage/2,0)
                         }
+                    }
+                    if(this.timer==40-this.user*8+this.target[0]*8&&this.type==20){
+                        entities.particles.push(new particle(this.layer,this.battle.combatants[this.user].position.x+25,this.battle.combatants[this.user].position.y-this.battle.combatants[this.user].height*0.7,3,90,4,25/2,[50,255,50]))
+                        entities.particles[entities.particles.length-1].end=35-this.user*8+this.target[0]*8
                     }
                 break
                 case 12: case 14:
@@ -270,6 +280,20 @@ class attack{
                         this.battle.combatants[this.target[0]+4].take(this.damage,0)
                     }
                 break
+                case 21:
+                    if(this.timer>=20-this.user*4+this.target[0]*4){
+                        this.battle.combatants[this.user].anim[1]+=1/15
+                    }else if(this.timer>=5-this.user*4+this.target[0]*4){
+                        this.battle.combatants[this.user].anim[1]-=1/15
+                    }
+                    if(this.timer==20-this.user*4+this.target[0]*4){
+                        entities.particles.push(new particle(this.layer,this.battle.combatants[this.user].position.x+25,this.battle.combatants[this.user].position.y-this.battle.combatants[this.user].height*0.7,5,90,3,25,[50,255,50]))
+                        entities.particles[entities.particles.length-1].end=15-this.user*4+this.target[0]*4
+                    }
+                    if(this.timer==5){
+                        this.battle.combatants[this.target[0]+4].take(this.damage,1)
+                    }
+                break
             }
         }
         else{
@@ -334,7 +358,7 @@ class attack{
                         this.battle.combatants[this.target[1]].status[this.type-10]+=this.damage
                     }
                 break
-                case 9: case 15:
+                case 9: case 15: case 20:
                     if(this.timer>=40+this.user*8-this.target[1]*8){
                         this.battle.combatants[this.user+4].anim[1]+=1/15
                     }else if(this.timer>=25+this.user*8-this.target[1]*8){
@@ -344,7 +368,7 @@ class attack{
                         entities.particles.push(new particle(this.layer,this.battle.combatants[this.user+4].position.x-25,this.battle.combatants[this.user+4].position.y-this.battle.combatants[this.user+4].height*0.7,3,270,3,25/2,[50,255,50]))
                         entities.particles[entities.particles.length-1].end=35+this.user*8-this.target[1]*8
                     }
-                    if(this.timer==5&&this.type==9){
+                    if(this.timer==5&&(this.type==9||this.type==20)){
                         this.battle.combatants[this.target[1]].take(this.damage,0)
                     }
                     if(this.timer==40+this.user*8-this.target[0]*8&&this.type==15){
@@ -361,6 +385,10 @@ class attack{
                         if(this.target[0]<3){
                             this.battle.combatants[this.target[0]+1].take(this.damage/2,0)
                         }
+                    }
+                    if(this.timer==40+this.user*8-this.target[1]*8&&this.type==20){
+                        entities.particles.push(new particle(this.layer,this.battle.combatants[this.user+4].position.x-25,this.battle.combatants[this.user+4].position.y-this.battle.combatants[this.user+4].height*0.7,3,270,4,25/2,[50,255,50]))
+                        entities.particles[entities.particles.length-1].end=35+this.user*8-this.target[1]*8
                     }
                 break
                 case 12: case 14:
@@ -411,7 +439,7 @@ class attack{
                         this.battle.combatants[this.user+4].anim[1]-=1/15
                     }
                     if(this.timer==30+this.user*6-this.target[1]*6){
-                        entities.particles.push(new particle(this.layer,this.battle.combatants[this.user+4].position.x-25,this.battle.combatants[this.user+4].position.y-this.battle.combatants[this.user+4].height*0.7,4,270,3,25/2,[50,255,50]))
+                        entities.particles.push(new particle(this.layer,this.battle.combatants[this.user+4].position.x-25,this.battle.combatants[this.user+4].position.y-this.battle.combatants[this.user+4].height*0.7,4,270,3,50/3,[50,255,50]))
                         entities.particles[entities.particles.length-1].end=25+this.user*6-this.target[1]*6
                     }
                     if(this.timer==5){
@@ -460,6 +488,20 @@ class attack{
                     }
                     if(this.timer>=5&&this.timer<=65&&this.timer%4==1){
                         this.battle.combatants[this.target[1]].take(this.damage,0)
+                    }
+                break
+                case 21:
+                    if(this.timer>=20+this.user*4-this.target[1]*4){
+                        this.battle.combatants[this.user+4].anim[1]+=1/15
+                    }else if(this.timer>=5+this.user*4-this.target[1]*4){
+                        this.battle.combatants[this.user+4].anim[1]-=1/15
+                    }
+                    if(this.timer==20+this.user*4-this.target[1]*4){
+                        entities.particles.push(new particle(this.layer,this.battle.combatants[this.user+4].position.x-25,this.battle.combatants[this.user+4].position.y-this.battle.combatants[this.user+4].height*0.7,5,270,3,25,[50,255,50]))
+                        entities.particles[entities.particles.length-1].end=15+this.user*4-this.target[1]*4
+                    }
+                    if(this.timer==5){
+                        this.battle.combatants[this.target[1]].take(this.damage,1)
                     }
                 break
             }

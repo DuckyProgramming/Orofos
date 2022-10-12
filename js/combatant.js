@@ -263,6 +263,32 @@ class combatant{
 				this.layer.fill(65,130,140,this.fade/2)
 				this.layer.rect(8,-75,20,6)
 			break
+			case 14:
+				this.layer.stroke(100,this.fade)
+				this.layer.strokeWeight(4)
+				this.layer.line(-4,-30,-8-sin(this.rate[0]*2)*3,0)
+				this.layer.line(4,-30,8+sin(this.rate[0]*2)*3,0)
+				this.layer.line(-6*cos(this.rate[1]),-48,-15*cos(this.rate[1])+this.anim[0]*30+this.anim[1]*36,-24-this.anim[0]*12-this.anim[1]*30)
+				this.layer.line(6*cos(this.rate[1]),-48,15*cos(this.rate[1])+this.anim[0]*15+this.anim[1]*12,-24-this.anim[0]*12-this.anim[1]*30)
+				this.layer.noStroke()
+				this.layer.fill(100,this.fade)
+				this.layer.ellipse(0,-47,18,39)
+				this.layer.fill(60,this.fade);
+				this.layer.rect(0,-45,20,3);
+				this.layer.fill(240,220,180,this.fade)
+				this.layer.ellipse(0,-78,30,30)
+				this.layer.fill(0,this.fade)
+				this.layer.ellipse(4,-75,4,4)
+				this.layer.ellipse(12,-75,4,4)
+				this.layer.fill(50,50,200,this.fade)
+				this.layer.ellipse(-3,-57,5,5)
+				this.layer.stroke(40,this.fade)
+				this.layer.strokeWeight(1)
+				this.layer.fill(255,this.fade/5)
+				this.layer.ellipse(4,-74,6,5)
+				this.layer.ellipse(12,-74,6,5)
+				this.layer.line(7,0,9,0)
+			break
 		}
 		this.layer.scale(1/this.size/this.flip,1/this.size)
 		this.layer.rotate(-this.direction)

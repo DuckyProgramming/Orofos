@@ -210,13 +210,13 @@ class battle{
                     if(this.combatants[this.stack[0].type].uses[this.attack.type]>0){
                         this.combatants[this.stack[0].type].uses[this.attack.type]--
                     }
-                    this.attack.type=this.combatants[this.stack[0].type].attacks[this.attack.type]
-                    this.attack.target[1]=this.partyAlive[min(floor(random(0,this.partyAlive.length)),this.partyAlive.length-1)]
-                    if(this.combatants[this.stack[0].type].attackClass[a]==0){
+                    if(this.combatants[this.stack[0].type].attackClass[this.attack.type]==0){
                         this.attack.damage=types.attack[this.attack.type].damage*types.weapon[this.combatants[this.stack[0].type].weapon].damage*this.combatants[this.stack[0].type].damage*(2+max(0,current.combatants[current.stack[0].type].boost[0]))/(2-min(0,current.combatants[current.stack[0].type].boost[0]))
                     }else{
                         this.attack.damage=types.attack[this.attack.type].damage*this.combatants[this.stack[0].type].damage*(2+max(0,current.combatants[current.stack[0].type].boost[0]))/(2-min(0,current.combatants[current.stack[0].type].boost[0]))
                     }
+                    this.attack.type=this.combatants[this.stack[0].type].attacks[this.attack.type]
+                    this.attack.target[1]=this.partyAlive[min(floor(random(0,this.partyAlive.length)),this.partyAlive.length-1)]
                     this.attack.class=types.attack[this.attack.type].class
                     if(!this.stack[0].cancel){
                         this.attack.set()
