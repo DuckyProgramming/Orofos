@@ -13,7 +13,14 @@ function mouseClicked(){
                                     current.attack.target[0]=a
                                 }
                             }
-                        break;
+                        break
+                        case 3:
+                            for(a=0;a<4;a++){
+                                if(pointInsideBox({position:inputs.rel},{position:{x:50+a*100,y:400},width:72,height:144})&&current.combatants[a+4].life>0){
+                                    current.attack.target[0]=a
+                                }
+                            }
+                        break
                     }
                 }
                 else if(current.stack[0].type<4&&!current.stacking.use){

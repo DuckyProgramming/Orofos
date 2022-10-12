@@ -12,7 +12,7 @@ class attack{
     }
     set(){
         switch(this.type){
-            case 1: case 2: case 3: case 4: case 5: case 6:
+            case 1: case 2: case 3: case 4: case 5: case 6: case 22:
                 this.timer=60
             break
             case 7:
@@ -27,7 +27,7 @@ class attack{
                 case 0:
                     this.timer=100-this.user*20+this.target[0]*20
                 break
-                case 8: case 10: case 11:
+                case 8: case 10: case 11: case 23:
                     this.timer=170-this.user*30+this.target[0]*30
                 break
                 case 9: case 15: case 20:
@@ -58,7 +58,7 @@ class attack{
                 case 0:
                     this.timer=100+this.user*20-this.target[1]*20
                 break
-                case 8: case 10: case 11:
+                case 8: case 10: case 11: case 23:
                     this.timer=170+this.user*30-this.target[1]*30
                 break
                 case 9: case 15: case 20:
@@ -130,7 +130,7 @@ class attack{
                         }
                     }
                 break
-                case 8: case 10: case 11:
+                case 8: case 10: case 11: case 23:
                     if(this.timer>=100-this.user*15+this.target[0]*15){
                         this.battle.combatants[this.user].position.x+=20/3
                         this.battle.combatants[this.user].rate[0]+=20/3
@@ -142,10 +142,19 @@ class attack{
                         this.battle.combatants[this.user].position.x-=20/3
                         this.battle.combatants[this.user].rate[0]-=20/3
                     }
-                    if(this.timer==85-this.user*15+this.target[0]*15&&this.type==8){
+                    if(this.timer==85-this.user*15+this.target[0]*15&&(this.type==8||this.type==23)){
                         this.battle.combatants[this.target[0]+4].take(this.damage,0)
                     }else if(this.timer==85-this.user*15+this.target[0]*15&&(this.type==10||this.type==11)){
                         this.battle.combatants[this.target[0]+4].status[this.type-10]+=this.damage
+                    }else if(this.timer==70-this.user*15+this.target[0]*15&&this.type==23&&this.target[0]<3){
+                        this.battle.combatants[this.target[0]+5].take(this.damage/2,0)
+                    }
+                    if(this.timer<85-this.user*15+this.target[0]*15&&this.timer>=70-this.user*15+this.target[0]*15&&this.type==23){
+                        this.battle.combatants[this.target[0]+4].position.x+=6
+                        this.battle.combatants[this.target[0]+4].rate[0]+=6
+                    }else if(this.timer<85-this.user*15+this.target[0]*15&&this.timer>=55-this.user*15+this.target[0]*15&&this.type==23){
+                        this.battle.combatants[this.target[0]+4].position.x-=6
+                        this.battle.combatants[this.target[0]+4].rate[0]-=6
                     }
                 break
                 case 9: case 15: case 20:
@@ -294,6 +303,16 @@ class attack{
                         this.battle.combatants[this.target[0]+4].take(this.damage,1)
                     }
                 break
+                case 22:
+                    if(this.timer>=30){
+                        this.battle.combatants[this.user].anim[0]+=1/30
+                    }else{
+                        this.battle.combatants[this.user].anim[0]-=1/30
+                    }
+                    if(this.timer==30){
+                        this.battle.combatants[this.target[0]].life=min(this.battle.combatants[this.target[0]].base.life,this.battle.combatants[this.target[0]].life+this.damage)
+                    }
+                break
             }
         }
         else{
@@ -340,7 +359,7 @@ class attack{
                         }
                     }
                 break
-                case 8: case 10: case 11:
+                case 8: case 10: case 11: case 23:
                     if(this.timer>=100+this.user*15-this.target[1]*15){
                         this.battle.combatants[this.user+4].position.x-=20/3
                         this.battle.combatants[this.user+4].rate[0]+=20/3
@@ -352,10 +371,19 @@ class attack{
                         this.battle.combatants[this.user+4].position.x+=20/3
                         this.battle.combatants[this.user+4].rate[0]+=20/3
                     }
-                    if(this.timer==85+this.user*15-this.target[1]*15&&this.type==8){
+                    if(this.timer==85+this.user*15-this.target[1]*15&&(this.type==8||this.type==23)){
                         this.battle.combatants[this.target[1]].take(this.damage,0)
-                    }else if(this.timer==85-this.user*15+this.target[0]*15&&(this.type==10||this.type==11)){
+                    }else if(this.timer==85+this.user*15-this.target[1]*15&&(this.type==10||this.type==11)){
                         this.battle.combatants[this.target[1]].status[this.type-10]+=this.damage
+                    }else if(this.timer==70+this.user*15-this.target[1]*15&&this.type==23&&this.target[1]>0){
+                        this.battle.combatants[this.target[1]-1].take(this.damage/2,0)
+                    }
+                    if(this.timer<85+this.user*15-this.target[1]*15&&this.timer>=70+this.user*15-this.target[1]*15&&this.type==23){
+                        this.battle.combatants[this.target[1]].position.x-=6
+                        this.battle.combatants[this.target[1]].rate[0]+=6
+                    }else if(this.timer<85+this.user*15-this.target[1]*15&&this.timer>=55+this.user*15-this.target[1]*15&&this.type==23){
+                        this.battle.combatants[this.target[1]].position.x+=6
+                        this.battle.combatants[this.target[1]].rate[0]-=6
                     }
                 break
                 case 9: case 15: case 20:
@@ -502,6 +530,16 @@ class attack{
                     }
                     if(this.timer==5){
                         this.battle.combatants[this.target[1]].take(this.damage,1)
+                    }
+                break
+                case 22:
+                    if(this.timer>=30){
+                        this.battle.combatants[this.user+4].anim[0]+=1/30
+                    }else{
+                        this.battle.combatants[this.user+4].anim[0]-=1/30
+                    }
+                    if(this.timer==30){
+                        this.battle.combatants[this.target[1]+4].life=min(this.battle.combatants[this.target[1]+4].base.life,this.battle.combatants[this.target[1]+4].life+this.damage)
                     }
                 break
             }
