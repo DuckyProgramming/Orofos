@@ -12,12 +12,15 @@ class battle{
         this.partyAlive=[]
         this.possibleAttack=[]
         this.combatantListing=[3,2,1,0,4,5,6,7]
-        this.stackers=[]
+        this.storage=[]
         this.reseting=false
         this.totalMoved=0
+        this.time=0
+        this.setTime=0
 	}
     setupStack(){
         while(this.stack.length<20){
+            this.time++
             for(e=0,le=this.combatantListing.length;e<le;e++){
                 if(this.combatants[this.combatantListing[e]].speed>0){
                     if(this.combatants[this.combatantListing[e]].stacking<=0){
@@ -34,10 +37,7 @@ class battle{
         for(g=0,lg=this.stack.length;g<lg;g++){
             this.stack[g].cancel=true
         }
-        this.stackers=[]
-        for(g=0,lg=this.stack[0].stackers.length;g<lg;g++){
-            this.stackers.push(this.stack[0].stackers[g])
-        }
+        this.setTime=this.stack[0].time
         this.reseting=true
     }
     set(scene){
@@ -117,11 +117,6 @@ class battle{
                         this.layer.noStroke()
                         this.layer.textSize(20)
                         this.layer.text("Select",170,90)
-                        e=0
-                        while(this.combatants[4+this.attack.target[0]].life<=0&&e<4){
-                            e++
-                            this.attack.target[0]=(this.attack.target[0]+1)%4
-                        }
                     }
                     else if(this.stack[0].type<4&&!this.stacking.use){
                         for(e=0,le=this.combatants[this.stack[0].type].attacks.length;e<le;e++){
@@ -190,8 +185,22 @@ class battle{
                     }
                 }
                 this.stack[0].click=true
+                e=0
+                this.attack.check=false
+                while(this.combatants[4+this.attack.target[0]].life<=0&&e<4){
+                    e++
+                    this.attack.target[0]=(this.attack.target[0]+1)%4
+                }
                 if(this.stack[0].type<4&&!this.stacking.use&&this.attack.timer<=0){
                     this.attack.user=this.stack[0].type
+                    if(!this.attack.trigger){
+                        for(e=0,le=this.combatants[this.stack[0].type].attacks.length;e<le;e++){
+                            if(pointInsideBox({position:inputs.rel},{position:{x:170,y:90+e*50},width:300,height:40})){
+                                this.attack.type=this.combatants[this.stack[0].type].attacks[e]
+                                this.attack.check=true
+                            }
+                        }
+                    }
                 }else if(!this.stacking.use&&this.stack[0].type>=4&&!this.attack.trigger&&this.attack.timer<=0){
                     this.attack.user=this.stack[0].type-4
                     this.possibleAttack=[]
@@ -225,26 +234,26 @@ class battle{
                 }
                 for(e=0;e<4;e++){
                     if(this.stack[0].type<4){
-                        if(this.combatants[e].infoFade<1&&(e==this.attack.user&&this.attack.timer<=0||e==this.attack.target[0]&&types.attack[this.attack.type].target==3||types.attack[this.attack.type].target==4)){
+                        if(this.combatants[e].infoFade<1&&this.combatants[e].life>0&&(e==this.attack.user&&this.attack.timer<=0||e==this.attack.target[0]&&types.attack[this.attack.type].target==3||types.attack[this.attack.type].target==4)){
                             this.combatants[e].infoFade+=0.1;
-                        }else if(this.combatants[e].infoFade>0&&!(e==this.attack.user&&this.attack.timer<=0||e==this.attack.target[0]&&types.attack[this.attack.type].target==3||types.attack[this.attack.type].target==4)){
+                        }else if(this.combatants[e].infoFade>0&&(!(e==this.attack.user&&this.attack.timer<=0||e==this.attack.target[0]&&types.attack[this.attack.type].target==3||types.attack[this.attack.type].target==4)||this.combatants[e].life<=0)){
                             this.combatants[e].infoFade-=0.1;
                         }
-                        if(this.combatants[e+4].infoFade<1&&(e==this.attack.target[0]&&types.attack[this.attack.type].target==0||types.attack[this.attack.type].target==2&&this.combatants[e+4].life>0)&&this.attack.trigger){
+                        if(this.combatants[e+4].infoFade<1&&this.combatants[e+4].life>0&&(e==this.attack.target[0]&&types.attack[this.attack.type].target==0||types.attack[this.attack.type].target==2||types.attack[this.attack.type].target==5&&e<2)&&(this.attack.trigger||this.attack.check)){
                             this.combatants[e+4].infoFade+=0.1;
-                        }else if(this.combatants[e+4].infoFade>0&&(!(e==this.attack.target[0]&&types.attack[this.attack.type].target==0||types.attack[this.attack.type].target==2&&this.combatants[e+4].life>0)||!this.attack.trigger)){
+                        }else if(this.combatants[e+4].infoFade>0&&(!(e==this.attack.target[0]&&types.attack[this.attack.type].target==0||types.attack[this.attack.type].target==2||types.attack[this.attack.type].target==5&&e<2)||!this.attack.trigger&&!this.attack.check||this.combatants[e+4].life<=0)){
                             this.combatants[e+4].infoFade-=0.1;
                         }
                     }
                     else{
-                        if(this.combatants[e].infoFade<1&&(e==this.attack.target[1]&&types.attack[this.attack.type].target==0||types.attack[this.attack.type].target==2&&this.combatants[e].life>0)){
+                        if(this.combatants[e].infoFade<1&&(e==this.attack.target[1]&&types.attack[this.attack.type].target==0||types.attack[this.attack.type].target==2||types.attack[this.attack.type].target==5&&e>=2)&&this.combatants[e].life>0){
                             this.combatants[e].infoFade+=0.1;
-                        }else if(this.combatants[e].infoFade>0&&!(e==this.attack.target[1]&&types.attack[this.attack.type].target==0||types.attack[this.attack.type].target==2&&this.combatants[e].life>0)){
+                        }else if(this.combatants[e].infoFade>0&&(!(e==this.attack.target[1]&&types.attack[this.attack.type].target==0||types.attack[this.attack.type].target==2||types.attack[this.attack.type].target==5&&e>=2)||this.combatants[e].life<=0)){
                             this.combatants[e].infoFade-=0.1;
                         }
-                        if(this.combatants[e+4].infoFade<1&&(e==this.attack.user||e==this.attack.target[1]&&types.attack[this.attack.type].target==3||types.attack[this.attack.type].target==4)){
+                        if(this.combatants[e+4].infoFade<1&&(e==this.attack.user||e==this.attack.target[1]&&types.attack[this.attack.type].target==3||types.attack[this.attack.type].target==4)&&this.combatants[e+4].life>0){
                             this.combatants[e+4].infoFade+=0.1;
-                        }else if(this.combatants[e+4].infoFade>0&&!(e==this.attack.user||e==this.attack.target[1]&&types.attack[this.attack.type].target==3||types.attack[this.attack.type].target==4)){
+                        }else if(this.combatants[e+4].infoFade>0&&(!(e==this.attack.user||e==this.attack.target[1]&&types.attack[this.attack.type].target==3||types.attack[this.attack.type].target==4)||this.combatants[e+4].life<=0)){
                             this.combatants[e+4].infoFade-=0.1;
                         }
                     }
@@ -262,7 +271,7 @@ class battle{
                 }
                 if(this.stack.length<=0){
                     for(e=0,le=this.combatants.length;e<le;e++){
-                        this.combatants[e].stacking=this.stackers[e]
+                        this.combatants[e].stacking=this.combatants[e].speed-this.setTime+ceil((this.combatants[e].speed-this.setTime)/this.combatants[e].speed)*this.combatants[e].speed
                     }
                     this.setupStack()
                     this.reseting=false

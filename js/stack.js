@@ -6,11 +6,8 @@ class stack{
         this.fade=0
         this.remove=false
         this.cancel=false
-        this.stackers=[]
         this.click=false
-        for(g=0,lg=current.combatants.length;g<lg;g++){
-            this.stackers.push(round(current.combatants[g].stacking*100)/100)
-        }
+        this.time=current.time
     }
     display(){
         this.layer.stroke(0,this.fade)

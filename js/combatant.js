@@ -40,12 +40,12 @@ class combatant{
 		this.boostColor=[[200,0,0],[0,150,255],[255,255,50]]
 		this.boostInfoFade=[0,0,0]
 		this.boostName=['Attack','Defense','Speed']
-		this.status=[0,0,0]
-		this.statusFade=[0,0,0]
+		this.status=[0,0,0,0]
+		this.statusFade=[0,0,0,0]
 		this.statusDisplay=[]
-		this.statusColor=[[200,100,0],[255,255,150],[150,255,150]]
-		this.statusInfoFade=[0,0,0]
-		this.statusName=['Burned','Stun','Confused']
+		this.statusColor=[[200,100,0],[255,255,150],[150,255,150],[0,50,100]]
+		this.statusInfoFade=[0,0,0,0]
+		this.statusName=['Burned','Stun','Confused','Buffer']
 		this.infoFade=0
 		this.rate=[0,0]
 		this.stacking=this.speed
@@ -131,20 +131,26 @@ class combatant{
 				this.layer.quad(-12,-84,12,-84,8,-90,-8,-90)
 			break
 			case 2:
-				this.layer.stroke(80,this.fade)
+				this.layer.stroke(50,this.fade)
 				this.layer.strokeWeight(4)
 				this.layer.line(-4,-30,-8-sin(this.rate[0]*2)*3,0)
 				this.layer.line(4,-30,8+sin(this.rate[0]*2)*3,0)
 				this.layer.line(-6*cos(this.rate[1]),-48,-15*cos(this.rate[1])+this.anim[0]*30+this.anim[1]*36,-24-this.anim[0]*12-this.anim[1]*30)
 				this.layer.line(6*cos(this.rate[1]),-48,15*cos(this.rate[1])+this.anim[0]*15+this.anim[1]*12,-24-this.anim[0]*12-this.anim[1]*30)
 				this.layer.noStroke()
-				this.layer.fill(80,this.fade)
-				this.layer.ellipse(0,-45,18,36)
+				this.layer.fill(40,this.fade)
+				this.layer.ellipse(0,-45,24,36)
+				this.layer.fill(60,this.fade)
+				this.layer.rect(0,-45,24,3)
 				this.layer.fill(240,220,180,this.fade)
 				this.layer.ellipse(0,-75,30,30)
 				this.layer.fill(0,this.fade)
 				this.layer.ellipse(4,-72,4,4)
 				this.layer.ellipse(12,-72,4,4)
+				this.layer.stroke(120,this.fade)
+				this.layer.strokeWeight(2)
+				this.layer.fill(200,this.fade/3)
+				this.layer.rect(8,-72,16,8,2)
 			break
 			case 3:
 				this.layer.stroke(80,this.fade)
@@ -306,13 +312,17 @@ class combatant{
 		this.layer.translate(-this.position.x,-this.position.y)
 	}
 	take(damage,spec){
-		switch(spec){
-			case 0:
-				this.life-=damage/(2+max(0,this.boost[1]))*(2-min(0,this.boost[1]))
-			break
-			case 1:
-				this.life-=damage/2*(2-min(0,this.boost[1]))
-			break
+		if(this.status[3]>0){
+			this.status[3]--
+		}else{
+			switch(spec){
+				case 0:
+					this.life-=damage/(2+max(0,this.boost[1]))*(2-min(0,this.boost[1]))
+				break
+				case 1:
+					this.life-=damage/2*(2-min(0,this.boost[1]))
+				break
+			}
 		}
 	}
 	update(){

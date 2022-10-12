@@ -1,14 +1,14 @@
 types={
     combatant:[
         {name:'',life:0,speed:0,damage:0,attacks:[],height:0},
-        {name:'Bill',life:24,speed:15,damage:2,attacks:[24,25,26],height:75},
+        {name:'Bill',life:24,speed:11,damage:2,attacks:[27,28,29],height:75},
+        {name:'Tom',life:40,speed:4,damage:1,attacks:[30,31,32],height:75},
+        {name:'Jon',life:30,speed:9,damage:1,attacks:[1],height:75},
         {name:'Human',life:20,speed:10,damage:1,attacks:[1],height:75},
         {name:'Human',life:20,speed:10,damage:1,attacks:[1],height:75},
         {name:'Human',life:20,speed:10,damage:1,attacks:[1],height:75},
         {name:'Human',life:20,speed:10,damage:1,attacks:[1],height:75},
-        {name:'Human',life:20,speed:10,damage:1,attacks:[1],height:75},
-        {name:'Human',life:20,speed:10,damage:1,attacks:[1],height:75},
-        {name:'Duckit',life:18,speed:6,damage:1,attacks:[12,13,14],height:60},
+        {name:'Duckit',life:16,speed:6,damage:1,attacks:[12,13,14],height:60},
         {name:'Human',life:20,speed:10,damage:1,attacks:[1],height:75},
         {name:'Fat Human',life:50,speed:15,damage:1,attacks:[5],height:66},
         {name:'Long Human',life:30,speed:8,damage:1,attacks:[4],height:84},
@@ -38,7 +38,7 @@ types={
         {name:'Buff Damage',damage:0,target:1,class:1,uses:0},
         {name:'Buff Defense',damage:0,target:1,class:1,uses:0},
         {name:'Buff Speed',damage:0,target:1,class:1,uses:0},
-        {name:'Shockwave',damage:0.5,target:2,class:0},
+        {name:'Shockwave',damage:0.5,target:2,class:0,uses:0},
         {name:'Whack',damage:1,target:0,class:0,uses:0},
         {name:'Shoot',damage:2,target:0,class:2,uses:10},
         {name:'Ignite',damage:1,target:0,class:3,uses:20},
@@ -58,7 +58,12 @@ types={
         {name:'Ally Buff Damage',damage:0,target:3,class:1,uses:0},
         {name:'Ally Buff Defense',damage:0 ,target:3,class:1,uses:0},
         {name:'Ally Buff Speed',damage:0,target:3,class:1,uses:0},
-        {name:'Supply',damage:1,target:4,class:1,uses:20},
+        {name:'Supply',damage:2,target:4,class:1,uses:20},
+        {name:'Protection',damage:1,target:3,class:1,uses:5},
+        {name:'Cheap Shot',damage:3,target:0,class:2,uses:5},
+        {name:'Charge',damage:6,target:5,class:0,uses:10},
+        {name:'Enlarge',damage:0,target:1,class:1,uses:10},
+        {name:'Mixup',damage:5,target:2,class:0,uses:5},
     ]
 }
 stage={scene:'battle',scale:1}
@@ -70,8 +75,8 @@ run={fore:[]}
 combatants=[
     {id:1,weapon:6,team:0},
     {id:2,weapon:5,team:0},
-    {id:3,weapon:3,team:0},
-    {id:8,weapon:4,team:0},
+    {id:0,weapon:3,team:0},
+    {id:0,weapon:4,team:0},
     {id:9,weapon:13,team:1},
     {id:10,weapon:13,team:1},
     {id:11,weapon:13,team:1},
