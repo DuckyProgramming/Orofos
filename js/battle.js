@@ -227,6 +227,7 @@ class battle{
                         }
                     }
                     this.attack.target[1]=this.partyAlive[min(floor(random(0,this.partyAlive.length)),this.partyAlive.length-1)]
+                    this.attack.accuracy=types.attack[this.attack.type].accuracy
                     this.attack.class=types.attack[this.attack.type].class
                     if(!this.stack[0].cancel){
                         this.attack.set()

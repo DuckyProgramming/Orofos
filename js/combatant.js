@@ -127,8 +127,8 @@ class combatant{
 				this.layer.stroke(150,120,60,this.fade)
 				this.layer.strokeWeight(3)
 				this.layer.fill(150,120,60,this.fade)
-				this.layer.line(-16,-84,16,-84)
-				this.layer.quad(-12,-84,12,-84,8,-90,-8,-90)
+				this.layer.line(-18,-84,18,-84)
+				this.layer.quad(-12,-84,12,-84,8,-92,-8,-92)
 			break
 			case 2:
 				this.layer.stroke(50,this.fade)
@@ -153,20 +153,28 @@ class combatant{
 				this.layer.rect(8,-72,16,8,2)
 			break
 			case 3:
-				this.layer.stroke(80,this.fade)
+				this.layer.stroke(200,160,80,this.fade)
 				this.layer.strokeWeight(4)
 				this.layer.line(-4,-30,-8-sin(this.rate[0]*2)*3,0)
 				this.layer.line(4,-30,8+sin(this.rate[0]*2)*3,0)
+				this.layer.stroke(200,210,220,this.fade)
 				this.layer.line(-6*cos(this.rate[1]),-48,-15*cos(this.rate[1])+this.anim[0]*30+this.anim[1]*36,-24-this.anim[0]*12-this.anim[1]*30)
 				this.layer.line(6*cos(this.rate[1]),-48,15*cos(this.rate[1])+this.anim[0]*15+this.anim[1]*12,-24-this.anim[0]*12-this.anim[1]*30)
 				this.layer.noStroke()
-				this.layer.fill(80,this.fade)
+				this.layer.fill(200,210,220,this.fade)
 				this.layer.ellipse(0,-45,18,36)
+				this.layer.fill(200,160,80,this.fade)
+				this.layer.arc(0,-45,18,36,0,180)
 				this.layer.fill(240,220,180,this.fade)
 				this.layer.ellipse(0,-75,30,30)
 				this.layer.fill(0,this.fade)
 				this.layer.ellipse(4,-72,4,4)
 				this.layer.ellipse(12,-72,4,4)
+				this.layer.stroke(80,160,200,this.fade)
+				this.layer.strokeWeight(3)
+				this.layer.fill(80,160,200,this.fade)
+				this.layer.line(-16,-80,24,-80)
+				this.layer.arc(0,-81,32,24,-180,0)
 			break
 			case 8:
 				this.layer.noStroke()
@@ -311,17 +319,19 @@ class combatant{
 		this.layer.rotate(-this.direction)
 		this.layer.translate(-this.position.x,-this.position.y)
 	}
-	take(damage,spec){
-		if(this.status[3]>0){
-			this.status[3]--
-		}else{
-			switch(spec){
-				case 0:
-					this.life-=damage/(2+max(0,this.boost[1]))*(2-min(0,this.boost[1]))
-				break
-				case 1:
-					this.life-=damage/2*(2-min(0,this.boost[1]))
-				break
+	take(damage,spec,accuracy){
+		if(random(0,1)<=accuracy){
+			if(this.status[3]>0){
+				this.status[3]--
+			}else{
+				switch(spec){
+					case 0:
+						this.life-=damage/(2+max(0,this.boost[1]))*(2-min(0,this.boost[1]))
+					break
+					case 1:
+						this.life-=damage/2*(2-min(0,this.boost[1]))
+					break
+				}
 			}
 		}
 	}
