@@ -71,7 +71,7 @@ class particle{
     update(){
         this.time++
         switch(this.type){
-            case 0: case 6:
+            case 0:
                 this.position.x+=sin(this.direction)*this.speed*5
                 this.position.y-=cos(this.direction)*this.speed*5
                 if(this.trigger){
@@ -117,6 +117,21 @@ class particle{
                     }
                 }else if(this.fade<1){
                     this.fade+=1/5
+                }
+            break
+            case 6:
+                this.position.x+=sin(this.direction)*this.speed*8
+                this.position.y-=cos(this.direction)*this.speed*8
+                if(this.trigger){
+                    this.fade-=0.1*this.speed
+                    if(this.fade<0){
+                        this.remove=true
+                    }
+                }else{
+                    this.fade+=0.1*this.speed
+                    if(this.fade>1){
+                        this.trigger=true
+                    }
                 }
             break
         }

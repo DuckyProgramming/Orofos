@@ -80,9 +80,9 @@ combatants=[
     {id:1,weapon:6,team:0},
     {id:2,weapon:5,team:0},
     {id:3,weapon:3,team:0},
-    {id:0,weapon:4,team:0},
-    {id:9,weapon:13,team:1},
-    {id:10,weapon:13,team:1},
+    {id:4,weapon:4,team:0},
+    {id:9,weapon:7,team:1},
+    {id:10,weapon:7,team:1},
     {id:11,weapon:13,team:1},
     {id:12,weapon:13,team:1},
 ]

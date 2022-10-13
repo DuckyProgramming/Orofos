@@ -283,7 +283,7 @@ class battle{
                 }
                 if(this.stack.length<=0){
                     for(e=0,le=this.combatants.length;e<le;e++){
-                        this.combatants[e].stacking=this.combatants[e].speed-this.setTime+ceil((this.combatants[e].speed-this.setTime)/this.combatants[e].speed)*this.combatants[e].speed
+                        this.combatants[e].stacking=this.combatants[e].speed-this.setTime+ceil(this.setTime/this.combatants[e].speed)*this.combatants[e].speed
                     }
                     this.setupStack()
                     this.reseting=false

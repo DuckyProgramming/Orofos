@@ -344,6 +344,8 @@ class combatant{
 					break
 				}
 			}
+		}else{
+			entities.particles.push(new particle(this.layer,this.position.x,this.position.y,6,0,2,1,[255,0,0]))
 		}
 	}
 	update(){
@@ -359,7 +361,7 @@ class combatant{
 			if(this.boostFade[g]>0&&this.boost[g]==0){
 				this.boostFade[g]=round(this.boostFade[g]*10-1)/10
 			}
-			this.boost[g]=constrain(this.boost[g],-4,4)
+			this.boost[g]=constrain(round(this.boost[g]),-4,4)
 		}
 		for(g=0,lg=this.status.length;g<lg;g++){
 			if(this.statusFade[g]!=0){
@@ -371,7 +373,7 @@ class combatant{
 			if(this.statusFade[g]>0&&this.status[g]==0){
 				this.statusFade[g]=round(this.statusFade[g]*10-1)/10
 			}
-			this.status[g]=constrain(this.status[g],-100,100)
+			this.status[g]=constrain(round(this.status[g]),-100,100)
 		}
 		for(g=0,lg=this.boostDisplay.length;g<lg;g++){
 			if(dist(inputs.rel.x,inputs.rel.y,this.position.x-21+g*14,this.position.y+50)<=6&&this.boostInfoFade[g]<1){
