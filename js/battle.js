@@ -81,6 +81,11 @@ class battle{
                 this.layer.rect(450,525,910,150)
                 for(e=0,le=this.combatants.length;e<le;e++){
                     this.combatants[e].displayLife()
+                    if(dev.id){
+                        this.layer.fill(200)
+                        this.layer.textSize(30)
+                        this.layer.text(e,this.combatants[e].position.x,300)
+                    }
                 }
                 for(e=0,le=this.stack.length;e<le;e++){
                     this.stack[e].display()
@@ -183,6 +188,9 @@ class battle{
                         this.stack[0].cancel=true
                         this.combatants[this.stack[0].type].life-=this.combatants[this.stack[0].type].damage
                     }
+                }
+                if(this.combatants[this.stack[0].type].status[4]>0&&!this.stack[0].click){
+                    this.combatants[this.stack[0].type].status[4]--
                 }
                 this.stack[0].click=true
                 e=0

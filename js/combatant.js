@@ -40,16 +40,17 @@ class combatant{
 		this.boostColor=[[200,0,0],[0,150,255],[255,255,50]]
 		this.boostInfoFade=[0,0,0]
 		this.boostName=['Attack','Defense','Speed']
-		this.status=[0,0,0,0]
-		this.statusFade=[0,0,0,0]
+		this.status=[0,0,0,0,0]
+		this.statusFade=[0,0,0,0,0]
 		this.statusDisplay=[]
-		this.statusColor=[[200,100,0],[255,255,150],[150,255,150],[0,50,100]]
-		this.statusInfoFade=[0,0,0,0]
-		this.statusName=['Burned','Stun','Confused','Buffer']
+		this.statusColor=[[200,100,0],[255,255,150],[150,255,150],[0,50,100],[230,240,250]]
+		this.statusInfoFade=[0,0,0,0,0]
+		this.statusName=['Burned','Stun','Confused','Buffer','Inaccurate']
 		this.infoFade=0
 		this.rate=[0,0]
 		this.stacking=this.speed
 		this.anim=[0,0,0,0]
+		this.calcAccuracy=0
 	}
 	displayLife(){
 		this.layer.translate(this.base.position.x,this.base.position.y)
@@ -319,8 +320,12 @@ class combatant{
 		this.layer.rotate(-this.direction)
 		this.layer.translate(-this.position.x,-this.position.y)
 	}
-	take(damage,spec,accuracy){
-		if(random(0,1)<=accuracy){
+	take(damage,spec,accuracy,user){
+		this.calcAccuracy=accuracy
+		if(current.combatants[user].status[4]>0){
+			this.calcAccuracy*=0.5
+		}
+		if(random(0,1)<=this.calcAccuracy){
 			if(this.status[3]>0){
 				this.status[3]--
 			}else{

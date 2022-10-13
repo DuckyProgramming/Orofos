@@ -3,7 +3,7 @@ types={
         {name:'',life:0,speed:0,damage:0,attacks:[],height:0},
         {name:'Bill',life:24,speed:11,damage:2,attacks:[27,28,29],height:75},
         {name:'Tom',life:40,speed:14,damage:1,attacks:[30,31,32],height:75},
-        {name:'Jon',life:30,speed:9,damage:1,attacks:[1],height:75},
+        {name:'Jon',life:30,speed:9,damage:1,attacks:[33],height:75},
         {name:'Human',life:20,speed:10,damage:1,attacks:[1],height:75},
         {name:'Human',life:20,speed:10,damage:1,attacks:[1],height:75},
         {name:'Human',life:20,speed:10,damage:1,attacks:[1],height:75},
@@ -64,6 +64,7 @@ types={
         {name:'Charge'                  ,damage:6   ,target:5,class:0,uses:10,accuracy:1   },
         {name:'Enlarge'                 ,damage:0   ,target:1,class:1,uses:10,accuracy:1   },
         {name:'Mixup'                   ,damage:5   ,target:2,class:0,uses:5 ,accuracy:1   },
+        {name:'Verbal Assault'          ,damage:4   ,target:0,class:0,uses:20,accuracy:0.8 },
     ]
 }
 stage={scene:'battle',scale:1}
@@ -72,6 +73,7 @@ transition={trigger:false,anim:0,scene:stage.scene}
 inputs={mouse:{x:0,y:0},rel:{x:0,y:0},keys:[[false,false,false,false],[false,false,false,false]]}
 entities={particles:[]}
 run={fore:[]}
+dev={id:false}
 combatants=[
     {id:1,weapon:6,team:0},
     {id:2,weapon:5,team:0},
