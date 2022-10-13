@@ -37,7 +37,7 @@ class battle{
         for(g=0,lg=this.stack.length;g<lg;g++){
             this.stack[g].cancel=true
         }
-        this.setTime=this.stack[0].time
+        this.setTime=this.stack[1].time
         this.reseting=true
     }
     set(scene){
@@ -191,6 +191,9 @@ class battle{
                 }
                 if(this.combatants[this.stack[0].type].status[4]>0&&!this.stack[0].click){
                     this.combatants[this.stack[0].type].status[4]--
+                }
+                if(this.combatants[this.stack[0].type].status[5]>0&&!this.stack[0].click){
+                    this.combatants[this.stack[0].type].status[5]--
                 }
                 this.stack[0].click=true
                 e=0

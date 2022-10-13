@@ -14,7 +14,7 @@ class attack{
     }
     set(){
         switch(this.type){
-            case 1: case 2: case 3: case 4: case 5: case 6: case 22: case 24: case 25: case 26: case 27: case 28: case 31: case 33:
+            case 1: case 2: case 3: case 4: case 5: case 6: case 22: case 24: case 25: case 26: case 27: case 28: case 31: case 33: case 34: case 35:
                 this.timer=60
             break
             case 7:
@@ -326,7 +326,7 @@ class attack{
                         this.battle.combatants[this.target[0]+4].take(this.damage,1,this.accuracy,this.user)
                     }
                 break
-                case 22: case 27: case 28:
+                case 22: case 27: case 28: case 34: case 35:
                     if(this.timer>=30){
                         this.battle.combatants[this.user].anim[0]+=1/30
                     }else{
@@ -342,6 +342,14 @@ class attack{
                     }
                     if(this.timer==30&&this.type==28){
                         this.battle.combatants[this.target[0]].status[3]++
+                    }
+                    if(this.timer==30&&this.type==34){
+                        for(g=0,lg=this.battle.combatants[this.target[0]].uses.length;g<lg;g++){
+                            this.battle.combatants[this.target[0]].uses[g]=min(this.battle.combatants[this.target[0]].base.uses[g],this.battle.combatants[this.target[0]].uses[g]+this.damage)
+                        }
+                    }
+                    if(this.timer==30&&this.type==35){
+                        this.battle.combatants[this.target[0]].status[5]+=this.damage
                     }
                 break
                 case 24: case 25: case 26:
@@ -639,14 +647,30 @@ class attack{
                         this.battle.combatants[this.target[1]].take(this.damage,1,this.accuracy,this.user+4)
                     }
                 break
-                case 22:
+                case 22: case 27: case 28: case 34: case 35:
                     if(this.timer>=30){
                         this.battle.combatants[this.user+4].anim[0]+=1/30
                     }else{
                         this.battle.combatants[this.user+4].anim[0]-=1/30
                     }
-                    if(this.timer==30){
+                    if(this.timer==30&&this.type==22){
                         this.battle.combatants[this.target[1]+4].life=min(this.battle.combatants[this.target[1]+4].base.life,this.battle.combatants[this.target[1]+4].life+this.damage)
+                    }
+                    if(this.timer==30&&this.type==27){
+                        for(g=0;g<4;g++){
+                            this.battle.combatants[g+4].life=min(this.battle.combatants[g+4].base.life,this.battle.combatants[g+4].life+this.damage)
+                        }
+                    }
+                    if(this.timer==30&&this.type==28){
+                        this.battle.combatants[this.target[1]+4].status[3]++
+                    }
+                    if(this.timer==30&&this.type==34){
+                        for(g=0,lg=this.battle.combatants[this.target[1]+4].uses.length;g<lg;g++){
+                            this.battle.combatants[this.target[1]+4].uses[g]=min(this.battle.combatants[this.target[1]+4].base.uses[g],this.battle.combatants[this.target[1]+4].uses[g]+this.damage)
+                        }
+                    }
+                    if(this.timer==30&&this.type==35){
+                        this.battle.combatants[this.target[1]+4].status[5]+=this.damage
                     }
                 break
                 case 24: case 25: case 26:
@@ -655,18 +679,6 @@ class attack{
                         this.battle.combatants[this.target[1]+4].boost[this.type-24]++
                         if(this.type==26){
                             this.battle.reset()
-                        }
-                    }
-                break
-                case 27:
-                    if(this.timer>=30){
-                        this.battle.combatants[this.user+4].anim[0]+=1/30
-                    }else{
-                        this.battle.combatants[this.user+4].anim[0]-=1/30
-                    }
-                    if(this.timer==30){
-                        for(g=0;g<4;g++){
-                            this.battle.combatants[g+4].life=min(this.battle.combatants[g+4].base.life,this.battle.combatants[g+4].life+this.damage)
                         }
                     }
                 break
