@@ -1,11 +1,11 @@
 types={
     combatant:[
         {name:'',life:0,speed:0,damage:0,attacks:[],height:0,reward:0},
-        {name:'Bill',life:24,speed:11,damage:2,attacks:[27,28,29],height:75,reward:0},
-        {name:'Tom',life:40,speed:4,damage:1,attacks:[30,31,32],height:75,reward:0},
+        {name:'Bill',life:24,speed:11,damage:1,attacks:[27,28,29],height:75,reward:0},
+        {name:'Tom',life:40,speed:14,damage:1,attacks:[30,31,32],height:75,reward:0},
         {name:'Jon',life:30,speed:9,damage:1,attacks:[33,34,35],height:75,reward:0},
         {name:'Eddy',life:22,speed:12,damage:1,attacks:[36,37,38],height:72,reward:0},
-        {name:'Human',life:20,speed:10,damage:1,attacks:[1],height:75,reward:0},
+        {name:'Lalex',life:28,speed:13,damage:1,attacks:[40,41,42],height:78,reward:0},
         {name:'Human',life:20,speed:10,damage:1,attacks:[1],height:75,reward:0},
         {name:'Human',life:20,speed:10,damage:1,attacks:[1],height:75,reward:0},
         {name:'Duckit',life:16,speed:6,damage:1,attacks:[12,13,14],height:60,reward:0},
@@ -72,6 +72,9 @@ types={
         {name:"You're Fired"            ,damage:10  ,target:0,class:3,uses:5 ,accuracy:0.5 ,description:'Downsize'},
         {name:"Financial Crime"         ,damage:4   ,target:0,class:3,uses:5 ,accuracy:1   ,description:'Extort money'},
         {name:'Quack'                   ,damage:1   ,target:0,class:0,uses:0 ,accuracy:0.6 ,description:'Loud noise'},
+        {name:'Slam'                    ,damage:9   ,target:0,class:0,uses:10,accuracy:0.8 ,description:'Fall on enemy'},
+        {name:'Cleanup'                 ,damage:0   ,target:4,class:1,uses:5 ,accuracy:1   ,description:'Remove team debuffs'},
+        {name:'1v1'                     ,damage:4   ,target:0,class:0,uses:5 ,accuracy:1   ,description:'Fight me'},
     ]
 }
 stage={scene:'battle',scale:1}
@@ -82,14 +85,14 @@ entities={particles:[]}
 run={fore:[]}
 dev={id:false}
 combatants=[
-    {id:5,weapon:6,team:0},
-    {id:0,weapon:5,team:0},
-    {id:0,weapon:3,team:0},
+    {id:3,weapon:6,team:0},
+    {id:4,weapon:5,team:0},
+    {id:5,weapon:3,team:0},
     {id:8,weapon:4,team:0},
-    {id:9,weapon:7,team:1},
     {id:10,weapon:7,team:1},
-    {id:11,weapon:13,team:1},
-    {id:12,weapon:0,team:1},
+    {id:10,weapon:7,team:1},
+    {id:12,weapon:13,team:1},
+    {id:12,weapon:13,team:1},
 ]
 a=0;b=0;c=0;d=0;e=0;f=0;g=0;h=0;i=0;j=0;k=0;l=0;m=0;n=0;o=0;p=0
 la=0;lb=0;lc=0;ld=0;le=0;lf=0;lg=0;lh=0;li=0;lj=0;lk=0;ll=0;lm=0;ln=0;lo=0;lp=0

@@ -223,6 +223,9 @@ class battle{
                 if(this.combatants[this.stack[0].type].status[7]>0&&!this.stack[0].click){
                     this.combatants[this.stack[0].type].status[7]--
                 }
+                if(this.combatants[this.stack[0].type].status[8]>0&&!this.stack[0].click){
+                    this.combatants[this.stack[0].type].status[8]--
+                }
                 this.stack[0].click=true
                 e=0
                 this.attack.check=false

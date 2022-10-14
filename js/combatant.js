@@ -46,12 +46,12 @@ class combatant{
 		this.boostColor=[[200,0,0],[0,150,255],[255,255,50]]
 		this.boostInfoFade=[0,0,0]
 		this.boostName=['Attack','Defense','Speed']
-		this.status=[0,0,0,0,0,0,0,0]
-		this.statusFade=[0,0,0,0,0,0,0,0]
+		this.status=[0,0,0,0,0,0,0,0,0]
+		this.statusFade=[0,0,0,0,0,0,0,0,0]
 		this.statusDisplay=[]
-		this.statusColor=[[200,100,0],[255,255,150],[150,255,150],[0,50,100],[230,240,250],[150,0,0],[200,210,220],[255,225,0]]
-		this.statusInfoFade=[0,0,0,0,0,0,0,0]
-		this.statusName=['Burned','Stun','Confused','Buffer','Inaccurate','Anger','Sleep','Inflated']
+		this.statusColor=[[200,100,0],[255,255,150],[150,255,150],[0,50,100],[230,240,250],[150,0,0],[200,210,220],[255,225,0],[100,200,200]]
+		this.statusInfoFade=[0,0,0,0,0,0,0,0,0]
+		this.statusName=['Burned','Stun','Confused','Buffer','Inaccurate','Anger','Sleep','Inflated','Fallen']
 		this.infoFade=0
 		this.rate=[0,0]
 		this.stacking=this.speed
@@ -205,6 +205,30 @@ class combatant{
 				this.layer.fill(0,this.fade)
 				this.layer.ellipse(4,-69,4,4)
 				this.layer.ellipse(12,-69,4,4)
+			break
+			case 5:
+				this.layer.stroke(120,120,130,this.fade)
+				this.layer.strokeWeight(4)
+				this.layer.line(-4,-30,-8-sin(this.rate[0]*2)*3,0)
+				this.layer.line(4,-30,8+sin(this.rate[0]*2)*3,0)
+				this.layer.stroke(50,200,50,this.fade)
+				this.layer.line(-6*cos(this.rate[1]),-48,-15*cos(this.rate[1])+this.anim[0]*30+this.anim[1]*36,-24-this.anim[0]*12-this.anim[1]*30)
+				this.layer.line(6*cos(this.rate[1]),-48,15*cos(this.rate[1])+this.anim[0]*15+this.anim[1]*12,-24-this.anim[0]*12-this.anim[1]*30)
+				this.layer.noStroke()
+				this.layer.fill(50,200,50,this.fade)
+				this.layer.ellipse(0,-45,24,42)
+				this.layer.fill(120,120,130,this.fade)
+				this.layer.arc(0,-45,24,42,0,180)
+				this.layer.fill(240,220,180,this.fade)
+				this.layer.ellipse(0,-78,30,30)
+				this.layer.fill(0,this.fade)
+				this.layer.ellipse(4,-75,4,4)
+				this.layer.ellipse(12,-75,4,4)
+				this.layer.stroke(255,this.fade)
+				this.layer.strokeWeight(2)
+				this.layer.line(4,-50,4,-58)
+				this.layer.noFill()
+				this.layer.arc(4,-54,6,8,-90,90)
 			break
 			case 8:
 				this.layer.noStroke()
@@ -393,7 +417,7 @@ class combatant{
 			this.status[6]=0
 			if(this.status[3]>0){
 				this.status[3]--
-			}else{
+			}else if(this.status[8]<=0){
 				switch(spec){
 					case 0:
 						this.life-=this.calcDamage/(2+max(0,this.boost[1]))*(2-min(0,this.boost[1]))
@@ -453,7 +477,7 @@ class combatant{
 		}
 		if(this.life<=0&&!this.dead){
 			this.dead=true
-			if(this.valued){
+			if(this.valued&&this.team==1){
 				if(this.status[7]>0){
 					this.reward*=2
 				}
