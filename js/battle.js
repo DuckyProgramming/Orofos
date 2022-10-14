@@ -17,6 +17,7 @@ class battle{
         this.totalMoved=0
         this.time=0
         this.setTime=0
+        this.currency={money:100}
 	}
     setupStack(){
         while(this.stack.length<20){
@@ -162,11 +163,16 @@ class battle{
                         this.combatants[e].displayLife()
                     }
                 }
+                this.layer.noStroke()
                 this.layer.fill(0)
                 this.layer.textSize(20)
                 this.layer.text(ceil(this.totalMoved/150)+'m',450,580)
             break
         }
+        this.layer.noStroke()
+        this.layer.fill(255,225,0)
+        this.layer.textSize(20)
+        this.layer.text('$'+this.currency.money,50,580)
     }
     turn(){
         for(e=0,le=this.combatants.length;e<le;e++){
@@ -189,11 +195,21 @@ class battle{
                         this.combatants[this.stack[0].type].life-=this.combatants[this.stack[0].type].damage
                     }
                 }
+                if(this.combatants[this.stack[0].type].status[3]>0&&!this.stack[0].click){
+                    this.combatants[this.stack[0].type].status[3]--
+                }
                 if(this.combatants[this.stack[0].type].status[4]>0&&!this.stack[0].click){
                     this.combatants[this.stack[0].type].status[4]--
                 }
                 if(this.combatants[this.stack[0].type].status[5]>0&&!this.stack[0].click){
                     this.combatants[this.stack[0].type].status[5]--
+                }
+                if(this.combatants[this.stack[0].type].status[6]>0&&!this.stack[0].click){
+                    this.combatants[this.stack[0].type].status[6]--
+                    this.stack[0].cancel=true
+                }
+                if(this.combatants[this.stack[0].type].status[7]>0&&!this.stack[0].click){
+                    this.combatants[this.stack[0].type].status[7]--
                 }
                 this.stack[0].click=true
                 e=0
@@ -320,5 +336,6 @@ class battle{
                 }
             break
         }
+        this.currency.money=round(this.currency.money*10)/10
 	}
 }

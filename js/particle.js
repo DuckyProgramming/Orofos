@@ -24,7 +24,7 @@ class particle{
                 this.fade=0
                 this.end=0
             break
-            case 6:
+            case 6: case 7:
                 this.sizing=1
                 this.fade=0
                 this.trigger=false
@@ -61,6 +61,11 @@ class particle{
                     this.layer.fill(this.color[0],this.color[1],this.color[2],this.fade)
                     this.layer.textSize(10)
                     this.layer.text('Miss',0,0)
+                break
+                case 7:
+                    this.layer.fill(this.color[0],this.color[1],this.color[2],this.fade)
+                    this.layer.textSize(10)
+                    this.layer.text('$'+this.value,0,0)
                 break
             }
             this.layer.scale(1/this.size/this.sizing)
@@ -119,7 +124,7 @@ class particle{
                     this.fade+=1/5
                 }
             break
-            case 6:
+            case 6: case 7:
                 this.position.x+=sin(this.direction)*this.speed*8
                 this.position.y-=cos(this.direction)*this.speed*8
                 if(this.trigger){

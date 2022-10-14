@@ -18,6 +18,7 @@ class combatant{
 		this.speed=types.combatant[this.type].speed
 		this.damage=types.combatant[this.type].damage
 		this.height=types.combatant[this.type].height
+		this.reward=types.combatant[this.type].reward
 		this.attacks=[]
 		this.attackClass=[]
 		for(g=0,lg=types.weapon[this.weapon].attacks.length;g<lg;g++){
@@ -41,18 +42,21 @@ class combatant{
 		this.boostColor=[[200,0,0],[0,150,255],[255,255,50]]
 		this.boostInfoFade=[0,0,0]
 		this.boostName=['Attack','Defense','Speed']
-		this.status=[0,0,0,0,0,0]
-		this.statusFade=[0,0,0,0,0,0]
+		this.status=[0,0,0,0,0,0,0,0]
+		this.statusFade=[0,0,0,0,0,0,0,0]
 		this.statusDisplay=[]
-		this.statusColor=[[200,100,0],[255,255,150],[150,255,150],[0,50,100],[230,240,250],[150,0,0]]
-		this.statusInfoFade=[0,0,0,0,0,0]
-		this.statusName=['Burned','Stun','Confused','Buffer','Inaccurate','Anger']
+		this.statusColor=[[200,100,0],[255,255,150],[150,255,150],[0,50,100],[230,240,250],[150,0,0],[200,210,220],[255,225,0]]
+		this.statusInfoFade=[0,0,0,0,0,0,0,0]
+		this.statusName=['Burned','Stun','Confused','Buffer','Inaccurate','Anger','Sleep','Inflated']
 		this.infoFade=0
 		this.rate=[0,0]
 		this.stacking=this.speed
 		this.anim=[0,0,0,0]
 		this.calcAccuracy=0
 		this.calcDamage=0
+		this.dead=false
+		this.hit=false
+		this.valued=true
 	}
 	displayLife(){
 		this.layer.translate(this.base.position.x,this.base.position.y)
@@ -178,6 +182,26 @@ class combatant{
 				this.layer.fill(80,160,200,this.fade)
 				this.layer.line(-16,-80,24,-80)
 				this.layer.arc(0,-81,32,24,-180,0)
+			break
+			case 4:
+				this.layer.stroke(20,this.fade)
+				this.layer.strokeWeight(4)
+				this.layer.line(-4,-30,-8-sin(this.rate[0]*2)*3,0)
+				this.layer.line(4,-30,8+sin(this.rate[0]*2)*3,0)
+				this.layer.line(-6*cos(this.rate[1]),-48,-15*cos(this.rate[1])+this.anim[0]*30+this.anim[1]*36,-24-this.anim[0]*12-this.anim[1]*30)
+				this.layer.line(6*cos(this.rate[1]),-48,15*cos(this.rate[1])+this.anim[0]*15+this.anim[1]*12,-24-this.anim[0]*12-this.anim[1]*30)
+				this.layer.noStroke()
+				this.layer.fill(20,this.fade)
+				this.layer.ellipse(0,-43,21,36)
+				this.layer.fill(200,this.fade)
+				this.layer.triangle(-2,-60,6,-60,4,-48)
+				this.layer.fill(200,50,50,this.fade)
+				this.layer.quad(4,-48,2,-52,2,-64,5,-54)
+				this.layer.fill(240,220,180,this.fade)
+				this.layer.ellipse(0,-72,30,30)
+				this.layer.fill(0,this.fade)
+				this.layer.ellipse(4,-69,4,4)
+				this.layer.ellipse(12,-69,4,4)
 			break
 			case 8:
 				this.layer.noStroke()
@@ -325,6 +349,7 @@ class combatant{
 	take(damage,spec,accuracy,user){
 		this.calcAccuracy=accuracy
 		this.calcDamage=damage
+		this.hit=false
 		if(current.combatants[user].status[4]>0){
 			this.calcAccuracy*=0.5
 		}
@@ -332,6 +357,8 @@ class combatant{
 			this.calcDamage*=2
 		}
 		if(random(0,1)<=this.calcAccuracy){
+			this.hit=true
+			this.status[6]=0
 			if(this.status[3]>0){
 				this.status[3]--
 			}else{
@@ -391,6 +418,17 @@ class combatant{
 		}
 		if(this.life<=0&&this.fade>0){
 			this.fade-=1/30
+		}
+		if(this.life<=0&&!this.dead){
+			this.dead=true
+			if(this.valued){
+				if(this.status[7]>0){
+					this.reward*=2
+				}
+				current.currency.money+=this.reward
+				entities.particles.push(new particle(this.layer,this.position.x,this.position.y,7,0,2,1,[255,225,0]))
+				entities.particles[entities.particles.length-1].value=this.reward
+			}
 		}
 		this.collect.life=this.collect.life*0.9+this.life*0.1
 	}
