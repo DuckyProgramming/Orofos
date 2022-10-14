@@ -14,7 +14,7 @@ class attack{
     }
     set(){
         switch(this.type){
-            case 1: case 2: case 3: case 4: case 5: case 6: case 22: case 24: case 25: case 26: case 27: case 28: case 31: case 33: case 34: case 35: case 36: case 37: case 38: case 39: case 41:
+            case 1: case 2: case 3: case 4: case 5: case 6: case 22: case 24: case 25: case 26: case 27: case 28: case 31: case 33: case 34: case 35: case 36: case 37: case 38: case 39: case 41: case 43:
                 this.timer=60
             break
             case 7:
@@ -254,7 +254,7 @@ class attack{
                     }
                     if(this.timer==45-this.user*10+this.target[0]*10||this.timer==75-this.user*10+this.target[0]*10){
                         this.battle.combatants[this.target[0]+4].take(this.damage,0,this.accuracy,this.user)
-                        if(this.type==14&&this.battle.combatants[this.target[1]].hit){
+                        if(this.type==14&&this.battle.combatants[this.target[0]+4].hit){
                             this.battle.combatants[this.target[0]+4].status[2]++
                         }
                     }
@@ -345,7 +345,7 @@ class attack{
                         this.battle.combatants[this.target[0]+4].take(this.damage,1,this.accuracy,this.user)
                     }
                 break
-                case 22: case 27: case 28: case 34: case 35: case 41:
+                case 22: case 27: case 28: case 34: case 35: case 41: case 43:
                     if(this.timer>=30){
                         this.battle.combatants[this.user].anim[0]+=1/30
                     }else{
@@ -375,6 +375,11 @@ class attack{
                             for(h=0,h=this.battle.combatants[g].boost.length;h<lh;h++){
                                 this.battle.combatants[g].boost[h]=0
                             }
+                        }
+                    }
+                    if(this.timer==30&&this.type==43){
+                        for(g=0;g<4;g++){
+                            this.battle.combatants[g].status[9]+=2
                         }
                     }
                 break

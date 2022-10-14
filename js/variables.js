@@ -4,9 +4,9 @@ types={
         {name:'Bill',life:24,speed:11,damage:1,attacks:[27,28,29],height:75,reward:0},
         {name:'Tom',life:40,speed:14,damage:1,attacks:[30,31,32],height:75,reward:0},
         {name:'Jon',life:30,speed:9,damage:1,attacks:[33,34,35],height:75,reward:0},
-        {name:'Eddy',life:22,speed:12,damage:1,attacks:[36,37,38],height:72,reward:0},
+        {name:'Eddy',life:26,speed:12,damage:1,attacks:[36,37,38],height:72,reward:0},
         {name:'Lalex',life:28,speed:13,damage:1,attacks:[40,41,42],height:78,reward:0},
-        {name:'Human',life:20,speed:10,damage:1,attacks:[1],height:75,reward:0},
+        {name:'Scott',life:22,speed:8,damage:1,attacks:[43],height:75,reward:0},
         {name:'Human',life:20,speed:10,damage:1,attacks:[1],height:75,reward:0},
         {name:'Duckit',life:16,speed:6,damage:1,attacks:[12,13,14],height:60,reward:0},
         {name:'Human',life:20,speed:10,damage:1,attacks:[1],height:75,reward:10},
@@ -75,6 +75,9 @@ types={
         {name:'Slam'                    ,damage:9   ,target:0,class:0,uses:10,accuracy:0.8 ,description:'Fall on enemy'},
         {name:'Cleanup'                 ,damage:0   ,target:4,class:1,uses:5 ,accuracy:1   ,description:'Remove team debuffs'},
         {name:'1v1'                     ,damage:4   ,target:0,class:0,uses:5 ,accuracy:1   ,description:'Fight me'},
+        {name:'Drinks'                  ,damage:1   ,target:4,class:1,uses:10,accuracy:1   ,description:'Share the supply'},
+        {name:'Punch'                   ,damage:1   ,target:0,class:0,uses:0 ,accuracy:1   ,description:'Basic attack'},
+        {name:'Punch'                   ,damage:1   ,target:0,class:0,uses:0 ,accuracy:1   ,description:'Basic attack'},
     ]
 }
 stage={scene:'battle',scale:1}
@@ -88,7 +91,7 @@ combatants=[
     {id:3,weapon:6,team:0},
     {id:4,weapon:5,team:0},
     {id:5,weapon:3,team:0},
-    {id:8,weapon:4,team:0},
+    {id:6,weapon:4,team:0},
     {id:10,weapon:7,team:1},
     {id:10,weapon:7,team:1},
     {id:12,weapon:13,team:1},
