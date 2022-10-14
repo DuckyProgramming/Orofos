@@ -10,8 +10,10 @@ class combatant{
 		this.direction=0
 		if(this.type==0){
 			this.fade=0
+			this.dead=true
 		}else{
 			this.fade=1
+			this.dead=false
 		}
 		this.name=types.combatant[this.type].name
 		this.life=types.combatant[this.type].life
@@ -54,7 +56,6 @@ class combatant{
 		this.anim=[0,0,0,0]
 		this.calcAccuracy=0
 		this.calcDamage=0
-		this.dead=false
 		this.hit=false
 		this.valued=true
 	}
@@ -225,6 +226,12 @@ class combatant{
 				this.layer.strokeWeight(3);
 				this.layer.point(9-6,-64);
 				this.layer.point(9+6,-64);
+				this.layer.noStroke()
+				this.layer.fill(255,155,55,this.fade)
+				this.layer.rect(0,-76,40,4)
+				this.layer.triangle(-14,-76,14,-76,0,-100)
+				this.layer.fill(220,this.fade)
+				this.layer.quad(-10.5,-82,10.5,-82,7,-88,-7,-88)
 			break
 			case 9:
 				this.layer.stroke(80,this.fade)
@@ -340,6 +347,29 @@ class combatant{
 				this.layer.ellipse(4,-74,6,5)
 				this.layer.ellipse(12,-74,6,5)
 				this.layer.line(7,0,9,0)
+			break
+			case 15:
+				this.layer.noStroke()
+				this.layer.fill(230,230,5,this.fade)
+				this.layer.ellipse(-10-sin(this.rate[0]*2)*2,-8,20,20)
+				this.layer.ellipse(10+sin(this.rate[0]*2)*2,-8,20,20)
+				this.layer.ellipse(cos(this.anim[2])*-(16+this.anim[3])+this.anim[1]*24+this.anim[0]*18,-30+sin(this.anim[2])*-(16+this.anim[3])-this.anim[1]*6-this.anim[0]*4,20,20);
+				this.layer.fill(235,235,55,this.fade)
+				this.layer.ellipse(0,-28,24,40)
+				this.layer.fill(240,240,60,this.fade)
+				this.layer.ellipse(cos(this.anim[2])*(16+this.anim[3])+this.anim[1]*24+this.anim[0]*18,-30+sin(this.anim[2])*(16+this.anim[3])-this.anim[1]*6-this.anim[0]*4,20,20);
+				this.layer.fill(245,245,65,this.fade)
+				this.layer.ellipse(0,-60,40,40)
+				this.layer.fill(240,160,20,this.fade);
+				this.layer.ellipse(13.5,-52,24,16);
+				this.layer.stroke(0,this.fade);
+				this.layer.strokeWeight(1);
+				this.layer.arc(13.5,-52,22,2,-180,0);
+				this.layer.line(18-3,-56,18-3,-58);
+				this.layer.line(18+3,-56,18+3,-58);
+				this.layer.strokeWeight(3);
+				this.layer.point(9-6,-64);
+				this.layer.point(9+6,-64);
 			break
 		}
 		this.layer.scale(1/this.size/this.flip,1/this.size)

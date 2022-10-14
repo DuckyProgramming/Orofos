@@ -14,7 +14,7 @@ class attack{
     }
     set(){
         switch(this.type){
-            case 1: case 2: case 3: case 4: case 5: case 6: case 22: case 24: case 25: case 26: case 27: case 28: case 31: case 33: case 34: case 35: case 36: case 37: case 38:
+            case 1: case 2: case 3: case 4: case 5: case 6: case 22: case 24: case 25: case 26: case 27: case 28: case 31: case 33: case 34: case 35: case 36: case 37: case 38: case 39:
                 this.timer=60
             break
             case 7:
@@ -431,6 +431,17 @@ class attack{
                         }
                     }
                 break
+                case 39:
+                    if(this.timer==30||this.timer==35||this.timer==40||this.timer==45||this.timer==50||this.timer==55){
+                        entities.particles.push(new particle(this.layer,this.battle.combatants[this.user].position.x+10,this.battle.combatants[this.user].position.y-this.battle.combatants[this.user].height,1,random(60,120),120,random(0.5,1.5),[0,150,255]))
+                    }
+                    if(this.timer==45){
+                        this.battle.combatants[this.target[0]+4].take(this.damage,0,this.accuracy,this.user)
+                        if(this.battle.combatants[this.target[0]+4].hit){
+                            this.battle.combatants[this.target[0]+4].boost[1]--
+                        }
+                    }
+                break
             }
         }
         else{
@@ -758,6 +769,17 @@ class attack{
                         this.battle.combatants[this.target[1]].take(this.damage,0,this.accuracy,this.user)
                         if(this.battle.combatants[this.target[1]].hit){
                             this.battle.combatants[this.target[1]].status[0]+=this.damage/5
+                        }
+                    }
+                break
+                case 39:
+                    if(this.timer==30||this.timer==35||this.timer==40||this.timer==45||this.timer==50||this.timer==55){
+                        entities.particles.push(new particle(this.layer,this.battle.combatants[this.user+4].position.x+10,this.battle.combatants[this.user+4].position.y-this.battle.combatants[this.user+4].height,1,random(240,300),120,random(0.5,1.5),[0,150,255]))
+                    }
+                    if(this.timer==45){
+                        this.battle.combatants[this.target[1]].take(this.damage,0,this.accuracy,this.user+4)
+                        if(this.battle.combatants[this.target[1]].hit){
+                            this.battle.combatants[this.target[1]].boost[1]--
                         }
                     }
                 break

@@ -15,6 +15,7 @@ types={
         {name:'Big Human',life:60,speed:12,damage:2,attacks:[2,7],height:90,reward:20},
         {name:'Management Soldier',life:240,speed:9,damage:2,attacks:[],height:78,reward:40},
         {name:'Management Officer',life:150,speed:9,damage:2,attacks:[],height:78,reward:120},
+        {name:'Duck',life:12,speed:6,damage:1,attacks:[39],height:60,reward:0},
     ],weapon:[
         {name:'Unarmed',damage:2,attacks:[0]},
         {name:'Stick',damage:4,attacks:[8]},
@@ -70,6 +71,7 @@ types={
         {name:'Bore'                    ,damage:2   ,target:0,class:3,uses:10,accuracy:1   },
         {name:"You're Fired"            ,damage:10  ,target:0,class:3,uses:5 ,accuracy:0.5 },
         {name:"Financial Crime"         ,damage:4   ,target:0,class:3,uses:5 ,accuracy:1   },
+        {name:'Quack'                   ,damage:1   ,target:0,class:0,uses:0 ,accuracy:0.6 },
     ]
 }
 stage={scene:'battle',scale:1}
@@ -87,7 +89,7 @@ combatants=[
     {id:9,weapon:7,team:1},
     {id:10,weapon:7,team:1},
     {id:11,weapon:13,team:1},
-    {id:12,weapon:13,team:1},
+    {id:12,weapon:0,team:1},
 ]
 a=0;b=0;c=0;d=0;e=0;f=0;g=0;h=0;i=0;j=0;k=0;l=0;m=0;n=0;o=0;p=0
 la=0;lb=0;lc=0;ld=0;le=0;lf=0;lg=0;lh=0;li=0;lj=0;lk=0;ll=0;lm=0;ln=0;lo=0;lp=0
