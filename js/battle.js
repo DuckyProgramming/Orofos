@@ -113,7 +113,12 @@ class battle{
                     this.layer.line(586+e*100,482,586+e*100,446);
                     this.layer.line(514+e*100,482,514+e*100,446);
                 }
-                if(this.attack.timer<=0){
+                if(this.attack.timer>0){
+                    this.layer.noStroke()
+                    this.layer.fill(0)
+                    this.layer.textSize(20)
+                    this.layer.text(this.combatants[this.stack[0].type].name+' uses '+types.attack[this.attack.type].name,450,80)
+                }else{
                     if(this.attack.trigger){
                         this.layer.stroke(100,85,60)
                         this.layer.strokeWeight(4)
@@ -126,6 +131,14 @@ class battle{
                     }
                     else if(this.stack[0].type<4&&!this.stacking.use){
                         for(e=0,le=this.combatants[this.stack[0].type].attacks.length;e<le;e++){
+                            this.layer.stroke(160,this.combatants[this.stack[0].type].attackInfoFade[e])
+                            this.layer.fill(175,this.combatants[this.stack[0].type].attackInfoFade[e])
+                            this.layer.strokeWeight(4)
+                            this.layer.rect(470,90+e*50,300,30)
+                            this.layer.fill(0,this.combatants[this.stack[0].type].attackInfoFade[e])
+                            this.layer.noStroke()
+                            this.layer.textSize(10)
+                            this.layer.text(types.attack[this.combatants[this.stack[0].type].attacks[e]].description,470,90+e*50)
                             if(types.attack[this.combatants[this.stack[0].type].attacks[e]].uses!=0&&this.combatants[this.stack[0].type].uses[e]<=0){
                                 this.layer.stroke(60)
                                 this.layer.fill(75)
@@ -133,7 +146,6 @@ class battle{
                                 this.layer.stroke(100,85,60)
                                 this.layer.fill(125,105,75)
                             }
-                            this.layer.strokeWeight(4)
                             this.layer.rect(170,90+e*50,300,40)
                             this.layer.fill(0)
                             this.layer.noStroke()
@@ -225,6 +237,12 @@ class battle{
                             if(pointInsideBox({position:inputs.rel},{position:{x:170,y:90+e*50},width:300,height:40})){
                                 this.attack.type=this.combatants[this.stack[0].type].attacks[e]
                                 this.attack.check=true
+                            }
+                            if(pointInsideBox({position:inputs.rel},{position:{x:170,y:90+e*50},width:300,height:40})&&this.combatants[this.stack[0].type].attackInfoFade[e]<1){
+                                this.combatants[this.stack[0].type].attackInfoFade[e]+=0.1
+                            }
+                            if(!pointInsideBox({position:inputs.rel},{position:{x:170,y:90+e*50},width:300,height:40})&&this.combatants[this.stack[0].type].attackInfoFade[e]>0){
+                                this.combatants[this.stack[0].type].attackInfoFade[e]-=0.1
                             }
                         }
                     }
