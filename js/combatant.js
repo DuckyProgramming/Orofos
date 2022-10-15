@@ -462,6 +462,32 @@ class combatant{
 				this.layer.point(9-6,-64);
 				this.layer.point(9+6,-64);
 			break
+			case 16:
+				this.layer.stroke(160,160,80,this.fade)
+				this.layer.strokeWeight(4)
+				this.layer.line(-4,-30,-8-sin(this.rate[0]*2)*3,0)
+				this.layer.line(4,-30,8+sin(this.rate[0]*2)*3,0)
+				this.layer.stroke(160,160,40,this.fade)
+				this.layer.line(-6*cos(this.rate[1]),-48,-15*cos(this.rate[1])+this.anim[0]*30+this.anim[1]*36,-24-this.anim[0]*12-this.anim[1]*30)
+				this.layer.line(6*cos(this.rate[1]),-48,15*cos(this.rate[1])+this.anim[0]*15+this.anim[1]*12,-24-this.anim[0]*12-this.anim[1]*30)
+				this.layer.noStroke()
+				this.layer.fill(160,160,120,this.fade)
+				this.layer.ellipse(0,-47,18,39)
+				this.layer.fill(100,100,50,this.fade);
+				this.layer.rect(-7,-45,5,2);
+				this.layer.rect(0,-45,5,2);
+				this.layer.rect(7,-45,5,2);
+				this.layer.fill(240,220,180,this.fade)
+				this.layer.ellipse(0,-78,30,30)
+				this.layer.fill(0,this.fade)
+				this.layer.ellipse(4,-75,4,4)
+				this.layer.ellipse(12,-75,4,4)
+				this.layer.fill(120,120,60,this.fade)
+				this.layer.arc(0,-78,36,36,-180,0)
+				this.layer.fill(65,130,140,this.fade/2)
+				this.layer.triangle(18,-78,10,-78,16,-74)
+				this.layer.triangle(6,-78,-2,-78,0,-74)
+			break
 		}
 		this.layer.scale(1/this.size/this.flip,1/this.size)
 		this.layer.rotate(-this.direction)

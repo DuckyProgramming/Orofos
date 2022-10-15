@@ -214,11 +214,13 @@ class battle{
                     }
                 }
                 this.stack[0].click=true
-                e=0
                 this.attack.check=false
-                while(this.combatants[4+this.attack.target[0]].life<=0&&e<4){
-                    e++
-                    this.attack.target[0]=(this.attack.target[0]+1)%4
+                if(this.attack.timer<=0){
+                    e=0
+                    while(this.combatants[4+this.attack.target[0]].life<=0&&e<4){
+                        e++
+                        this.attack.target[0]=(this.attack.target[0]+1)%4
+                    }
                 }
                 if(this.stack[0].type<4&&!this.stacking.use&&this.attack.timer<=0){
                     this.attack.user=this.stack[0].type
