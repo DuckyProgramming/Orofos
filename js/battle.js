@@ -202,16 +202,18 @@ class battle{
 	update(){
         switch(stage.scene){
             case 'battle':
-                for(k=1;k<14;k++){
-                    if(this.combatants[this.stack[0].type].status[k]>0&&!this.stack[0].click){
-                        this.combatants[this.stack[0].type].status[k]--
-                        if(k==1||key==6||key==8){
-                            this.stack[0].cancel=true
-                        }
-                        if(k==2){
-                            if(floor(random(0,4))==0){
+                for(k=0;k<14;k++){
+                    if(k!=0&&k!=12){
+                        if(this.combatants[this.stack[0].type].status[k]>0&&!this.stack[0].click){
+                            this.combatants[this.stack[0].type].status[k]--
+                            if(k==1||key==6||key==8){
                                 this.stack[0].cancel=true
-                                this.combatants[this.stack[0].type].life-=this.combatants[this.stack[0].type].damage
+                            }
+                            if(k==2){
+                                if(floor(random(0,4))==0){
+                                    this.stack[0].cancel=true
+                                    this.combatants[this.stack[0].type].life-=this.combatants[this.stack[0].type].damage
+                                }
                             }
                         }
                     }

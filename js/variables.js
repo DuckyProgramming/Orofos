@@ -18,6 +18,10 @@ types={
         {name:'Duck',life:12,speed:6,damage:1,attacks:[39],height:60,reward:0},
         {name:'Desert Controller',life:80,speed:9,damage:2,attacks:[],height:78,reward:20},
         {name:'Desert Control Boss',life:50,speed:9,damage:2,attacks:[],height:78,reward:40},
+        {name:'Bounce',life:10,speed:7,damage:1,attacks:[1,53],height:75,reward:10},
+        {name:'Fat Bounce',life:25,speed:11,damage:1,attacks:[5,53],height:66,reward:15},
+        {name:'Long Bounce',life:15,speed:6,damage:1,attacks:[4,53],height:84,reward:15},
+        {name:'Big Bounce',life:30,speed:9,damage:2,attacks:[2,7,53],height:90,reward:20},
     ],weapon:[
         {name:'Unarmed',damage:2,attacks:[0]},
         {name:'Stick',damage:4,attacks:[8]},
@@ -35,6 +39,8 @@ types={
         {name:'Baseball Bat',damage:6,attacks:[8,23]},
         {name:'Time Bomb',damage:5,attacks:[8,49]},
         {name:'Knife',damage:7,attacks:[50,51]},
+        {name:'Medpack',damage:2,attacks:[8,22,52]},
+        {name:'Electrobaton',damage:15,attacks:[8,54]},
     ],attack:[
         {name:'Punch'                   ,damage:1   ,target:0,class:0,uses:0 ,accuracy:1   ,description:'Basic attack'},
         {name:'Nerf Damage'             ,damage:0   ,target:0,class:1,uses:0 ,accuracy:1   ,description:'Decreases enemy damage'},
@@ -58,7 +64,7 @@ types={
         {name:'Overwhelming Force'      ,damage:1   ,target:0,class:2,uses:20,accuracy:0.4 ,description:'Fire swarm of shots'},
         {name:'Concentrated Elimination',damage:4   ,target:0,class:2,uses:50,accuracy:1   ,description:'Good aiming'},
         {name:'Perfected Strike'        ,damage:6   ,target:0,class:2,uses:10,accuracy:1   ,description:'Hit the best spot'},
-        {name:'Heal'                    ,damage:3   ,target:3,class:0,uses:10,accuracy:1   ,description:'Help out'},
+        {name:'Heal'                    ,damage:5   ,target:3,class:0,uses:10,accuracy:1   ,description:'Help out'},
         {name:'Combo'                   ,damage:1   ,target:0,class:0,uses:20,accuracy:1   ,description:'Knock them together'},
         {name:'Ally Buff Damage'        ,damage:0   ,target:3,class:1,uses:0 ,accuracy:1   ,description:'Increase ally damage'},
         {name:'Ally Buff Defense'       ,damage:0   ,target:3,class:1,uses:0 ,accuracy:1   ,description:'Increase ally defense'},
@@ -88,6 +94,9 @@ types={
         {name:'Rig Bomb'                ,damage:4   ,target:0,class:4,uses:10,accuracy:1   ,description:'Leave a bomb'},
         {name:'Stab'                    ,damage:1   ,target:0,class:0,uses:0 ,accuracy:1   ,description:'Stab the enemy'},
         {name:'Fast Stab'               ,damage:1   ,target:0,class:0,uses:10,accuracy:1   ,description:'Cause bleeding'},
+        {name:'Status Heal'             ,damage:0   ,target:3,class:0,uses:10,accuracy:1   ,description:'Clear statuses'},
+        {name:'Quick Strike'            ,damage:1   ,target:0,class:0,uses:0 ,accuracy:0.5 ,description:'Hit in rapid fashion'},
+        {name:'Electrowhack'            ,damage:1   ,target:0,class:0,uses:5 ,accuracy:1   ,description:'Hit and stun'},
     ]
 }
 stage={scene:'battle',scale:1}
@@ -98,14 +107,14 @@ entities={particles:[]}
 run={fore:[]}
 dev={id:false}
 combatants=[
-    {id:4,weapon:15,team:0},
-    {id:5,weapon:15,team:0},
-    {id:6,weapon:15,team:0},
-    {id:7,weapon:15,team:0},
-    {id:9,weapon:1,team:1},
-    {id:10,weapon:1,team:1},
-    {id:11,weapon:1,team:1},
-    {id:12,weapon:1,team:1},
+    {id:4,weapon:17,team:0},
+    {id:5,weapon:17,team:0},
+    {id:6,weapon:17,team:0},
+    {id:7,weapon:17,team:0},
+    {id:18,weapon:0,team:1},
+    {id:19,weapon:0,team:1},
+    {id:20,weapon:0,team:1},
+    {id:21,weapon:0,team:1},
 ]
 a=0;b=0;c=0;d=0;e=0;f=0;g=0;h=0;i=0;j=0;k=0;l=0;m=0;n=0;o=0;p=0
 la=0;lb=0;lc=0;ld=0;le=0;lf=0;lg=0;lh=0;li=0;lj=0;lk=0;ll=0;lm=0;ln=0;lo=0;lp=0
