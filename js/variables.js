@@ -22,6 +22,14 @@ types={
         {name:'Fat Bounce',life:25,speed:11,damage:1,attacks:[5,53],height:66,reward:15},
         {name:'Long Bounce',life:15,speed:6,damage:1,attacks:[4,53],height:84,reward:15},
         {name:'Big Bounce',life:30,speed:9,damage:2,attacks:[2,7,53],height:90,reward:20},
+        {name:'Scrapper',life:10,speed:10,damage:1,attacks:[1],height:75,reward:10},
+        {name:'Fat Scrapper',life:25,speed:15,damage:1,attacks:[5],height:66,reward:15},
+        {name:'Long Scrapper',life:15,speed:8,damage:1,attacks:[4],height:84,reward:15},
+        {name:'Big Scrapper',life:30,speed:12,damage:2,attacks:[2,7],height:90,reward:20},
+        {name:'Builder',life:10,speed:10,damage:1,attacks:[1],height:75,reward:10},
+        {name:'Fat Builder',life:25,speed:15,damage:1,attacks:[5],height:66,reward:15},
+        {name:'Long Builder',life:15,speed:8,damage:1,attacks:[4],height:84,reward:15},
+        {name:'Big Builder',life:30,speed:12,damage:2,attacks:[2,7],height:90,reward:20},
     ],weapon:[
         {name:'Unarmed',damage:2,attacks:[0]},
         {name:'Stick',damage:4,attacks:[8]},
@@ -111,10 +119,10 @@ combatants=[
     {id:5,weapon:17,team:0},
     {id:6,weapon:17,team:0},
     {id:7,weapon:17,team:0},
-    {id:18,weapon:0,team:1},
-    {id:19,weapon:0,team:1},
-    {id:20,weapon:0,team:1},
-    {id:21,weapon:0,team:1},
+    {id:22,weapon:0,team:1},
+    {id:23,weapon:0,team:1},
+    {id:24,weapon:0,team:1},
+    {id:25,weapon:0,team:1},
 ]
 a=0;b=0;c=0;d=0;e=0;f=0;g=0;h=0;i=0;j=0;k=0;l=0;m=0;n=0;o=0;p=0
 la=0;lb=0;lc=0;ld=0;le=0;lf=0;lg=0;lh=0;li=0;lj=0;lk=0;ll=0;lm=0;ln=0;lo=0;lp=0
