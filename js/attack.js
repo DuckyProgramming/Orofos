@@ -65,6 +65,9 @@ class attack{
                 case 42:
                     this.timer=230-this.user*30+this.target[0]*30
                 break
+                case 50: case 51:
+                    this.timer=86-this.user*16+this.target[0]*16
+                break
             }
         }
         else{
@@ -107,6 +110,9 @@ class attack{
                 break
                 case 42:
                     this.timer=230+this.user*30-this.target[1]*30
+                break
+                case 50: case 51:
+                    this.timer=86+this.user*16-this.target[1]*16
                 break
             }
         }
@@ -537,6 +543,28 @@ class attack{
                     if(this.timer==30){
                         for(g=0;g<4;g++){
                             this.battle.combatants[g+4].take(this.damage*random(0,1),0,this.accuracy,this.user)
+                            if(this.battle.combatants[g+4].hit){
+                                this.battle.combatants[g+4].status[2]++
+                            }
+                        }
+                    }
+                break
+                case 50: case 51:
+                    if(this.timer>=48-this.user*8+this.target[0]*8){
+                        this.battle.combatants[this.user].position.x+=25/2
+                        this.battle.combatants[this.user].rate[0]+=25/2
+                    }else if(this.timer>=43-this.user*8+this.target[0]*8){
+                        this.battle.combatants[this.user].anim[0]+=1/5
+                    }else if(this.timer>=38-this.user*8+this.target[0]*8){
+                        this.battle.combatants[this.user].anim[0]-=1/5
+                    }else{
+                        this.battle.combatants[this.user].position.x-=25/2
+                        this.battle.combatants[this.user].rate[0]-=25/2
+                    }
+                    if(this.timer==48-this.user*8+this.target[0]*8){
+                        this.battle.combatants[this.target[0]+4].take(this.damage,0,this.accuracy,this.user)
+                        if(this.type==51&&this.battle.combatants[this.target[0]+4].hit){
+                            this.battle.combatants[this.target[0]+4].status[13]+=sqrt(this.damage)/2
                         }
                     }
                 break
@@ -959,7 +987,29 @@ class attack{
                     }
                     if(this.timer==30){
                         for(g=0;g<4;g++){
-                            this.battle.combatants[g].take(this.damage*random(0,1),0,this.accuracy,this.user)
+                            this.battle.combatants[g].take(this.damage*random(0,1),0,this.accuracy,this.user+4)
+                            if(this.battle.combatants[g].hit){
+                                this.battle.combatants[g].status[2]++
+                            }
+                        }
+                    }
+                break
+                case 50: case 51:
+                    if(this.timer>=48+this.user*8-this.target[1]*8){
+                        this.battle.combatants[this.user+4].position.x-=25/2
+                        this.battle.combatants[this.user+4].rate[0]+=25/2
+                    }else if(this.timer>=43+this.user*8-this.target[1]*8){
+                        this.battle.combatants[this.user+4].anim[0]+=1/5
+                    }else if(this.timer>=38+this.user*8-this.target[1]*8){
+                        this.battle.combatants[this.user+4].anim[0]-=1/5
+                    }else{
+                        this.battle.combatants[this.user+4].position.x+=25/2
+                        this.battle.combatants[this.user+4].rate[0]-=25/2
+                    }
+                    if(this.timer==48+this.user*8-this.target[1]*8){
+                        this.battle.combatants[this.target[1]].take(this.damage,0,this.accuracy,this.user+4)
+                        if(this.type==51&&this.battle.combatants[this.target[1]].hit){
+                            this.battle.combatants[this.target[1]].status[13]+=sqrt(this.damage)/2
                         }
                     }
                 break

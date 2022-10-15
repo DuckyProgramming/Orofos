@@ -194,12 +194,15 @@ class battle{
                     this.combatants[e].life-=this.combatants[e].status[0]*2
                 }
             }
+            if(this.combatants[e].status[13]>0){
+                this.combatants[e].life-=this.combatants[e].status[13]
+            }
         }
     }
 	update(){
         switch(stage.scene){
             case 'battle':
-                for(k=1;k<12;k++){
+                for(k=1;k<14;k++){
                     if(this.combatants[this.stack[0].type].status[k]>0&&!this.stack[0].click){
                         this.combatants[this.stack[0].type].status[k]--
                         if(k==1||key==6||key==8){
