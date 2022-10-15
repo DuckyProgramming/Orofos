@@ -49,10 +49,10 @@ class combatant{
 		this.status=[]
 		this.statusFade=[]
 		this.statusDisplay=[]
-		this.statusColor=[[200,100,0],[255,255,150],[150,255,150],[0,50,100],[230,240,250],[150,0,0],[200,210,220],[255,225,0],[100,200,200],[150,50,0],[60,60,60],[150,100,50]]
+		this.statusColor=[[200,100,0],[255,255,150],[150,255,150],[0,50,100],[230,240,250],[150,0,0],[200,210,220],[255,225,0],[100,200,200],[150,50,0],[60,60,60],[150,100,50],[150,100,100]]
 		this.statusInfoFade=[]
-		this.statusName=['Burned','Stun','Confused','Buffer','Inaccurate','Anger','Sleep','Inflated','Fallen','Drunk','Oiled','Hungover']
-		for(g=0;g<12;g++){
+		this.statusName=['Burned','Stun','Confused','Buffer','Inaccurate','Anger','Sleep','Inflated','Fallen','Drunk','Oiled','Hungover','Bomb']
+		for(g=0;g<13;g++){
 			this.status.push(0)
 			this.statusFade.push(0)
 			this.statusInfoFade.push(0)
@@ -488,51 +488,86 @@ class combatant{
 				this.layer.triangle(18,-78,10,-78,16,-74)
 				this.layer.triangle(6,-78,-2,-78,0,-74)
 			break
+			case 17:
+				this.layer.stroke(100,100,50,this.fade)
+				this.layer.strokeWeight(4)
+				this.layer.line(-4,-30,-8-sin(this.rate[0]*2)*3,0)
+				this.layer.line(4,-30,8+sin(this.rate[0]*2)*3,0)
+				this.layer.line(-6*cos(this.rate[1]),-48,-15*cos(this.rate[1])+this.anim[0]*30+this.anim[1]*36,-24-this.anim[0]*12-this.anim[1]*30)
+				this.layer.line(6*cos(this.rate[1]),-48,15*cos(this.rate[1])+this.anim[0]*15+this.anim[1]*12,-24-this.anim[0]*12-this.anim[1]*30)
+				this.layer.noStroke()
+				this.layer.fill(100,100,50,this.fade)
+				this.layer.ellipse(0,-47,18,39)
+				this.layer.fill(60,60,30,this.fade);
+				this.layer.rect(0,-45,20,3);
+				this.layer.fill(240,220,180,this.fade)
+				this.layer.ellipse(0,-78,30,30)
+				this.layer.fill(0,this.fade)
+				this.layer.ellipse(4,-75,4,4)
+				this.layer.ellipse(12,-75,4,4)
+				this.layer.fill(50,50,200,this.fade)
+				this.layer.ellipse(-3,-57,5,5)
+				this.layer.stroke(40,this.fade)
+				this.layer.strokeWeight(1)
+				this.layer.fill(255,this.fade/5)
+				this.layer.ellipse(4,-74,6,5)
+				this.layer.ellipse(12,-74,6,5)
+				this.layer.line(7,0,9,0)
+			break
 		}
 		this.layer.scale(1/this.size/this.flip,1/this.size)
 		this.layer.rotate(-this.direction)
 		this.layer.translate(-this.position.x,-this.position.y)
 	}
 	take(damage,spec,accuracy,user){
-		this.calcAccuracy=accuracy
-		this.calcDamage=damage
-		this.hit=false
-		if(current.combatants[user].status[4]>0){
-			this.calcAccuracy*=0.5
-		}
-		if(current.combatants[user].status[9]>0){
-			this.calcAccuracy*=0.8
-			this.calcDamage*=2
-		}
-		if(this.status[9]>0){
-			this.calcDamage*=1.5
-		}
-		if(this.status[11]>0){
-			this.calcDamage*=0.6
-		}
-		if(random(0,1)<=this.calcAccuracy){
-			if(current.combatants[user].status[5]>0&&floor(random(0,2))==0||current.combatants[user].status[9]>0&&floor(random(0,4))==0||current.combatants[user].status[11]>0&&floor(random(0,4))==0){
+		if(this.life>0){
+			this.calcAccuracy=accuracy
+			this.calcDamage=damage
+			this.hit=false
+			if(current.combatants[user].status[4]>0){
+				this.calcAccuracy*=0.5
+			}
+			if(current.combatants[user].status[9]>0){
+				this.calcAccuracy*=0.8
 				this.calcDamage*=2
-				entities.particles.push(new particle(this.layer,this.position.x,this.position.y,6,0,2,1,[255,125,0]))
-				entities.particles[entities.particles.length-1].value='Crit'
 			}
-			this.hit=true
-			this.status[6]=0
-			if(this.status[3]>0){
-				this.status[3]--
-			}else if(this.status[8]<=0){
-				switch(spec){
-					case 0:
-						this.life-=this.calcDamage/(2+max(0,this.boost[1]))*(2-min(0,this.boost[1]))
-					break
-					case 1:
-						this.life-=this.calcDamage/2*(2-min(0,this.boost[1]))
-					break
+			if(this.status[9]>0){
+				this.calcDamage*=1.5
+			}
+			if(this.status[11]>0){
+				this.calcDamage*=0.6
+			}
+			if(random(0,1)<=this.calcAccuracy){
+				if(current.combatants[user].status[5]>0&&floor(random(0,2))==0||current.combatants[user].status[9]>0&&floor(random(0,4))==0||current.combatants[user].status[11]>0&&floor(random(0,4))==0){
+					this.calcDamage*=2
+					entities.particles.push(new particle(this.layer,this.position.x,this.position.y,6,0,2,1,[255,125,0]))
+					entities.particles[entities.particles.length-1].value='Crit'
 				}
+				this.hit=true
+				this.status[6]=0
+				if(this.status[3]>0){
+					this.status[3]--
+				}else if(this.status[8]<=0){
+					switch(spec){
+						case 0:
+							this.life-=this.calcDamage/(2+max(0,this.boost[1]))*(2-min(0,this.boost[1]))
+						break
+						case 1:
+							this.life-=this.calcDamage/2*(2-min(0,this.boost[1]))
+						break
+					}
+				}
+			}else{
+				entities.particles.push(new particle(this.layer,this.position.x,this.position.y,6,0,2,1,[255,0,0]))
+				entities.particles[entities.particles.length-1].value='Miss'
 			}
-		}else{
-			entities.particles.push(new particle(this.layer,this.position.x,this.position.y,6,0,2,1,[255,0,0]))
-			entities.particles[entities.particles.length-1].value='Miss'
+		}
+	}
+	endTurn(){
+		if(this.status[12]>0){
+			entities.particles.push(new particle(this.layer,this.position.x,this.position.y,2,0,160,1,[255,100,0]))
+			this.life-=this.status[12]
+			this.status[12]=0
 		}
 	}
 	update(){

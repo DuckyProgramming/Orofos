@@ -1,22 +1,23 @@
 types={
     combatant:[
         {name:'',life:0,speed:0,damage:0,attacks:[],height:0,reward:0},
-        {name:'Bill',life:28,speed:11,damage:1,attacks:[27,28,29],height:75,reward:0},
-        {name:'Tom',life:40,speed:15,damage:1,attacks:[30,31,32],height:75,reward:0},
-        {name:'Jon',life:24,speed:9,damage:1,attacks:[33,34,35],height:75,reward:0},
-        {name:'Eddy',life:26,speed:12,damage:1,attacks:[36,37,38],height:72,reward:0},
-        {name:'Lalex',life:32,speed:14,damage:1,attacks:[40,41,42],height:78,reward:0},
-        {name:'Scott',life:30,speed:8,damage:1,attacks:[43,44,45],height:75,reward:0},
-        {name:'Ollie',life:28,speed:13,damage:1,attacks:[46,47,48],height:75,reward:0},
-        {name:'Duckit',life:16,speed:6,damage:1,attacks:[12,13,14],height:60,reward:0},
+        {name:'Bill',life:56,speed:11,damage:1,attacks:[27,28,29],height:75,reward:0},
+        {name:'Tom',life:72,speed:15,damage:1,attacks:[30,31,32],height:75,reward:0},
+        {name:'Jon',life:48,speed:9,damage:1,attacks:[33,34,35],height:75,reward:0},
+        {name:'Eddy',life:52,speed:12,damage:1,attacks:[36,37,38],height:72,reward:0},
+        {name:'Lalex',life:64,speed:14,damage:1,attacks:[40,41,42],height:78,reward:0},
+        {name:'Scott',life:60,speed:8,damage:1,attacks:[43,44,45],height:75,reward:0},
+        {name:'Ollie',life:56,speed:13,damage:1,attacks:[46,47,48],height:75,reward:0},
+        {name:'Duckit',life:32,speed:6,damage:1,attacks:[12,13,14],height:60,reward:0},
         {name:'Human',life:20,speed:10,damage:1,attacks:[1],height:75,reward:10},
         {name:'Fat Human',life:50,speed:15,damage:1,attacks:[5],height:66,reward:15},
         {name:'Long Human',life:30,speed:8,damage:1,attacks:[4],height:84,reward:15},
         {name:'Big Human',life:60,speed:12,damage:2,attacks:[2,7],height:90,reward:20},
-        {name:'Management Soldier',life:240,speed:9,damage:2,attacks:[],height:78,reward:40},
-        {name:'Management Officer',life:150,speed:9,damage:2,attacks:[],height:78,reward:120},
+        {name:'Management Soldier',life:240,speed:9,damage:2,attacks:[],height:78,reward:80},
+        {name:'Management Officer',life:150,speed:9,damage:2,attacks:[],height:78,reward:160},
         {name:'Duck',life:12,speed:6,damage:1,attacks:[39],height:60,reward:0},
-        {name:'Desert Controller',life:40,speed:9,damage:2,attacks:[],height:78,reward:40},
+        {name:'Desert Controller',life:80,speed:9,damage:2,attacks:[],height:78,reward:20},
+        {name:'Desert Control Boss',life:50,speed:9,damage:2,attacks:[],height:78,reward:40},
     ],weapon:[
         {name:'Unarmed',damage:2,attacks:[0]},
         {name:'Stick',damage:4,attacks:[8]},
@@ -32,6 +33,7 @@ types={
         {name:'Management FBP-34',damage:20,attacks:[21]},
         {name:'Bandaid',damage:1,attacks:[8,22]},
         {name:'Baseball Bat',damage:6,attacks:[8,23]},
+        {name:'Time Bomb',damage:5,attacks:[8,49]},
     ],attack:[
         {name:'Punch'                   ,damage:1   ,target:0,class:0,uses:0 ,accuracy:1   ,description:'Basic attack'},
         {name:'Nerf Damage'             ,damage:0   ,target:0,class:1,uses:0 ,accuracy:1   ,description:'Decreases enemy damage'},
@@ -80,8 +82,9 @@ types={
         {name:'Oil Up'                  ,damage:6   ,target:0,class:1,uses:20,accuracy:1   ,description:'Flammable material'},
         {name:'Pass Out'                ,damage:2   ,target:1,class:1,uses:0 ,accuracy:1   ,description:'Fall asleep'},
         {name:'Flash Powder'            ,damage:1   ,target:2,class:1,uses:10,accuracy:1   ,description:'Throw strange powder'},
-        {name:'Particles'               ,damage:6   ,target:2,class:0,uses:5 ,accuracy:1   ,description:'Fire storm of particles'},
+        {name:'Particles'               ,damage:6   ,target:2,class:0,uses:0 ,accuracy:1   ,description:'Fire storm of particles'},
         {name:'Spray'                   ,damage:3   ,target:2,class:2,uses:20,accuracy:0.1 ,description:'Ready, fire, aim'},
+        {name:'Rig Bomb'                ,damage:4   ,target:0,class:4,uses:10,accuracy:1   ,description:'Leave a bomb'},
     ]
 }
 stage={scene:'battle',scale:1}
@@ -92,14 +95,14 @@ entities={particles:[]}
 run={fore:[]}
 dev={id:false}
 combatants=[
-    {id:5,weapon:6,team:0},
-    {id:6,weapon:5,team:0},
-    {id:7,weapon:3,team:0},
-    {id:8,weapon:4,team:0},
+    {id:4,weapon:6,team:0},
+    {id:5,weapon:5,team:0},
+    {id:6,weapon:14,team:0},
+    {id:7,weapon:4,team:0},
     {id:9,weapon:7,team:1},
     {id:10,weapon:7,team:1},
-    {id:11,weapon:13,team:1},
     {id:16,weapon:13,team:1},
+    {id:17,weapon:13,team:1},
 ]
 a=0;b=0;c=0;d=0;e=0;f=0;g=0;h=0;i=0;j=0;k=0;l=0;m=0;n=0;o=0;p=0
 la=0;lb=0;lc=0;ld=0;le=0;lf=0;lg=0;lh=0;li=0;lj=0;lk=0;ll=0;lm=0;ln=0;lo=0;lp=0
