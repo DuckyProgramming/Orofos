@@ -1,13 +1,13 @@
 types={
     combatant:[
         {name:'',life:0,speed:0,damage:0,attacks:[],height:0,reward:0},
-        {name:'Bill',life:24,speed:11,damage:1,attacks:[27,28,29],height:75,reward:0},
-        {name:'Tom',life:40,speed:14,damage:1,attacks:[30,31,32],height:75,reward:0},
-        {name:'Jon',life:30,speed:9,damage:1,attacks:[33,34,35],height:75,reward:0},
+        {name:'Bill',life:28,speed:11,damage:1,attacks:[27,28,29],height:75,reward:0},
+        {name:'Tom',life:40,speed:15,damage:1,attacks:[30,31,32],height:75,reward:0},
+        {name:'Jon',life:24,speed:9,damage:1,attacks:[33,34,35],height:75,reward:0},
         {name:'Eddy',life:26,speed:12,damage:1,attacks:[36,37,38],height:72,reward:0},
-        {name:'Lalex',life:28,speed:13,damage:1,attacks:[40,41,42],height:78,reward:0},
-        {name:'Scott',life:22,speed:8,damage:1,attacks:[43,44,45],height:75,reward:0},
-        {name:'Human',life:20,speed:10,damage:1,attacks:[1],height:75,reward:0},
+        {name:'Lalex',life:32,speed:14,damage:1,attacks:[40,41,42],height:78,reward:0},
+        {name:'Scott',life:30,speed:8,damage:1,attacks:[43,44,45],height:75,reward:0},
+        {name:'Ollie',life:28,speed:13,damage:1,attacks:[46,47,48],height:75,reward:0},
         {name:'Duckit',life:16,speed:6,damage:1,attacks:[12,13,14],height:60,reward:0},
         {name:'Human',life:20,speed:10,damage:1,attacks:[1],height:75,reward:10},
         {name:'Fat Human',life:50,speed:15,damage:1,attacks:[5],height:66,reward:15},
@@ -78,6 +78,9 @@ types={
         {name:'Drinks'                  ,damage:1   ,target:4,class:1,uses:10,accuracy:1   ,description:'Share the supply'},
         {name:'Oil Up'                  ,damage:6   ,target:0,class:1,uses:20,accuracy:1   ,description:'Flammable material'},
         {name:'Pass Out'                ,damage:2   ,target:1,class:1,uses:0 ,accuracy:1   ,description:'Fall asleep'},
+        {name:'Flash Powder'            ,damage:1   ,target:2,class:1,uses:10,accuracy:1   ,description:'Throw strange powder'},
+        {name:'Particles'               ,damage:6   ,target:2,class:0,uses:5 ,accuracy:1   ,description:'Fire storm of particles'},
+        {name:'Spray'                   ,damage:3   ,target:2,class:2,uses:20,accuracy:0.1 ,description:'Ready, fire, aim'},
     ]
 }
 stage={scene:'battle',scale:1}
@@ -88,13 +91,13 @@ entities={particles:[]}
 run={fore:[]}
 dev={id:false}
 combatants=[
-    {id:3,weapon:6,team:0},
-    {id:4,weapon:5,team:0},
-    {id:5,weapon:3,team:0},
-    {id:6,weapon:4,team:0},
+    {id:5,weapon:6,team:0},
+    {id:6,weapon:5,team:0},
+    {id:7,weapon:3,team:0},
+    {id:8,weapon:4,team:0},
+    {id:9,weapon:7,team:1},
     {id:10,weapon:7,team:1},
-    {id:10,weapon:7,team:1},
-    {id:12,weapon:13,team:1},
+    {id:11,weapon:13,team:1},
     {id:12,weapon:13,team:1},
 ]
 a=0;b=0;c=0;d=0;e=0;f=0;g=0;h=0;i=0;j=0;k=0;l=0;m=0;n=0;o=0;p=0
