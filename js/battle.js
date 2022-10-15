@@ -190,42 +190,28 @@ class battle{
         for(e=0,le=this.combatants.length;e<le;e++){
             if(this.combatants[e].status[0]>0){
                 this.combatants[e].life-=this.combatants[e].status[0]
+                if(this.combatants[e].status[10]>0){
+                    this.combatants[e].life-=this.combatants[e].status[0]*2
+                }
             }
         }
     }
 	update(){
         switch(stage.scene){
             case 'battle':
-                if(this.combatants[this.stack[0].type].status[1]>0&&!this.stack[0].click){
-                    this.combatants[this.stack[0].type].status[1]--
-                    this.stack[0].cancel=true
-                }
-                if(this.combatants[this.stack[0].type].status[2]>0&&!this.stack[0].click){
-                    this.combatants[this.stack[0].type].status[2]--
-                    if(floor(random(0,4))==0){
-                        this.stack[0].cancel=true
-                        this.combatants[this.stack[0].type].life-=this.combatants[this.stack[0].type].damage
+                for(k=1;k<12;k++){
+                    if(this.combatants[this.stack[0].type].status[k]>0&&!this.stack[0].click){
+                        this.combatants[this.stack[0].type].status[k]--
+                        if(k==1||key==6||key==8){
+                            this.stack[0].cancel=true
+                        }
+                        if(k==2){
+                            if(floor(random(0,4))==0){
+                                this.stack[0].cancel=true
+                                this.combatants[this.stack[0].type].life-=this.combatants[this.stack[0].type].damage
+                            }
+                        }
                     }
-                }
-                if(this.combatants[this.stack[0].type].status[3]>0&&!this.stack[0].click){
-                    this.combatants[this.stack[0].type].status[3]--
-                }
-                if(this.combatants[this.stack[0].type].status[4]>0&&!this.stack[0].click){
-                    this.combatants[this.stack[0].type].status[4]--
-                }
-                if(this.combatants[this.stack[0].type].status[5]>0&&!this.stack[0].click){
-                    this.combatants[this.stack[0].type].status[5]--
-                }
-                if(this.combatants[this.stack[0].type].status[6]>0&&!this.stack[0].click){
-                    this.combatants[this.stack[0].type].status[6]--
-                    this.stack[0].cancel=true
-                }
-                if(this.combatants[this.stack[0].type].status[7]>0&&!this.stack[0].click){
-                    this.combatants[this.stack[0].type].status[7]--
-                }
-                if(this.combatants[this.stack[0].type].status[8]>0&&!this.stack[0].click){
-                    this.combatants[this.stack[0].type].status[8]--
-                    this.stack[0].cancel=true
                 }
                 this.stack[0].click=true
                 e=0

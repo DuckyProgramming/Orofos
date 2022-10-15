@@ -46,12 +46,17 @@ class combatant{
 		this.boostColor=[[200,0,0],[0,150,255],[255,255,50]]
 		this.boostInfoFade=[0,0,0]
 		this.boostName=['Attack','Defense','Speed']
-		this.status=[0,0,0,0,0,0,0,0,0,0]
-		this.statusFade=[0,0,0,0,0,0,0,0,0,0]
+		this.status=[]
+		this.statusFade=[]
 		this.statusDisplay=[]
-		this.statusColor=[[200,100,0],[255,255,150],[150,255,150],[0,50,100],[230,240,250],[150,0,0],[200,210,220],[255,225,0],[100,200,200],[150,50,0]]
-		this.statusInfoFade=[0,0,0,0,0,0,0,0,0,0]
-		this.statusName=['Burned','Stun','Confused','Buffer','Inaccurate','Anger','Sleep','Inflated','Fallen','Drunk']
+		this.statusColor=[[200,100,0],[255,255,150],[150,255,150],[0,50,100],[230,240,250],[150,0,0],[200,210,220],[255,225,0],[100,200,200],[150,50,0],[60,60,60],[150,100,50]]
+		this.statusInfoFade=[]
+		this.statusName=['Burned','Stun','Confused','Buffer','Inaccurate','Anger','Sleep','Inflated','Fallen','Drunk','Oiled','Hungover']
+		for(g=0;g<12;g++){
+			this.status.push(0)
+			this.statusFade.push(0)
+			this.statusInfoFade.push(0)
+		}
 		this.infoFade=0
 		this.rate=[0,0]
 		this.stacking=this.speed
@@ -445,8 +450,11 @@ class combatant{
 		if(this.status[9]>0){
 			this.calcDamage*=1.5
 		}
+		if(this.status[11]>0){
+			this.calcDamage*=0.6
+		}
 		if(random(0,1)<=this.calcAccuracy){
-			if(current.combatants[user].status[5]>0&&floor(random(0,2))==0||current.combatants[user].status[9]>0&&floor(random(0,4))==0){
+			if(current.combatants[user].status[5]>0&&floor(random(0,2))==0||current.combatants[user].status[9]>0&&floor(random(0,4))==0||current.combatants[user].status[11]>0&&floor(random(0,4))==0){
 				this.calcDamage*=2
 				entities.particles.push(new particle(this.layer,this.position.x,this.position.y,6,0,2,1,[255,125,0]))
 				entities.particles[entities.particles.length-1].value='Crit'
