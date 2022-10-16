@@ -22,10 +22,10 @@ types={
         {name:'Fat Bounce',life:25,speed:11,damage:1,attacks:[5,53],height:66,reward:15},
         {name:'Long Bounce',life:15,speed:6,damage:1,attacks:[4,53],height:84,reward:15},
         {name:'Big Bounce',life:30,speed:9,damage:2,attacks:[2,7,53],height:90,reward:20},
-        {name:'Scrapper',life:10,speed:10,damage:1,attacks:[1],height:75,reward:10},
-        {name:'Fat Scrapper',life:25,speed:15,damage:1,attacks:[5],height:66,reward:15},
-        {name:'Long Scrapper',life:15,speed:8,damage:1,attacks:[4],height:84,reward:15},
-        {name:'Big Scrapper',life:30,speed:12,damage:2,attacks:[2,7],height:90,reward:20},
+        {name:'Scrapper',life:16,speed:10,damage:1,attacks:[1,55],height:75,reward:10},
+        {name:'Fat Scrapper',life:40,speed:15,damage:1,attacks:[5,55],height:66,reward:15},
+        {name:'Long Scrapper',life:24,speed:8,damage:1,attacks:[4,55],height:84,reward:15},
+        {name:'Big Scrapper',life:48,speed:12,damage:2,attacks:[2,7,55],height:90,reward:20},
         {name:'Builder',life:10,speed:10,damage:1,attacks:[1],height:75,reward:10},
         {name:'Fat Builder',life:25,speed:15,damage:1,attacks:[5],height:66,reward:15},
         {name:'Long Builder',life:15,speed:8,damage:1,attacks:[4],height:84,reward:15},
@@ -105,6 +105,7 @@ types={
         {name:'Status Heal'             ,damage:0   ,target:3,class:0,uses:10,accuracy:1   ,description:'Clear statuses'},
         {name:'Quick Strike'            ,damage:1   ,target:0,class:0,uses:0 ,accuracy:0.5 ,description:'Hit in rapid fashion'},
         {name:'Electrowhack'            ,damage:1   ,target:0,class:0,uses:5 ,accuracy:1   ,description:'Hit and stun'},
+        {name:'Repair'                  ,damage:4   ,target:3,class:0,uses:10,accuracy:1   ,description:'Fix Up'},
     ]
 }
 stage={scene:'battle',scale:1}
