@@ -26,10 +26,20 @@ types={
         {name:'Fat Scrapper',life:40,speed:15,damage:1,attacks:[5,56],height:66,reward:15},
         {name:'Long Scrapper',life:24,speed:8,damage:1,attacks:[4,56],height:84,reward:15},
         {name:'Big Scrapper',life:48,speed:12,damage:2,attacks:[2,7,56],height:90,reward:20},
-        {name:'Builder',life:10,speed:10,damage:1,attacks:[1,55],height:75,reward:10},
-        {name:'Fat Builder',life:25,speed:15,damage:1,attacks:[5,55],height:66,reward:15},
-        {name:'Long Builder',life:15,speed:8,damage:1,attacks:[4,55],height:84,reward:15},
-        {name:'Big Builder',life:30,speed:12,damage:2,attacks:[2,7,55],height:90,reward:20},
+        {name:'Builder',life:20,speed:10,damage:1,attacks:[1,55],height:75,reward:10},
+        {name:'Fat Builder',life:50,speed:15,damage:1,attacks:[5,55],height:66,reward:15},
+        {name:'Long Builder',life:30,speed:8,damage:1,attacks:[4,55],height:84,reward:15},
+        {name:'Big Builder',life:60,speed:12,damage:2,attacks:[2,7,55],height:90,reward:20},
+        {name:'Red',life:18,speed:10,damage:1,attacks:[1,59],height:75,reward:10},
+        {name:'Fat Red',life:45,speed:15,damage:1,attacks:[5,59],height:66,reward:15},
+        {name:'Long Red',life:27,speed:8,damage:1,attacks:[4,59],height:84,reward:15},
+        {name:'Big Red',life:54,speed:12,damage:2,attacks:[2,7,59],height:90,reward:20},
+        {name:'Reichswehr',life:14,speed:10,damage:2,attacks:[1,60],height:75,reward:10},
+        {name:'Fat Reichswehr',life:35,speed:15,damage:2,attacks:[5,60],height:66,reward:15},
+        {name:'Long Reichswehr',life:21,speed:8,damage:2,attacks:[4,60],height:84,reward:15},
+        {name:'Big Reichswehr',life:42,speed:12,damage:3,attacks:[2,7,60],height:90,reward:20},
+        {name:'Nerfer',life:12,speed:10,damage:1,attacks:[1,2,3],height:75,reward:10},
+        {name:'Buffer',life:12,speed:10,damage:1,attacks:[1,2,3],height:75,reward:10},
     ],weapon:[
         {name:'Unarmed',damage:2,attacks:[0]},
         {name:'Stick',damage:4,attacks:[8]},
@@ -50,8 +60,9 @@ types={
         {name:'Medpack',damage:2,attacks:[8,22,52]},
         {name:'Electrobaton',damage:15,attacks:[8,54]},
         {name:'Small Hammer',damage:5,attacks:[8,17,57]},
+        {name:'Sickle',damage:5,attacks:[50,58]},
     ],attack:[
-        {name:'Punch'                   ,damage:1   ,target:0,class:0,uses:0 ,accuracy:1   ,description:'Basic attack'},
+        {name:'Punch'                   ,damage:1   ,target:0,class:0,uses:0 ,accuracy:1   ,description:'Basic attack'},//0
         {name:'Nerf Damage'             ,damage:0   ,target:0,class:1,uses:0 ,accuracy:1   ,description:'Decreases enemy damage'},
         {name:'Nerf Defense'            ,damage:0   ,target:0,class:1,uses:0 ,accuracy:1   ,description:'Decreases enemy defense'},
         {name:'Nerf Speed'              ,damage:0   ,target:0,class:1,uses:0 ,accuracy:1   ,description:'Decreases enemy speed'},
@@ -61,7 +72,7 @@ types={
         {name:'Shockwave'               ,damage:0.5 ,target:2,class:0,uses:0 ,accuracy:1   ,description:'Damages all enemies'},
         {name:'Whack'                   ,damage:1   ,target:0,class:0,uses:0 ,accuracy:1   ,description:'Hit enemy with object'},
         {name:'Shoot'                   ,damage:2   ,target:0,class:2,uses:10,accuracy:0.9 ,description:'Fire weapon'},
-        {name:'Ignite'                  ,damage:1   ,target:0,class:3,uses:20,accuracy:1   ,description:'Sets enemy on fire'},
+        {name:'Ignite'                  ,damage:1   ,target:0,class:3,uses:20,accuracy:1   ,description:'Sets enemy on fire'},//10
         {name:'Stun'                    ,damage:1   ,target:0,class:3,uses:5 ,accuracy:1   ,description:'Stuns enemy'},
         {name:'Slap'                    ,damage:3   ,target:0,class:0,uses:0 ,accuracy:1   ,description:'Slap twice'},
         {name:'Slap Parade'             ,damage:2   ,target:2,class:0,uses:20,accuracy:1   ,description:'Slap all enemies'},
@@ -71,7 +82,7 @@ types={
         {name:'Smash'                   ,damage:1.5 ,target:0,class:0,uses:5 ,accuracy:0.9 ,description:'Hits hard'},
         {name:'Sustain Fire'            ,damage:2   ,target:0,class:2,uses:5 ,accuracy:0.6 ,description:'Fire multiple shots'},
         {name:'Overwhelming Force'      ,damage:1   ,target:0,class:2,uses:20,accuracy:0.4 ,description:'Fire swarm of shots'},
-        {name:'Concentrated Elimination',damage:4   ,target:0,class:2,uses:50,accuracy:1   ,description:'Good aiming'},
+        {name:'Concentrated Elimination',damage:4   ,target:0,class:2,uses:50,accuracy:1   ,description:'Good aiming'},//20
         {name:'Perfected Strike'        ,damage:6   ,target:0,class:2,uses:10,accuracy:1   ,description:'Hit the best spot'},
         {name:'Heal'                    ,damage:5   ,target:3,class:0,uses:10,accuracy:1   ,description:'Help out'},
         {name:'Combo'                   ,damage:1   ,target:0,class:0,uses:20,accuracy:1   ,description:'Knock them together'},
@@ -81,7 +92,7 @@ types={
         {name:'Lunch'                   ,damage:2   ,target:4,class:1,uses:20,accuracy:1   ,description:'Share some food'},
         {name:'Protection'              ,damage:1   ,target:3,class:1,uses:5 ,accuracy:1   ,description:'Keep ally alive'},
         {name:'Cheap Shot'              ,damage:3   ,target:0,class:2,uses:5 ,accuracy:0.8 ,description:"Fire before they're ready"},
-        {name:'Charge'                  ,damage:7   ,target:5,class:0,uses:10,accuracy:1   ,description:'Charge the front'},
+        {name:'Charge'                  ,damage:7   ,target:5,class:0,uses:10,accuracy:1   ,description:'Charge the front'},//30
         {name:'Enlarge'                 ,damage:0   ,target:1,class:1,uses:10,accuracy:1   ,description:'Power yourself up'},
         {name:'Mixup'                   ,damage:5   ,target:2,class:0,uses:5 ,accuracy:1   ,description:'Break their formation'},
         {name:'Verbal Assault'          ,damage:4   ,target:0,class:0,uses:20,accuracy:0.8 ,description:'Emotional damage'},
@@ -91,7 +102,7 @@ types={
         {name:"You're Fired"            ,damage:10  ,target:0,class:3,uses:5 ,accuracy:0.5 ,description:'Downsize'},
         {name:"Financial Crime"         ,damage:4   ,target:0,class:3,uses:5 ,accuracy:1   ,description:'Extort money'},
         {name:'Quack'                   ,damage:1   ,target:0,class:0,uses:0 ,accuracy:0.6 ,description:'Loud noise'},
-        {name:'Slam'                    ,damage:9   ,target:0,class:0,uses:10,accuracy:0.8 ,description:'Fall on enemy'},
+        {name:'Slam'                    ,damage:9   ,target:0,class:0,uses:10,accuracy:0.8 ,description:'Fall on enemy'},//40
         {name:'Cleanup'                 ,damage:0   ,target:4,class:3,uses:5 ,accuracy:1   ,description:'Remove team debuffs'},
         {name:'1v1'                     ,damage:4   ,target:0,class:0,uses:5 ,accuracy:1   ,description:'Fight me'},
         {name:'Drinks'                  ,damage:1   ,target:4,class:1,uses:10,accuracy:1   ,description:'Share the supply'},
@@ -101,7 +112,7 @@ types={
         {name:'Particles'               ,damage:6   ,target:2,class:0,uses:5 ,accuracy:1   ,description:'Fire storm of particles'},
         {name:'Spray'                   ,damage:3   ,target:2,class:2,uses:20,accuracy:0.1 ,description:'Ready, fire, aim'},
         {name:'Rig Bomb'                ,damage:4   ,target:0,class:4,uses:10,accuracy:1   ,description:'Leave a bomb'},
-        {name:'Stab'                    ,damage:1   ,target:0,class:0,uses:0 ,accuracy:1   ,description:'Stab the enemy'},
+        {name:'Stab'                    ,damage:1   ,target:0,class:0,uses:0 ,accuracy:1   ,description:'Stab the enemy'},//50
         {name:'Fast Stab'               ,damage:1   ,target:0,class:0,uses:10,accuracy:1   ,description:'Cause bleeding'},
         {name:'Status Heal'             ,damage:0   ,target:3,class:0,uses:10,accuracy:1   ,description:'Clear statuses'},
         {name:'Quick Strike'            ,damage:1   ,target:0,class:0,uses:0 ,accuracy:0.5 ,description:'Hit in rapid fashion'},
@@ -109,6 +120,9 @@ types={
         {name:'Repair'                  ,damage:4   ,target:3,class:0,uses:10,accuracy:1   ,description:'Fix up'},
         {name:'Divide'                  ,damage:1   ,target:0,class:0,uses:0 ,accuracy:0.8 ,description:'Take apart'},
         {name:'Pound'                   ,damage:1   ,target:0,class:0,uses:5 ,accuracy:1   ,description:'Hit in the head'},
+        {name:'Cut Down'                ,damage:0.5 ,target:6,class:0,uses:10,accuracy:1   ,description:'Cut through them'},
+        {name:'Share the Wealth'        ,damage:4   ,target:4,class:0,uses:0 ,accuracy:1   ,description:'Share the heals'},
+        {name:'Blitz'                   ,damage:3   ,target:0,class:2,uses:5 ,accuracy:0.6 ,description:"Fire quickly"},//60
     ]
 }
 stage={scene:'battle',scale:1}
@@ -123,10 +137,10 @@ combatants=[
     {id:5,weapon:15,team:0},
     {id:6,weapon:15,team:0},
     {id:7,weapon:15,team:0},
-    {id:26,weapon:18,team:1},
-    {id:27,weapon:18,team:1},
-    {id:28,weapon:18,team:1},
-    {id:29,weapon:18,team:1},
+    {id:34,weapon:2,team:1},
+    {id:35,weapon:2,team:1},
+    {id:36,weapon:2,team:1},
+    {id:37,weapon:2,team:1},
 ]
 a=0;b=0;c=0;d=0;e=0;f=0;g=0;h=0;i=0;j=0;k=0;l=0;m=0;n=0;o=0;p=0
 la=0;lb=0;lc=0;ld=0;le=0;lf=0;lg=0;lh=0;li=0;lj=0;lk=0;ll=0;lm=0;ln=0;lo=0;lp=0
