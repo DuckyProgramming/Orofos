@@ -22,14 +22,14 @@ types={
         {name:'Fat Bounce',life:25,speed:11,damage:1,attacks:[5,53],height:66,reward:15},
         {name:'Long Bounce',life:15,speed:6,damage:1,attacks:[4,53],height:84,reward:15},
         {name:'Big Bounce',life:30,speed:9,damage:2,attacks:[2,7,53],height:90,reward:20},
-        {name:'Scrapper',life:16,speed:10,damage:1,attacks:[1,55],height:75,reward:10},
-        {name:'Fat Scrapper',life:40,speed:15,damage:1,attacks:[5,55],height:66,reward:15},
-        {name:'Long Scrapper',life:24,speed:8,damage:1,attacks:[4,55],height:84,reward:15},
-        {name:'Big Scrapper',life:48,speed:12,damage:2,attacks:[2,7,55],height:90,reward:20},
-        {name:'Builder',life:10,speed:10,damage:1,attacks:[1],height:75,reward:10},
-        {name:'Fat Builder',life:25,speed:15,damage:1,attacks:[5],height:66,reward:15},
-        {name:'Long Builder',life:15,speed:8,damage:1,attacks:[4],height:84,reward:15},
-        {name:'Big Builder',life:30,speed:12,damage:2,attacks:[2,7],height:90,reward:20},
+        {name:'Scrapper',life:16,speed:10,damage:1,attacks:[1,56],height:75,reward:10},
+        {name:'Fat Scrapper',life:40,speed:15,damage:1,attacks:[5,56],height:66,reward:15},
+        {name:'Long Scrapper',life:24,speed:8,damage:1,attacks:[4,56],height:84,reward:15},
+        {name:'Big Scrapper',life:48,speed:12,damage:2,attacks:[2,7,56],height:90,reward:20},
+        {name:'Builder',life:10,speed:10,damage:1,attacks:[1,55],height:75,reward:10},
+        {name:'Fat Builder',life:25,speed:15,damage:1,attacks:[5,55],height:66,reward:15},
+        {name:'Long Builder',life:15,speed:8,damage:1,attacks:[4,55],height:84,reward:15},
+        {name:'Big Builder',life:30,speed:12,damage:2,attacks:[2,7,55],height:90,reward:20},
     ],weapon:[
         {name:'Unarmed',damage:2,attacks:[0]},
         {name:'Stick',damage:4,attacks:[8]},
@@ -49,6 +49,7 @@ types={
         {name:'Knife',damage:7,attacks:[50,51]},
         {name:'Medpack',damage:2,attacks:[8,22,52]},
         {name:'Electrobaton',damage:15,attacks:[8,54]},
+        {name:'Small Hammer',damage:5,attacks:[8,17,57]},
     ],attack:[
         {name:'Punch'                   ,damage:1   ,target:0,class:0,uses:0 ,accuracy:1   ,description:'Basic attack'},
         {name:'Nerf Damage'             ,damage:0   ,target:0,class:1,uses:0 ,accuracy:1   ,description:'Decreases enemy damage'},
@@ -105,7 +106,9 @@ types={
         {name:'Status Heal'             ,damage:0   ,target:3,class:0,uses:10,accuracy:1   ,description:'Clear statuses'},
         {name:'Quick Strike'            ,damage:1   ,target:0,class:0,uses:0 ,accuracy:0.5 ,description:'Hit in rapid fashion'},
         {name:'Electrowhack'            ,damage:1   ,target:0,class:0,uses:5 ,accuracy:1   ,description:'Hit and stun'},
-        {name:'Repair'                  ,damage:4   ,target:3,class:0,uses:10,accuracy:1   ,description:'Fix Up'},
+        {name:'Repair'                  ,damage:4   ,target:3,class:0,uses:10,accuracy:1   ,description:'Fix up'},
+        {name:'Divide'                  ,damage:1   ,target:0,class:0,uses:0 ,accuracy:0.8 ,description:'Take apart'},
+        {name:'Pound'                   ,damage:1   ,target:0,class:0,uses:5 ,accuracy:1   ,description:'Hit in the head'},
     ]
 }
 stage={scene:'battle',scale:1}
@@ -116,14 +119,14 @@ entities={particles:[]}
 run={fore:[]}
 dev={id:false}
 combatants=[
-    {id:4,weapon:17,team:0},
-    {id:5,weapon:17,team:0},
-    {id:6,weapon:17,team:0},
-    {id:7,weapon:17,team:0},
-    {id:22,weapon:0,team:1},
-    {id:23,weapon:0,team:1},
-    {id:24,weapon:0,team:1},
-    {id:25,weapon:0,team:1},
+    {id:4,weapon:15,team:0},
+    {id:5,weapon:15,team:0},
+    {id:6,weapon:15,team:0},
+    {id:7,weapon:15,team:0},
+    {id:26,weapon:18,team:1},
+    {id:27,weapon:18,team:1},
+    {id:28,weapon:18,team:1},
+    {id:29,weapon:18,team:1},
 ]
 a=0;b=0;c=0;d=0;e=0;f=0;g=0;h=0;i=0;j=0;k=0;l=0;m=0;n=0;o=0;p=0
 la=0;lb=0;lc=0;ld=0;le=0;lf=0;lg=0;lh=0;li=0;lj=0;lk=0;ll=0;lm=0;ln=0;lo=0;lp=0
