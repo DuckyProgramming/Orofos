@@ -39,7 +39,13 @@ types={
         {name:'Long Reichswehr',life:21,speed:8,damage:2,attacks:[4,60],height:84,reward:15},
         {name:'Big Reichswehr',life:42,speed:12,damage:3,attacks:[2,7,60],height:90,reward:20},
         {name:'Nerfer',life:12,speed:10,damage:1,attacks:[1,2,3],height:75,reward:10},
-        {name:'Buffer',life:12,speed:10,damage:1,attacks:[1,2,3],height:75,reward:10},
+        {name:'Buffer',life:12,speed:10,damage:1,attacks:[24,25,26],height:75,reward:10},
+        {name:'Big Nerfer',life:36,speed:12,damage:2,attacks:[1,2,3],height:90,reward:20},
+        {name:'Big Buffer',life:36,speed:12,damage:2,attacks:[24,25,26],height:90,reward:20},
+        {name:'Thug',life:10,speed:10,damage:1,attacks:[1],height:75,reward:10},
+        {name:'Fat Thug',life:25,speed:15,damage:1,attacks:[5],height:66,reward:15},
+        {name:'Long Thug',life:15,speed:8,damage:1,attacks:[4],height:84,reward:15},
+        {name:'Big Thug',life:30,speed:12,damage:2,attacks:[2,7],height:90,reward:20},
     ],weapon:[
         {name:'Unarmed',damage:2,attacks:[0]},
         {name:'Stick',damage:4,attacks:[8]},
@@ -137,10 +143,10 @@ combatants=[
     {id:5,weapon:15,team:0},
     {id:6,weapon:15,team:0},
     {id:7,weapon:15,team:0},
-    {id:34,weapon:2,team:1},
-    {id:35,weapon:2,team:1},
-    {id:36,weapon:2,team:1},
-    {id:37,weapon:2,team:1},
+    {id:38,weapon:2,team:1},
+    {id:39,weapon:2,team:1},
+    {id:40,weapon:2,team:1},
+    {id:41,weapon:2,team:1},
 ]
 a=0;b=0;c=0;d=0;e=0;f=0;g=0;h=0;i=0;j=0;k=0;l=0;m=0;n=0;o=0;p=0
 la=0;lb=0;lc=0;ld=0;le=0;lf=0;lg=0;lh=0;li=0;lj=0;lk=0;ll=0;lm=0;ln=0;lo=0;lp=0

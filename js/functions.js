@@ -28,6 +28,16 @@ function displayTransition(layer,transition){
 		transition.anim=round(transition.anim*10-1)/10
 	}
 }
+function regTriangle(layer,x,y,radius,direction){
+	layer.triangle(x+sin(direction)*radius,y+cos(direction)*radius,x+sin(direction+120)*radius,y+cos(direction+120)*radius,x+sin(direction+240)*radius,y+cos(direction+240)*radius);
+}
+function regPoly(layer,x,y,sides,radius,direction){
+	layer.beginShape()
+	for(k=0;k<sides;k++){
+		layer.vertex(x+sin(direction+k*360/sides)*radius,y+cos(direction+k*360/sides)*radius)
+	}
+	layer.endShape(CLOSE)
+}
 function pointInsideBox(point,box){
 	if(point.position.x>box.position.x-box.width/2&&point.position.x<box.position.x+box.width/2&&point.position.y>box.position.y-box.height/2&&point.position.y<box.position.y+box.height/2){
 		return true

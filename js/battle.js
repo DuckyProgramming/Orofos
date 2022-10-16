@@ -38,7 +38,7 @@ class battle{
         for(g=0,lg=this.stack.length;g<lg;g++){
             this.stack[g].cancel=true
         }
-        this.setTime=this.stack[1].time
+        this.setTime=this.stack[0].time
         this.reseting=true
     }
     set(scene){
