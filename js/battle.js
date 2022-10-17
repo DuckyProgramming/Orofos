@@ -186,6 +186,7 @@ class battle{
         this.layer.fill(255,225,0)
         this.layer.textSize(20)
         this.layer.text('$'+this.currency.money,50,580)
+        this.layer.image(graphics.minor[6],450,100,200,200)
     }
     turn(){
         for(e=0,le=this.combatants.length;e<le;e++){
@@ -356,6 +357,6 @@ class battle{
                 }
             break
         }
-        this.currency.money=round(this.currency.money*10)/10
+        this.currency.money=max(0,round(this.currency.money*10)/10)
 	}
 }

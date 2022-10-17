@@ -49,6 +49,10 @@ types={
         {name:'Management Robot',life:60,speed:9,damage:2,attacks:[62],height:78,reward:80},
         {name:'Quack Bridgade',life:18,speed:5,damage:1,attacks:[39,63],height:60,reward:10},
         {name:'Agent Duck',life:30,speed:7,damage:1,attacks:[],height:60,reward:15},
+        {name:'Shark',life:10,speed:10,damage:1,attacks:[1,67],height:75,reward:10},
+        {name:'Fat Shark',life:25,speed:15,damage:1,attacks:[5,67],height:66,reward:15},
+        {name:'Long Shark',life:15,speed:8,damage:1,attacks:[4,67],height:84,reward:15},
+        {name:'Big Shark',life:30,speed:12,damage:2,attacks:[2,7,67],height:90,reward:20},
     ],weapon:[
         {name:'Unarmed',damage:2,attacks:[0]},
         {name:'Stick',damage:4,attacks:[8]},
@@ -88,7 +92,7 @@ types={
         {name:'Slap Parade'             ,damage:2   ,target:2,class:0,uses:20,accuracy:1   ,description:'Slap all enemies'},
         {name:'Thunder Slap'            ,damage:4   ,target:0,class:0,uses:10,accuracy:1   ,description:'Slap and confuse'},
         {name:'Shotgun'                 ,damage:2   ,target:0,class:2,uses:5 ,accuracy:0.8 ,description:'Sprays bullets widely'},
-        {name:'Snipe'                   ,damage:3   ,target:0,class:2,uses:5 ,accuracy:1   ,description:'Igno res defense'},
+        {name:'Snipe'                   ,damage:3   ,target:0,class:2,uses:5 ,accuracy:1   ,description:'Ignores defense'},
         {name:'Smash'                   ,damage:1.5 ,target:0,class:0,uses:5 ,accuracy:0.9 ,description:'Hits hard'},
         {name:'Sustain Fire'            ,damage:2   ,target:0,class:2,uses:5 ,accuracy:0.6 ,description:'Fire multiple shots'},
         {name:'Overwhelming Force'      ,damage:1   ,target:0,class:2,uses:20,accuracy:0.4 ,description:'Fire swarm of shots'},
@@ -138,7 +142,8 @@ types={
         {name:'Hyperquack'              ,damage:1   ,target:0,class:0,uses:5 ,accuracy:0.4 ,description:'Loud noise'},
         {name:'Combo Punch'             ,damage:1.25,target:0,class:0,uses:0 ,accuracy:1   ,description:'Punch and build combo'},
         {name:'Combo Bonk'              ,damage:1   ,target:0,class:0,uses:0 ,accuracy:1   ,description:'Bonk and build combo'},
-        {name:'Combo Finish'            ,damage:1   ,target:0,class:0,uses:0 ,accuracy:1   ,description:'Big beatup'},
+        {name:'Combo Finish'            ,damage:1   ,target:0,class:0,uses:0 ,accuracy:1   ,description:'Hit and expend combo'},
+        {name:'Steal'                   ,damage:1   ,target:0,class:0,uses:0 ,accuracy:1   ,description:'Take cash'},
     ]
 }
 stage={scene:'battle',scale:1}
@@ -149,14 +154,14 @@ entities={particles:[]}
 run={fore:[]}
 dev={id:false}
 combatants=[
-    {id:48,weapon:20,team:0},
-    {id:48,weapon:20,team:0},
-    {id:48,weapon:20,team:0},
-    {id:48,weapon:20,team:0},
-    {id:48,weapon:20,team:1},
-    {id:48,weapon:20,team:1},
-    {id:48,weapon:20,team:1},
-    {id:48,weapon:20,team:1},
+    {id:4,weapon:0,team:0},
+    {id:5,weapon:0,team:0},
+    {id:6,weapon:0,team:0},
+    {id:7,weapon:0,team:0},
+    {id:49,weapon:0,team:1},
+    {id:50,weapon:0,team:1},
+    {id:51,weapon:0,team:1},
+    {id:52,weapon:0,team:1},
 ]
 a=0;b=0;c=0;d=0;e=0;f=0;g=0;h=0;i=0;j=0;k=0;l=0;m=0;n=0;o=0;p=0
 la=0;lb=0;lc=0;ld=0;le=0;lf=0;lg=0;lh=0;li=0;lj=0;lk=0;ll=0;lm=0;ln=0;lo=0;lp=0
