@@ -64,7 +64,7 @@ class combatant{
 		this.infoFade=0
 		this.rate=[0,0]
 		this.stacking=this.speed
-		this.anim=[0,0,0,0]
+		this.anim=[0,0,0,0,0]
 		this.calcAccuracy=0
 		this.calcDamage=0
 		this.hit=false
@@ -102,16 +102,16 @@ class combatant{
 		for(g=0,lg=this.boostDisplay.length;g<lg;g++){
 			this.layer.fill(0,this.boostFade[this.boostDisplay[g]]*this.fade)
 			if(this.boost[this.boostDisplay[g]]>0){
-				this.layer.text('+'+this.boost[this.boostDisplay[g]],-21+g*14,50)
+				this.layer.text('+'+round(this.boost[this.boostDisplay[g]]),-21+g*14,50)
 			}else{
-				this.layer.text(this.boost[this.boostDisplay[g]],-21+g*14,50)
+				this.layer.text(round(this.boost[this.boostDisplay[g]]),-21+g*14,50)
 			}
 			this.layer.fill(0,this.fade*this.boostFade[this.boostDisplay[g]]*this.boostInfoFade[g])
 			this.layer.text(this.boostName[this.boostDisplay[g]],0,80)
 		}
 		for(g=0,lg=this.statusDisplay.length;g<lg;g++){
 			this.layer.fill(0,this.statusFade[this.statusDisplay[g]]*this.fade)
-			this.layer.text(this.status[this.statusDisplay[g]],-21+g*14,64)
+			this.layer.text(round(this.status[this.statusDisplay[g]]),-21+g*14,64)
 			this.layer.fill(0,this.fade*this.statusFade[this.statusDisplay[g]]*this.statusInfoFade[g])
 			this.layer.text(this.statusName[this.statusDisplay[g]],0,80)
 		}
@@ -1097,6 +1097,112 @@ class combatant{
 				this.layer.fill(0,this.fade)
 				this.layer.ellipse(4,-87,4,4)
 				this.layer.ellipse(12,-87,4,4)
+			break
+			case 42:
+				this.layer.stroke(225,25,25,this.fade)
+				this.layer.strokeWeight(4)
+				this.layer.line(-4,-30,-8-sin(this.rate[0]*2)*3,0)
+				this.layer.line(4,-30,8+sin(this.rate[0]*2)*3,0)
+				this.layer.line(-6*cos(this.rate[1]),-48,-15*cos(this.rate[1])+this.anim[0]*30+this.anim[1]*36,-24-this.anim[0]*12-this.anim[1]*30)
+				this.layer.line(6*cos(this.rate[1]),-48,15*cos(this.rate[1])+this.anim[0]*15+this.anim[1]*12,-24-this.anim[0]*12-this.anim[1]*30)
+				this.layer.noStroke()
+				this.layer.fill(225,25,25,this.fade)
+				this.layer.ellipse(0,-45,18,36)
+				this.layer.fill(240,220,180,this.fade)
+				this.layer.ellipse(0,-75,30,30)
+				this.layer.fill(0,this.fade)
+				this.layer.ellipse(4,-72,4,4)
+				this.layer.ellipse(12,-72,4,4)
+				this.layer.fill(225,25,25,this.fade)
+				this.layer.arc(0,-75,32,32,-180,0)
+				this.layer.rect(-11,-77,22,4)
+				this.layer.stroke(190,20,20,this.fade)
+				this.layer.strokeWeight(2)
+				this.layer.fill(255,this.fade*2/3)
+				this.layer.rect(8,-72,15,7,2)
+			break
+			case 43:
+				this.layer.stroke(225,25,25,this.fade)
+				this.layer.strokeWeight(4)
+				this.layer.line(-4,-30,-8-sin(this.rate[0]*2)*3,0)
+				this.layer.line(4,-30,8+sin(this.rate[0]*2)*3,0)
+				this.layer.line(-12*cos(this.rate[1]),-48,-24*cos(this.rate[1])+this.anim[0]*30+this.anim[1]*36,-24-this.anim[0]*12-this.anim[1]*30)
+				this.layer.line(12*cos(this.rate[1]),-48,24*cos(this.rate[1])+this.anim[0]*15+this.anim[1]*12,-24-this.anim[0]*12-this.anim[1]*30)
+				this.layer.noStroke()
+				this.layer.fill(225,25,25,this.fade)
+				this.layer.ellipse(0,-39,36,30)
+				this.layer.fill(240,220,180,this.fade)
+				this.layer.ellipse(0,-66,30,30)
+				this.layer.fill(0,this.fade)
+				this.layer.ellipse(4,-63,4,4)
+				this.layer.ellipse(12,-63,4,4)
+				this.layer.fill(225,25,25,this.fade)
+				this.layer.arc(0,-66,32,32,-180,0)
+				this.layer.rect(-11,-68,22,4)
+				this.layer.stroke(190,20,20,this.fade)
+				this.layer.strokeWeight(2)
+				this.layer.fill(255,this.fade*2/3)
+				this.layer.rect(8,-63,15,7,2)
+			break
+			case 44:
+				this.layer.stroke(225,25,25,this.fade)
+				this.layer.strokeWeight(4)
+				this.layer.line(-4,-36,-8-sin(this.rate[0]*2)*3,0)
+				this.layer.line(4,-36,8+sin(this.rate[0]*2)*3,0)
+				this.layer.line(-5*cos(this.rate[1]),-54,-12*cos(this.rate[1])+this.anim[0]*30+this.anim[1]*36,-24-this.anim[0]*12-this.anim[1]*30)
+				this.layer.line(5*cos(this.rate[1]),-54,12*cos(this.rate[1])+this.anim[0]*15+this.anim[1]*12,-24-this.anim[0]*12-this.anim[1]*30)
+				this.layer.noStroke()
+				this.layer.fill(225,25,25,this.fade)
+				this.layer.ellipse(0,-48,15,45)
+				this.layer.fill(240,220,180,this.fade)
+				this.layer.ellipse(0,-84,30,30)
+				this.layer.fill(0,this.fade)
+				this.layer.ellipse(4,-84,4,4)
+				this.layer.ellipse(12,-84,4,4)
+				this.layer.fill(225,25,25,this.fade)
+				this.layer.arc(0,-84,32,32,-180,0)
+				this.layer.rect(-11,-86,22,4)
+				this.layer.stroke(190,20,20,this.fade)
+				this.layer.strokeWeight(2)
+				this.layer.fill(255,this.fade*2/3)
+				this.layer.rect(8,-84,15,7,2)
+			break
+			case 45:
+				this.layer.stroke(225,25,25,this.fade)
+				this.layer.strokeWeight(4)
+				this.layer.line(-6,-30,-12-sin(this.rate[0]*2)*4,0)
+				this.layer.line(6,-30,12+sin(this.rate[0]*2)*4,0)
+				this.layer.line(-12*cos(this.rate[1]),-60,-25*cos(this.rate[1])+this.anim[0]*36+this.anim[1]*45,-30-this.anim[0]*12-this.anim[1]*30)
+				this.layer.line(12*cos(this.rate[1]),-60,25*cos(this.rate[1])+this.anim[0]*18+this.anim[1]*15,-30-this.anim[0]*12-this.anim[1]*30)
+				this.layer.noStroke()
+				this.layer.fill(225,25,25,this.fade)
+				this.layer.ellipse(0,-51,30,54)
+				this.layer.fill(240,220,180,this.fade)
+				this.layer.ellipse(0,-90,30,30)
+				this.layer.fill(0,this.fade)
+				this.layer.ellipse(4,-87,4,4)
+				this.layer.ellipse(12,-87,4,4)
+				this.layer.fill(225,25,25,this.fade)
+				this.layer.arc(0,-90,32,32,-180,0)
+				this.layer.rect(-11,-92,22,4)
+				this.layer.stroke(190,20,20,this.fade)
+				this.layer.strokeWeight(2)
+				this.layer.fill(255,this.fade*2/3)
+				this.layer.rect(8,-87,15,7,2)
+			break
+			case 46:
+				this.layer.fill(160,170,180,this.fade)
+				this.layer.stroke(80,85,90,this.fade)
+				this.layer.strokeWeight(4)
+				this.layer.line(-4,-30,-8-sin(this.rate[0]*2)*3,0)
+				this.layer.line(4,-30,8+sin(this.rate[0]*2)*3,0)
+				this.layer.line(-6*cos(this.rate[1]),-48,-15*cos(this.rate[1])+this.anim[0]*30+this.anim[1]*36,-24-this.anim[0]*12-this.anim[1]*30)
+				this.layer.line(6*cos(this.rate[1]),-48,15*cos(this.rate[1])+this.anim[0]*15+this.anim[1]*12,-24-this.anim[0]*12-this.anim[1]*30)
+				this.layer.rect(0,-40,12,28)
+				this.layer.ellipse(0,-70,30,30)
+				this.layer.stroke(200,50+this.anim[4]*150,50,this.fade)
+				this.layer.point(3,-68)
+				this.layer.point(11,-68)
 			break
 		}
 		this.layer.scale(1/this.size/this.flip,1/this.size)

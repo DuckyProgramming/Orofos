@@ -10,6 +10,9 @@ function draw(){
                 for(b=0,lb=run.fore[a].length;b<lb;b++){
                     run.fore[a][b].display()
                     run.fore[a][b].update()
+                    if(current.speed>0){
+                        run.fore[a][b].update()
+                    }
                     if(run.fore[a][b].remove){
                         run.fore[a].splice(b,1)
                         b--

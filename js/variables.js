@@ -42,10 +42,12 @@ types={
         {name:'Buffer',life:12,speed:10,damage:1,attacks:[24,25,26],height:75,reward:10},
         {name:'Big Nerfer',life:36,speed:12,damage:2,attacks:[1,2,3],height:90,reward:20},
         {name:'Big Buffer',life:36,speed:12,damage:2,attacks:[24,25,26],height:90,reward:20},
-        {name:'Thug',life:10,speed:10,damage:1,attacks:[1],height:75,reward:10},
-        {name:'Fat Thug',life:25,speed:15,damage:1,attacks:[5],height:66,reward:15},
-        {name:'Long Thug',life:15,speed:8,damage:1,attacks:[4],height:84,reward:15},
-        {name:'Big Thug',life:30,speed:12,damage:2,attacks:[2,7],height:90,reward:20},
+        {name:'Thug',life:20,speed:20,damage:1,attacks:[1,61],height:75,reward:10},
+        {name:'Fat Thug',life:50,speed:30,damage:1,attacks:[5,61],height:66,reward:15},
+        {name:'Long Thug',life:30,speed:16,damage:1,attacks:[4,61],height:84,reward:15},
+        {name:'Big Thug',life:60,speed:24,damage:2,attacks:[2,7,61],height:90,reward:20},
+        {name:'Management Robot',life:60,speed:9,damage:2,attacks:[62],height:78,reward:80},
+        {name:'Duck',life:12,speed:6,damage:1,attacks:[39],height:60,reward:0},
     ],weapon:[
         {name:'Unarmed',damage:2,attacks:[0]},
         {name:'Stick',damage:4,attacks:[8]},
@@ -109,7 +111,7 @@ types={
         {name:"Financial Crime"         ,damage:4   ,target:0,class:3,uses:5 ,accuracy:1   ,description:'Extort money'},
         {name:'Quack'                   ,damage:1   ,target:0,class:0,uses:0 ,accuracy:0.6 ,description:'Loud noise'},
         {name:'Slam'                    ,damage:9   ,target:0,class:0,uses:10,accuracy:0.8 ,description:'Fall on enemy'},//40
-        {name:'Cleanup'                 ,damage:0   ,target:4,class:3,uses:5 ,accuracy:1   ,description:'Remove team debuffs'},
+        {name:'Cleanup'                 ,damage:0   ,target:4,class:3,uses:5 ,accuracy:1   ,description:'Remove team stat changes'},
         {name:'1v1'                     ,damage:4   ,target:0,class:0,uses:5 ,accuracy:1   ,description:'Fight me'},
         {name:'Drinks'                  ,damage:1   ,target:4,class:1,uses:10,accuracy:1   ,description:'Share the supply'},
         {name:'Oil Up'                  ,damage:6   ,target:0,class:1,uses:20,accuracy:1   ,description:'Flammable material'},
@@ -129,6 +131,8 @@ types={
         {name:'Cut Down'                ,damage:0.5 ,target:6,class:0,uses:10,accuracy:1   ,description:'Cut through them'},
         {name:'Share the Wealth'        ,damage:4   ,target:4,class:0,uses:0 ,accuracy:1   ,description:'Share the heals'},
         {name:'Blitz'                   ,damage:3   ,target:0,class:2,uses:5 ,accuracy:0.6 ,description:"Fire quickly"},//60
+        {name:'Shove'                   ,damage:1   ,target:0,class:0,uses:0 ,accuracy:0.8 ,description:'Push into each other'},
+        {name:'Mechanize'               ,damage:10  ,target:1,class:1,uses:5 ,accuracy:1   ,description:'Self-repair'},
     ]
 }
 stage={scene:'battle',scale:1}
@@ -139,14 +143,14 @@ entities={particles:[]}
 run={fore:[]}
 dev={id:false}
 combatants=[
-    {id:4,weapon:15,team:0},
     {id:5,weapon:15,team:0},
     {id:6,weapon:15,team:0},
     {id:7,weapon:15,team:0},
-    {id:38,weapon:2,team:1},
-    {id:39,weapon:2,team:1},
-    {id:40,weapon:2,team:1},
-    {id:41,weapon:2,team:1},
+    {id:8,weapon:15,team:0},
+    {id:46,weapon:2,team:1},
+    {id:46,weapon:2,team:1},
+    {id:46,weapon:2,team:1},
+    {id:46,weapon:2,team:1},
 ]
 a=0;b=0;c=0;d=0;e=0;f=0;g=0;h=0;i=0;j=0;k=0;l=0;m=0;n=0;o=0;p=0
 la=0;lb=0;lc=0;ld=0;le=0;lf=0;lg=0;lh=0;li=0;lj=0;lk=0;ll=0;lm=0;ln=0;lo=0;lp=0

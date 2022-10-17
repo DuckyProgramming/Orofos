@@ -17,6 +17,7 @@ class battle{
         this.totalMoved=0
         this.time=0
         this.setTime=0
+        this.speed=1
         this.currency={money:100}
 	}
     setupStack(){
@@ -206,7 +207,7 @@ class battle{
                     if(k!=0&&k!=12&&k!=14){
                         if(this.combatants[this.stack[0].type].status[k]>0&&!this.stack[0].click){
                             this.combatants[this.stack[0].type].status[k]--
-                            if(k==1||key==6||key==8){
+                            if(k==1||k==6||k==8){
                                 this.stack[0].cancel=true
                             }
                             if(k==2){
@@ -321,6 +322,10 @@ class battle{
                 }else if(this.attack.timer>0){
                     this.attack.timer=round(this.attack.timer-1)
                     this.attack.update()
+                    if(this.speed>0&&this.attack.timer>0){
+                        this.attack.timer=round(this.attack.timer-1)
+                        this.attack.update()
+                    }
                 }
                 if(this.stack.length<20&&!this.reseting){
                     this.max=24
