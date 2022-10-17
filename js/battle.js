@@ -203,11 +203,11 @@ class battle{
 	update(){
         switch(stage.scene){
             case 'battle':
-                for(k=0;k<16;k++){
+                for(k=0;k<17;k++){
                     if(k!=0&&k!=12&&k!=14){
                         if(this.combatants[this.stack[0].type].status[k]>0&&!this.stack[0].click){
                             this.combatants[this.stack[0].type].status[k]--
-                            if(k==1||k==6||k==8){
+                            if(k==1||k==6||k==8||k==16){
                                 this.stack[0].cancel=true
                             }
                             if(k==2){

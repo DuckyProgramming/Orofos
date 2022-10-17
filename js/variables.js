@@ -47,7 +47,7 @@ types={
         {name:'Long Thug',life:30,speed:16,damage:1,attacks:[4,61],height:84,reward:15},
         {name:'Big Thug',life:60,speed:24,damage:2,attacks:[2,7,61],height:90,reward:20},
         {name:'Management Robot',life:60,speed:9,damage:2,attacks:[62],height:78,reward:80},
-        {name:'Duck',life:12,speed:6,damage:1,attacks:[39],height:60,reward:0},
+        {name:'Quack Bridgade',life:18,speed:5,damage:1,attacks:[39,63],height:60,reward:0},
     ],weapon:[
         {name:'Unarmed',damage:2,attacks:[0]},
         {name:'Stick',damage:4,attacks:[8]},
@@ -133,10 +133,11 @@ types={
         {name:'Blitz'                   ,damage:3   ,target:0,class:2,uses:5 ,accuracy:0.6 ,description:"Fire quickly"},//60
         {name:'Shove'                   ,damage:1   ,target:0,class:0,uses:0 ,accuracy:0.8 ,description:'Push into each other'},
         {name:'Mechanize'               ,damage:10  ,target:1,class:1,uses:5 ,accuracy:1   ,description:'Self-repair'},
+        {name:'Hyperquack'              ,damage:1   ,target:0,class:0,uses:5 ,accuracy:0.4 ,description:'Loud noise'},
     ]
 }
 stage={scene:'battle',scale:1}
-graphics={main:0,backgrounds:[]}
+graphics={main:0,backgrounds:[],minor:[]}
 transition={trigger:false,anim:0,scene:stage.scene}
 inputs={mouse:{x:0,y:0},rel:{x:0,y:0},keys:[[false,false,false,false],[false,false,false,false]]}
 entities={particles:[]}
@@ -147,10 +148,10 @@ combatants=[
     {id:6,weapon:15,team:0},
     {id:7,weapon:15,team:0},
     {id:8,weapon:15,team:0},
-    {id:46,weapon:2,team:1},
-    {id:46,weapon:2,team:1},
-    {id:46,weapon:2,team:1},
-    {id:46,weapon:2,team:1},
+    {id:47,weapon:2,team:1},
+    {id:47,weapon:2,team:1},
+    {id:47,weapon:2,team:1},
+    {id:47,weapon:2,team:1},
 ]
 a=0;b=0;c=0;d=0;e=0;f=0;g=0;h=0;i=0;j=0;k=0;l=0;m=0;n=0;o=0;p=0
 la=0;lb=0;lc=0;ld=0;le=0;lf=0;lg=0;lh=0;li=0;lj=0;lk=0;ll=0;lm=0;ln=0;lo=0;lp=0

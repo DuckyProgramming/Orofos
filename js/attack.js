@@ -687,6 +687,17 @@ class attack{
                         }
                     }
                 break
+                case 63:
+                    if(this.timer==30||this.timer==35||this.timer==40||this.timer==45||this.timer==50||this.timer==55){
+                        entities.particles.push(new particle(this.layer,this.battle.combatants[this.user].position.x+10,this.battle.combatants[this.user].position.y-this.battle.combatants[this.user].height,1,random(60,120),160,random(0.5,1.5),[0,150,255]))
+                    }
+                    if(this.timer==45){
+                        this.battle.combatants[this.target[0]+4].take(this.damage,0,this.accuracy,this.user)
+                        if(this.battle.combatants[this.target[0]+4].hit){
+                            this.battle.combatants[this.target[0]+4].boost[1]-=2
+                        }
+                    }
+                break
             }
             if(this.timer==1){
                 this.battle.combatants[this.user].endTurn()
@@ -1232,6 +1243,17 @@ class attack{
                             if(this.battle.combatants[this.user+4].statusClass[g]==0){
                                 this.battle.combatants[this.user+4].status[g]=0
                             }
+                        }
+                    }
+                break
+                case 63:
+                    if(this.timer==30||this.timer==35||this.timer==40||this.timer==45||this.timer==50||this.timer==55){
+                        entities.particles.push(new particle(this.layer,this.battle.combatants[this.user+4].position.x+10,this.battle.combatants[this.user+4].position.y-this.battle.combatants[this.user+4].height,1,random(240,300),160,random(0.5,1.5),[0,150,255]))
+                    }
+                    if(this.timer==45){
+                        this.battle.combatants[this.target[1]].take(this.damage,0,this.accuracy,this.user+4)
+                        if(this.battle.combatants[this.target[1]].hit){
+                            this.battle.combatants[this.target[1]].boost[1]-=2
                         }
                     }
                 break
