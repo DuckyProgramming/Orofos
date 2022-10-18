@@ -68,6 +68,7 @@ class combatant{
 		this.statusClass[3]=1
 		this.statusClass[14]=1
 		this.statusClass[17]=1
+		this.statusClass[19]=1
 		this.infoFade=0
 		this.rate=[0,0]
 		this.stacking=this.speed
@@ -76,6 +77,14 @@ class combatant{
 		this.calcDamage=0
 		this.hit=false
 		this.valued=true
+		this.startStatus()
+	}
+	startStatus(){
+		switch(this.type){
+			case 67:
+				this.status[14]+=2
+			break
+		}
 	}
 	reset(){
 		this.turn=0
@@ -1761,6 +1770,29 @@ class combatant{
 				this.layer.fill(0,this.fade)
 				this.layer.ellipse(4,-117,4,4)
 				this.layer.ellipse(12,-117,4,4)
+			break
+			case 68:
+				this.layer.noStroke()
+				this.layer.fill(230,230,5,this.fade)
+				this.layer.ellipse(-15-sin(this.rate[0]*2)*3,-12,30,30)
+				this.layer.ellipse(15+sin(this.rate[0]*2)*3,-12,30,30)
+				this.layer.ellipse(cos(this.anim[2])*-(30+this.anim[3])+this.anim[1]*24+this.anim[0]*18,-48+sin(this.anim[2])*-(16+this.anim[3])-this.anim[1]*6-this.anim[0]*4,30,30)
+				this.layer.fill(235,235,55,this.fade)
+				this.layer.ellipse(0,-48,42,60)
+				this.layer.fill(240,240,60,this.fade)
+				this.layer.ellipse(cos(this.anim[2])*(30+this.anim[3])+this.anim[1]*24+this.anim[0]*18,-48+sin(this.anim[2])*(16+this.anim[3])-this.anim[1]*6-this.anim[0]*4,30,30)
+				this.layer.fill(245,245,65,this.fade)
+				this.layer.ellipse(0,-90,40,40)
+				this.layer.fill(240,160,20,this.fade)
+				this.layer.ellipse(13.5,-82,24,16)
+				this.layer.stroke(0,this.fade)
+				this.layer.strokeWeight(1)
+				this.layer.arc(13.5,-82,22,2,-180,0)
+				this.layer.line(18-3,-86,18-3,-88)
+				this.layer.line(18+3,-86,18+3,-88)
+				this.layer.strokeWeight(3)
+				this.layer.point(9-6,-94)
+				this.layer.point(9+6,-94)
 			break
 		}
 		this.layer.scale(1/this.size/this.flip,1/this.size)

@@ -118,10 +118,10 @@ class battle{
                     this.layer.noStroke()
                     this.layer.fill(0)
                     this.layer.textSize(20)
-                    if(this.combatants[this.stack[0].type].alt==' '){
+                    if(this.combatants[this.stack[0].type].alt==''){
                         this.layer.text(this.combatants[this.stack[0].type].name+' uses '+types.attack[this.attack.type].name,450,80)
                     }else{
-                        this.layer.text(this.combatants[this.stack[0].type].name+' '+this.combatants[this.stack[0].type].name+' uses '+types.attack[this.attack.type].name,450,80)
+                        this.layer.text(this.combatants[this.stack[0].type].name+' '+this.combatants[this.stack[0].type].alt+' uses '+types.attack[this.attack.type].name,450,80)
                     }
                 }else{
                     if(this.attack.trigger){
@@ -262,10 +262,10 @@ class battle{
                         break
                         case 1:
                             if(this.combatants[this.stack[0].type].turn==0){
-                                this.possibleAttack.push(this.combatants[this.stack[0].type].attacksByClass[1])
+                                this.possibleAttack.push(this.combatants[this.stack[0].type].attacksByClass[0].length)
                             }else{
                                 for(e=0,le=this.combatants[this.stack[0].type].attacks.length;e<le;e++){
-                                    if(this.combatants[this.stack[0].type].attacks[e]!=this.combatants[this.stack[0].type].attacksByClass[1](this.combatants[this.stack[0].type].uses[e]>0||types.attack[this.combatants[this.stack[0].type].attacks[e]].uses==0)){
+                                    if(this.combatants[this.stack[0].type].attacks[e]!=this.combatants[this.stack[0].type].attacksByClass[1][0]&&(this.combatants[this.stack[0].type].uses[e]>0||types.attack[this.combatants[this.stack[0].type].attacks[e]].uses==0)){
                                         this.possibleAttack.push(e)
                                     }
                                 }
