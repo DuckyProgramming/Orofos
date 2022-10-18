@@ -93,26 +93,26 @@ class battle{
                     this.stack[e].display()
                 }
                 for(e=0;e<4;e++){
-                    this.layer.stroke(220,225,230,this.combatants[e].infoFade*this.combatants[e].fade);
-                    this.layer.strokeWeight(5);
-                    this.layer.line(86+e*100,338,68+e*100,338);
-                    this.layer.line(14+e*100,338,32+e*100,338);
-                    this.layer.line(86+e*100,482,68+e*100,482);
-                    this.layer.line(14+e*100,482,32+e*100,482);
-                    this.layer.line(86+e*100,338,86+e*100,374);
-                    this.layer.line(14+e*100,338,14+e*100,374);
-                    this.layer.line(86+e*100,482,86+e*100,446);
-                    this.layer.line(14+e*100,482,14+e*100,446);
-                    this.layer.stroke(220,225,230,this.combatants[e+4].infoFade*this.combatants[e+4].fade);
-                    this.layer.strokeWeight(5);
-                    this.layer.line(586+e*100,338,568+e*100,338);
-                    this.layer.line(514+e*100,338,532+e*100,338);
-                    this.layer.line(586+e*100,482,568+e*100,482);
-                    this.layer.line(514+e*100,482,532+e*100,482);
-                    this.layer.line(586+e*100,338,586+e*100,374);
-                    this.layer.line(514+e*100,338,514+e*100,374);
-                    this.layer.line(586+e*100,482,586+e*100,446);
-                    this.layer.line(514+e*100,482,514+e*100,446);
+                    this.layer.stroke(220,225,230,this.combatants[e].infoFade*this.combatants[e].fade)
+                    this.layer.strokeWeight(5)
+                    this.layer.line(86+e*100,338,68+e*100,338)
+                    this.layer.line(14+e*100,338,32+e*100,338)
+                    this.layer.line(86+e*100,482,68+e*100,482)
+                    this.layer.line(14+e*100,482,32+e*100,482)
+                    this.layer.line(86+e*100,338,86+e*100,374)
+                    this.layer.line(14+e*100,338,14+e*100,374)
+                    this.layer.line(86+e*100,482,86+e*100,446)
+                    this.layer.line(14+e*100,482,14+e*100,446)
+                    this.layer.stroke(220,225,230,this.combatants[e+4].infoFade*this.combatants[e+4].fade)
+                    this.layer.strokeWeight(5)
+                    this.layer.line(586+e*100,338,568+e*100,338)
+                    this.layer.line(514+e*100,338,532+e*100,338)
+                    this.layer.line(586+e*100,482,568+e*100,482)
+                    this.layer.line(514+e*100,482,532+e*100,482)
+                    this.layer.line(586+e*100,338,586+e*100,374)
+                    this.layer.line(514+e*100,338,514+e*100,374)
+                    this.layer.line(586+e*100,482,586+e*100,446)
+                    this.layer.line(514+e*100,482,514+e*100,446)
                 }
                 if(this.attack.timer>0){
                     this.layer.noStroke()
