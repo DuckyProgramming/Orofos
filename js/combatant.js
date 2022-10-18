@@ -16,6 +16,7 @@ class combatant{
 			this.dead=false
 		}
 		this.name=types.combatant[this.type].name
+		this.alt=types.combatant[this.type].alt
 		this.life=types.combatant[this.type].life
 		this.speed=types.combatant[this.type].speed
 		this.damage=types.combatant[this.type].damage
@@ -26,7 +27,7 @@ class combatant{
 		for(g=0,lg=types.weapon[this.weapon].attacks.length;g<lg;g++){
 			this.attacks.push(types.weapon[this.weapon].attacks[g])
 			this.attackClass.push(0)
-		}
+		} 
 		for(g=0,lg=types.combatant[this.type].attacks.length;g<lg;g++){
 			this.attacks.push(types.combatant[this.type].attacks[g])
 			this.attackClass.push(1)
@@ -89,39 +90,77 @@ class combatant{
 			this.layer.fill(min(255,510-max(0,this.collect.life)/this.base.life*510)-max(0,5-max(0,this.collect.life)/this.base.life*30)*25,max(0,this.collect.life)/this.base.life*510,0,this.fade)
 			this.layer.rect((max(0,this.collect.life)/this.base.life)*30-30,20,(max(0,this.collect.life)/this.base.life)*60,2+min((max(0,this.collect.life)/this.base.life)*90,6),3)
 		}
-		for(g=0,lg=this.boostDisplay.length;g<lg;g++){
-			this.layer.fill(this.boostColor[this.boostDisplay[g]][0],this.boostColor[this.boostDisplay[g]][1],this.boostColor[this.boostDisplay[g]][2],this.boostFade[this.boostDisplay[g]]*this.fade)
-			this.layer.ellipse(-21+g*14,50,12,12)
-			this.layer.fill(150,this.fade*this.boostFade[this.boostDisplay[g]]*this.boostInfoFade[g])
-			this.layer.rect(0,80,45,15,3)
-		}
-		for(g=0,lg=this.statusDisplay.length;g<lg;g++){
-			this.layer.fill(this.statusColor[this.statusDisplay[g]][0],this.statusColor[this.statusDisplay[g]][1],this.statusColor[this.statusDisplay[g]][2],this.statusFade[this.statusDisplay[g]]*this.fade)
-			this.layer.ellipse(-21+g*14,64,12,12)
-			this.layer.fill(150,this.fade*this.statusFade[this.statusDisplay[g]]*this.statusInfoFade[g])
-			this.layer.rect(0,80,45,15,3)
-		}
-		this.layer.fill(0,this.fade)
-		this.layer.textSize(8)
-		this.layer.text(max(0,ceil(this.life*10)/10)+"/"+max(0,ceil(this.base.life)),0,21)
-		this.layer.textSize(10)
-		this.layer.text(this.name,0,32)
-		this.layer.text(types.weapon[this.weapon].name,0,40)
-		for(g=0,lg=this.boostDisplay.length;g<lg;g++){
-			this.layer.fill(0,this.boostFade[this.boostDisplay[g]]*this.fade)
-			if(this.boost[this.boostDisplay[g]]>0){
-				this.layer.text('+'+round(this.boost[this.boostDisplay[g]]),-21+g*14,50)
-			}else{
-				this.layer.text(round(this.boost[this.boostDisplay[g]]),-21+g*14,50)
+		if(this.alt==''){
+			for(g=0,lg=this.boostDisplay.length;g<lg;g++){
+				this.layer.fill(this.boostColor[this.boostDisplay[g]][0],this.boostColor[this.boostDisplay[g]][1],this.boostColor[this.boostDisplay[g]][2],this.boostFade[this.boostDisplay[g]]*this.fade)
+				this.layer.ellipse(-21+g*14,50,12,12)
+				this.layer.fill(150,this.fade*this.boostFade[this.boostDisplay[g]]*this.boostInfoFade[g])
+				this.layer.rect(0,80,45,15,3)
 			}
-			this.layer.fill(0,this.fade*this.boostFade[this.boostDisplay[g]]*this.boostInfoFade[g])
-			this.layer.text(this.boostName[this.boostDisplay[g]],0,80)
-		}
-		for(g=0,lg=this.statusDisplay.length;g<lg;g++){
-			this.layer.fill(0,this.statusFade[this.statusDisplay[g]]*this.fade)
-			this.layer.text(round(this.status[this.statusDisplay[g]]),-21+g*14,64)
-			this.layer.fill(0,this.fade*this.statusFade[this.statusDisplay[g]]*this.statusInfoFade[g])
-			this.layer.text(this.statusName[this.statusDisplay[g]],0,80)
+			for(g=0,lg=this.statusDisplay.length;g<lg;g++){
+				this.layer.fill(this.statusColor[this.statusDisplay[g]][0],this.statusColor[this.statusDisplay[g]][1],this.statusColor[this.statusDisplay[g]][2],this.statusFade[this.statusDisplay[g]]*this.fade)
+				this.layer.ellipse(-21+g*14,64,12,12)
+				this.layer.fill(150,this.fade*this.statusFade[this.statusDisplay[g]]*this.statusInfoFade[g])
+				this.layer.rect(0,80,45,15,3)
+			}
+			this.layer.fill(0,this.fade)
+			this.layer.textSize(8)
+			this.layer.text(max(0,ceil(this.life*10)/10)+"/"+max(0,ceil(this.base.life)),0,21)
+			this.layer.textSize(10)
+			this.layer.text(this.name,0,32)
+			this.layer.text(types.weapon[this.weapon].name,0,40)
+			for(g=0,lg=this.boostDisplay.length;g<lg;g++){
+				this.layer.fill(0,this.boostFade[this.boostDisplay[g]]*this.fade)
+				if(this.boost[this.boostDisplay[g]]>0){
+					this.layer.text('+'+round(this.boost[this.boostDisplay[g]]),-21+g*14,50)
+				}else{
+					this.layer.text(round(this.boost[this.boostDisplay[g]]),-21+g*14,50)
+				}
+				this.layer.fill(0,this.fade*this.boostFade[this.boostDisplay[g]]*this.boostInfoFade[g])
+				this.layer.text(this.boostName[this.boostDisplay[g]],0,80)
+			}
+			for(g=0,lg=this.statusDisplay.length;g<lg;g++){
+				this.layer.fill(0,this.statusFade[this.statusDisplay[g]]*this.fade)
+				this.layer.text(round(this.status[this.statusDisplay[g]]),-21+g*14,64)
+				this.layer.fill(0,this.fade*this.statusFade[this.statusDisplay[g]]*this.statusInfoFade[g])
+				this.layer.text(this.statusName[this.statusDisplay[g]],0,80)
+			}
+		}else{
+			for(g=0,lg=this.boostDisplay.length;g<lg;g++){
+				this.layer.fill(this.boostColor[this.boostDisplay[g]][0],this.boostColor[this.boostDisplay[g]][1],this.boostColor[this.boostDisplay[g]][2],this.boostFade[this.boostDisplay[g]]*this.fade)
+				this.layer.ellipse(-21+g*14,58,12,12)
+				this.layer.fill(150,this.fade*this.boostFade[this.boostDisplay[g]]*this.boostInfoFade[g])
+				this.layer.rect(0,88,45,15,3)
+			}
+			for(g=0,lg=this.statusDisplay.length;g<lg;g++){
+				this.layer.fill(this.statusColor[this.statusDisplay[g]][0],this.statusColor[this.statusDisplay[g]][1],this.statusColor[this.statusDisplay[g]][2],this.statusFade[this.statusDisplay[g]]*this.fade)
+				this.layer.ellipse(-21+g*14,72,12,12)
+				this.layer.fill(150,this.fade*this.statusFade[this.statusDisplay[g]]*this.statusInfoFade[g])
+				this.layer.rect(0,88,45,15,3)
+			}
+			this.layer.fill(0,this.fade)
+			this.layer.textSize(8)
+			this.layer.text(max(0,ceil(this.life*10)/10)+"/"+max(0,ceil(this.base.life)),0,21)
+			this.layer.textSize(10)
+			this.layer.text(this.name,0,32)
+			this.layer.text(this.alt,0,40)
+			this.layer.text(types.weapon[this.weapon].name,0,48)
+			for(g=0,lg=this.boostDisplay.length;g<lg;g++){
+				this.layer.fill(0,this.boostFade[this.boostDisplay[g]]*this.fade)
+				if(this.boost[this.boostDisplay[g]]>0){
+					this.layer.text('+'+round(this.boost[this.boostDisplay[g]]),-21+g*14,58)
+				}else{
+					this.layer.text(round(this.boost[this.boostDisplay[g]]),-21+g*14,58)
+				}
+				this.layer.fill(0,this.fade*this.boostFade[this.boostDisplay[g]]*this.boostInfoFade[g])
+				this.layer.text(this.boostName[this.boostDisplay[g]],0,88)
+			}
+			for(g=0,lg=this.statusDisplay.length;g<lg;g++){
+				this.layer.fill(0,this.statusFade[this.statusDisplay[g]]*this.fade)
+				this.layer.text(round(this.status[this.statusDisplay[g]]),-21+g*14,72)
+				this.layer.fill(0,this.fade*this.statusFade[this.statusDisplay[g]]*this.statusInfoFade[g])
+				this.layer.text(this.statusName[this.statusDisplay[g]],0,88)
+			}
 		}
 		this.layer.translate(-this.base.position.x,-this.base.position.y)
 	}
@@ -424,6 +463,7 @@ class combatant{
 				this.layer.arc(0,-78,36,36,-180,0)
 				this.layer.fill(65,130,140,this.fade/2)
 				this.layer.rect(8,-75,20,6)
+				this.layer.image(graphics.minor[4],-7,-60,8,8)
 			break
 			case 14:
 				this.layer.stroke(100,this.fade)
@@ -1549,6 +1589,32 @@ class combatant{
 				this.layer.fill(210,this.fade)
 				this.layer.rect(0,-100,30,12,3)
 				this.layer.rect(-12,-95,24,4)
+			break
+			case 61:
+				this.layer.stroke(25,30,30,this.fade)
+				this.layer.strokeWeight(4)
+				this.layer.line(-4,-30,-8-sin(this.rate[0]*2)*3,0)
+				this.layer.line(4,-30,8+sin(this.rate[0]*2)*3,0)
+				this.layer.stroke(30,35,35,this.fade)
+				this.layer.line(-6*cos(this.rate[1]),-48,-15*cos(this.rate[1])+this.anim[0]*30+this.anim[1]*36,-24-this.anim[0]*12-this.anim[1]*30)
+				this.layer.line(6*cos(this.rate[1]),-48,15*cos(this.rate[1])+this.anim[0]*15+this.anim[1]*12,-24-this.anim[0]*12-this.anim[1]*30)
+				this.layer.noStroke()
+				this.layer.fill(35,40,40,this.fade)
+				this.layer.ellipse(0,-47,18,39)
+				this.layer.fill(30,25,0,this.fade);
+				this.layer.rect(-7,-45,5,2);
+				this.layer.rect(0,-45,5,2);
+				this.layer.rect(7,-45,5,2);
+				this.layer.fill(240,220,180,this.fade)
+				this.layer.ellipse(0,-78,30,30)
+				this.layer.fill(0,this.fade)
+				this.layer.ellipse(4,-75,4,4)
+				this.layer.ellipse(12,-75,4,4)
+				this.layer.fill(30,35,35,this.fade)
+				this.layer.arc(0,-78,36,36,-180,0)
+				this.layer.fill(200,this.fade/2)
+				this.layer.rect(8,-75,20,6)
+				this.layer.image(graphics.minor[3],-7,-60,8,8)
 			break
 		}
 		this.layer.scale(1/this.size/this.flip,1/this.size)
