@@ -186,7 +186,6 @@ class battle{
         this.layer.fill(255,225,0)
         this.layer.textSize(20)
         this.layer.text('$'+this.currency.money,50,580)
-        this.layer.image(graphics.minor[6],450,100,200,200)
     }
     turn(){
         for(e=0,le=this.combatants.length;e<le;e++){
@@ -204,18 +203,19 @@ class battle{
 	update(){
         switch(stage.scene){
             case 'battle':
-                for(k=0;k<17;k++){
+                for(k=0;k<19;k++){
                     if(k!=0&&k!=12&&k!=14){
                         if(this.combatants[this.stack[0].type].status[k]>0&&!this.stack[0].click){
                             this.combatants[this.stack[0].type].status[k]--
                             if(k==1||k==6||k==8||k==16){
                                 this.stack[0].cancel=true
                             }
-                            if(k==2){
-                                if(floor(random(0,4))==0){
-                                    this.stack[0].cancel=true
-                                    this.combatants[this.stack[0].type].life-=this.combatants[this.stack[0].type].damage
-                                }
+                            if(k==2&&floor(random(0,4))==0){
+                                this.stack[0].cancel=true
+                                this.combatants[this.stack[0].type].life-=this.combatants[this.stack[0].type].damage
+                            }
+                            if(k==17&&this.combatants[this.stack[0].type].status[k]==0){
+                                this.combatants[this.stack[0].type].status[18]+=4
                             }
                         }
                     }

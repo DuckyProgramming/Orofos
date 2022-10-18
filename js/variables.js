@@ -1,6 +1,6 @@
 types={
     combatant:[
-        {name:'',life:0,speed:0,damage:0,attacks:[],height:0,reward:0},
+        {name:'',life:0,speed:0,damage:0,attacks:[],height:0,reward:0},//0
         {name:'Bill',life:56,speed:11,damage:1,attacks:[27,28,29],height:75,reward:0},
         {name:'Tom',life:72,speed:15,damage:1,attacks:[30,31,32],height:75,reward:0},
         {name:'Jon',life:48,speed:9,damage:1,attacks:[33,34,35],height:75,reward:0},
@@ -10,17 +10,17 @@ types={
         {name:'Ollie',life:56,speed:13,damage:1,attacks:[46,47,48],height:75,reward:0},
         {name:'Duckit',life:32,speed:6,damage:1,attacks:[12,13,14],height:60,reward:0},
         {name:'Human',life:10,speed:10,damage:1,attacks:[1],height:75,reward:10},
-        {name:'Fat Human',life:25,speed:15,damage:1,attacks:[5],height:66,reward:15},
+        {name:'Fat Human',life:25,speed:15,damage:1,attacks:[5],height:66,reward:15},//10
         {name:'Long Human',life:15,speed:8,damage:1,attacks:[4],height:84,reward:15},
         {name:'Big Human',life:30,speed:12,damage:2,attacks:[2,7],height:90,reward:20},
         {name:'Management Soldier',life:240,speed:9,damage:2,attacks:[],height:78,reward:80},
         {name:'Management Officer',life:150,speed:9,damage:2,attacks:[],height:78,reward:160},
         {name:'Duck',life:12,speed:6,damage:1,attacks:[39],height:60,reward:5},
-        {name:'Desert Controller',life:80,speed:9,damage:2,attacks:[],height:78,reward:20},
-        {name:'Desert Control Boss',life:50,speed:9,damage:2,attacks:[],height:78,reward:40},
+        {name:'Desert Controller',life:120,speed:9,damage:2,attacks:[],height:78,reward:20},
+        {name:'Desert Control Boss',life:75,speed:9,damage:2,attacks:[],height:78,reward:40},
         {name:'Bounce',life:10,speed:7,damage:1,attacks:[1,53],height:75,reward:10},
         {name:'Fat Bounce',life:25,speed:11,damage:1,attacks:[5,53],height:66,reward:15},
-        {name:'Long Bounce',life:15,speed:6,damage:1,attacks:[4,53],height:84,reward:15},
+        {name:'Long Bounce',life:15,speed:6,damage:1,attacks:[4,53],height:84,reward:15},//20
         {name:'Big Bounce',life:30,speed:9,damage:2,attacks:[2,7,53],height:90,reward:20},
         {name:'Scrapper',life:16,speed:10,damage:1,attacks:[1,56],height:75,reward:10},
         {name:'Fat Scrapper',life:40,speed:15,damage:1,attacks:[5,56],height:66,reward:15},
@@ -30,7 +30,7 @@ types={
         {name:'Fat Builder',life:50,speed:15,damage:1,attacks:[5,55],height:66,reward:15},
         {name:'Long Builder',life:30,speed:8,damage:1,attacks:[4,55],height:84,reward:15},
         {name:'Big Builder',life:60,speed:12,damage:2,attacks:[2,7,55],height:90,reward:20},
-        {name:'Red',life:18,speed:10,damage:1,attacks:[1,59],height:75,reward:10},
+        {name:'Red',life:18,speed:10,damage:1,attacks:[1,59],height:75,reward:10},//30
         {name:'Fat Red',life:45,speed:15,damage:1,attacks:[5,59],height:66,reward:15},
         {name:'Long Red',life:27,speed:8,damage:1,attacks:[4,59],height:84,reward:15},
         {name:'Big Red',life:54,speed:12,damage:2,attacks:[2,7,59],height:90,reward:20},
@@ -40,7 +40,7 @@ types={
         {name:'Big Reichswehr',life:42,speed:12,damage:3,attacks:[2,7,60],height:90,reward:20},
         {name:'Nerfer',life:12,speed:10,damage:1,attacks:[1,2,3],height:75,reward:10},
         {name:'Buffer',life:12,speed:10,damage:1,attacks:[24,25,26],height:75,reward:10},
-        {name:'Big Nerfer',life:36,speed:12,damage:2,attacks:[1,2,3],height:90,reward:20},
+        {name:'Big Nerfer',life:36,speed:12,damage:2,attacks:[1,2,3],height:90,reward:20},//40
         {name:'Big Buffer',life:36,speed:12,damage:2,attacks:[24,25,26],height:90,reward:20},
         {name:'Thug',life:20,speed:20,damage:1,attacks:[1,61],height:75,reward:10},
         {name:'Fat Thug',life:50,speed:30,damage:1,attacks:[5,61],height:66,reward:15},
@@ -49,10 +49,19 @@ types={
         {name:'Management Robot',life:60,speed:9,damage:2,attacks:[62],height:78,reward:80},
         {name:'Quack Bridgade',life:18,speed:5,damage:1,attacks:[39,63],height:60,reward:10},
         {name:'Agent Duck',life:30,speed:7,damage:1,attacks:[],height:60,reward:15},
-        {name:'Shark',life:10,speed:10,damage:1,attacks:[1,67],height:75,reward:10},
-        {name:'Fat Shark',life:25,speed:15,damage:1,attacks:[5,67],height:66,reward:15},
-        {name:'Long Shark',life:15,speed:8,damage:1,attacks:[4,67],height:84,reward:15},
-        {name:'Big Shark',life:30,speed:12,damage:2,attacks:[2,7,67],height:90,reward:20},
+        {name:'Shark',life:12,speed:8,damage:1,attacks:[1,67],height:75,reward:10},
+        {name:'Fat Shark',life:30,speed:12,damage:1,attacks:[5,67],height:66,reward:15},//50
+        {name:'Long Shark',life:18,speed:6,damage:1,attacks:[4,67],height:84,reward:15},
+        {name:'Big Shark',life:36,speed:10,damage:2,attacks:[2,7,67],height:90,reward:20},
+        {name:'Cartel',life:24,speed:10,damage:1,attacks:[1,68],height:75,reward:10},
+        {name:'Fat Cartel',life:60,speed:15,damage:1,attacks:[5,68],height:66,reward:15},
+        {name:'Long Cartel',life:36,speed:8,damage:1,attacks:[4,68],height:84,reward:15},
+        {name:'Big Cartel',life:72,speed:12,damage:2,attacks:[2,7,68],height:90,reward:20},
+        {name:'Junkie',life:10,speed:10,damage:1,attacks:[1,69],height:75,reward:10},
+        {name:'Fat Junkie',life:25,speed:15,damage:1,attacks:[5,69],height:66,reward:15},
+        {name:'Long Junkie',life:15,speed:8,damage:1,attacks:[4,69],height:84,reward:15},
+        {name:'Big Junkie',life:30,speed:12,damage:2,attacks:[2,7,69],height:90,reward:20},//60
+        {name:'Management',alt:'Special Forces',life:360,speed:9,damage:3,attacks:[],height:78,reward:120},
     ],weapon:[
         {name:'Unarmed',damage:2,attacks:[0]},
         {name:'Stick',damage:4,attacks:[8]},
@@ -144,6 +153,8 @@ types={
         {name:'Combo Bonk'              ,damage:1   ,target:0,class:0,uses:0 ,accuracy:1   ,description:'Bonk and build combo'},
         {name:'Combo Finish'            ,damage:1   ,target:0,class:0,uses:0 ,accuracy:1   ,description:'Hit and expend combo'},
         {name:'Steal'                   ,damage:1   ,target:0,class:0,uses:0 ,accuracy:1   ,description:'Take cash'},
+        {name:'Slash'                   ,damage:3   ,target:0,class:0,uses:0 ,accuracy:0.9 ,description:'Major bleed'},
+        {name:'Get High'                ,damage:3   ,target:1,class:1,uses:1 ,accuracy:1   ,description:'Take the good stuff'},
     ]
 }
 stage={scene:'battle',scale:1}
@@ -158,10 +169,10 @@ combatants=[
     {id:5,weapon:0,team:0},
     {id:6,weapon:0,team:0},
     {id:7,weapon:0,team:0},
-    {id:49,weapon:0,team:1},
-    {id:50,weapon:0,team:1},
-    {id:51,weapon:0,team:1},
-    {id:52,weapon:0,team:1},
+    {id:61,weapon:0,team:1},
+    {id:61,weapon:0,team:1},
+    {id:61,weapon:0,team:1},
+    {id:61,weapon:0,team:1},
 ]
 a=0;b=0;c=0;d=0;e=0;f=0;g=0;h=0;i=0;j=0;k=0;l=0;m=0;n=0;o=0;p=0
 la=0;lb=0;lc=0;ld=0;le=0;lf=0;lg=0;lh=0;li=0;lj=0;lk=0;ll=0;lm=0;ln=0;lo=0;lp=0
