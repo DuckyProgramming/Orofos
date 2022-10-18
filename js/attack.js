@@ -15,7 +15,7 @@ class attack{
     set(){
         switch(this.type){
             case 1: case 2: case 3: case 4: case 5: case 6: case 22: case 24: case 25: case 26: case 27: case 28: case 31: case 33: case 34: case 35: case 36: case 37: case 38: case 39:
-            case 41: case 43: case 45: case 52: case 55: case 59: case 63: case 69: case 70:
+            case 41: case 43: case 45: case 52: case 55: case 59: case 63: case 69: case 70: case 71: case 72: case 73: case 74:
                 this.timer=60
             break
             case 7:
@@ -745,6 +745,42 @@ class attack{
                         this.battle.combatants[this.user].boost[3]=0
                     }
                 break
+                case 71:
+                    if(this.timer==45){
+                        entities.particles.push(new particle(this.layer,this.battle.combatants[this.user].position.x+10,this.battle.combatants[this.user].position.y-this.battle.combatants[this.user].height,1,90,80,1,this.battle.combatants[this.user].statusColor[0]))
+                        this.battle.combatants[this.target[0]+4].take(0,0,this.accuracy,this.user)
+                        if(this.battle.combatants[this.target[0]+4].hit){
+                            this.battle.combatants[this.target[0]+4].status[0]+=this.damage
+                        }
+                    }
+                break
+                case 72:
+                    if(this.timer==45){
+                        entities.particles.push(new particle(this.layer,this.battle.combatants[this.user].position.x+10,this.battle.combatants[this.user].position.y-this.battle.combatants[this.user].height,1,90,80,1,this.battle.combatants[this.user].statusColor[2]))
+                        this.battle.combatants[this.target[0]+4].take(0,0,this.accuracy,this.user)
+                        if(this.battle.combatants[this.target[0]+4].hit){
+                            this.battle.combatants[this.target[0]+4].status[2]+=this.damage
+                        }
+                    }
+                break
+                case 73:
+                    if(this.timer==45){
+                        entities.particles.push(new particle(this.layer,this.battle.combatants[this.user].position.x+10,this.battle.combatants[this.user].position.y-this.battle.combatants[this.user].height,1,90,80,1,this.battle.combatants[this.user].statusColor[4]))
+                        this.battle.combatants[this.target[0]+4].take(0,0,this.accuracy,this.user)
+                        if(this.battle.combatants[this.target[0]+4].hit){
+                            this.battle.combatants[this.target[0]+4].status[4]+=this.damage
+                        }
+                    }
+                break
+                case 74:
+                    if(this.timer==45){
+                        entities.particles.push(new particle(this.layer,this.battle.combatants[this.user].position.x+10,this.battle.combatants[this.user].position.y-this.battle.combatants[this.user].height,1,90,80,1,this.battle.combatants[this.user].statusColor[6]))
+                        this.battle.combatants[this.target[0]+4].take(0,0,this.accuracy,this.user)
+                        if(this.battle.combatants[this.target[0]+4].hit){
+                            this.battle.combatants[this.target[0]+4].status[6]+=this.damage
+                        }
+                    }
+                break
             }
             if(this.timer==1){
                 this.battle.combatants[this.user].endTurn()
@@ -1344,6 +1380,42 @@ class attack{
                     if(this.timer==45+this.user*10-this.target[1]*10){
                         this.battle.combatants[this.target[1]].take(this.damage*(1+this.battle.combatants[this.user+4].boost[3]/2),0,this.accuracy,this.user+4)
                         this.battle.combatants[this.user+4].boost[3]=0
+                    }
+                break
+                case 71:
+                    if(this.timer==45){
+                        entities.particles.push(new particle(this.layer,this.battle.combatants[this.user+4].position.x+10,this.battle.combatants[this.user+4].position.y-this.battle.combatants[this.user+4].height,1,270,80,1,this.battle.combatants[this.user+4].statusColor[0]))
+                        this.battle.combatants[this.target[1]].take(0,0,this.accuracy,this.user+4)
+                        if(this.battle.combatants[this.target[1]].hit){
+                            this.battle.combatants[this.target[1]].status[0]+=this.damage
+                        }
+                    }
+                break
+                case 72:
+                    if(this.timer==45){
+                        entities.particles.push(new particle(this.layer,this.battle.combatants[this.user+4].position.x+10,this.battle.combatants[this.user+4].position.y-this.battle.combatants[this.user+4].height,1,270,80,1,this.battle.combatants[this.user+4].statusColor[2]))
+                        this.battle.combatants[this.target[1]].take(0,0,this.accuracy,this.user+4)
+                        if(this.battle.combatants[this.target[1]].hit){
+                            this.battle.combatants[this.target[1]].status[2]+=this.damage
+                        }
+                    }
+                break
+                case 73:
+                    if(this.timer==45){
+                        entities.particles.push(new particle(this.layer,this.battle.combatants[this.user+4].position.x+10,this.battle.combatants[this.user+4].position.y-this.battle.combatants[this.user+4].height,1,270,80,1,this.battle.combatants[this.user+4].statusColor[4]))
+                        this.battle.combatants[this.target[1]].take(0,0,this.accuracy,this.user+4)
+                        if(this.battle.combatants[this.target[1]].hit){
+                            this.battle.combatants[this.target[1]].status[4]+=this.damage
+                        }
+                    }
+                break
+                case 74:
+                    if(this.timer==45){
+                        entities.particles.push(new particle(this.layer,this.battle.combatants[this.user+4].position.x+10,this.battle.combatants[this.user+4].position.y-this.battle.combatants[this.user+4].height,1,270,80,1,this.battle.combatants[this.user+4].statusColor[6]))
+                        this.battle.combatants[this.target[1]].take(0,0,this.accuracy,this.user+4)
+                        if(this.battle.combatants[this.target[1]].hit){
+                            this.battle.combatants[this.target[1]].status[6]+=this.damage
+                        }
                     }
                 break
             }
