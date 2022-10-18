@@ -50,11 +50,11 @@ class combatant{
 		this.status=[]
 		this.statusFade=[]
 		this.statusDisplay=[]
-		this.statusColor=[[200,100,0],[255,255,150],[150,255,150],[0,50,100],[230,240,250],[150,0,0],[200,210,220],[255,225,0],[100,200,200],[150,50,0],[60,60,60],[150,100,50],[150,100,100],[255,50,0],[150,50,150],[225,200,100],[248,219,230],[50,255,255],[125,150,150]]
+		this.statusColor=[[200,100,0],[255,255,150],[150,255,150],[0,50,100],[230,240,250],[150,0,0],[200,210,220],[255,225,0],[100,200,200],[150,50,0],[60,60,60],[150,100,50],[150,100,100],[255,50,0],[150,50,150],[225,200,100],[248,219,230],[50,255,255],[125,150,150],[60,65,70]]
 		this.statusInfoFade=[]
-		this.statusName=['Burned','Stun','Confused','Buffer','Inaccurate','Anger','Sleep','Inflated','Fallen','Drunk','Oiled','Hungover','Bomb','Bleed','Control','Headache','Flustered','High','Withdraw']
+		this.statusName=['Burned','Stun','Confused','Buffer','Inaccurate','Anger','Sleep','Inflated','Fallen','Drunk','Oiled','Hungover','Bomb','Bleed','Control','Headache','Flustered','High','Withdraw','Armored']
 		this.statusClass=[]
-		for(g=0;g<19;g++){
+		for(g=0;g<20;g++){
 			this.status.push(0)
 			this.statusFade.push(0)
 			this.statusInfoFade.push(0)
@@ -1616,6 +1616,34 @@ class combatant{
 				this.layer.rect(8,-75,20,6)
 				this.layer.image(graphics.minor[3],-7,-60,8,8)
 			break
+			case 62:
+				this.layer.noStroke()
+				this.layer.fill(22,66,22,this.fade)
+				this.layer.ellipse(-10-sin(this.rate[0]*2)*2,-8,20,20)
+				this.layer.ellipse(10+sin(this.rate[0]*2)*2,-8,20,20)
+				this.layer.ellipse(cos(this.anim[2])*-(16+this.anim[3])+this.anim[1]*24+this.anim[0]*18,-30+sin(this.anim[2])*-(16+this.anim[3])-this.anim[1]*6-this.anim[0]*4,20,20)
+				this.layer.fill(24,72,24,this.fade)
+				this.layer.ellipse(0,-28,24,40)
+				this.layer.fill(180,this.fade)
+				this.layer.ellipse(-6,-36,6,6)
+				this.layer.fill(22,66,22,this.fade)
+				this.layer.ellipse(cos(this.anim[2])*(16+this.anim[3])+this.anim[1]*24+this.anim[0]*18,-30+sin(this.anim[2])*(16+this.anim[3])-this.anim[1]*6-this.anim[0]*4,20,20)
+				this.layer.fill(245,245,65,this.fade)
+				this.layer.ellipse(0,-60,40,40)
+				this.layer.fill(240,160,20,this.fade)
+				this.layer.ellipse(13.5,-52,24,16)
+				this.layer.stroke(0,this.fade)
+				this.layer.strokeWeight(1)
+				this.layer.arc(13.5,-52,22,2,-180,0)
+				this.layer.line(18-3,-56,18-3,-58)
+				this.layer.line(18+3,-56,18+3,-58)
+				this.layer.strokeWeight(3)
+				this.layer.point(9-6,-64)
+				this.layer.point(9+6,-64)
+				this.layer.noStroke()
+				this.layer.fill(20,60,20)
+				this.layer.arc(0,-60,48,48,-195,-15)
+			break
 		}
 		this.layer.scale(1/this.size/this.flip,1/this.size)
 		this.layer.rotate(-this.direction)
@@ -1651,6 +1679,9 @@ class combatant{
 			}
 			if(this.status[18]>0){
 				this.calcDamage*=2
+			}
+			if(this.status[19]>0){
+				this.calcDamage*=0.25
 			}
 			if(current.combatants[user].status[15]>0){
 				this.calcAccuracy*=0.75

@@ -62,6 +62,11 @@ types={
         {name:'Long Junkie',alt:'',life:15,speed:8,damage:1,attacks:[4,69],height:84,reward:15},
         {name:'Big Junkie',alt:'',life:30,speed:12,damage:2,attacks:[2,7,69],height:90,reward:20},//60
         {name:'Management',alt:'Special Forces',life:360,speed:9,damage:3,attacks:[],height:78,reward:120},
+        {name:'Duck Force',alt:'',life:24,speed:9,damage:1,attacks:[39,70],height:60,reward:5},
+        {name:'Human',alt:'',life:10,speed:10,damage:1,attacks:[1],height:75,reward:10},
+        {name:'Fat Human',alt:'',life:25,speed:15,damage:1,attacks:[5],height:66,reward:15},
+        {name:'Long Human',alt:'',life:15,speed:8,damage:1,attacks:[4],height:84,reward:15},
+        {name:'Big Human',alt:'',life:30,speed:12,damage:2,attacks:[2,7],height:90,reward:20},
     ],weapon:[
         {name:'Unarmed',damage:2,attacks:[0]},
         {name:'Stick',damage:4,attacks:[8]},
@@ -155,6 +160,7 @@ types={
         {name:'Steal'                   ,damage:1   ,target:0,class:0,uses:0 ,accuracy:1   ,description:'Take cash'},
         {name:'Slash'                   ,damage:3   ,target:0,class:0,uses:0 ,accuracy:0.9 ,description:'Major bleed'},
         {name:'Get High'                ,damage:3   ,target:1,class:1,uses:1 ,accuracy:1   ,description:'Take the good stuff'},
+        {name:'Entrench'                ,damage:2   ,target:1,class:1,uses:5 ,accuracy:1   ,description:'Armor yourself heavily'},//70
     ]
 }
 stage={scene:'battle',scale:1}
@@ -169,10 +175,10 @@ combatants=[
     {id:5,weapon:0,team:0},
     {id:6,weapon:0,team:0},
     {id:7,weapon:0,team:0},
-    {id:13,weapon:0,team:1},
-    {id:13,weapon:0,team:1},
-    {id:61,weapon:0,team:1},
-    {id:61,weapon:0,team:1},
+    {id:62,weapon:0,team:1},
+    {id:62,weapon:0,team:1},
+    {id:62,weapon:0,team:1},
+    {id:62,weapon:0,team:1},
 ]
 a=0;b=0;c=0;d=0;e=0;f=0;g=0;h=0;i=0;j=0;k=0;l=0;m=0;n=0;o=0;p=0
 la=0;lb=0;lc=0;ld=0;le=0;lf=0;lg=0;lh=0;li=0;lj=0;lk=0;ll=0;lm=0;ln=0;lo=0;lp=0
