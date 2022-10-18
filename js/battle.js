@@ -118,7 +118,11 @@ class battle{
                     this.layer.noStroke()
                     this.layer.fill(0)
                     this.layer.textSize(20)
-                    this.layer.text(this.combatants[this.stack[0].type].name+' uses '+types.attack[this.attack.type].name,450,80)
+                    if(this.combatants[this.stack[0].type].alt==' '){
+                        this.layer.text(this.combatants[this.stack[0].type].name+' uses '+types.attack[this.attack.type].name,450,80)
+                    }else{
+                        this.layer.text(this.combatants[this.stack[0].type].name+' '+this.combatants[this.stack[0].type].name+' uses '+types.attack[this.attack.type].name,450,80)
+                    }
                 }else{
                     if(this.attack.trigger){
                         this.layer.stroke(100,85,60)
@@ -248,10 +252,25 @@ class battle{
                 }else if(!this.stacking.use&&this.stack[0].type>=4&&!this.attack.trigger&&this.attack.timer<=0){
                     this.attack.user=this.stack[0].type-4
                     this.possibleAttack=[]
-                    for(e=0,le=this.combatants[this.stack[0].type].attacks.length;e<le;e++){
-                        if(this.combatants[this.stack[0].type].uses[e]>0||types.attack[this.combatants[this.stack[0].type].attacks[e]].uses==0){
-                            this.possibleAttack.push(e)
-                        }
+                    switch(this.combatants[this.stack[0].type].pattern){
+                        case 0:
+                            for(e=0,le=this.combatants[this.stack[0].type].attacks.length;e<le;e++){
+                                if(this.combatants[this.stack[0].type].uses[e]>0||types.attack[this.combatants[this.stack[0].type].attacks[e]].uses==0){
+                                    this.possibleAttack.push(e)
+                                }
+                            }
+                        break
+                        case 1:
+                            if(this.combatants[this.stack[0].type].turn==0){
+                                this.possibleAttack.push(this.combatants[this.stack[0].type].attacksByClass[1])
+                            }else{
+                                for(e=0,le=this.combatants[this.stack[0].type].attacks.length;e<le;e++){
+                                    if(this.combatants[this.stack[0].type].attacks[e]!=this.combatants[this.stack[0].type].attacksByClass[1](this.combatants[this.stack[0].type].uses[e]>0||types.attack[this.combatants[this.stack[0].type].attacks[e]].uses==0)){
+                                        this.possibleAttack.push(e)
+                                    }
+                                }
+                            }
+                        break
                     }
                     this.attack.type=this.possibleAttack[min(floor(random(0,this.possibleAttack.length)),this.possibleAttack.length-1)]
                     if(this.combatants[this.stack[0].type].uses[this.attack.type]>0){

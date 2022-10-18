@@ -22,14 +22,19 @@ class combatant{
 		this.damage=types.combatant[this.type].damage
 		this.height=types.combatant[this.type].height
 		this.reward=types.combatant[this.type].reward
+		this.pattern=types.combatant[this.type].pattern
+		this.turn=0
 		this.attacks=[]
+		this.attacksByClass=[[],[]]
 		this.attackClass=[]
 		for(g=0,lg=types.weapon[this.weapon].attacks.length;g<lg;g++){
 			this.attacks.push(types.weapon[this.weapon].attacks[g])
+			this.attacksByClass[0].push(types.weapon[this.weapon].attacks[g])
 			this.attackClass.push(0)
 		} 
 		for(g=0,lg=types.combatant[this.type].attacks.length;g<lg;g++){
 			this.attacks.push(types.combatant[this.type].attacks[g])
+			this.attacksByClass[1].push(types.combatant[this.type].attacks[g])
 			this.attackClass.push(1)
 		}
 		this.base={position:{x:this.position.x,y:this.position.y},life:this.life,uses:[]}
@@ -71,6 +76,15 @@ class combatant{
 		this.calcDamage=0
 		this.hit=false
 		this.valued=true
+	}
+	reset(){
+		this.turn=0
+		for(g=0,lg=this.boost.length;g<lg;g++){
+			this.boost[g]=0
+		}
+		for(g=0,lg=this.status.length;g<lg;g++){
+			this.status[g]=0
+		}
 	}
 	displayLife(){
 		this.layer.translate(this.base.position.x,this.base.position.y)
@@ -463,7 +477,7 @@ class combatant{
 				this.layer.arc(0,-78,36,36,-180,0)
 				this.layer.fill(65,130,140,this.fade/2)
 				this.layer.rect(8,-75,20,6)
-				this.layer.image(graphics.minor[4],-7,-60,8,8)
+				this.layer.image(graphics.minor[4],-3-4*this.fade,-56-4*this.fade,8*this.fade,8*this.fade)
 			break
 			case 14:
 				this.layer.stroke(100,this.fade)
@@ -1614,7 +1628,7 @@ class combatant{
 				this.layer.arc(0,-78,36,36,-180,0)
 				this.layer.fill(200,this.fade/2)
 				this.layer.rect(8,-75,20,6)
-				this.layer.image(graphics.minor[3],-7,-60,8,8)
+				this.layer.image(graphics.minor[3],-3-4*this.fade,-56-4*this.fade,8*this.fade,8*this.fade)
 			break
 			case 62:
 				this.layer.noStroke()
@@ -1732,6 +1746,22 @@ class combatant{
 				this.layer.ellipse(4,-87,4,4)
 				this.layer.ellipse(12,-87,4,4)
 			break
+			case 67:
+				this.layer.stroke(80,this.fade)
+				this.layer.strokeWeight(4)
+				this.layer.line(-6,-30,-12-sin(this.rate[0]*2)*4,0)
+				this.layer.line(6,-30,12+sin(this.rate[0]*2)*4,0)
+				this.layer.line(-18*cos(this.rate[1]),-75,-36*cos(this.rate[1])+this.anim[0]*48+this.anim[1]*60,-36-this.anim[0]*12-this.anim[1]*30)
+				this.layer.line(18*cos(this.rate[1]),-75,36*cos(this.rate[1])+this.anim[0]*24+this.anim[1]*20,-36-this.anim[0]*12-this.anim[1]*30)
+				this.layer.noStroke()
+				this.layer.fill(80,this.fade)
+				this.layer.ellipse(0,-66,60,84)
+				this.layer.fill(240,220,180,this.fade)
+				this.layer.ellipse(0,-120,30,30)
+				this.layer.fill(0,this.fade)
+				this.layer.ellipse(4,-117,4,4)
+				this.layer.ellipse(12,-117,4,4)
+			break
 		}
 		this.layer.scale(1/this.size/this.flip,1/this.size)
 		this.layer.rotate(-this.direction)
@@ -1801,6 +1831,7 @@ class combatant{
 		}
 	}
 	endTurn(){
+		this.turn++
 		if(this.status[12]>0){
 			entities.particles.push(new particle(this.layer,this.position.x,this.position.y,2,0,160,1,[255,100,0]))
 			this.life-=this.status[12]
