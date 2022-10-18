@@ -84,6 +84,9 @@ class combatant{
 			case 67:
 				this.status[14]+=2
 			break
+			case 69:
+				this.status[14]++
+			break
 		}
 	}
 	reset(){
@@ -1794,6 +1797,27 @@ class combatant{
 				this.layer.point(9-6,-94)
 				this.layer.point(9+6,-94)
 			break
+			case 69:
+				this.layer.stroke(200,this.fade)
+				this.layer.strokeWeight(4)
+				this.layer.line(-9,-30,-15-sin(this.rate[0]*2)*4,0)
+				this.layer.line(9,-30,15+sin(this.rate[0]*2)*4,0)
+				this.layer.line(-12*cos(this.rate[1]),-66,-27*cos(this.rate[1])+this.anim[0]*36+this.anim[1]*45,-33-this.anim[0]*12-this.anim[1]*30)
+				this.layer.line(12*cos(this.rate[1]),-66,27*cos(this.rate[1])+this.anim[0]*18+this.anim[1]*15,-33-this.anim[0]*12-this.anim[1]*30)
+				this.layer.noStroke()
+				this.layer.fill(200,this.fade)
+				this.layer.ellipse(0,-54,33,60)
+				this.layer.fill(255,50,50,this.fade)
+				this.layer.rect(0,-57,33,3)
+				this.layer.rect(0,-51,33,3)
+				this.layer.fill(240,220,180,this.fade)
+				this.layer.ellipse(0,-96,30,30)
+				this.layer.fill(0,this.fade)
+				this.layer.ellipse(4,-93,4,4)
+				this.layer.ellipse(12,-93,4,4)
+				this.layer.fill(200,this.fade)
+				this.layer.arc(0,-96,36,36,-180,0)
+			break
 		}
 		this.layer.scale(1/this.size/this.flip,1/this.size)
 		this.layer.rotate(-this.direction)
@@ -1868,6 +1892,11 @@ class combatant{
 			entities.particles.push(new particle(this.layer,this.position.x,this.position.y,2,0,160,1,[255,100,0]))
 			this.life-=this.status[12]
 			this.status[12]=0
+		}
+		switch(this.type){
+			case 69:
+				this.status[3]++
+			break
 		}
 	}
 	update(){
