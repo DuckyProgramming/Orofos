@@ -69,7 +69,8 @@ types={
         {name:'Big Funny Man',alt:'',life:30,speed:11,damage:2,attacks:[2,7,71,72,73,74],height:90,reward:20,pattern:0},
         {name:'Chonk',alt:'',life:120,speed:20,damage:3,attacks:[75,7],height:120,reward:100,pattern:1},
         {name:'Big Duckus',alt:'',life:72,speed:12,damage:2,attacks:[77,39],height:90,reward:50,pattern:1},
-        {name:'Lord Bounce',alt:'',life:200,speed:15,damage:4,attacks:[79,1,53],height:96,reward:10,pattern:1},
+        {name:'Lord Bounce',alt:'',life:150,speed:15,damage:4,attacks:[79,53],height:96,reward:100,pattern:1},
+        {name:'Scrap King',alt:'',life:240,speed:10,damage:3,attacks:[56],height:90,reward:100,pattern:0},
     ],weapon:[
         {name:'Unarmed',damage:2,attacks:[0]},
         {name:'Stick',damage:4,attacks:[8]},
@@ -79,7 +80,7 @@ types={
         {name:'Shotgun',damage:6,attacks:[8,15]},
         {name:'Sniper',damage:5,attacks:[8,9,16]},
         {name:'Metal Beam',damage:8,attacks:[8,17]},
-        {name:'Submachine',damage:3,attacks:[8,18]},
+        {name:'Submachine',damage:4,attacks:[8,18]},
         {name:'Management CR-12',damage:4,attacks:[19]},
         {name:'Management HVM-5',damage:10,attacks:[20]},
         {name:'Management FBP-34',damage:20,attacks:[21]},
@@ -95,6 +96,7 @@ types={
         {name:'Metal Frame',damage:10,attacks:[8,17,76]},
         {name:'Duckus Bat',damage:6,attacks:[8,23,78]},
         {name:'Pole',damage:5,attacks:[8,80]},
+        {name:'Big Gun',damage:8,attacks:[8,9,81]},
     ],attack:[
         {name:'Punch'                   ,damage:1   ,target:0,class:0,uses:0 ,accuracy:1   ,description:'Basic attack'},//0
         {name:'Nerf Damage'             ,damage:0   ,target:0,class:1,uses:0 ,accuracy:1   ,description:'Decreases enemy damage'},
@@ -176,7 +178,8 @@ types={
         {name:'Motivational Quack'      ,damage:0.5 ,target:0,class:0,uses:0 ,accuracy:1   ,description:'Quack for allies'},
         {name:'Double Bonk'             ,damage:1   ,target:0,class:0,uses:5 ,accuracy:1   ,description:'Knock three together'},
         {name:'Quick Sweep'             ,damage:1   ,target:0,class:0,uses:0 ,accuracy:0.5 ,description:'Sweep in rapid fashion'},
-        {name:'Defensive Hold'          ,damage:2   ,target:1,class:1,uses:10,accuracy:1   ,description:'Defend yourself'},//80
+        {name:'Defensive Hold'          ,damage:1   ,target:1,class:1,uses:10,accuracy:1   ,description:'Defend yourself'},//80
+        {name:'Heavy Soot'              ,damage:3   ,target:0,class:2,uses:5 ,accuracy:0.75,description:'Very big gun'},
     ]
 }
 stage={scene:'battle',scale:1}
@@ -187,14 +190,14 @@ entities={particles:[]}
 run={fore:[]}
 dev={id:false}
 combatants=[
-    {id:4,weapon:2,team:0},
-    {id:5,weapon:2,team:0},
-    {id:6,weapon:2,team:0},
-    {id:7,weapon:2,team:0},
-    {id:0,weapon:3,team:1},
-    {id:0,weapon:4,team:1},
-    {id:0,weapon:16,team:1},
-    {id:69,weapon:23,team:1},
+    {id:4,weapon:6,team:0},
+    {id:5,weapon:6,team:0},
+    {id:6,weapon:6,team:0},
+    {id:7,weapon:6,team:0},
+    {id:23,weapon:2,team:1},
+    {id:24,weapon:2,team:1},
+    {id:25,weapon:2,team:1},
+    {id:70,weapon:24,team:1},
 ]
 a=0;b=0;c=0;d=0;e=0;f=0;g=0;h=0;i=0;j=0;k=0;l=0;m=0;n=0;o=0;p=0
 la=0;lb=0;lc=0;ld=0;le=0;lf=0;lg=0;lh=0;li=0;lj=0;lk=0;ll=0;lm=0;ln=0;lo=0;lp=0

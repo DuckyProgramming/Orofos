@@ -55,11 +55,11 @@ class combatant{
 		this.status=[]
 		this.statusFade=[]
 		this.statusDisplay=[]
-		this.statusColor=[[200,100,0],[255,255,150],[150,255,150],[0,50,100],[230,240,250],[150,0,0],[200,210,220],[255,225,0],[100,200,200],[150,50,0],[60,60,60],[150,100,50],[150,100,100],[255,50,0],[150,50,150],[225,200,100],[248,219,230],[50,255,255],[125,150,150],[60,65,70]]
+		this.statusColor=[[200,100,0],[255,255,150],[150,255,150],[0,50,100],[230,240,250],[150,0,0],[200,210,220],[255,225,0],[100,200,200],[150,50,0],[60,60,60],[150,100,50],[150,100,100],[255,50,0],[150,50,150],[225,200,100],[248,219,230],[50,255,255],[125,150,150],[60,65,70],[90,95,100]]
 		this.statusInfoFade=[]
-		this.statusName=['Burned','Stun','Confused','Buffer','Inaccurate','Anger','Sleep','Inflated','Fallen','Drunk','Oiled','Hungover','Bomb','Bleed','Control','Headache','Flustered','High','Withdraw','Armored']
+		this.statusName=['Burned','Stun','Confused','Buffer','Inaccurate','Anger','Sleep','Inflated','Fallen','Drunk','Oiled','Hungover','Bomb','Bleed','Control','Headache','Flustered','High','Withdraw','Armored','Reinforced']
 		this.statusClass=[]
-		for(g=0;g<20;g++){
+		for(g=0;g<21;g++){
 			this.status.push(0)
 			this.statusFade.push(0)
 			this.statusInfoFade.push(0)
@@ -69,6 +69,7 @@ class combatant{
 		this.statusClass[14]=1
 		this.statusClass[17]=1
 		this.statusClass[19]=1
+		this.statusClass[20]=1
 		this.infoFade=0
 		this.rate=[0,0]
 		this.stacking=this.speed
@@ -86,6 +87,11 @@ class combatant{
 			break
 			case 69:
 				this.status[14]++
+			break
+			case 70:
+				this.status[3]++
+				this.status[14]+=4
+				this.status[20]++
 			break
 		}
 	}
@@ -188,7 +194,18 @@ class combatant{
 				this.layer.text(this.statusName[this.statusDisplay[g]],0,88)
 			}
 		}
-		this.layer.translate(-this.base.position.x,-this.base.position.y)
+		this.layer.translate(0,-this.height/2)
+		this.layer.stroke(220,225,230,this.infoFade*this.fade)
+		this.layer.strokeWeight(5)
+		this.layer.line(36,-72,18,-72)
+		this.layer.line(-36,-72,-18,-72)
+		this.layer.line(36,72,18,72)
+        this.layer.line(-36,72,-18,72)
+        this.layer.line(36,-72,36,-36)
+        this.layer.line(-36,-72,-36,-36)
+        this.layer.line(36,72,36,36)
+        this.layer.line(-36,72,-36,36)
+		this.layer.translate(-this.base.position.x,-this.base.position.y+this.height/2)
 	}
 	display(){
 		this.layer.translate(this.position.x,this.position.y)
@@ -1818,6 +1835,42 @@ class combatant{
 				this.layer.fill(200,this.fade)
 				this.layer.arc(0,-96,36,36,-180,0)
 			break
+			case 70:
+				this.layer.stroke(80,this.fade)
+				this.layer.strokeWeight(8)
+				this.layer.line(-6,-30,-12-sin(this.rate[0]*2)*4,0)
+				this.layer.line(6,-30,12+sin(this.rate[0]*2)*4,0)
+				this.layer.line(-12*cos(this.rate[1]),-60,-25*cos(this.rate[1])+this.anim[0]*36+this.anim[1]*45,-30-this.anim[0]*12-this.anim[1]*30)
+				this.layer.line(12*cos(this.rate[1]),-60,25*cos(this.rate[1])+this.anim[0]*18+this.anim[1]*15,-30-this.anim[0]*12-this.anim[1]*30)
+				this.layer.stroke(90,this.fade)
+				this.layer.strokeWeight(4)
+				this.layer.line(-6,-30,-12-sin(this.rate[0]*2)*4,0)
+				this.layer.line(6,-30,12+sin(this.rate[0]*2)*4,0)
+				this.layer.line(-12*cos(this.rate[1]),-60,-25*cos(this.rate[1])+this.anim[0]*36+this.anim[1]*45,-30-this.anim[0]*12-this.anim[1]*30)
+				this.layer.line(12*cos(this.rate[1]),-60,25*cos(this.rate[1])+this.anim[0]*18+this.anim[1]*15,-30-this.anim[0]*12-this.anim[1]*30)
+				this.layer.noStroke()
+				this.layer.fill(80,this.fade)
+				this.layer.ellipse(0,-51,34,58)
+				this.layer.fill(100,this.fade)
+				this.layer.ellipse(0,-51,30,54)
+				this.layer.fill(80,this.fade)
+				this.layer.rect(0,-51,30,4)
+				this.layer.fill(40,this.fade)
+				this.layer.rect(0,-51,8,8)
+				this.layer.fill(160,this.fade)
+				this.layer.ellipse(0,-90,36,36)
+				this.layer.fill(240,220,180,this.fade)
+				this.layer.ellipse(0,-90,30,30)
+				this.layer.fill(120,this.fade)
+				this.layer.arc(0,-90,38,38,-180,0)
+				this.layer.fill(0,this.fade)
+				this.layer.ellipse(4,-87,4,4)
+				this.layer.ellipse(12,-87,4,4)
+				this.layer.stroke(100,this.fade)
+				this.layer.strokeWeight(2)
+				this.layer.fill(200,0,0,this.fade/3)
+				this.layer.rect(8,-87,16,8,2)
+			break
 		}
 		this.layer.scale(1/this.size/this.flip,1/this.size)
 		this.layer.rotate(-this.direction)
@@ -1834,6 +1887,9 @@ class combatant{
 			if(current.combatants[user].status[9]>0){
 				this.calcAccuracy*=0.8
 				this.calcDamage*=2
+			}
+			if(current.combatants[user].status[15]>0){
+				this.calcAccuracy*=0.75
 			}
 			if(current.combatants[user].status[17]>0){
 				this.calcAccuracy*=1.5
@@ -1857,8 +1913,9 @@ class combatant{
 			if(this.status[19]>0){
 				this.calcDamage*=0.25
 			}
-			if(current.combatants[user].status[15]>0){
-				this.calcAccuracy*=0.75
+			if(this.status[20]>0){
+				this.calcDamage*=0.5
+				this.status[20]--
 			}
 			if(random(0,1)<=this.calcAccuracy||this.status[16]>0){
 				if(current.combatants[user].status[5]>0&&floor(random(0,2))==0||current.combatants[user].status[9]>0&&floor(random(0,4))==0||current.combatants[user].status[11]>0&&floor(random(0,4))==0){
@@ -1896,6 +1953,12 @@ class combatant{
 		switch(this.type){
 			case 69:
 				this.status[3]++
+			break
+			case 70:
+				if(this.status[14]<=0){
+					this.status[14]++
+				}
+				this.status[20]++
 			break
 		}
 	}
