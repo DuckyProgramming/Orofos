@@ -208,10 +208,18 @@ class battle{
                 this.stack[0].click=true
                 this.attack.check=false
                 if(this.attack.timer<=0){
-                    e=0
-                    while(this.combatants[4+this.attack.target[0]].life<=0&&e<4){
-                        e++
-                        this.attack.target[0]=(this.attack.target[0]+1)%4
+                    if(types.attack[this.attack.type].target==3){
+                        e=0
+                        while(this.combatants[this.attack.target[0]].life<=0&&e<4){
+                            e++
+                            this.attack.target[0]=(this.attack.target[0]+1)%4
+                        }
+                    }else{
+                        e=0
+                        while(this.combatants[4+this.attack.target[0]].life<=0&&e<4){
+                            e++
+                            this.attack.target[0]=(this.attack.target[0]+1)%4
+                        }
                     }
                 }
                 if(this.stack[0].type<4&&!this.stacking.use&&this.attack.timer<=0){

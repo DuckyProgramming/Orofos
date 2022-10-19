@@ -9,14 +9,14 @@ function mouseClicked(){
                     switch(types.attack[current.attack.type].target){
                         case 0:
                             for(a=0;a<4;a++){
-                                if(pointInsideBox({position:inputs.rel},{position:{x:550+a*100,y:400},width:72,height:144})&&current.combatants[a+4].life>0){
+                                if(pointInsideBox({position:inputs.rel},{position:{x:current.combatants[a+4].position.x,y:current.combatants[a+4].position.y-current.combatants[a+4].height/2},width:72,height:144})&&current.combatants[a+4].life>0){
                                     current.attack.target[0]=a
                                 }
                             }
                         break
                         case 3:
                             for(a=0;a<4;a++){
-                                if(pointInsideBox({position:inputs.rel},{position:{x:50+a*100,y:400},width:72,height:144})&&current.combatants[a].life>0){
+                                if(pointInsideBox({position:inputs.rel},{position:{x:current.combatants[a].position.x,y:current.combatants[a].position.y-current.combatants[a].height/2},width:72,height:144})&&current.combatants[a].life>0){
                                     current.attack.target[0]=a
                                 }
                             }

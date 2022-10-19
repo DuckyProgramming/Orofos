@@ -2020,6 +2020,29 @@ class combatant{
 				this.layer.ellipse(4,-72,4,4)
 				this.layer.ellipse(12,-72,4,4)
 			break
+			case 76:
+				this.layer.stroke(200,200,180,this.fade)
+				this.layer.strokeWeight(4)
+				this.layer.line(-6,-30,-12-sin(this.rate[0]*2)*4,0)
+				this.layer.line(6,-30,12+sin(this.rate[0]*2)*4,0)
+				this.layer.line(-12*cos(this.rate[1]),-60,-25*cos(this.rate[1])+this.anim[0]*36+this.anim[1]*45,-30-this.anim[0]*12-this.anim[1]*30)
+				this.layer.line(12*cos(this.rate[1]),-60,25*cos(this.rate[1])+this.anim[0]*18+this.anim[1]*15,-30-this.anim[0]*12-this.anim[1]*30)
+				this.layer.noStroke()
+				this.layer.fill(200,200,180,this.fade)
+				this.layer.ellipse(0,-51,30,54)
+				this.layer.ellipse(0,-90,30,30)
+				this.layer.fill(225,225,25,this.fade)
+				this.layer.rect(0,-51,30,2)
+				this.layer.fill(240,220,180,this.fade)
+				this.layer.rect(8,-87,15,7,2)
+				this.layer.fill(0,this.fade)
+				this.layer.ellipse(4,-87,4,4)
+				this.layer.ellipse(12,-87,4,4)
+				this.layer.stroke(190,20,20,this.fade)
+				this.layer.strokeWeight(2)
+				this.layer.fill(255,this.fade*2/3)
+				this.layer.rect(8,-87,15,7,2)
+			break
 		}
 		this.layer.scale(1/this.size/this.flip,1/this.size)
 		this.layer.rotate(-this.direction)
@@ -2043,44 +2066,44 @@ class combatant{
 				this.calcAccuracy*=1.5
 			}
 			if(random(0,1)<=this.calcAccuracy||this.status[16]>0){
-				if(current.combatants[user].status[9]>0){
-					this.calcDamage*=2
-				}
-				if(current.combatants[user].status[17]>0){
-					this.calcDamage*=2.5
-				}
-				if(current.combatants[user].status[18]>0){
-					this.calcDamage*=0.5
-				}
-				if(this.status[9]>0){
-					this.calcDamage*=1.5
-				}
-				if(this.status[11]>0){
-					this.calcDamage*=0.6
-				}
-				if(this.status[17]>0){
-					this.calcDamage*=0.25
-				}
-				if(this.status[18]>0){
-					this.calcDamage*=2
-				}
-				if(this.status[19]>0){
-					this.calcDamage*=0.25
-				}
-				if(this.status[20]>0){
-					this.calcDamage*=0.5
-					this.status[20]--
-				}
-				if(current.combatants[user].status[5]>0&&floor(random(0,2))==0||current.combatants[user].status[9]>0&&floor(random(0,4))==0||current.combatants[user].status[11]>0&&floor(random(0,4))==0){
-					this.calcDamage*=2
-					entities.particles.push(new particle(this.layer,this.position.x,this.position.y,6,0,2,1,[255,125,0]))
-					entities.particles[entities.particles.length-1].value='Crit'
-				}
 				this.hit=true
 				this.status[6]=0
 				if(this.status[3]>0){
 					this.status[3]--
 				}else if(this.status[8]<=0){
+					if(current.combatants[user].status[9]>0){
+						this.calcDamage*=2
+					}
+					if(current.combatants[user].status[17]>0){
+						this.calcDamage*=2.5
+					}
+					if(current.combatants[user].status[18]>0){
+						this.calcDamage*=0.5
+					}
+					if(this.status[9]>0){
+						this.calcDamage*=1.5
+					}
+					if(this.status[11]>0){
+						this.calcDamage*=0.6
+					}
+					if(this.status[17]>0){
+						this.calcDamage*=0.25
+					}
+					if(this.status[18]>0){
+						this.calcDamage*=2
+					}
+					if(this.status[19]>0){
+						this.calcDamage*=0.25
+					}
+					if(this.status[20]>0){
+						this.calcDamage*=0.5
+						this.status[20]--
+					}
+					if(current.combatants[user].status[5]>0&&floor(random(0,2))==0||current.combatants[user].status[9]>0&&floor(random(0,4))==0||current.combatants[user].status[11]>0&&floor(random(0,4))==0){
+						this.calcDamage*=2
+						entities.particles.push(new particle(this.layer,this.position.x,this.position.y,6,0,2,1,[255,125,0]))
+						entities.particles[entities.particles.length-1].value='Crit'
+					}
 					switch(spec){
 						case 0:
 							this.life-=this.calcDamage/(2+max(0,this.boost[1]))*(2-min(0,this.boost[1]))
@@ -2118,8 +2141,9 @@ class combatant{
 				this.status[14]=max(this.status[14],2)
 				this.status[20]=max(this.status[14],1)
 			break
-			case 74:
+			case 76:
 				this.status[3]=max(this.status[3],1)
+				this.status[14]=max(this.status[14],1)
 				this.status[20]=max(this.status[20],1)
 			break
 		}

@@ -1,14 +1,14 @@
 types={
     combatant:[
         {name:'',alt:'',life:0,speed:0,damage:0,attacks:[],height:0,reward:0,pattern:0},//0
-        {name:'Bill',alt:'',life:56,speed:11,damage:1,attacks:[27,28,29],height:75,reward:0,pattern:0},
-        {name:'Tom',alt:'',life:72,speed:15,damage:1,attacks:[30,31,32],height:75,reward:0,pattern:0},
-        {name:'Jon',alt:'',life:48,speed:9,damage:1,attacks:[33,34,35],height:75,reward:0,pattern:0},
-        {name:'Eddy',alt:'',life:52,speed:12,damage:1,attacks:[36,37,38],height:72,reward:0,pattern:0},
-        {name:'Lalex',alt:'',life:64,speed:14,damage:1,attacks:[40,41,42],height:78,reward:0,pattern:0},
-        {name:'Scott',alt:'',life:60,speed:8,damage:1,attacks:[43,44,45],height:75,reward:0,pattern:0},
-        {name:'Ollie',alt:'',life:56,speed:13,damage:1,attacks:[46,47,48],height:75,reward:0,pattern:0},
-        {name:'Duckit',alt:'',life:32,speed:6,damage:1,attacks:[12,13,14],height:60,reward:0,pattern:0},
+        {name:'Bill',alt:'',life:56,speed:11,damage:1,attacks:[27,28,29,1],height:75,reward:0,pattern:0},
+        {name:'Tom',alt:'',life:72,speed:15,damage:1,attacks:[30,31,32,2],height:75,reward:0,pattern:0},
+        {name:'Jon',alt:'',life:48,speed:9,damage:1,attacks:[33,34,35,24],height:75,reward:0,pattern:0},
+        {name:'Eddy',alt:'',life:52,speed:12,damage:1,attacks:[36,37,38,25],height:72,reward:0,pattern:0},
+        {name:'Lalex',alt:'',life:64,speed:14,damage:1,attacks:[40,41,42,1],height:78,reward:0,pattern:0},
+        {name:'Scott',alt:'',life:60,speed:8,damage:1,attacks:[43,44,45,2],height:75,reward:0,pattern:0},
+        {name:'Ollie',alt:'',life:56,speed:13,damage:1,attacks:[46,47,48,24],height:75,reward:0,pattern:0},
+        {name:'Duckit',alt:'',life:32,speed:6,damage:1,attacks:[12,13,14,25],height:60,reward:0,pattern:0},
         {name:'Human',alt:'',life:10,speed:10,damage:1,attacks:[1],height:75,reward:10,pattern:0},
         {name:'Fat Human',alt:'',life:25,speed:15,damage:1,attacks:[5],height:66,reward:15,pattern:0},//10
         {name:'Long Human',alt:'',life:15,speed:8,damage:1,attacks:[4],height:84,reward:15,pattern:0},
@@ -76,7 +76,7 @@ types={
         {name:'Militarian',alt:'',life:350,speed:13,damage:4,attacks:[91,60],height:90,reward:100,pattern:1},
         {name:'Nerfmaster',alt:'',life:96,speed:12,damage:2,attacks:[85,86,87],height:75,reward:50,pattern:0},
         {name:'Buffmaster',alt:'',life:96,speed:12,damage:2,attacks:[88,89,90],height:75,reward:50,pattern:0},
-        {name:'Welder',alt:'',life:480,speed:28,damage:2,attacks:[2,7,61],height:90,reward:20,pattern:0},
+        {name:'Welder',alt:'',life:480,speed:28,damage:3,attacks:[30],height:90,reward:100,pattern:0},
     ],weapon:[
         {name:'Unarmed',damage:2,attacks:[0]},
         {name:'Stick',damage:4,attacks:[8]},
@@ -105,6 +105,7 @@ types={
         {name:'Big Gun',damage:8,attacks:[8,9,81]},
         {name:'Large Hammer',damage:5,attacks:[17,57,82]},
         {name:'Hammer&Sickle',damage:7.5,attacks:[8,17,50,57,58]},
+        {name:'Welding Tools',damage:8,attacks:[8,92]},
     ],attack:[
         {name:'Punch'                   ,damage:1   ,target:0,class:0,uses:0 ,accuracy:1   ,description:'Basic attack'},//0
         {name:'Nerf Damage'             ,damage:0   ,target:0,class:1,uses:0 ,accuracy:1   ,description:'Decreases enemy damage'},
@@ -198,6 +199,7 @@ types={
         {name:'Heavy Buff Defense'      ,damage:0   ,target:3,class:1,uses:0 ,accuracy:1   ,description:'Greatly increase ally defense'},
         {name:'Heavy Buff Speed'        ,damage:0   ,target:3,class:1,uses:0 ,accuracy:1   ,description:'Greatly increase ally speed'},//90
         {name:'First Strike'            ,damage:0.5 ,target:2,class:2,uses:1 ,accuracy:1   ,description:"Destroy quickly"},
+        {name:'Weld'                    ,damage:1   ,target:0,class:0,uses:0 ,accuracy:0.8 ,description:'Burn up'},
     ]
 }
 stage={scene:'battle',scale:1}
@@ -208,10 +210,10 @@ entities={particles:[]}
 run={fore:[]}
 dev={id:false}
 combatants=[
-    {id:4,weapon:2,team:0},
-    {id:5,weapon:2,team:0},
-    {id:6,weapon:2,team:0},
-    {id:7,weapon:2,team:0},
+    {id:1,weapon:2,team:0},
+    {id:2,weapon:2,team:0},
+    {id:3,weapon:2,team:0},
+    {id:8,weapon:2,team:0},
     {id:43,weapon:2,team:1},
     {id:44,weapon:2,team:1},
     {id:45,weapon:2,team:1},
