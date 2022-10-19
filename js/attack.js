@@ -15,7 +15,7 @@ class attack{
     set(){
         switch(this.type){
             case 1: case 2: case 3: case 4: case 5: case 6: case 22: case 24: case 25: case 26: case 27: case 28: case 31: case 33: case 34: case 35: case 36: case 37: case 38: case 39:
-            case 41: case 43: case 45: case 52: case 55: case 59: case 63: case 69: case 70: case 71: case 72: case 73: case 74: case 75: case 77: case 83: case 84:
+            case 41: case 43: case 45: case 52: case 55: case 59: case 63: case 69: case 70: case 71: case 72: case 73: case 74: case 75: case 77: case 83: case 84: case 85: case 86: case 87: case 88: case 89: case 90:
                 this.timer=60
             break
             case 7:
@@ -842,6 +842,24 @@ class attack{
                         }
                     }
                 break
+                case 85: case 86: case 87:
+                    if(this.timer==45){
+                        entities.particles.push(new particle(this.layer,this.battle.combatants[this.user].position.x+10,this.battle.combatants[this.user].position.y-this.battle.combatants[this.user].height,1,90,120,1,this.battle.combatants[this.user].boostColor[this.type-85]))
+                        this.battle.combatants[this.target[0]+4].boost[this.type-85]-=2
+                        if(this.type==87){
+                            this.battle.reset()
+                        }
+                    }
+                break
+                case 88: case 89: case 90:
+                    if(this.timer==45){
+                        entities.particles.push(new particle(this.layer,this.battle.combatants[this.target[0]].position.x,this.battle.combatants[this.target[0]].position.y-this.battle.combatants[this.target[0]].height,2,90,160,1,this.battle.combatants[this.target[0]].boostColor[this.type-88]))
+                        this.battle.combatants[this.target[0]].boost[this.type-88]+=2
+                        if(this.type==90){
+                            this.battle.reset()
+                        }
+                    }
+                break
             }
             if(this.timer==1){
                 this.battle.combatants[this.user].endTurn()
@@ -1537,6 +1555,24 @@ class attack{
                     if(this.timer==45){
                         for(g=0;g<4;g++){
                             this.battle.combatants[g+4].boost[1]+=this.damage
+                        }
+                    }
+                break
+                case 85: case 86: case 87:
+                    if(this.timer==45){
+                        entities.particles.push(new particle(this.layer,this.battle.combatants[this.user+4].position.x+10,this.battle.combatants[this.user+4].position.y-this.battle.combatants[this.user+4].height,1,270,120,1,this.battle.combatants[this.user+4].boostColor[this.type-85]))
+                        this.battle.combatants[this.target[1]].boost[this.type-85]-=2
+                        if(this.type==87){
+                            this.battle.reset()
+                        }
+                    }
+                break
+                case 88: case 89: case 90:
+                    if(this.timer==45){
+                        entities.particles.push(new particle(this.layer,this.battle.combatants[this.target[1]+4].position.x,this.battle.combatants[this.target[1]+4].position.y-this.battle.combatants[this.target[1]+4].height,2,270,120,1,this.battle.combatants[this.target[1]+4].boostColor[this.type-88]))
+                        this.battle.combatants[this.target[1]+4].boost[this.type-88]+=2
+                        if(this.type==90){
+                            this.battle.reset()
                         }
                     }
                 break

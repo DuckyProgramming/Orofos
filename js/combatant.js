@@ -1935,6 +1935,52 @@ class combatant{
 				this.layer.line(8,-68,4,-67)
 				this.layer.line(8,-68,12,-67)
 			break
+			case 73:
+			break
+			case 74:
+				this.layer.stroke(200,150,150,this.fade)
+				this.layer.strokeWeight(4)
+				this.layer.line(-4,-30,-8-sin(this.rate[0]*2)*3,0)
+				this.layer.line(4,-30,8+sin(this.rate[0]*2)*3,0)
+				this.layer.line(-6*cos(this.rate[1]),-48,-15*cos(this.rate[1])+this.anim[0]*30+this.anim[1]*36,-24-this.anim[0]*12-this.anim[1]*30)
+				this.layer.line(6*cos(this.rate[1]),-48,15*cos(this.rate[1])+this.anim[0]*15+this.anim[1]*12,-24-this.anim[0]*12-this.anim[1]*30)
+				this.layer.noStroke()
+				this.layer.fill(200,150,150,this.fade)
+				this.layer.ellipse(0,-45,18,36)
+				this.layer.fill(200,0,0,this.fade)
+				regTriangle(this.layer,0,-51,6,0)
+				this.layer.fill(0,150,255,this.fade)
+				regTriangle(this.layer,0,-45,6,0)
+				this.layer.fill(255,255,50,this.fade)
+				regTriangle(this.layer,0,-39,6,0)
+				this.layer.fill(240,220,180,this.fade)
+				this.layer.ellipse(0,-75,30,30)
+				this.layer.fill(100,0,0,this.fade)
+				this.layer.ellipse(4,-72,4,4)
+				this.layer.ellipse(12,-72,4,4)
+			break
+			case 75:
+				this.layer.stroke(150,200,200,this.fade)
+				this.layer.strokeWeight(4)
+				this.layer.line(-4,-30,-8-sin(this.rate[0]*2)*3,0)
+				this.layer.line(4,-30,8+sin(this.rate[0]*2)*3,0)
+				this.layer.line(-6*cos(this.rate[1]),-48,-15*cos(this.rate[1])+this.anim[0]*30+this.anim[1]*36,-24-this.anim[0]*12-this.anim[1]*30)
+				this.layer.line(6*cos(this.rate[1]),-48,15*cos(this.rate[1])+this.anim[0]*15+this.anim[1]*12,-24-this.anim[0]*12-this.anim[1]*30)
+				this.layer.noStroke()
+				this.layer.fill(150,200,200,this.fade)
+				this.layer.ellipse(0,-45,18,36)
+				this.layer.fill(255,255,50,this.fade)
+				regTriangle(this.layer,0,-39,6,60)
+				this.layer.fill(0,150,255,this.fade)
+				regTriangle(this.layer,0,-45,6,60)
+				this.layer.fill(200,0,0,this.fade)
+				regTriangle(this.layer,0,-51,6,60)
+				this.layer.fill(240,220,180,this.fade)
+				this.layer.ellipse(0,-75,30,30)
+				this.layer.fill(0,100,100,this.fade)
+				this.layer.ellipse(4,-72,4,4)
+				this.layer.ellipse(12,-72,4,4)
+			break
 		}
 		this.layer.scale(1/this.size/this.flip,1/this.size)
 		this.layer.rotate(-this.direction)
@@ -2089,6 +2135,10 @@ class combatant{
 		}
 		if(this.life>0&&this.fade<1){
 			this.fade+=1/30
+		}
+		if(this.life<=0&&this.collect.life<=0){
+			this.life=-10000
+			this.collect.life=-10000
 		}
 		if(this.life<=0&&!this.dead){
 			this.dead=true

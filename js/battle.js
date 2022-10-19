@@ -266,7 +266,7 @@ class battle{
                     }
                     this.partyAlive=[]
                     for(e=0;e<4;e++){
-                        if(this.combatants[e+4].life>0&&types.attack[this.attack.type].target==3||this.combatants[e+4].life<=0&&types.attack[this.attack.type].target==7||this.combatants[e].life>0&&types.attack[this.attack.type].target!=30&&types.attack[this.attack.type].target!=7){
+                        if(this.combatants[e+4].life>0&&types.attack[this.attack.type].target==3||this.combatants[e+4].life<=0&&types.attack[this.attack.type].target==7||this.combatants[e].life>0&&types.attack[this.attack.type].target!=3&&types.attack[this.attack.type].target!=7){
                             this.partyAlive.push(e)
                         }
                     }
