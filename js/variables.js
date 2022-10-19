@@ -76,6 +76,7 @@ types={
         {name:'Militarian',alt:'',life:350,speed:13,damage:4,attacks:[91,60],height:90,reward:100,pattern:1},
         {name:'Nerfmaster',alt:'',life:96,speed:12,damage:2,attacks:[85,86,87],height:75,reward:50,pattern:0},
         {name:'Buffmaster',alt:'',life:96,speed:12,damage:2,attacks:[88,89,90],height:75,reward:50,pattern:0},
+        {name:'Welder',alt:'',life:480,speed:28,damage:2,attacks:[2,7,61],height:90,reward:20,pattern:0},
     ],weapon:[
         {name:'Unarmed',damage:2,attacks:[0]},
         {name:'Stick',damage:4,attacks:[8]},
@@ -214,7 +215,7 @@ combatants=[
     {id:43,weapon:2,team:1},
     {id:44,weapon:2,team:1},
     {id:45,weapon:2,team:1},
-    {id:74,weapon:2,team:1},
+    {id:76,weapon:2,team:1},
 ]
 a=0;b=0;c=0;d=0;e=0;f=0;g=0;h=0;i=0;j=0;k=0;l=0;m=0;n=0;o=0;p=0
 la=0;lb=0;lc=0;ld=0;le=0;lf=0;lg=0;lh=0;li=0;lj=0;lk=0;ll=0;lm=0;ln=0;lo=0;lp=0

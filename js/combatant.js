@@ -82,10 +82,10 @@ class combatant{
 	}
 	startStatus(){
 		switch(this.type){
-			case 67:
+			case 67: case 72:
 				this.status[14]+=2
 			break
-			case 69:
+			case 69: case 74: case 75:
 				this.status[14]++
 			break
 			case 70:
@@ -95,6 +95,15 @@ class combatant{
 			break
 			case 71:
 				this.status[3]+=3
+			break
+			case 73:
+				this.status[14]+=2
+				this.stauts[20]+=4
+			break
+			case 76:
+				this.status[3]++
+				this.status[14]+=2
+				this.status[20]+=2
 			break
 		}
 	}
@@ -2096,18 +2105,22 @@ class combatant{
 		}
 		switch(this.type){
 			case 69:
-				this.status[3]++
+				this.status[3]=max(this.status[3],2)
 			break
-			case 70:
-				if(this.status[14]<=0){
-					this.status[14]++
-				}
+			case 70: case 72:
+				this.status[14]=max(this.status[14],1)
 			break
 			case 71:
-				if(this.status[14]<=1){
-					this.status[14]=2
-				}
-				this.status[20]+=2
+				this.status[14]=max(this.status[14],1)
+				this.status[20]=max(this.status[20],2)
+			break
+			case 73:
+				this.status[14]=max(this.status[14],2)
+				this.status[20]=max(this.status[14],1)
+			break
+			case 74:
+				this.status[3]=max(this.status[3],1)
+				this.status[20]=max(this.status[20],1)
 			break
 		}
 	}
