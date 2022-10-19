@@ -93,6 +93,9 @@ class combatant{
 				this.status[14]+=4
 				this.status[20]++
 			break
+			case 71:
+				this.status[3]+=3
+			break
 		}
 	}
 	reset(){
@@ -1871,6 +1874,67 @@ class combatant{
 				this.layer.fill(200,0,0,this.fade/3)
 				this.layer.rect(8,-87,16,8,2)
 			break
+			case 71:
+				this.layer.stroke(180,180,0,this.fade)
+				this.layer.strokeWeight(3)
+				this.layer.line(-4,-30,-8-sin(this.rate[0]*2)*3,0)
+				this.layer.line(4,-30,8+sin(this.rate[0]*2)*3,0)
+				this.layer.line(-6*cos(this.rate[1]),-48,-15*cos(this.rate[1])+this.anim[0]*30+this.anim[1]*36,-24-this.anim[0]*12-this.anim[1]*30)
+				this.layer.line(6*cos(this.rate[1]),-48,15*cos(this.rate[1])+this.anim[0]*15+this.anim[1]*12,-24-this.anim[0]*12-this.anim[1]*30)
+				this.layer.noStroke()
+				this.layer.fill(240,220,180,this.fade)
+				this.layer.ellipse(0,-75,30,30)
+				this.layer.fill(0,this.fade)
+				this.layer.ellipse(4,-72,4,4)
+				this.layer.ellipse(12,-72,4,4)
+				this.layer.stroke(180,180,0,this.fade)
+				this.layer.fill(150,150,0,this.fade)
+				this.layer.strokeWeight(3)
+				this.layer.rect(0,-85,30,10)
+				this.layer.rect(0,-65,30,10)
+				this.layer.rect(-10,-75,10,10)
+				this.layer.rect(0,-42,15,36)
+				this.layer.noStroke()
+				this.layer.fill(200,this.fade/2)
+				this.layer.rect(10,-75,10,10)
+			break
+			case 72:
+				this.layer.stroke(140,130,120,this.fade)
+				this.layer.strokeWeight(4)
+				this.layer.line(-4,-30,-8-sin(this.rate[0]*2)*3,0)
+				this.layer.line(4,-30,8+sin(this.rate[0]*2)*3,0)
+				this.layer.line(-6*cos(this.rate[1]),-48,-15*cos(this.rate[1])+this.anim[0]*30+this.anim[1]*36,-24-this.anim[0]*12-this.anim[1]*30)
+				this.layer.line(6*cos(this.rate[1]),-48,15*cos(this.rate[1])+this.anim[0]*15+this.anim[1]*12,-24-this.anim[0]*12-this.anim[1]*30)
+				this.layer.noStroke()
+				this.layer.fill(140,130,120,this.fade)
+				this.layer.ellipse(0,-45,18,36)
+				this.layer.fill(100,90,80,this.fade)
+				this.layer.rect(-5,-45,4,2)
+				this.layer.rect(5,-45,4,2)
+				this.layer.fill(240,220,180,this.fade)
+				this.layer.ellipse(0,-75,30,30)
+				this.layer.fill(0,this.fade)
+				this.layer.ellipse(4,-72,4,4)
+				this.layer.ellipse(12,-72,4,4)
+				this.layer.fill(200,25,25,this.fade)
+				this.layer.ellipse(-3,-54,13/2,13/2)
+				this.layer.fill(255,225,25,this.fade)
+				this.layer.beginShape()
+				for(g=0;g<10;g++){
+					this.layer.vertex(-3+sin(g*36)*(3/2+(g%2)*3/2),-54+cos(g*36)*(3/2+(g%2)*3/2))
+				}
+				this.layer.endShape()
+				this.layer.fill(200,25,25,this.fade)
+				this.layer.beginShape()
+				for(g=0;g<10;g++){
+					this.layer.vertex(-3+sin(g*36)*(3/4+(g%2)*3/4),-54+cos(g*36)*(3/4+(g%2)*3/4))
+				}
+				this.layer.endShape()
+				this.layer.stroke(120,this.fade)
+				this.layer.strokeWeight(2)
+				this.layer.line(8,-68,4,-67)
+				this.layer.line(8,-68,12,-67)
+			break
 		}
 		this.layer.scale(1/this.size/this.flip,1/this.size)
 		this.layer.rotate(-this.direction)
@@ -1886,38 +1950,42 @@ class combatant{
 			}
 			if(current.combatants[user].status[9]>0){
 				this.calcAccuracy*=0.8
-				this.calcDamage*=2
 			}
 			if(current.combatants[user].status[15]>0){
 				this.calcAccuracy*=0.75
 			}
 			if(current.combatants[user].status[17]>0){
 				this.calcAccuracy*=1.5
-				this.calcDamage*=2.5
-			}
-			if(current.combatants[user].status[18]>0){
-				this.calcDamage*=0.5
-			}
-			if(this.status[9]>0){
-				this.calcDamage*=1.5
-			}
-			if(this.status[11]>0){
-				this.calcDamage*=0.6
-			}
-			if(this.status[17]>0){
-				this.calcDamage*=0.25
-			}
-			if(this.status[18]>0){
-				this.calcDamage*=2
-			}
-			if(this.status[19]>0){
-				this.calcDamage*=0.25
-			}
-			if(this.status[20]>0){
-				this.calcDamage*=0.5
-				this.status[20]--
 			}
 			if(random(0,1)<=this.calcAccuracy||this.status[16]>0){
+				if(current.combatants[user].status[9]>0){
+					this.calcDamage*=2
+				}
+				if(current.combatants[user].status[17]>0){
+					this.calcDamage*=2.5
+				}
+				if(current.combatants[user].status[18]>0){
+					this.calcDamage*=0.5
+				}
+				if(this.status[9]>0){
+					this.calcDamage*=1.5
+				}
+				if(this.status[11]>0){
+					this.calcDamage*=0.6
+				}
+				if(this.status[17]>0){
+					this.calcDamage*=0.25
+				}
+				if(this.status[18]>0){
+					this.calcDamage*=2
+				}
+				if(this.status[19]>0){
+					this.calcDamage*=0.25
+				}
+				if(this.status[20]>0){
+					this.calcDamage*=0.5
+					this.status[20]--
+				}
 				if(current.combatants[user].status[5]>0&&floor(random(0,2))==0||current.combatants[user].status[9]>0&&floor(random(0,4))==0||current.combatants[user].status[11]>0&&floor(random(0,4))==0){
 					this.calcDamage*=2
 					entities.particles.push(new particle(this.layer,this.position.x,this.position.y,6,0,2,1,[255,125,0]))
@@ -1958,7 +2026,12 @@ class combatant{
 				if(this.status[14]<=0){
 					this.status[14]++
 				}
-				this.status[20]++
+			break
+			case 71:
+				if(this.status[14]<=1){
+					this.status[14]=2
+				}
+				this.status[20]+=2
 			break
 		}
 	}
@@ -2013,6 +2086,9 @@ class combatant{
 		}
 		if(this.life<=0&&this.fade>0){
 			this.fade-=1/30
+		}
+		if(this.life>0&&this.fade<1){
+			this.fade+=1/30
 		}
 		if(this.life<=0&&!this.dead){
 			this.dead=true

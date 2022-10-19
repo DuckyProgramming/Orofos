@@ -24,7 +24,7 @@ class battle{
         while(this.stack.length<20){
             this.time++
             for(e=0,le=this.combatantListing.length;e<le;e++){
-                if(this.combatants[this.combatantListing[e]].speed>0){
+                if(this.combatants[this.combatantListing[e]].speed>0&&this.combatants[this.combatantListing[e]].life>0){
                     if(this.combatants[this.combatantListing[e]].stacking<=0){
                         this.stack.push(new stack(this.layer,this.stack.length*48+24,18,this.combatantListing[e]))
                         this.combatants[this.combatantListing[e]].stacking=this.combatants[this.combatantListing[e]].speed*(2+max(0,-this.combatants[this.combatantListing[e]].boost[2]))/(2-min(0,-this.combatants[this.combatantListing[e]].boost[2]))
@@ -202,6 +202,9 @@ class battle{
                         }
                     }
                 }
+                if(this.stack[0].cancel&&!this.stack[0].click){
+                    this.turn()
+                }
                 this.stack[0].click=true
                 this.attack.check=false
                 if(this.attack.timer<=0){
@@ -263,7 +266,12 @@ class battle{
                     }
                     this.partyAlive=[]
                     for(e=0;e<4;e++){
-                        if(this.combatants[e+4].life>0&&types.attack[this.attack.type].target==3||this.combatants[e].life>0&&types.attack[this.attack.type].target!=3){
+                        if(this.combatants[e+4].life>0&&types.attack[this.attack.type].target==3||this.combatants[e+4].life<=0&&types.attack[this.attack.type].target==7||this.combatants[e].life>0&&types.attack[this.attack.type].target!=30&&types.attack[this.attack.type].target!=7){
+                            this.partyAlive.push(e)
+                        }
+                    }
+                    if(types.attack[this.attack.type].target==7&&this.partyAlive.length==0){
+                        for(e=0;e<4;e++){
                             this.partyAlive.push(e)
                         }
                     }
