@@ -2333,6 +2333,28 @@ class combatant{
 				this.layer.fill(60,20,20,this.fade)
 				this.layer.arc(0,-75,48,48,-195,-15)
 			break
+			case 87:
+				this.layer.stroke(120,80,40,this.fade)
+				this.layer.strokeWeight(4)
+				this.layer.line(-4,-30,-8-sin(this.rate[0]*2)*3,0)
+				this.layer.line(4,-30,8+sin(this.rate[0]*2)*3,0)
+				this.layer.stroke(200,160,200,this.fade)
+				this.layer.line(-12*cos(this.rate[1]),-48,-24*cos(this.rate[1])+this.anim[0]*30+this.anim[1]*36,-24-this.anim[0]*12-this.anim[1]*30)
+				this.layer.line(12*cos(this.rate[1]),-48,24*cos(this.rate[1])+this.anim[0]*15+this.anim[1]*12,-24-this.anim[0]*12-this.anim[1]*30)
+				this.layer.noStroke()
+				this.layer.fill(200,160,200,this.fade)
+				this.layer.ellipse(0,-39,36,30)
+				this.layer.fill(120,80,40,this.fade)
+				this.layer.arc(0,-39,38,32,0,180)
+				this.layer.fill(150,100,50,this.fade)
+				this.layer.rect(-6,-46,3,14)
+				this.layer.rect(6,-46,3,14)
+				this.layer.fill(240,220,180,this.fade)
+				this.layer.ellipse(0,-66,30,30)
+				this.layer.fill(0,this.fade)
+				this.layer.ellipse(4,-63,4,4)
+				this.layer.ellipse(12,-63,4,4)
+			break
 		}
 		this.layer.scale(1/this.size/this.flip,1/this.size)
 		this.layer.rotate(-this.direction)

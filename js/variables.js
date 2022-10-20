@@ -87,6 +87,7 @@ types={
         {name:'Cook',alt:'',life:360,speed:12,damage:2,attacks:[99,7,100],height:90,reward:100,pattern:1},
         {name:'Big Duck Force',alt:'',life:60,speed:10,damage:1,attacks:[39,93],height:75,reward:20,pattern:0},
         {name:'General Duckion',alt:'',life:400,speed:12,damage:4,attacks:[103,39,70],height:75,reward:100,pattern:1},
+        {name:'Joking Jimmy',alt:'',life:500,speed:11,damage:2,attacks:[104],height:66,reward:100,pattern:0},
     ],weapon:[
         {name:'Unarmed',damage:2,attacks:[0]},//0
         {name:'Stick',damage:4,attacks:[8]},
@@ -222,7 +223,8 @@ types={
         {name:'Dust Storm'              ,damage:1   ,target:2,class:0,uses:5 ,accuracy:1   ,description:'Attack with strange dust'},//100
         {name:'Cash Out'                ,damage:1   ,target:0,class:0,uses:0 ,accuracy:1   ,description:'Take lots of cash'},
         {name:'Airstrike'               ,damage:5   ,target:2,class:2,uses:1 ,accuracy:1   ,description:'Attack from the skies'},
-        {name:'Crack Shot'              ,damage:3   ,target:0,class:2,uses:1 ,accuracy:1   ,description:"Fire before they're ready"},
+        {name:'Crack Shot'              ,damage:8   ,target:0,class:2,uses:1 ,accuracy:1   ,description:"Fire before they're ready"},
+        {name:'Verbal Destruction'      ,damage:1   ,target:0,class:2,uses:0 ,accuracy:0.6 ,description:'Annihlate him with words'},
     ]
 }
 stage={scene:'battle',scale:1}
@@ -237,10 +239,10 @@ combatants=[
     {id:5,weapon:8,team:0},
     {id:6,weapon:8,team:0},
     {id:7,weapon:8,team:0},
-    {id:62,weapon:2,team:1},
-    {id:62,weapon:2,team:1},
-    {id:85,weapon:2,team:1},
-    {id:86,weapon:2,team:1},
+    {id:64,weapon:2,team:1},
+    {id:65,weapon:2,team:1},
+    {id:66,weapon:2,team:1},
+    {id:87,weapon:2,team:1},
 ]
 a=0;b=0;c=0;d=0;e=0;f=0;g=0;h=0;i=0;j=0;k=0;l=0;m=0;n=0;o=0;p=0
 la=0;lb=0;lc=0;ld=0;le=0;lf=0;lg=0;lh=0;li=0;lj=0;lk=0;ll=0;lm=0;ln=0;lo=0;lp=0
