@@ -85,7 +85,7 @@ class combatant{
 			case 67: case 72:
 				this.status[14]+=2
 			break
-			case 69: case 74: case 75:
+			case 69: case 74: case 75: case 81:
 				this.status[14]++
 			break
 			case 70:
@@ -104,6 +104,9 @@ class combatant{
 				this.status[3]++
 				this.status[14]+=2
 				this.status[20]+=2
+			break
+			case 80:
+				this.status[14]+=2
 			break
 		}
 	}
@@ -2050,7 +2053,7 @@ class combatant{
 				this.layer.ellipse(12+sin(this.rate[0]*2)*2,-10,24,24)
 				this.layer.ellipse(cos(this.anim[2])*-(20+this.anim[3])+this.anim[1]*24+this.anim[0]*18,-36+sin(this.anim[2])*-(16+this.anim[3])-this.anim[1]*6-this.anim[0]*4,24,24)
 				this.layer.fill(235,235,55,this.fade)
-				this.layer.ellipse(0,-34,32,52)
+				this.layer.ellipse(0,-36,32,52)
 				this.layer.fill(240,240,60,this.fade)
 				this.layer.ellipse(cos(this.anim[2])*(20+this.anim[3])+this.anim[1]*24+this.anim[0]*18,-36+sin(this.anim[2])*(16+this.anim[3])-this.anim[1]*6-this.anim[0]*4,24,24)
 				this.layer.fill(245,245,65,this.fade)
@@ -2073,7 +2076,7 @@ class combatant{
 				this.layer.ellipse(12+sin(this.rate[0]*2)*2,-10,24,24)
 				this.layer.ellipse(cos(this.anim[2])*-(20+this.anim[3])+this.anim[1]*24+this.anim[0]*18,-36+sin(this.anim[2])*-(16+this.anim[3])-this.anim[1]*6-this.anim[0]*4,24,24)
 				this.layer.fill(235,235,55,this.fade)
-				this.layer.ellipse(0,-34,32,52)
+				this.layer.ellipse(0,-36,32,52)
 				this.layer.fill(240,240,60,this.fade)
 				this.layer.ellipse(cos(this.anim[2])*(20+this.anim[3])+this.anim[1]*24+this.anim[0]*18,-36+sin(this.anim[2])*(16+this.anim[3])-this.anim[1]*6-this.anim[0]*4,24,24)
 				this.layer.fill(245,245,65,this.fade)
@@ -2128,6 +2131,69 @@ class combatant{
 				this.layer.fill(20,this.fade)
 				this.layer.line(-20,-76,20,-76)
 				this.layer.quad(-12,-76,12,-76,8,-84,-8,-84)
+			break
+			case 80:
+				this.layer.noStroke()
+				this.layer.fill(230,230,5,this.fade)
+				this.layer.ellipse(-12-sin(this.rate[0]*2)*2,-10,24,24)
+				this.layer.ellipse(12+sin(this.rate[0]*2)*2,-10,24,24)
+				this.layer.ellipse(cos(this.anim[2])*-(20+this.anim[3])+this.anim[1]*24+this.anim[0]*18,-36+sin(this.anim[2])*-(16+this.anim[3])-this.anim[1]*6-this.anim[0]*4,24,24)
+				this.layer.fill(240,240,60,this.fade)
+				this.layer.ellipse(cos(this.anim[2])*(20+this.anim[3])+this.anim[1]*24+this.anim[0]*18,-36+sin(this.anim[2])*(16+this.anim[3])-this.anim[1]*6-this.anim[0]*4,24,24)
+				this.layer.fill(40,this.fade)
+				this.layer.ellipse(0,-34,32,52)
+				this.layer.fill(245,245,65,this.fade)
+				this.layer.ellipse(0,-75,40,40)
+				this.layer.fill(240,160,20,this.fade)
+				this.layer.ellipse(13.5,-67,24,16)
+				this.layer.fill(200,150,50,this.fade)
+				this.layer.rect(cos(this.anim[2])*-(20+this.anim[3])+this.anim[1]*24+this.anim[0]*18,-36+sin(this.anim[2])*-(16+this.anim[3])-this.anim[1]*6-this.anim[0]*4,4,24)
+				this.layer.rect(cos(this.anim[2])*(20+this.anim[3])+this.anim[1]*24+this.anim[0]*18,-36+sin(this.anim[2])*(16+this.anim[3])-this.anim[1]*6-this.anim[0]*4,4,24)
+				this.layer.stroke(0,this.fade)
+				this.layer.strokeWeight(1)
+				this.layer.arc(13.5,-67,22,2,-180,0)
+				this.layer.line(18-3,-71,18-3,-73)
+				this.layer.line(18+3,-71,18+3,-73)
+				this.layer.strokeWeight(3)
+				this.layer.point(9-6,-79)
+				this.layer.point(9+6,-79)
+				this.layer.noStroke()
+				this.layer.fill(200,150,50,this.fade)
+				this.layer.arc(0,-79,44,44,-195,-15)
+			break
+			case 81:
+				this.layer.noStroke()
+				this.layer.fill(230,230,5,this.fade)
+				this.layer.ellipse(-12-sin(this.rate[0]*2)*2,-10,24,24)
+				this.layer.ellipse(12+sin(this.rate[0]*2)*2,-10,24,24)
+				this.layer.ellipse(cos(this.anim[2])*-(20+this.anim[3])+this.anim[1]*24+this.anim[0]*18,-36+sin(this.anim[2])*-(16+this.anim[3])-this.anim[1]*6-this.anim[0]*4,24,24)
+				this.layer.fill(240,240,60,this.fade)
+				this.layer.ellipse(cos(this.anim[2])*(20+this.anim[3])+this.anim[1]*24+this.anim[0]*18,-36+sin(this.anim[2])*(16+this.anim[3])-this.anim[1]*6-this.anim[0]*4,24,24)
+				this.layer.fill(30,this.fade)
+				this.layer.ellipse(0,-36,32,52)
+				this.layer.fill(255,this.fade)
+				this.layer.triangle(-6,-60,10,-60,6,-40)
+				this.layer.fill(255,150,100,this.fade)
+				this.layer.quad(6,-40,7,-45,2,-60,3,-45)
+				this.layer.fill(245,245,65,this.fade)
+				this.layer.ellipse(0,-75,40,40)
+				this.layer.fill(240,160,20,this.fade)
+				this.layer.ellipse(13.5,-67,24,16)
+				this.layer.stroke(0,this.fade)
+				this.layer.strokeWeight(1)
+				this.layer.arc(13.5,-67,22,2,-180,0)
+				this.layer.line(18-3,-71,18-3,-73)
+				this.layer.line(18+3,-71,18+3,-73)
+				this.layer.noStroke()
+				this.layer.fill(0,this.fade)
+				this.layer.ellipse(3,-78,8,6)
+				this.layer.ellipse(15,-78,8,6)
+				this.layer.rect(5,-78,30,2)
+				this.layer.stroke(20,this.fade)
+				this.layer.strokeWeight(4)
+				this.layer.fill(20,this.fade)
+				this.layer.line(-20,-91,20,-91)
+				this.layer.quad(-12,-91,12,-91,8,-99,-8,-99)
 			break
 		}
 		this.layer.scale(1/this.size/this.flip,1/this.size)
@@ -2216,7 +2282,7 @@ class combatant{
 			case 69:
 				this.status[3]=max(this.status[3],2)
 			break
-			case 70: case 72:
+			case 70: case 72: case 80: case 81:
 				this.status[14]=max(this.status[14],1)
 			break
 			case 71:

@@ -80,9 +80,8 @@ types={
         {name:'Big Duck',alt:'',life:30,speed:7,damage:1,attacks:[39,93],height:75,reward:10,pattern:0},
         {name:'Big Quack Bridgade',alt:'',life:45,speed:6,damage:1,attacks:[39,63,93],height:75,reward:20,pattern:0},
         {name:'Elite Agent Duck',alt:'',life:60,speed:7,damage:2,attacks:[],height:60,reward:30,pattern:0},
-
-        {name:'Quack Bridgade',alt:'',life:18,speed:5,damage:1,attacks:[39,63],height:60,reward:10,pattern:0},//80
-        {name:'Agent Duck',alt:'',life:30,speed:7,damage:1,attacks:[],height:60,reward:15,pattern:0},
+        {name:'Master Quack',alt:'',life:324,speed:10,damage:4,attacks:[96,39,63],height:75,reward:100,pattern:1},//80
+        {name:'Duck 006',alt:'',life:240,speed:13,damage:4,attacks:[93],height:75,reward:100,pattern:0},
     ],weapon:[
         {name:'Unarmed',damage:2,attacks:[0]},
         {name:'Stick',damage:4,attacks:[8]},
@@ -113,6 +112,7 @@ types={
         {name:'Hammer&Sickle',damage:7.5,attacks:[8,17,50,57,58]},
         {name:'Welding Tools',damage:8,attacks:[8,92]},
         {name:'Elite Fists',damage:4,attacks:[64,65,66,94,95]},
+        {name:'Expert Fists',damage:4,attacks:[64,65,66,94,95,97,98]},
     ],attack:[
         {name:'Punch'                   ,damage:1   ,target:0,class:0,uses:0 ,accuracy:1   ,description:'Basic attack'},//0
         {name:'Nerf Damage'             ,damage:0   ,target:0,class:1,uses:0 ,accuracy:1   ,description:'Decreases enemy damage'},
@@ -210,6 +210,9 @@ types={
         {name:'Get Shredded'            ,damage:1   ,target:0,class:0,uses:0 ,accuracy:0.8 ,description:'Demonstrate your power'},
         {name:'Combo Flurry'            ,damage:0.5 ,target:0,class:0,uses:0 ,accuracy:1   ,description:'Build lots of combo'},
         {name:'Combo Disable'           ,damage:0.75,target:0,class:0,uses:0 ,accuracy:1   ,description:'Stun and build combo'},
+        {name:'Quack of Supremacy'      ,damage:0.5 ,target:2,class:1,uses:1 ,accuracy:1   ,description:'Quack and destroy'},
+        {name:'Combo Destruction'       ,damage:2   ,target:0,class:0,uses:10,accuracy:1   ,description:'Do massive damage and build combo'},
+        {name:'Flaming Combo Finish'    ,damage:1   ,target:0,class:0,uses:10,accuracy:1   ,description:'Hit and expend combo'},
     ]
 }
 stage={scene:'battle',scale:1}
@@ -220,14 +223,14 @@ entities={particles:[]}
 run={fore:[]}
 dev={id:false}
 combatants=[
-    {id:1,weapon:28,team:0},
-    {id:2,weapon:28,team:0},
-    {id:3,weapon:28,team:0},
-    {id:8,weapon:28,team:0},
-    {id:79,weapon:28,team:1},
-    {id:79,weapon:28,team:1},
-    {id:79,weapon:28,team:1},
-    {id:79,weapon:28,team:1},
+    {id:1,weapon:2,team:0},
+    {id:2,weapon:2,team:0},
+    {id:3,weapon:2,team:0},
+    {id:8,weapon:2,team:0},
+    {id:48,weapon:2,team:1},
+    {id:48,weapon:2,team:1},
+    {id:48,weapon:2,team:1},
+    {id:81,weapon:29,team:1},
 ]
 a=0;b=0;c=0;d=0;e=0;f=0;g=0;h=0;i=0;j=0;k=0;l=0;m=0;n=0;o=0;p=0
 la=0;lb=0;lc=0;ld=0;le=0;lf=0;lg=0;lh=0;li=0;lj=0;lk=0;ll=0;lm=0;ln=0;lo=0;lp=0
