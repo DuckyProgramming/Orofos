@@ -105,6 +105,9 @@ class combatant{
 				this.status[14]+=2
 				this.status[20]+=2
 			break
+			case 83:
+				this.status[14]+=4
+			break
 			case 84:
 				this.status[14]+=2
 				this.status[20]++
@@ -2220,6 +2223,33 @@ class combatant{
 				this.layer.strokeWeight(4)
 				this.layer.line(-15,-101,15,-101)
 				this.layer.quad(-9,-101,9,-101,6,-107,-6,-107)
+			break
+			case 83:
+				this.layer.stroke(80,160,200,this.fade)
+				this.layer.strokeWeight(4)
+				this.layer.line(-4,-30,-8-sin(this.rate[0]*2)*3,0)
+				this.layer.line(4,-30,8+sin(this.rate[0]*2)*3,0)
+				this.layer.line(-6*cos(this.rate[1]),-48,-15*cos(this.rate[1])+this.anim[0]*30+this.anim[1]*36,-24-this.anim[0]*12-this.anim[1]*30)
+				this.layer.line(6*cos(this.rate[1]),-48,15*cos(this.rate[1])+this.anim[0]*15+this.anim[1]*12,-24-this.anim[0]*12-this.anim[1]*30)
+				this.layer.noStroke()
+				this.layer.fill(100,this.fade)
+				this.layer.rect(0,-75,40,8)
+				this.layer.fill(80,160,200,this.fade)
+				this.layer.ellipse(0,-45,18,36)
+				this.layer.fill(75,75,150,this.fade)
+				this.layer.arc(0,-54,18,24,-180,0)
+				this.layer.fill(240,220,180,this.fade)
+				this.layer.ellipse(0,-75,30,30)
+				this.layer.fill(100,100,200,this.fade)
+				this.layer.arc(0,-72,32,26,0,180)
+				this.layer.fill(0,this.fade)
+				this.layer.ellipse(4,-72,8,6)
+				this.layer.ellipse(12,-72,8,6)
+				this.layer.rect(3,-72,24,2)
+				this.layer.stroke(100,this.fade)
+				this.layer.strokeWeight(2)
+				this.layer.noFill()
+				this.layer.arc(0,-75,36,36,-180,0)
 			break
 			case 84:
 				this.layer.stroke(60,40,20,this.fade)

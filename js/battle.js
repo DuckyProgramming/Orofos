@@ -203,6 +203,7 @@ class battle{
                     }
                 }
                 if(this.stack[0].cancel&&!this.stack[0].click){
+                    this.combatants[this.stack[0].type].endTurn()
                     this.turn()
                 }
                 this.stack[0].click=true
