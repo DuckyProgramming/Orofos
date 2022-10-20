@@ -31,7 +31,7 @@ class attack{
         }
         if(this.battle.stack[0].type<4){
             switch(this.type){
-                case 0: case 61: case 64: case 67: case 68:
+                case 0: case 61: case 64: case 67: case 68: case 101:
                     this.timer=100-this.user*20+this.target[0]*20
                 break
                 case 8: case 10: case 11: case 23: case 40: case 44: case 49: case 54: case 57: case 65: case 78: case 82: case 92: case 93: case 94: case 95: case 97:
@@ -86,7 +86,7 @@ class attack{
         }
         else{
             switch(this.type){
-                case 0: case 61: case 64: case 67: case 68:
+                case 0: case 61: case 64: case 67: case 68: case 101:
                     this.timer=100+this.user*20-this.target[1]*20
                 break
                 case 8: case 10: case 11: case 23: case 40: case 44: case 49: case 54: case 57: case 65: case 78: case 82: case 92: case 93: case 94: case 95: case 97:
@@ -148,7 +148,7 @@ class attack{
     update(){
         if(this.battle.stack[0].type<4){
             switch(this.type){
-                case 0: case 61: case 64: case 67: case 68:
+                case 0: case 61: case 64: case 67: case 68: case 101:
                     if(this.timer>=50-this.user*10+this.target[0]*10){
                         this.battle.combatants[this.user].position.x+=10
                         this.battle.combatants[this.user].rate[0]+=10
@@ -167,10 +167,13 @@ class attack{
                         this.battle.combatants[this.target[0]+4].take(this.damage,0,this.accuracy,this.user)
                         if(this.type==64&&this.battle.combatants[this.target[0]+4].hit){
                             this.battle.combatants[this.user].boost[3]++
-                        }
-                        if(this.type==67&&this.battle.combatants[this.target[0]+4].hit){
+                        }else if(this.type==67&&this.battle.combatants[this.target[0]+4].hit){
                             this.battle.currency.money+=5
-                            entities.particles.push(new particle(this.battle.layer,this.battle.combantats[this.user].position.x,this.battle.combantats[this.user].position.y,6,0,2,1,[255,225,0]))
+                            entities.particles.push(new particle(this.battle.layer,this.battle.combatants[this.user].position.x,this.battle.combatants[this.user].position.y,6,0,2,1,[255,225,0]))
+                            entities.particles[entities.particles.length-1].value='$5'
+                        }else if(this.type==101&&this.battle.combatants[this.target[0]+4].hit){
+                            this.battle.currency.money+=25
+                            entities.particles.push(new particle(this.battle.layer,this.battle.combatants[this.user].position.x,this.battle.combatants[this.user].position.y,6,0,2,1,[255,225,0]))
                             entities.particles[entities.particles.length-1].value='$5'
                         }
                     }
@@ -946,7 +949,7 @@ class attack{
         }
         else{
             switch(this.type){
-                case 0: case 61: case 64: case 67: case 68:
+                case 0: case 61: case 64: case 67: case 68: case 101:
                     if(this.timer>=50+this.user*10-this.target[1]*10){
                         this.battle.combatants[this.user+4].position.x-=10
                         this.battle.combatants[this.user+4].rate[0]+=10
@@ -965,11 +968,14 @@ class attack{
                         this.battle.combatants[this.target[1]].take(this.damage,0,this.accuracy,this.user+4)
                         if(this.type==64&&this.battle.combatants[this.target[1]].hit){
                             this.battle.combatants[this.user+4].boost[3]++
-                        }
-                        if(this.type==67&&this.battle.combatants[this.target[1]].hit){
+                        }else if(this.type==67&&this.battle.combatants[this.target[1]].hit){
                             this.battle.currency.money-=5
-                            entities.particles.push(new particle(this.battle.layer,this.battle.combantats[this.user+4].position.x,this.battle.combantats[this.user+4].position.y,6,0,2,1,[255,225,0]))
+                            entities.particles.push(new particle(this.battle.layer,this.battle.combatants[this.user+4].position.x,this.battle.combatants[this.user+4].position.y,6,0,2,1,[255,225,0]))
                             entities.particles[entities.particles.length-1].value='-$5'
+                        }else if(this.type==102&&this.battle.combatants[this.target[1]].hit){
+                            this.battle.currency.money-=25
+                            entities.particles.push(new particle(this.battle.layer,this.battle.combatants[this.user+4].position.x,this.battle.combatants[this.user+4].position.y,6,0,2,1,[255,225,0]))
+                            entities.particles[entities.particles.length-1].value='-$25'
                         }
                     }
                     if(this.timer>=40+this.user*10-this.target[1]*10&&this.timer<50+this.user*10-this.target[1]*10&&this.type==61){

@@ -82,11 +82,13 @@ types={
         {name:'Elite Agent Duck',alt:'',life:60,speed:7,damage:2,attacks:[],height:60,reward:30,pattern:0},
         {name:'Master Quack',alt:'',life:324,speed:10,damage:4,attacks:[96,39,63],height:75,reward:100,pattern:1},//80
         {name:'Duck 006',alt:'',life:240,speed:13,damage:4,attacks:[93],height:75,reward:100,pattern:0},
+        {name:'MoneyMaster',alt:'',life:384,speed:12,damage:3,attacks:[1,101],height:90,reward:100,pattern:0},
 
-        {name:'Shark',alt:'',life:12,speed:8,damage:1,attacks:[1,67],height:75,reward:10,pattern:0},
         {name:'Cartel',alt:'',life:24,speed:10,damage:1,attacks:[1,68],height:75,reward:10,pattern:0},
 
         {name:'Cook',alt:'',life:360,speed:12,damage:2,attacks:[99,7,100],height:90,reward:100,pattern:1},
+
+        {name:'General Duckion',alt:'',life:24,speed:9,damage:1,attacks:[39,70],height:60,reward:5,pattern:0},
     ],weapon:[
         {name:'Unarmed',damage:2,attacks:[0]},
         {name:'Stick',damage:4,attacks:[8]},
@@ -220,6 +222,7 @@ types={
         {name:'Flaming Combo Finish'    ,damage:1   ,target:0,class:0,uses:10,accuracy:1   ,description:'Hit and expend combo'},
         {name:'Permanent High'          ,damage:100 ,target:1,class:1,uses:1 ,accuracy:1   ,description:'Take the good stuff'},
         {name:'Dust Storm'              ,damage:1   ,target:2,class:0,uses:5 ,accuracy:1   ,description:'Attack with strange dust'},//100
+        {name:'Cash Out'                ,damage:1   ,target:0,class:0,uses:0 ,accuracy:1   ,description:'Take lots of cash'},
     ]
 }
 stage={scene:'battle',scale:1}
@@ -234,10 +237,10 @@ combatants=[
     {id:2,weapon:2,team:0},
     {id:3,weapon:2,team:0},
     {id:8,weapon:2,team:0},
-    {id:58,weapon:2,team:1},
-    {id:59,weapon:2,team:1},
-    {id:60,weapon:2,team:1},
-    {id:84,weapon:2,team:1},
+    {id:50,weapon:2,team:1},
+    {id:51,weapon:2,team:1},
+    {id:52,weapon:2,team:1},
+    {id:82,weapon:2,team:1},
 ]
 a=0;b=0;c=0;d=0;e=0;f=0;g=0;h=0;i=0;j=0;k=0;l=0;m=0;n=0;o=0;p=0
 la=0;lb=0;lc=0;ld=0;le=0;lf=0;lg=0;lh=0;li=0;lj=0;lk=0;ll=0;lm=0;ln=0;lo=0;lp=0
