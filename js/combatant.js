@@ -55,11 +55,11 @@ class combatant{
 		this.status=[]
 		this.statusFade=[]
 		this.statusDisplay=[]
-		this.statusColor=[[200,100,0],[255,255,150],[150,255,150],[0,50,100],[230,240,250],[150,0,0],[200,210,220],[255,225,0],[100,200,200],[150,50,0],[60,60,60],[150,100,50],[150,100,100],[255,50,0],[150,50,150],[225,200,100],[248,219,230],[50,255,255],[125,150,150],[60,65,70],[90,95,100],[200,200,255],[50,50,100],[200,125,100]]
+		this.statusColor=[[200,100,0],[255,255,150],[150,255,150],[0,50,100],[230,240,250],[150,0,0],[200,210,220],[255,225,0],[100,200,200],[150,50,0],[60,60,60],[150,100,50],[150,100,100],[255,50,0],[150,50,150],[225,200,100],[248,219,230],[50,255,255],[125,150,150],[60,65,70],[90,95,100],[200,200,255],[50,50,100],[200,125,100],[60,40,100]]
 		this.statusInfoFade=[]
-		this.statusName=['Burned','Stun','Confused','Buffer','Inaccurate','Anger','Sleep','Inflated','Fallen','Drunk','Oiled','Hungover','Bomb','Bleed','Control','Headache','Flustered','High','Withdraw','Armored','Reinforced','Shielded','Confidence','Fire Bomb']
+		this.statusName=['Burned','Stun','Confused','Buffer','Inaccurate','Anger','Sleep','Inflated','Fallen','Drunk','Oiled','Hungover','Bomb','Bleed','Control','Headache','Flustered','High','Withdraw','Armored','Reinforced','Shielded','Confidence','Fire Bomb','Absorb']
 		this.statusClass=[]
-		for(g=0;g<24;g++){
+		for(g=0;g<25;g++){
 			this.status.push(0)
 			this.statusFade.push(0)
 			this.statusInfoFade.push(0)
@@ -73,6 +73,7 @@ class combatant{
 		this.statusClass[20]=1
 		this.statusClass[21]=1
 		this.statusClass[22]=1
+		this.statusClass[24]=1
 		this.infoFade=0
 		this.rate=[0,0]
 		this.stacking=this.speed
@@ -121,6 +122,10 @@ class combatant{
 			case 88:
 				this.status[14]+=4
 				this.status[21]+=3
+			break
+			case 115:
+				this.status[14]+=2
+				this.status[20]+=2
 			break
 		}
 	}
@@ -2937,6 +2942,117 @@ class combatant{
 				this.layer.fill(255,100,100,this.fade/2)
 				this.layer.rect(7,-87,18,8,2)
 			break
+			case 111:
+				this.layer.stroke(30,25,30,this.fade)
+				this.layer.strokeWeight(4)
+				this.layer.line(-4,-30,-8-sin(this.rate[0]*2)*3,0)
+				this.layer.line(4,-30,8+sin(this.rate[0]*2)*3,0)
+				this.layer.line(-6*cos(this.rate[1]),-48,-15*cos(this.rate[1])+this.anim[0]*30+this.anim[1]*36,-24-this.anim[0]*12-this.anim[1]*30)
+				this.layer.line(6*cos(this.rate[1]),-48,15*cos(this.rate[1])+this.anim[0]*15+this.anim[1]*12,-24-this.anim[0]*12-this.anim[1]*30)
+				this.layer.noStroke()
+				this.layer.fill(30,25,30,this.fade)
+				this.layer.ellipse(0,-45,18,36)
+				this.layer.fill(240,220,180,this.fade)
+				this.layer.ellipse(0,-75,30,30)
+				this.layer.fill(0,this.fade)
+				this.layer.ellipse(4,-72,4,4)
+				this.layer.ellipse(12,-72,4,4)
+				this.layer.fill(60,50,60,this.fade)
+				regPoly(this.layer,0,-45,6,6,0)
+				this.layer.fill(90,75,90,this.fade)
+				regTriangle(this.layer,0,-45,6,0)
+			break
+			case 112:
+				this.layer.stroke(30,25,30,this.fade)
+				this.layer.strokeWeight(4)
+				this.layer.line(-4,-30,-8-sin(this.rate[0]*2)*3,0)
+				this.layer.line(4,-30,8+sin(this.rate[0]*2)*3,0)
+				this.layer.line(-12*cos(this.rate[1]),-48,-24*cos(this.rate[1])+this.anim[0]*30+this.anim[1]*36,-24-this.anim[0]*12-this.anim[1]*30)
+				this.layer.line(12*cos(this.rate[1]),-48,24*cos(this.rate[1])+this.anim[0]*15+this.anim[1]*12,-24-this.anim[0]*12-this.anim[1]*30)
+				this.layer.noStroke()
+				this.layer.fill(30,25,30,this.fade)
+				this.layer.ellipse(0,-39,36,30)
+				this.layer.fill(240,220,180,this.fade)
+				this.layer.ellipse(0,-66,30,30)
+				this.layer.fill(0,this.fade)
+				this.layer.ellipse(4,-63,4,4)
+				this.layer.ellipse(12,-63,4,4)
+				this.layer.fill(60,50,60,this.fade)
+				regPoly(this.layer,0,-39,7,6,0)
+				this.layer.fill(90,75,90,this.fade)
+				regTriangle(this.layer,0,-39,7,0)
+			break
+			case 113:
+				this.layer.stroke(30,25,30,this.fade)
+				this.layer.strokeWeight(4)
+				this.layer.line(-4,-36,-8-sin(this.rate[0]*2)*3,0)
+				this.layer.line(4,-36,8+sin(this.rate[0]*2)*3,0)
+				this.layer.line(-5*cos(this.rate[1]),-54,-12*cos(this.rate[1])+this.anim[0]*30+this.anim[1]*36,-24-this.anim[0]*12-this.anim[1]*30)
+				this.layer.line(5*cos(this.rate[1]),-54,12*cos(this.rate[1])+this.anim[0]*15+this.anim[1]*12,-24-this.anim[0]*12-this.anim[1]*30)
+				this.layer.noStroke()
+				this.layer.fill(30,25,30,this.fade)
+				this.layer.ellipse(0,-48,15,45)
+				this.layer.fill(240,220,180,this.fade)
+				this.layer.ellipse(0,-84,30,30)
+				this.layer.fill(0,this.fade)
+				this.layer.ellipse(4,-84,4,4)
+				this.layer.ellipse(12,-84,4,4)
+				this.layer.fill(60,50,60,this.fade)
+				regPoly(this.layer,0,-48,6,5,0)
+				this.layer.fill(90,75,90,this.fade)
+				regTriangle(this.layer,0,-48,5,0)
+			break
+			case 114:
+				this.layer.stroke(30,25,30,this.fade)
+				this.layer.strokeWeight(4)
+				this.layer.line(-6,-30,-12-sin(this.rate[0]*2)*4,0)
+				this.layer.line(6,-30,12+sin(this.rate[0]*2)*4,0)
+				this.layer.line(-12*cos(this.rate[1]),-60,-25*cos(this.rate[1])+this.anim[0]*36+this.anim[1]*45,-30-this.anim[0]*12-this.anim[1]*30)
+				this.layer.line(12*cos(this.rate[1]),-60,25*cos(this.rate[1])+this.anim[0]*18+this.anim[1]*15,-30-this.anim[0]*12-this.anim[1]*30)
+				this.layer.noStroke()
+				this.layer.fill(30,25,30,this.fade)
+				this.layer.ellipse(0,-51,30,54)
+				this.layer.fill(240,220,180,this.fade)
+				this.layer.ellipse(0,-90,30,30)
+				this.layer.fill(0,this.fade)
+				this.layer.ellipse(4,-87,4,4)
+				this.layer.ellipse(12,-87,4,4)
+				this.layer.fill(60,50,60,this.fade)
+				regPoly(this.layer,0,-51,6,9,0)
+				this.layer.fill(90,75,90,this.fade)
+				regTriangle(this.layer,0,-51,9,0)
+			break
+			case 115:
+				this.layer.stroke(80,this.fade)
+				this.layer.strokeWeight(10)
+				this.layer.line(-6,-30,-12-sin(this.rate[0]*2)*4,0)
+				this.layer.line(6,-30,12+sin(this.rate[0]*2)*4,0)
+				this.layer.line(-12*cos(this.rate[1]),-60,-25*cos(this.rate[1])+this.anim[0]*36+this.anim[1]*45,-30-this.anim[0]*12-this.anim[1]*30)
+				this.layer.line(12*cos(this.rate[1]),-60,25*cos(this.rate[1])+this.anim[0]*18+this.anim[1]*15,-30-this.anim[0]*12-this.anim[1]*30)
+				this.layer.noStroke()
+				this.layer.fill(80,this.fade)
+				this.layer.ellipse(0,-51,36,60)
+				this.layer.stroke(30,25,30,this.fade)
+				this.layer.strokeWeight(4)
+				this.layer.line(-6,-30,-12-sin(this.rate[0]*2)*4,0)
+				this.layer.line(6,-30,12+sin(this.rate[0]*2)*4,0)
+				this.layer.line(-12*cos(this.rate[1]),-60,-25*cos(this.rate[1])+this.anim[0]*36+this.anim[1]*45,-30-this.anim[0]*12-this.anim[1]*30)
+				this.layer.line(12*cos(this.rate[1]),-60,25*cos(this.rate[1])+this.anim[0]*18+this.anim[1]*15,-30-this.anim[0]*12-this.anim[1]*30)
+				this.layer.noStroke()
+				this.layer.fill(30,25,30,this.fade)
+				this.layer.ellipse(0,-51,30,54)
+				this.layer.fill(240,220,180,this.fade)
+				this.layer.ellipse(0,-90,30,30)
+				this.layer.fill(0,this.fade)
+				this.layer.ellipse(4,-87,4,4)
+				this.layer.ellipse(12,-87,4,4)
+				this.layer.fill(60,50,60,this.fade)
+				regPoly(this.layer,0,-51,6,9,0)
+				this.layer.fill(90,75,90,this.fade)
+				regTriangle(this.layer,0,-51,9,0)
+				this.layer.fill(80,this.fade)
+				this.layer.arc(0,-90,36,36,-315,15)
+			break
 		}
 		this.layer.scale(1/this.size/this.flip,1/this.size)
 		this.layer.rotate(-this.direction)
@@ -3000,6 +3116,11 @@ class combatant{
 						this.calcDamage*=0.1
 						this.status[21]--
 					}
+					if(this.status[24]>0){
+						this.calcDamage*=0.25
+						this.boost[0]++
+						this.status[24]--
+					}
 					if(current.combatants[user].status[5]>0&&floor(random(0,2))==0||current.combatants[user].status[9]>0&&floor(random(0,4))==0||current.combatants[user].status[11]>0&&floor(random(0,4))==0){
 						this.calcDamage*=2
 						entities.particles.push(new particle(this.layer,this.position.x,this.position.y,6,0,2,1,[255,125,0]))
@@ -3040,7 +3161,7 @@ class combatant{
 			case 14: case 61: case 70: case 72: case 80: case 81: case 82:
 				this.status[14]=max(this.status[14],1)
 			break
-			case 71:
+			case 71: case 115:
 				this.status[14]=max(this.status[14],1)
 				this.status[20]=max(this.status[20],2)
 			break

@@ -16,7 +16,7 @@ class attack{
         switch(this.type){
             case 1: case 2: case 3: case 4: case 5: case 6: case 22: case 24: case 25: case 26: case 27: case 28: case 31: case 33: case 34: case 35: case 36: case 37: case 38: case 39:
             case 41: case 43: case 45: case 52: case 55: case 59: case 63: case 69: case 70: case 71: case 72: case 73: case 74: case 75: case 77: case 83: case 84: case 85: case 86: case 87:
-            case 88: case 89: case 90: case 96: case 99: case 104: case 106: case 107: case 109:
+            case 88: case 89: case 90: case 96: case 99: case 104: case 106: case 107: case 109: case 116: case 117:
                 this.timer=60
             break
             case 7:
@@ -37,7 +37,7 @@ class attack{
                 case 0: case 61: case 64: case 67: case 68: case 101:
                     this.timer=100-this.user*20+this.target[0]*20
                 break
-                case 8: case 10: case 11: case 23: case 40: case 44: case 49: case 54: case 57: case 65: case 78: case 82: case 92: case 93: case 94: case 95: case 97: case 112:
+                case 8: case 10: case 11: case 23: case 40: case 44: case 49: case 54: case 57: case 65: case 78: case 82: case 92: case 93: case 94: case 95: case 97: case 112: case 115:
                     this.timer=170-this.user*30+this.target[0]*30
                 break
                 case 9: case 15: case 20: case 29: case 60: case 103: case 114:
@@ -92,7 +92,7 @@ class attack{
                 case 0: case 61: case 64: case 67: case 68: case 101:
                     this.timer=100+this.user*20-this.target[1]*20
                 break
-                case 8: case 10: case 11: case 23: case 40: case 44: case 49: case 54: case 57: case 65: case 78: case 82: case 92: case 93: case 94: case 95: case 97: case 112:
+                case 8: case 10: case 11: case 23: case 40: case 44: case 49: case 54: case 57: case 65: case 78: case 82: case 92: case 93: case 94: case 95: case 97: case 112: case 115:
                     this.timer=170+this.user*30-this.target[1]*30
                 break
                 case 9: case 15: case 20: case 29: case 60: case 103: case 114:
@@ -220,7 +220,7 @@ class attack{
                         }
                     }
                 break
-                case 8: case 10: case 11: case 23: case 40: case 44: case 49: case 54: case 57: case 65: case 78: case 82: case 91: case 93: case 94: case 95: case 97: case 112:
+                case 8: case 10: case 11: case 23: case 40: case 44: case 49: case 54: case 57: case 65: case 78: case 82: case 91: case 93: case 94: case 95: case 97: case 112: case 115:
                     if(this.timer>=100-this.user*15+this.target[0]*15){
                         this.battle.combatants[this.user].position.x+=20/3
                         this.battle.combatants[this.user].rate[0]+=20/3
@@ -254,7 +254,7 @@ class attack{
                         this.battle.combatants[this.user].position.x-=20/3
                         this.battle.combatants[this.user].rate[0]-=20/3
                     }
-                    if(this.timer==85-this.user*15+this.target[0]*15&&(this.type==8||this.type==23||this.type==40||this.type==54||this.type==57||this.type==65||this.type==78||this.type==82||this.type==91||this.type==93||this.type==95||this.type==97)||(this.timer==75-this.user*15+this.target[0]*15||this.timer==85-this.user*15+this.target[0]*15||this.timer==95-this.user*15+this.target[0]*15)&&this.type==94){
+                    if(this.timer==85-this.user*15+this.target[0]*15&&(this.type==8||this.type==23||this.type==40||this.type==54||this.type==57||this.type==65||this.type==78||this.type==82||this.type==91||this.type==93||this.type==95||this.type==97||this.type==115)||(this.timer==75-this.user*15+this.target[0]*15||this.timer==85-this.user*15+this.target[0]*15||this.timer==95-this.user*15+this.target[0]*15)&&this.type==94){
                         this.battle.combatants[this.target[0]+4].take(this.damage,0,this.accuracy,this.user)
                         if(this.type==40&&this.battle.combatants[this.target[0]+4].hit){
                             this.battle.combatants[this.target[0]+4].status[8]++
@@ -271,6 +271,8 @@ class attack{
                             this.battle.combatants[this.target[0]+4].status[13]+=2
                         }else if(this.type==93&&this.battle.combatants[this.target[0]+4].hit){
                             this.battle.combatants[this.user].status[3]++
+                        }else if(this.type==115&&this.battle.combatants[this.target[0]+4].hit){
+                            this.battle.combatants[this.target[0]+4].status[13]++
                         }
                         if(this.type==95&&this.battle.combatants[this.target[0]+4].hit){
                             this.battle.combatants[this.target[0]+4].status[8]++
@@ -513,7 +515,7 @@ class attack{
                         this.battle.combatants[this.target[0]+4].take(this.damage,1,this.accuracy,this.user)
                     }
                 break
-                case 22: case 27: case 28: case 34: case 35: case 41: case 43: case 52: case 55: case 59: case 69: case 70: case 75: case 83: case 84: case 99: case 107: case 109:
+                case 22: case 27: case 28: case 34: case 35: case 41: case 43: case 52: case 55: case 59: case 69: case 70: case 75: case 83: case 84: case 99: case 107: case 109: case 116: case 117:
                     if(this.timer>=30){
                         this.battle.combatants[this.user].anim[0]+=1/30
                     }else{
@@ -586,6 +588,12 @@ class attack{
                         }
                     }else if(this.timer==30&&this.type==109){
                         this.battle.combatants[this.target[0]].status[19]+=this.damage
+                    }else if(this.timer==30&&this.type==116){
+                        this.battle.combatants[this.user].status[24]+=3
+                    }else if(this.timer==30&&this.type==117){
+                        for(g=0;g<4;g++){
+                            this.battle.combatants[g].status[24]+=2
+                        }
                     }
                 break
                 case 24: case 25: case 26:
@@ -1107,7 +1115,7 @@ class attack{
                         }
                     }
                 break
-                case 8: case 10: case 11: case 23: case 40: case 44: case 49: case 54: case 57: case 65: case 78: case 82: case 91: case 93: case 94: case 95: case 97: case 112:
+                case 8: case 10: case 11: case 23: case 40: case 44: case 49: case 54: case 57: case 65: case 78: case 82: case 91: case 93: case 94: case 95: case 97: case 112: case 115:
                     if(this.timer>=100+this.user*15-this.target[1]*15){
                         this.battle.combatants[this.user+4].position.x-=20/3
                         this.battle.combatants[this.user+4].rate[0]+=20/3
@@ -1141,7 +1149,7 @@ class attack{
                         this.battle.combatants[this.user+4].position.x+=20/3
                         this.battle.combatants[this.user+4].rate[0]+=20/3
                     }
-                    if(this.timer==85+this.user*15-this.target[1]*15&&(this.type==8||this.type==23||this.type==40||this.type==54||this.type==57||this.type==65||this.type==78||this.type==82||this.type==91||this.type==93||this.type==95||this.type==97)||(this.timer==75+this.user*15-this.target[1]*15||this.timer==85+this.user*15-this.target[1]*15||this.timer==95+this.user*15-this.target[1]*15)&&this.type==94){
+                    if(this.timer==85+this.user*15-this.target[1]*15&&(this.type==8||this.type==23||this.type==40||this.type==54||this.type==57||this.type==65||this.type==78||this.type==82||this.type==91||this.type==93||this.type==95||this.type==97||this.type==115)||(this.timer==75+this.user*15-this.target[1]*15||this.timer==85+this.user*15-this.target[1]*15||this.timer==95+this.user*15-this.target[1]*15)&&this.type==94){
                         this.battle.combatants[this.target[1]].take(this.damage,0,this.accuracy,this.user+4)
                         if(this.type==40&&this.battle.combatants[this.target[1]].hit){
                             this.battle.combatants[this.target[1]].status[8]++
@@ -1158,6 +1166,8 @@ class attack{
                             this.battle.combatants[this.target[1]].status[13]+=2
                         }else if(this.type==93&&this.battle.combatants[this.target[1]].hit){
                             this.battle.combatants[this.user+4].status[3]++
+                        }else if(this.type==115&&this.battle.combatants[this.target[1]].hit){
+                            this.battle.combatants[this.target[1]].status[13]++
                         }
                         if(this.type==95&&this.battle.combatants[this.target[1]].hit){
                             this.battle.combatants[this.target[1]].status[8]++
@@ -1400,7 +1410,7 @@ class attack{
                         this.battle.combatants[this.target[1]].take(this.damage,1,this.accuracy,this.user+4)
                     }
                 break
-                case 22: case 27: case 28: case 34: case 35: case 41: case 43: case 52: case 55: case 59: case 69: case 70: case 75: case 83: case 84: case 99: case 107: case 109:
+                case 22: case 27: case 28: case 34: case 35: case 41: case 43: case 52: case 55: case 59: case 69: case 70: case 75: case 83: case 84: case 99: case 107: case 109: case 116: case 117:
                     if(this.timer>=30){
                         this.battle.combatants[this.user+4].anim[0]+=1/30
                     }else{
@@ -1473,6 +1483,12 @@ class attack{
                         }
                     }else if(this.timer==30&&this.type==109){
                         this.battle.combatants[this.target[1]+4].status[19]+=this.damage
+                    }else if(this.timer==30&&this.type==116){
+                        this.battle.combatants[this.user+4].status[24]+=3
+                    }else if(this.timer==30&&this.type==117){
+                        for(g=0;g<4;g++){
+                            this.battle.combatants[g+4].status[24]+=2
+                        }
                     }
                 break
                 case 24: case 25: case 26:

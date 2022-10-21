@@ -110,7 +110,12 @@ types={
         {name:'Fat Bomber',alt:'',life:63,speed:15,damage:1,attacks:[5],height:66,reward:15,pattern:0},
         {name:'Long Bomber',alt:'',life:38,speed:8,damage:1,attacks:[4],height:84,reward:15,pattern:0},
         {name:'Big Bomber',alt:'',life:75,speed:12,damage:2,attacks:[2,7],height:90,reward:20,pattern:0},
-        {name:'The Deflagrator',alt:'',life:750,speed:14,damage:2,attacks:[113,114],height:90,reward:100,pattern:1},//10
+        {name:'The Deflagrator',alt:'',life:750,speed:14,damage:2,attacks:[113,114],height:90,reward:100,pattern:1},//110
+        {name:'Shielder',alt:'',life:32,speed:10,damage:0.5,attacks:[1,116],height:75,reward:10,pattern:0},
+        {name:'Fat Shielder',alt:'',life:80,speed:15,damage:0.5,attacks:[5,116],height:66,reward:15,pattern:0},
+        {name:'Long Shielder',alt:'',life:48,speed:8,damage:0.5,attacks:[4,116],height:84,reward:15,pattern:0},
+        {name:'Big Shielder',alt:'',life:96,speed:12,damage:1,attacks:[2,7,116],height:90,reward:20,pattern:0},
+        {name:'Superior Protector',alt:'',life:160,speed:14,damage:1,attacks:[117,116],height:90,reward:100,pattern:1},
     ],weapon:[
         {name:'Unarmed',damage:2,attacks:[0]},//0
         {name:'Stick',damage:4,attacks:[8]},
@@ -146,6 +151,7 @@ types={
         {name:'Towhook',damage:4,attacks:[]},
         {name:'Fire Bomb',damage:3,attacks:[8,112]},
         {name:'Bomb Pack',damage:3,attacks:[8,49,112]},
+        {name:'Sharp Stick',damage:4,attacks:[8,115]},
     ],attack:[
         {name:'Punch'                   ,damage:1   ,target:0,class:0,uses:0 ,accuracy:1   ,description:'Basic attack'},//0
         {name:'Nerf Damage'             ,damage:0   ,target:0,class:1,uses:0 ,accuracy:1   ,description:'Decreases enemy damage'},
@@ -262,6 +268,9 @@ types={
         {name:'Rig Fire Bomb'           ,damage:4   ,target:0,class:4,uses:10,accuracy:1   ,description:'Leave a fire bomb'},
         {name:'Flame Run'               ,damage:0   ,target:2,class:3,uses:1 ,accuracy:1   ,description:'Begin the burning'},
         {name:'Shotgun Sidearm'         ,damage:10  ,target:0,class:2,uses:5 ,accuracy:0.8 ,description:'Sprays wide fire'},
+        {name:'Poke'                    ,damage:0.5 ,target:0,class:0,uses:0 ,accuracy:1   ,description:'Cause a little bleed'},
+        {name:'Absorb'                  ,damage:0   ,target:1,class:0,uses:1 ,accuracy:1   ,description:'Get through attacks'},
+        {name:'Multiabsorb'             ,damage:0   ,target:1,class:0,uses:1 ,accuracy:1   ,description:'Get team through attacks'},
     ]
 }
 stage={scene:'battle',scale:1}
@@ -272,14 +281,14 @@ entities={particles:[]}
 run={fore:[]}
 dev={id:false}
 combatants=[
-    {id:4,weapon:33,team:0},
-    {id:5,weapon:32,team:0},
-    {id:6,weapon:32,team:0},
-    {id:7,weapon:32,team:0},
-    {id:107,weapon:32,team:1},
-    {id:108,weapon:32,team:1},
-    {id:109,weapon:32,team:1},
-    {id:110,weapon:33,team:1},
+    {id:4,weapon:34,team:0},
+    {id:5,weapon:34,team:0},
+    {id:6,weapon:34,team:0},
+    {id:7,weapon:34,team:0},
+    {id:112,weapon:2,team:1},
+    {id:113,weapon:2,team:1},
+    {id:114,weapon:2,team:1},
+    {id:115,weapon:2,team:1},
 ]
 a=0;b=0;c=0;d=0;e=0;f=0;g=0;h=0;i=0;j=0;k=0;l=0;m=0;n=0;o=0;p=0
 la=0;lb=0;lc=0;ld=0;le=0;lf=0;lg=0;lh=0;li=0;lj=0;lk=0;ll=0;lm=0;ln=0;lo=0;lp=0
