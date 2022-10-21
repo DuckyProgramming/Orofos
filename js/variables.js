@@ -89,6 +89,14 @@ types={
         {name:'General Duckion',alt:'',life:400,speed:12,damage:4,attacks:[103,39,70],height:75,reward:100,pattern:1},
         {name:'Joking Jimmy',alt:'',life:500,speed:11,damage:2,attacks:[104],height:66,reward:100,pattern:0},
         {name:'Director Illyesc',alt:'',life:900,speed:18,damage:2,attacks:[105,106,107],height:78,reward:9999,pattern:1},
+        {name:'Bulwark',alt:'',life:30,speed:15,damage:1,attacks:[1,109],height:75,reward:10,pattern:0},
+        {name:'Fat Bulwark',alt:'',life:75,speed:23,damage:1,attacks:[5,109],height:66,reward:15,pattern:0},
+        {name:'Long Bulwark',alt:'',life:45,speed:12,damage:1,attacks:[4,109],height:84,reward:15,pattern:0},
+        {name:'Big Bulwark',alt:'',life:90,speed:18,damage:2,attacks:[2,7,109],height:90,reward:20,pattern:0},
+        {name:'Wiper',alt:'',life:26,speed:11,damage:1,attacks:[1,110],height:75,reward:10,pattern:0},
+        {name:'Fat Wiper',alt:'',life:65,speed:17,damage:1,attacks:[5,110],height:66,reward:15,pattern:0},
+        {name:'Long Wiper',alt:'',life:39,speed:9,damage:1,attacks:[4,110],height:84,reward:15,pattern:0},
+        {name:'Big Wiper',alt:'',life:78,speed:13,damage:2,attacks:[2,7,110],height:90,reward:20,pattern:0},
     ],weapon:[
         {name:'Unarmed',damage:2,attacks:[0]},//0
         {name:'Stick',damage:4,attacks:[8]},
@@ -231,6 +239,8 @@ types={
         {name:'Arrogance'               ,damage:1   ,target:1,class:0,uses:10,accuracy:1   ,description:'Laugh in your power'},
         {name:'Assured Destruction'     ,damage:1   ,target:4,class:0,uses:10,accuracy:1   ,description:'Motivate allies'},
         {name:'Supreme Firepower'       ,damage:4   ,target:0,class:2,uses:50,accuracy:1   ,description:'Utter destruction via firepower'},
+        {name:'Ally armor'              ,damage:2   ,target:3,class:1,uses:5 ,accuracy:1   ,description:'Protect ally defensively'},
+        {name:'Wipe'                    ,damage:0   ,target:2,class:3,uses:1 ,accuracy:1   ,description:'Remove enemy status changes'},
     ]
 }
 stage={scene:'battle',scale:1}
@@ -241,14 +251,14 @@ entities={particles:[]}
 run={fore:[]}
 dev={id:false}
 combatants=[
-    {id:88,weapon:30,team:0},
-    {id:0,weapon:8,team:0},
-    {id:0,weapon:8,team:0},
-    {id:0,weapon:8,team:0},
-    {id:0,weapon:2,team:1},
-    {id:0,weapon:2,team:1},
-    {id:0,weapon:2,team:1},
-    {id:88,weapon:30,team:1},
+    {id:4,weapon:30,team:0},
+    {id:5,weapon:8,team:0},
+    {id:6,weapon:8,team:0},
+    {id:7,weapon:8,team:0},
+    {id:93,weapon:2,team:1},
+    {id:94,weapon:2,team:1},
+    {id:95,weapon:2,team:1},
+    {id:96,weapon:2,team:1},
 ]
 a=0;b=0;c=0;d=0;e=0;f=0;g=0;h=0;i=0;j=0;k=0;l=0;m=0;n=0;o=0;p=0
 la=0;lb=0;lc=0;ld=0;le=0;lf=0;lg=0;lh=0;li=0;lj=0;lk=0;ll=0;lm=0;ln=0;lo=0;lp=0
