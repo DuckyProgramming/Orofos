@@ -105,10 +105,11 @@ types={
         {name:'Long Hider',alt:'',life:1,speed:0,damage:0,attacks:[],height:0,reward:0,pattern:0},
         {name:'Big Hider',alt:'',life:1,speed:0,damage:0,attacks:[],height:0,reward:0,pattern:0},
         {name:'Hider Boss',alt:'',life:1,speed:0,damage:0,attacks:[],height:0,reward:0,pattern:0},
-        {name:'Human',alt:'',life:10,speed:10,damage:1,attacks:[1],height:75,reward:10,pattern:0},
-        {name:'Fat Human',alt:'',life:25,speed:15,damage:1,attacks:[5],height:66,reward:15,pattern:0},
-        {name:'Long Human',alt:'',life:15,speed:8,damage:1,attacks:[4],height:84,reward:15,pattern:0},
-        {name:'Big Human',alt:'',life:30,speed:12,damage:2,attacks:[2,7],height:90,reward:20,pattern:0},
+        {name:'The Commandant',alt:'',life:375,speed:15,damage:3,attacks:[111],height:78,reward:100,pattern:1},
+        {name:'Bomber',alt:'',life:25,speed:10,damage:1,attacks:[1],height:75,reward:10,pattern:0},
+        {name:'Fat Bomber',alt:'',life:63,speed:15,damage:1,attacks:[5],height:66,reward:15,pattern:0},
+        {name:'Long Bomber',alt:'',life:38,speed:8,damage:1,attacks:[4],height:84,reward:15,pattern:0},
+        {name:'Big Bomber',alt:'',life:75,speed:12,damage:2,attacks:[2,7],height:90,reward:20,pattern:0},
     ],weapon:[
         {name:'Unarmed',damage:2,attacks:[0]},//0
         {name:'Stick',damage:4,attacks:[8]},
@@ -161,8 +162,8 @@ types={
         {name:'Shotgun'                 ,damage:2   ,target:0,class:2,uses:5 ,accuracy:0.8 ,description:'Sprays bullets widely'},
         {name:'Snipe'                   ,damage:3   ,target:0,class:2,uses:5 ,accuracy:1   ,description:'Ignores defense'},
         {name:'Smash'                   ,damage:1.5 ,target:0,class:0,uses:5 ,accuracy:0.9 ,description:'Hits hard'},
-        {name:'Sustain Fire'            ,damage:2   ,target:0,class:2,uses:5 ,accuracy:0.6 ,description:'Fire multiple shots'},
-        {name:'Overwhelming Force'      ,damage:1   ,target:0,class:2,uses:20,accuracy:0.4 ,description:'Fire swarm of shots'},
+        {name:'Sustain Fire'            ,damage:2   ,target:0,class:2,uses:5 ,accuracy:0.8 ,description:'Fire multiple shots'},
+        {name:'Overwhelming Force'      ,damage:1   ,target:0,class:2,uses:20,accuracy:0.5 ,description:'Fire swarm of shots'},
         {name:'Concentrated Elimination',damage:2.5 ,target:0,class:2,uses:50,accuracy:1   ,description:'Good aiming'},//20
         {name:'Perfected Strike'        ,damage:3.5 ,target:0,class:2,uses:10,accuracy:1   ,description:'Hit the best spot'},
         {name:'Heal'                    ,damage:5   ,target:3,class:0,uses:10,accuracy:1   ,description:'Help out'},
@@ -220,7 +221,7 @@ types={
         {name:'Waste Time'              ,damage:1   ,target:0,class:2,uses:1 ,accuracy:1   ,description:'Get bored'},
         {name:'Chonk Up'                ,damage:1   ,target:1,class:1,uses:1 ,accuracy:1   ,description:'Prepare for pain'},
         {name:'Wide Smash'              ,damage:3   ,target:0,class:0,uses:0 ,accuracy:0.4 ,description:'Inaccurate heavy smash'},
-        {name:'Motivational Quack'      ,damage:0.5 ,target:0,class:0,uses:0 ,accuracy:1   ,description:'Quack for allies'},
+        {name:'Motivational Quack'      ,damage:0.5 ,target:4,class:0,uses:0 ,accuracy:1   ,description:'Quack for allies'},
         {name:'Double Bonk'             ,damage:1   ,target:0,class:0,uses:5 ,accuracy:1   ,description:'Knock three together'},
         {name:'Quick Sweep'             ,damage:1   ,target:0,class:0,uses:0 ,accuracy:0.5 ,description:'Sweep in rapid fashion'},
         {name:'Defensive Hold'          ,damage:1   ,target:1,class:1,uses:10,accuracy:1   ,description:'Defend yourself'},//80
@@ -253,7 +254,8 @@ types={
         {name:'Assured Destruction'     ,damage:1   ,target:4,class:0,uses:10,accuracy:1   ,description:'Motivate allies'},
         {name:'Supreme Firepower'       ,damage:4   ,target:0,class:2,uses:50,accuracy:1   ,description:'Utter destruction via firepower'},
         {name:'Ally armor'              ,damage:2   ,target:3,class:1,uses:5 ,accuracy:1   ,description:'Protect ally defensively'},
-        {name:'Wipe'                    ,damage:0   ,target:2,class:3,uses:1 ,accuracy:1   ,description:'Remove enemy status changes'},
+        {name:'Wipe'                    ,damage:0   ,target:2,class:3,uses:1 ,accuracy:1   ,description:'Remove enemy status changes'},//110
+        {name:'Deprecation'             ,damage:0.25,target:4,class:1,uses:1 ,accuracy:1   ,description:'Growing weakness'},
     ]
 }
 stage={scene:'battle',scale:1}
@@ -268,10 +270,10 @@ combatants=[
     {id:5,weapon:8,team:0},
     {id:6,weapon:8,team:0},
     {id:7,weapon:8,team:0},
-    {id:101,weapon:2,team:1},
-    {id:102,weapon:2,team:1},
-    {id:103,weapon:2,team:1},
-    {id:104,weapon:2,team:1},
+    {id:16,weapon:2,team:1},
+    {id:16,weapon:2,team:1},
+    {id:17,weapon:2,team:1},
+    {id:105,weapon:2,team:1},
 ]
 a=0;b=0;c=0;d=0;e=0;f=0;g=0;h=0;i=0;j=0;k=0;l=0;m=0;n=0;o=0;p=0
 la=0;lb=0;lc=0;ld=0;le=0;lf=0;lg=0;lh=0;li=0;lj=0;lk=0;ll=0;lm=0;ln=0;lo=0;lp=0

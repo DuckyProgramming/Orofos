@@ -25,7 +25,7 @@ class attack{
             case 46: case 47: case 100: case 102:
                 this.timer=120
             break
-            case 62: case 80:
+            case 62: case 80: case 111:
                 this.timer=30
             break
             case 105:
@@ -1001,6 +1001,20 @@ class attack{
                         }
                     }
                 break
+                case 111:
+                    if(this.timer>=15){
+                        this.battle.combatants[this.user].position.x+=3
+                        this.battle.combatants[this.user].rate[0]+=3
+                    }else{
+                        this.battle.combatants[this.user].position.x-=3
+                        this.battle.combatants[this.user].rate[0]-=3
+                    }
+                    if(this.timer==15){
+                        for(g=0;g<4;g++){
+                            this.battle.combatants[g].boost[floor(random(0,2))]++
+                        }
+                    }
+                break
             }
             if(this.timer==1){
                 this.battle.combatants[this.user].endTurn()
@@ -1855,6 +1869,20 @@ class attack{
                             for(h=0,lh=this.battle.combatants[3-g].status.length;h<lh;h++){
                                 this.battle.combatants[3-g].status[h]=0
                             }
+                        }
+                    }
+                break
+                case 111:
+                    if(this.timer>=15){
+                        this.battle.combatants[this.user+4].position.x-=3
+                        this.battle.combatants[this.user+4].rate[0]+=3
+                    }else{
+                        this.battle.combatants[this.user+4].position.x+=3
+                        this.battle.combatants[this.user+4].rate[0]-=3
+                    }
+                    if(this.timer==15){
+                        for(g=0;g<4;g++){
+                            this.battle.combatants[g+4].boost[floor(random(0,2))]++
                         }
                     }
                 break

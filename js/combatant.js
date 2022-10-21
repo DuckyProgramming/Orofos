@@ -2787,6 +2787,47 @@ class combatant{
 				this.layer.fill(255,this.fade/4)
 				this.layer.rect(7,-87,14,4)
 			break
+			case 104:
+				this.layer.stroke(40,40,45,this.fade)
+				this.layer.strokeWeight(4)
+				this.layer.line(-6,-30,-12-sin(this.rate[0]*2)*4,0)
+				this.layer.line(6,-30,12+sin(this.rate[0]*2)*4,0)
+				this.layer.line(-18*cos(this.rate[1]),-75,-36*cos(this.rate[1])+this.anim[0]*48+this.anim[1]*60,-36-this.anim[0]*12-this.anim[1]*30)
+				this.layer.line(18*cos(this.rate[1]),-75,36*cos(this.rate[1])+this.anim[0]*24+this.anim[1]*20,-36-this.anim[0]*12-this.anim[1]*30)
+				this.layer.noStroke()
+				this.layer.fill(40,40,45,this.fade)
+				this.layer.ellipse(0,-66,60,84)
+				this.layer.ellipse(0,-120,30,30)
+				this.layer.fill(240,220,180,this.fade)
+				this.layer.rect(8,-117,14,4)
+				this.layer.fill(0,this.fade)
+				this.layer.ellipse(4,-117,4,4)
+				this.layer.ellipse(12,-117,4,4)
+				this.layer.stroke(0,this.fade)
+				this.layer.strokeWeight(2)
+				this.layer.fill(255,this.fade/4)
+				this.layer.rect(7,-117,14,4)
+			break
+			case 105:
+				this.layer.stroke(60,60,30,this.fade)
+				this.layer.strokeWeight(4)
+				this.layer.line(-4,-30,-8-sin(this.rate[0]*2)*3,0)
+				this.layer.line(4,-30,8+sin(this.rate[0]*2)*3,0)
+				this.layer.line(-6*cos(this.rate[1]),-48,-15*cos(this.rate[1])+this.anim[0]*30+this.anim[1]*36,-24-this.anim[0]*12-this.anim[1]*30)
+				this.layer.line(6*cos(this.rate[1]),-48,15*cos(this.rate[1])+this.anim[0]*15+this.anim[1]*12,-24-this.anim[0]*12-this.anim[1]*30)
+				this.layer.noStroke()
+				this.layer.fill(60,60,30,this.fade)
+				this.layer.ellipse(0,-47,18,39)
+				this.layer.fill(40,40,20,this.fade);
+				this.layer.rect(0,-45,20,3);
+				this.layer.fill(240,220,180,this.fade)
+				this.layer.ellipse(0,-78,30,30)
+				this.layer.fill(0,this.fade)
+				this.layer.arc(4,-75,4,4,0,180)
+				this.layer.arc(12,-75,4,4,0,180)
+				this.layer.fill(50,100,100,this.fade)
+				this.layer.ellipse(-3,-57,5,5)
+			break
 		}
 		this.layer.scale(1/this.size/this.flip,1/this.size)
 		this.layer.rotate(-this.direction)
