@@ -110,6 +110,7 @@ types={
         {name:'Fat Bomber',alt:'',life:63,speed:15,damage:1,attacks:[5],height:66,reward:15,pattern:0},
         {name:'Long Bomber',alt:'',life:38,speed:8,damage:1,attacks:[4],height:84,reward:15,pattern:0},
         {name:'Big Bomber',alt:'',life:75,speed:12,damage:2,attacks:[2,7],height:90,reward:20,pattern:0},
+        {name:'The Deflagrator',alt:'',life:750,speed:14,damage:2,attacks:[113,114],height:90,reward:100,pattern:1},//10
     ],weapon:[
         {name:'Unarmed',damage:2,attacks:[0]},//0
         {name:'Stick',damage:4,attacks:[8]},
@@ -144,6 +145,7 @@ types={
         {name:'Management FBP-35N',damage:10,attacks:[108]},//30
         {name:'Towhook',damage:4,attacks:[]},
         {name:'Fire Bomb',damage:3,attacks:[8,112]},
+        {name:'Bomb Pack',damage:3,attacks:[8,49,112]},
     ],attack:[
         {name:'Punch'                   ,damage:1   ,target:0,class:0,uses:0 ,accuracy:1   ,description:'Basic attack'},//0
         {name:'Nerf Damage'             ,damage:0   ,target:0,class:1,uses:0 ,accuracy:1   ,description:'Decreases enemy damage'},
@@ -226,7 +228,7 @@ types={
         {name:'Double Bonk'             ,damage:1   ,target:0,class:0,uses:5 ,accuracy:1   ,description:'Knock three together'},
         {name:'Quick Sweep'             ,damage:1   ,target:0,class:0,uses:0 ,accuracy:0.5 ,description:'Sweep in rapid fashion'},
         {name:'Defensive Hold'          ,damage:1   ,target:1,class:1,uses:10,accuracy:1   ,description:'Defend yourself'},//80
-        {name:'Heavy Soot'              ,damage:3   ,target:0,class:2,uses:5 ,accuracy:0.75,description:'Very big gun'},
+        {name:'Heavy Shot'              ,damage:3   ,target:0,class:2,uses:5 ,accuracy:0.75,description:'Very big gun'},
         {name:'Pound Bonk'              ,damage:1   ,target:0,class:0,uses:5 ,accuracy:1   ,description:'Hit in the head and bonk'},
         {name:'No Step Back'            ,damage:1   ,target:4,class:1,uses:1 ,accuracy:1   ,description:'No retreat'},
         {name:'Encircling Tactics'      ,damage:1   ,target:7,class:0,uses:10,accuracy:1   ,description:'Bring in backup'},
@@ -258,6 +260,8 @@ types={
         {name:'Wipe'                    ,damage:0   ,target:2,class:3,uses:1 ,accuracy:1   ,description:'Remove enemy status changes'},//110
         {name:'Deprecation'             ,damage:0.25,target:4,class:1,uses:1 ,accuracy:1   ,description:'Growing weakness'},
         {name:'Rig Fire Bomb'           ,damage:4   ,target:0,class:4,uses:10,accuracy:1   ,description:'Leave a fire bomb'},
+        {name:'Flame Run'               ,damage:0   ,target:2,class:3,uses:1 ,accuracy:1   ,description:'Begin the burning'},
+        {name:'Shotgun Sidearm'         ,damage:10  ,target:0,class:2,uses:5 ,accuracy:0.8 ,description:'Sprays wide fire'},
     ]
 }
 stage={scene:'battle',scale:1}
@@ -268,14 +272,14 @@ entities={particles:[]}
 run={fore:[]}
 dev={id:false}
 combatants=[
-    {id:4,weapon:9,team:0},
-    {id:5,weapon:9,team:0},
-    {id:6,weapon:9,team:0},
-    {id:7,weapon:9,team:0},
+    {id:4,weapon:33,team:0},
+    {id:5,weapon:32,team:0},
+    {id:6,weapon:32,team:0},
+    {id:7,weapon:32,team:0},
     {id:107,weapon:32,team:1},
     {id:108,weapon:32,team:1},
     {id:109,weapon:32,team:1},
-    {id:110,weapon:32,team:1},
+    {id:110,weapon:33,team:1},
 ]
 a=0;b=0;c=0;d=0;e=0;f=0;g=0;h=0;i=0;j=0;k=0;l=0;m=0;n=0;o=0;p=0
 la=0;lb=0;lc=0;ld=0;le=0;lf=0;lg=0;lh=0;li=0;lj=0;lk=0;ll=0;lm=0;ln=0;lo=0;lp=0
