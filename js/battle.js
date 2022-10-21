@@ -7,6 +7,7 @@ class battle{
 		for(e=0,le=combatants.length;e<le;e++){
 			this.combatants.push(new combatant(this.layer,0,0,combatants[e].id,combatants[e].weapon,combatants[e].team))
 		}
+        this.characters=[]
         this.stacking={use:false}
         this.max=0
         this.partyAlive=[]
@@ -145,6 +146,11 @@ class battle{
                 }
             break
             case 'walk':
+                for(e=0,le=this.characters.length;e<le;e++){
+                    if(this.characters[e].team==0){
+                        this.characters[e].display()
+                    }
+                }
                 for(e=0,le=this.combatants.length;e<le;e++){
                     if(this.combatants[e].team==0){
                         this.combatants[e].display()
