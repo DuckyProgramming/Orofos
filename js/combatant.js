@@ -55,11 +55,11 @@ class combatant{
 		this.status=[]
 		this.statusFade=[]
 		this.statusDisplay=[]
-		this.statusColor=[[200,100,0],[255,255,150],[150,255,150],[0,50,100],[230,240,250],[150,0,0],[200,210,220],[255,225,0],[100,200,200],[150,50,0],[60,60,60],[150,100,50],[150,100,100],[255,50,0],[150,50,150],[225,200,100],[248,219,230],[50,255,255],[125,150,150],[60,65,70],[90,95,100]]
+		this.statusColor=[[200,100,0],[255,255,150],[150,255,150],[0,50,100],[230,240,250],[150,0,0],[200,210,220],[255,225,0],[100,200,200],[150,50,0],[60,60,60],[150,100,50],[150,100,100],[255,50,0],[150,50,150],[225,200,100],[248,219,230],[50,255,255],[125,150,150],[60,65,70],[90,95,100],[200,200,255],[50,50,100]]
 		this.statusInfoFade=[]
-		this.statusName=['Burned','Stun','Confused','Buffer','Inaccurate','Anger','Sleep','Inflated','Fallen','Drunk','Oiled','Hungover','Bomb','Bleed','Control','Headache','Flustered','High','Withdraw','Armored','Reinforced']
+		this.statusName=['Burned','Stun','Confused','Buffer','Inaccurate','Anger','Sleep','Inflated','Fallen','Drunk','Oiled','Hungover','Bomb','Bleed','Control','Headache','Flustered','High','Withdraw','Armored','Reinforced','Shielded','Confidence']
 		this.statusClass=[]
-		for(g=0;g<21;g++){
+		for(g=0;g<23;g++){
 			this.status.push(0)
 			this.statusFade.push(0)
 			this.statusInfoFade.push(0)
@@ -70,6 +70,8 @@ class combatant{
 		this.statusClass[17]=1
 		this.statusClass[19]=1
 		this.statusClass[20]=1
+		this.statusClass[21]=1
+		this.statusClass[22]=1
 		this.infoFade=0
 		this.rate=[0,0]
 		this.stacking=this.speed
@@ -111,6 +113,13 @@ class combatant{
 			case 84:
 				this.status[14]+=2
 				this.status[20]++
+			break
+			case 87:
+				this.status[14]+=10
+			break
+			case 88:
+				this.status[14]+=4
+				this.status[21]+=3
 			break
 		}
 	}
@@ -2355,6 +2364,34 @@ class combatant{
 				this.layer.ellipse(4,-63,4,4)
 				this.layer.ellipse(12,-63,4,4)
 			break
+			case 88:
+				this.layer.noStroke()
+				this.layer.fill(180,this.fade)
+				this.layer.quad(-6,-60,6,-60,12,-15,-12,-15)
+				this.layer.stroke(240,this.fade)
+				this.layer.strokeWeight(4)
+				this.layer.line(-4,-30,-8-sin(this.rate[0]*2)*3,0)
+				this.layer.line(4,-30,8+sin(this.rate[0]*2)*3,0)
+				this.layer.line(-6*cos(this.rate[1]),-48,-15*cos(this.rate[1])+this.anim[0]*30+this.anim[1]*36,-24-this.anim[0]*12-this.anim[1]*30)
+				this.layer.line(6*cos(this.rate[1]),-48,15*cos(this.rate[1])+this.anim[0]*15+this.anim[1]*12,-24-this.anim[0]*12-this.anim[1]*30)
+				this.layer.noStroke()
+ 				this.layer.fill(240,this.fade)
+				this.layer.ellipse(0,-47,18,39)
+				this.layer.fill(60,this.fade);
+				this.layer.rect(0,-45,20,3);
+				this.layer.fill(240,220,180,this.fade)
+				this.layer.ellipse(0,-78,30,30)
+				this.layer.fill(0,this.fade)
+				this.layer.ellipse(4,-75,4,4)
+				this.layer.ellipse(12,-75,4,4)
+				this.layer.image(graphics.minor[2],-3-4*this.fade,-56-4*this.fade,8*this.fade,8*this.fade)
+				this.layer.stroke(40,this.fade)
+				this.layer.strokeWeight(1)
+				this.layer.fill(255,this.fade/5)
+				this.layer.ellipse(4,-74,6,5)
+				this.layer.ellipse(12,-74,6,5)
+				this.layer.line(7,0,9,0)
+			break
 		}
 		this.layer.scale(1/this.size/this.flip,1/this.size)
 		this.layer.rotate(-this.direction)
@@ -2392,6 +2429,9 @@ class combatant{
 					if(current.combatants[user].status[18]>0){
 						this.calcDamage*=0.5
 					}
+					if(current.combatants[user].status[23]>0){
+						this.calcDamage*=1.25
+					}
 					if(this.status[9]>0){
 						this.calcDamage*=1.5
 					}
@@ -2410,6 +2450,10 @@ class combatant{
 					if(this.status[20]>0){
 						this.calcDamage*=0.5
 						this.status[20]--
+					}
+					if(this.status[21]>0){
+						this.calcDamage*=0.1
+						this.status[21]--
 					}
 					if(current.combatants[user].status[5]>0&&floor(random(0,2))==0||current.combatants[user].status[9]>0&&floor(random(0,4))==0||current.combatants[user].status[11]>0&&floor(random(0,4))==0){
 						this.calcDamage*=2
@@ -2461,6 +2505,10 @@ class combatant{
 			case 84:
 				this.status[14]=max(this.status[14],1)
 				this.status[20]=max(this.status[20],1)
+			break
+			case 88:
+				this.status[14]=max(this.status[14],2)
+				this.status[21]=max(this.status[21],1)
 			break
 		}
 	}

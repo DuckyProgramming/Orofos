@@ -88,6 +88,7 @@ types={
         {name:'Big Duck Force',alt:'',life:60,speed:10,damage:1,attacks:[39,93],height:75,reward:20,pattern:0},
         {name:'General Duckion',alt:'',life:400,speed:12,damage:4,attacks:[103,39,70],height:75,reward:100,pattern:1},
         {name:'Joking Jimmy',alt:'',life:500,speed:11,damage:2,attacks:[104],height:66,reward:100,pattern:0},
+        {name:'Director Illyesc',alt:'',life:900,speed:18,damage:2,attacks:[105,106,107],height:78,reward:9999,pattern:1},
     ],weapon:[
         {name:'Unarmed',damage:2,attacks:[0]},//0
         {name:'Stick',damage:4,attacks:[8]},
@@ -99,14 +100,14 @@ types={
         {name:'Metal Beam',damage:8,attacks:[8,17]},
         {name:'Submachine',damage:4,attacks:[8,18]},
         {name:'Management CR-12',damage:4,attacks:[19]},
-        {name:'Management HVM-5',damage:10,attacks:[20]},//10
-        {name:'Management FBP-34',damage:20,attacks:[21]},
+        {name:'Management HVM-5',damage:8,attacks:[20]},//10
+        {name:'Management FBP-34',damage:10,attacks:[21]},
         {name:'Bandaid',damage:1,attacks:[8,22]},
         {name:'Baseball Bat',damage:6,attacks:[8,23]},
         {name:'Time Bomb',damage:5,attacks:[8,49]},
         {name:'Knife',damage:7,attacks:[50,51]},
         {name:'Medpack',damage:2,attacks:[8,22,52]},
-        {name:'Electrobaton',damage:15,attacks:[8,54]},
+        {name:'Electrobaton',damage:12,attacks:[8,54]},
         {name:'Small Hammer',damage:5,attacks:[8,17,57]},
         {name:'Sickle',damage:5,attacks:[50,58]},
         {name:'Fists',damage:4,attacks:[64,65,66]},//20
@@ -119,6 +120,7 @@ types={
         {name:'Welding Tools',damage:8,attacks:[8,92]},
         {name:'Elite Fists',damage:4,attacks:[64,65,66,94,95]},
         {name:'Expert Fists',damage:4,attacks:[64,65,66,94,95,97,98]},
+        {name:'Management FBP-35N',damage:10,attacks:[108]},//30
     ],attack:[
         {name:'Punch'                   ,damage:1   ,target:0,class:0,uses:0 ,accuracy:1   ,description:'Basic attack'},//0
         {name:'Nerf Damage'             ,damage:0   ,target:0,class:1,uses:0 ,accuracy:1   ,description:'Decreases enemy damage'},
@@ -140,8 +142,8 @@ types={
         {name:'Smash'                   ,damage:1.5 ,target:0,class:0,uses:5 ,accuracy:0.9 ,description:'Hits hard'},
         {name:'Sustain Fire'            ,damage:2   ,target:0,class:2,uses:5 ,accuracy:0.6 ,description:'Fire multiple shots'},
         {name:'Overwhelming Force'      ,damage:1   ,target:0,class:2,uses:20,accuracy:0.4 ,description:'Fire swarm of shots'},
-        {name:'Concentrated Elimination',damage:4   ,target:0,class:2,uses:50,accuracy:1   ,description:'Good aiming'},//20
-        {name:'Perfected Strike'        ,damage:6   ,target:0,class:2,uses:10,accuracy:1   ,description:'Hit the best spot'},
+        {name:'Concentrated Elimination',damage:2.5 ,target:0,class:2,uses:50,accuracy:1   ,description:'Good aiming'},//20
+        {name:'Perfected Strike'        ,damage:3.5 ,target:0,class:2,uses:10,accuracy:1   ,description:'Hit the best spot'},
         {name:'Heal'                    ,damage:5   ,target:3,class:0,uses:10,accuracy:1   ,description:'Help out'},
         {name:'Bonk'                    ,damage:1   ,target:0,class:0,uses:20,accuracy:1   ,description:'Knock them together'},
         {name:'Ally Buff Damage'        ,damage:0   ,target:3,class:1,uses:0 ,accuracy:1   ,description:'Increase ally damage'},
@@ -180,7 +182,7 @@ types={
         {name:'Pound'                   ,damage:1   ,target:0,class:0,uses:5 ,accuracy:1   ,description:'Hit in the head'},
         {name:'Cut Down'                ,damage:0.5 ,target:6,class:0,uses:10,accuracy:1   ,description:'Cut through them'},
         {name:'Share the Wealth'        ,damage:4   ,target:4,class:0,uses:0 ,accuracy:1   ,description:'Share the heals'},
-        {name:'Blitz'                   ,damage:3   ,target:0,class:2,uses:5 ,accuracy:0.6 ,description:"Fire quickly"},//60
+        {name:'Blitz'                   ,damage:3   ,target:0,class:2,uses:5 ,accuracy:0.6 ,description:'Fire quickly'},//60
         {name:'Shove'                   ,damage:1   ,target:0,class:0,uses:0 ,accuracy:0.8 ,description:'Push into each other'},
         {name:'Mechanize'               ,damage:10  ,target:1,class:1,uses:5 ,accuracy:1   ,description:'Self-repair'},
         {name:'Hyperquack'              ,damage:1   ,target:0,class:0,uses:5 ,accuracy:0.4 ,description:'Loud noise'},
@@ -211,7 +213,7 @@ types={
         {name:'Heavy Buff Damage'       ,damage:0   ,target:3,class:1,uses:0 ,accuracy:1   ,description:'Greatly increase ally damage'},
         {name:'Heavy Buff Defense'      ,damage:0   ,target:3,class:1,uses:0 ,accuracy:1   ,description:'Greatly increase ally defense'},
         {name:'Heavy Buff Speed'        ,damage:0   ,target:3,class:1,uses:0 ,accuracy:1   ,description:'Greatly increase ally speed'},//90
-        {name:'First Strike'            ,damage:0.5 ,target:2,class:2,uses:1 ,accuracy:1   ,description:"Destroy quickly"},
+        {name:'First Strike'            ,damage:0.5 ,target:2,class:2,uses:1 ,accuracy:1   ,description:'Destroy quickly'},
         {name:'Weld'                    ,damage:1   ,target:0,class:0,uses:0 ,accuracy:0.8 ,description:'Burn up'},
         {name:'Get Shredded'            ,damage:1   ,target:0,class:0,uses:0 ,accuracy:0.8 ,description:'Demonstrate your power'},
         {name:'Combo Flurry'            ,damage:0.5 ,target:0,class:0,uses:0 ,accuracy:1   ,description:'Build lots of combo'},
@@ -223,8 +225,12 @@ types={
         {name:'Dust Storm'              ,damage:1   ,target:2,class:0,uses:5 ,accuracy:1   ,description:'Attack with strange dust'},//100
         {name:'Cash Out'                ,damage:1   ,target:0,class:0,uses:0 ,accuracy:1   ,description:'Take lots of cash'},
         {name:'Airstrike'               ,damage:5   ,target:2,class:2,uses:1 ,accuracy:1   ,description:'Attack from the skies'},
-        {name:'Crack Shot'              ,damage:8   ,target:0,class:2,uses:1 ,accuracy:1   ,description:"Fire before they're ready"},
+        {name:'Crack Shot'              ,damage:12  ,target:0,class:2,uses:1 ,accuracy:1   ,description:'Fire a powerful blow'},
         {name:'Verbal Destruction'      ,damage:1   ,target:0,class:2,uses:0 ,accuracy:0.6 ,description:'Annihlate him with words'},
+        {name:'Monologue'               ,damage:0   ,target:2,class:1,uses:1 ,accuracy:1   ,description:'Discuss the future'},
+        {name:'Arrogance'               ,damage:1   ,target:1,class:0,uses:10,accuracy:1   ,description:'Laugh in your power'},
+        {name:'Assured Destruction'     ,damage:1   ,target:4,class:0,uses:10,accuracy:1   ,description:'Motivate allies'},
+        {name:'Supreme Firepower'       ,damage:4   ,target:0,class:2,uses:50,accuracy:1   ,description:'Utter destruction via firepower'},
     ]
 }
 stage={scene:'battle',scale:1}
@@ -235,14 +241,14 @@ entities={particles:[]}
 run={fore:[]}
 dev={id:false}
 combatants=[
-    {id:4,weapon:8,team:0},
-    {id:5,weapon:8,team:0},
-    {id:6,weapon:8,team:0},
-    {id:7,weapon:8,team:0},
-    {id:64,weapon:2,team:1},
-    {id:65,weapon:2,team:1},
-    {id:66,weapon:2,team:1},
-    {id:87,weapon:2,team:1},
+    {id:88,weapon:30,team:0},
+    {id:0,weapon:8,team:0},
+    {id:0,weapon:8,team:0},
+    {id:0,weapon:8,team:0},
+    {id:0,weapon:2,team:1},
+    {id:0,weapon:2,team:1},
+    {id:0,weapon:2,team:1},
+    {id:88,weapon:30,team:1},
 ]
 a=0;b=0;c=0;d=0;e=0;f=0;g=0;h=0;i=0;j=0;k=0;l=0;m=0;n=0;o=0;p=0
 la=0;lb=0;lc=0;ld=0;le=0;lf=0;lg=0;lh=0;li=0;lj=0;lk=0;ll=0;lm=0;ln=0;lo=0;lp=0
