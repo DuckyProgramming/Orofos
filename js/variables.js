@@ -143,6 +143,7 @@ types={
         {name:'Expert Fists',damage:4,attacks:[64,65,66,94,95,97,98]},
         {name:'Management FBP-35N',damage:10,attacks:[108]},//30
         {name:'Towhook',damage:4,attacks:[]},
+        {name:'Fire Bomb',damage:3,attacks:[8,112]},
     ],attack:[
         {name:'Punch'                   ,damage:1   ,target:0,class:0,uses:0 ,accuracy:1   ,description:'Basic attack'},//0
         {name:'Nerf Damage'             ,damage:0   ,target:0,class:1,uses:0 ,accuracy:1   ,description:'Decreases enemy damage'},
@@ -256,6 +257,7 @@ types={
         {name:'Ally armor'              ,damage:2   ,target:3,class:1,uses:5 ,accuracy:1   ,description:'Protect ally defensively'},
         {name:'Wipe'                    ,damage:0   ,target:2,class:3,uses:1 ,accuracy:1   ,description:'Remove enemy status changes'},//110
         {name:'Deprecation'             ,damage:0.25,target:4,class:1,uses:1 ,accuracy:1   ,description:'Growing weakness'},
+        {name:'Rig Fire Bomb'           ,damage:4   ,target:0,class:4,uses:10,accuracy:1   ,description:'Leave a fire bomb'},
     ]
 }
 stage={scene:'battle',scale:1}
@@ -266,14 +268,14 @@ entities={particles:[]}
 run={fore:[]}
 dev={id:false}
 combatants=[
-    {id:4,weapon:8,team:0},
-    {id:5,weapon:8,team:0},
-    {id:6,weapon:8,team:0},
-    {id:7,weapon:8,team:0},
-    {id:16,weapon:2,team:1},
-    {id:16,weapon:2,team:1},
-    {id:17,weapon:2,team:1},
-    {id:105,weapon:2,team:1},
+    {id:4,weapon:9,team:0},
+    {id:5,weapon:9,team:0},
+    {id:6,weapon:9,team:0},
+    {id:7,weapon:9,team:0},
+    {id:107,weapon:32,team:1},
+    {id:108,weapon:32,team:1},
+    {id:109,weapon:32,team:1},
+    {id:110,weapon:32,team:1},
 ]
 a=0;b=0;c=0;d=0;e=0;f=0;g=0;h=0;i=0;j=0;k=0;l=0;m=0;n=0;o=0;p=0
 la=0;lb=0;lc=0;ld=0;le=0;lf=0;lg=0;lh=0;li=0;lj=0;lk=0;ll=0;lm=0;ln=0;lo=0;lp=0

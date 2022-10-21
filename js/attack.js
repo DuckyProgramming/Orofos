@@ -37,7 +37,7 @@ class attack{
                 case 0: case 61: case 64: case 67: case 68: case 101:
                     this.timer=100-this.user*20+this.target[0]*20
                 break
-                case 8: case 10: case 11: case 23: case 40: case 44: case 49: case 54: case 57: case 65: case 78: case 82: case 92: case 93: case 94: case 95: case 97:
+                case 8: case 10: case 11: case 23: case 40: case 44: case 49: case 54: case 57: case 65: case 78: case 82: case 92: case 93: case 94: case 95: case 97: case 112:
                     this.timer=170-this.user*30+this.target[0]*30
                 break
                 case 9: case 15: case 20: case 29: case 60: case 103:
@@ -92,7 +92,7 @@ class attack{
                 case 0: case 61: case 64: case 67: case 68: case 101:
                     this.timer=100+this.user*20-this.target[1]*20
                 break
-                case 8: case 10: case 11: case 23: case 40: case 44: case 49: case 54: case 57: case 65: case 78: case 82: case 92: case 93: case 94: case 95: case 97:
+                case 8: case 10: case 11: case 23: case 40: case 44: case 49: case 54: case 57: case 65: case 78: case 82: case 92: case 93: case 94: case 95: case 97: case 112:
                     this.timer=170+this.user*30-this.target[1]*30
                 break
                 case 9: case 15: case 20: case 29: case 60: case 103:
@@ -220,7 +220,7 @@ class attack{
                         }
                     }
                 break
-                case 8: case 10: case 11: case 23: case 40: case 44: case 49: case 54: case 57: case 65: case 78: case 82: case 91: case 93: case 94: case 95: case 97:
+                case 8: case 10: case 11: case 23: case 40: case 44: case 49: case 54: case 57: case 65: case 78: case 82: case 91: case 93: case 94: case 95: case 97: case 112:
                     if(this.timer>=100-this.user*15+this.target[0]*15){
                         this.battle.combatants[this.user].position.x+=20/3
                         this.battle.combatants[this.user].rate[0]+=20/3
@@ -297,6 +297,8 @@ class attack{
                     }else if(this.timer<70-this.user*15+this.target[0]*15&&this.timer>=55-this.user*15+this.target[0]*15&&(this.type==23||this.type==65||this.type==82)){
                         this.battle.combatants[this.target[0]+4].position.x-=6
                         this.battle.combatants[this.target[0]+4].rate[0]-=6
+                    }else if(this.timer==85-this.user*15+this.target[0]*15&&this.type==112){
+                        this.battle.combatants[this.target[0]+4].status[23]+=this.damage
                     }
                     if(this.type==78){
                         if(this.timer<85-this.user*15+this.target[0]*15&&this.timer>=75-this.user*15+this.target[0]*15){
@@ -1091,7 +1093,7 @@ class attack{
                         }
                     }
                 break
-                case 8: case 10: case 11: case 23: case 40: case 44: case 49: case 54: case 57: case 65: case 78: case 82: case 91: case 93: case 94: case 95: case 97:
+                case 8: case 10: case 11: case 23: case 40: case 44: case 49: case 54: case 57: case 65: case 78: case 82: case 91: case 93: case 94: case 95: case 97: case 112:
                     if(this.timer>=100+this.user*15-this.target[1]*15){
                         this.battle.combatants[this.user+4].position.x-=20/3
                         this.battle.combatants[this.user+4].rate[0]+=20/3
@@ -1168,6 +1170,8 @@ class attack{
                     }else if(this.timer<85+this.user*15-this.target[1]*15&&this.timer>=55+this.user*15-this.target[1]*15&&(this.type==23||this.type==65||this.type==82)){
                         this.battle.combatants[this.target[1]].position.x+=6
                         this.battle.combatants[this.target[1]].rate[0]-=6
+                    }else if(this.timer==85+this.user*15-this.target[1]*15&&this.type==112){
+                        this.battle.combatants[this.target[1]].status[23]+=this.damage
                     }
                     if(this.type==78){
                         if(this.timer<85+this.user*15-this.target[1]*15&&this.timer>=75+this.user*15-this.target[1]*15){
