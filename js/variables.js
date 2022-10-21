@@ -100,7 +100,12 @@ types={
         {name:'Wiper Boss',alt:'',life:1,speed:0,damage:0,attacks:[],height:0,reward:0,pattern:0},
         {name:'Wiper Messenger',alt:'',life:1,speed:0,damage:0,attacks:[],height:0,reward:0,pattern:0},
         {name:'Sakura',alt:'',life:720,speed:8,damage:3,attacks:[],height:72,reward:0,pattern:1},
-        {name:'Human',alt:'',life:10,speed:10,damage:1,attacks:[1],height:75,reward:10,pattern:0},//100
+        {name:'Hider',alt:'',life:1,speed:0,damage:0,attacks:[],height:0,reward:0,pattern:0},//100
+        {name:'Fat Hider',alt:'',life:1,speed:0,damage:0,attacks:[],height:0,reward:0,pattern:0},
+        {name:'Long Hider',alt:'',life:1,speed:0,damage:0,attacks:[],height:0,reward:0,pattern:0},
+        {name:'Big Hider',alt:'',life:1,speed:0,damage:0,attacks:[],height:0,reward:0,pattern:0},
+        {name:'Hider Boss',alt:'',life:1,speed:0,damage:0,attacks:[],height:0,reward:0,pattern:0},
+        {name:'Human',alt:'',life:10,speed:10,damage:1,attacks:[1],height:75,reward:10,pattern:0},
         {name:'Fat Human',alt:'',life:25,speed:15,damage:1,attacks:[5],height:66,reward:15,pattern:0},
         {name:'Long Human',alt:'',life:15,speed:8,damage:1,attacks:[4],height:84,reward:15,pattern:0},
         {name:'Big Human',alt:'',life:30,speed:12,damage:2,attacks:[2,7],height:90,reward:20,pattern:0},
@@ -263,10 +268,10 @@ combatants=[
     {id:5,weapon:8,team:0},
     {id:6,weapon:8,team:0},
     {id:7,weapon:8,team:0},
-    {id:100,weapon:2,team:1},
     {id:101,weapon:2,team:1},
     {id:102,weapon:2,team:1},
     {id:103,weapon:2,team:1},
+    {id:104,weapon:2,team:1},
 ]
 a=0;b=0;c=0;d=0;e=0;f=0;g=0;h=0;i=0;j=0;k=0;l=0;m=0;n=0;o=0;p=0
 la=0;lb=0;lc=0;ld=0;le=0;lf=0;lg=0;lh=0;li=0;lj=0;lk=0;ll=0;lm=0;ln=0;lo=0;lp=0
