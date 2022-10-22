@@ -5,7 +5,7 @@ class battle{
         this.attack=new attack(this.layer,this)
 		this.combatants=[]
 		for(e=0,le=combatants.length;e<le;e++){
-			this.combatants.push(new combatant(this.layer,0,0,combatants[e].id,combatants[e].weapon,combatants[e].team))
+			this.combatants.push(new combatant(this.layer,0,0,combatants[e].id,combatants[e].weapon,combatants[e].team,e))
 		}
         this.characters=[]
         this.stacking={use:false}
@@ -191,8 +191,8 @@ class battle{
 	update(){
         switch(stage.scene){
             case 'battle':
-                for(k=0;k<25;k++){
-                    if(k!=0&&k!=3&&k!=12&&k!=14&&k!=23){
+                for(k=0;k<26;k++){
+                    if(k!=0&&k!=3&&k!=12&&k!=14&&k!=23&&k!=25){
                         if(this.combatants[this.stack[0].type].status[k]>0&&!this.stack[0].click){
                             this.combatants[this.stack[0].type].status[k]--
                             if(k==1||k==6||k==8||k==16){
