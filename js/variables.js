@@ -152,6 +152,9 @@ types={
         {name:'Fire Bomb',damage:3,attacks:[8,112]},
         {name:'Bomb Pack',damage:3,attacks:[8,49,112]},
         {name:'Sharp Stick',damage:4,attacks:[8,115]},
+        {name:'Pipe',damage:5,attacks:[8,17]},
+        {name:'Big Gun',damage:6,attacks:[8,9,118]},
+        {name:'Sawblade',damage:2,attacks:[119,120]},
     ],attack:[
         {name:'Punch'                   ,damage:1   ,target:0,class:0,uses:0 ,accuracy:1   ,description:'Basic attack'},//0
         {name:'Nerf Damage'             ,damage:0   ,target:0,class:1,uses:0 ,accuracy:1   ,description:'Decreases enemy damage'},
@@ -271,6 +274,9 @@ types={
         {name:'Poke'                    ,damage:0.5 ,target:0,class:0,uses:0 ,accuracy:1   ,description:'Cause a little bleed'},
         {name:'Absorb'                  ,damage:0   ,target:1,class:0,uses:1 ,accuracy:1   ,description:'Get through attacks'},
         {name:'Multiabsorb'             ,damage:0   ,target:1,class:0,uses:1 ,accuracy:1   ,description:'Get team through attacks'},
+        {name:'Heavy Shot'              ,damage:2.5 ,target:0,class:2,uses:5 ,accuracy:0.8 ,description:'Fire a large shot'},
+        {name:'Saw'                     ,damage:1   ,target:0,class:0,uses:0 ,accuracy:1   ,description:'Multiple small hits'},
+        {name:'Deep Saw'                ,damage:1   ,target:0,class:0,uses:10,accuracy:1   ,description:'Causes additional bleed'},
     ]
 }
 stage={scene:'battle',scale:1}
@@ -281,10 +287,10 @@ entities={particles:[]}
 run={fore:[]}
 dev={id:false}
 combatants=[
-    {id:4,weapon:34,team:0},
-    {id:5,weapon:34,team:0},
-    {id:6,weapon:34,team:0},
-    {id:7,weapon:34,team:0},
+    {id:4,weapon:37,team:0},
+    {id:5,weapon:37,team:0},
+    {id:6,weapon:37,team:0},
+    {id:7,weapon:37,team:0},
     {id:112,weapon:2,team:1},
     {id:113,weapon:2,team:1},
     {id:114,weapon:2,team:1},
