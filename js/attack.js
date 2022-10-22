@@ -11,12 +11,14 @@ class attack{
         this.damage=0
         this.class=0
         this.accuracy=0
+        this.lastType=0
+        this.rememberType=0
     }
     set(){
         switch(this.type){
             case 1: case 2: case 3: case 4: case 5: case 6: case 22: case 24: case 25: case 26: case 27: case 28: case 31: case 33: case 34: case 35: case 36: case 37: case 38: case 39:
             case 41: case 43: case 45: case 52: case 55: case 59: case 63: case 69: case 70: case 71: case 72: case 73: case 74: case 75: case 77: case 83: case 84: case 85: case 86: case 87:
-            case 88: case 89: case 90: case 96: case 99: case 104: case 106: case 107: case 109: case 116: case 117: case 121: case 122:
+            case 88: case 89: case 90: case 96: case 99: case 104: case 106: case 107: case 109: case 116: case 117: case 121: case 122: case 124:
                 this.timer=60
             break
             case 7:
@@ -85,6 +87,13 @@ class attack{
                 case 91:
                     this.timer=79-this.user*8
                 break
+                case 123:
+                    if(this.lastType==123){
+                        this.lastType=0
+                    }
+                    this.type=this.lastType
+                    this.battle.enableAttack()
+                break
             }
         }
         else{
@@ -144,6 +153,13 @@ class attack{
                 break
                 case 91:
                     this.timer=55+this.user*8
+                break
+                case 123:
+                    if(this.lastType==123){
+                        this.lastType=0
+                    }
+                    this.type=this.lastType
+                    this.battle.enableAttack()
                 break
             }
         }
@@ -518,7 +534,7 @@ class attack{
                         this.battle.combatants[this.target[0]+4].take(this.damage,1,this.accuracy,this.user)
                     }
                 break
-                case 22: case 27: case 28: case 34: case 35: case 41: case 43: case 52: case 55: case 59: case 69: case 70: case 75: case 83: case 84: case 99: case 107: case 109: case 116: case 117: case 121: case 122:
+                case 22: case 27: case 28: case 34: case 35: case 41: case 43: case 52: case 55: case 59: case 69: case 70: case 75: case 83: case 84: case 99: case 107: case 109: case 116: case 117: case 121: case 122: case 124:
                     if(this.timer>=30){
                         this.battle.combatants[this.user].anim[0]+=1/30
                     }else{
@@ -601,6 +617,11 @@ class attack{
                         this.battle.combatants[this.user].status[20]+=this.damage
                     }else if(this.timer==30&&this.type==122){
                         this.battle.combatants[this.user].status[25]++
+                    }else if(this.timer==30&&this.type==124){
+                        entities.particles.push(new particle(this.layer,this.battle.combatants[this.user].position.x,this.battle.combatants[this.user].position.y-this.battle.combatants[this.user].height*0.6,2,90,400,0.5,this.battle.combatants[this.user].statusColor[16]))
+                        for(g=0;g<4;g++){
+                            this.battle.combatants[g+4].status[16]++
+                        }
                     }
                 break
                 case 24: case 25: case 26:
@@ -1425,7 +1446,7 @@ class attack{
                         this.battle.combatants[this.target[1]].take(this.damage,1,this.accuracy,this.user+4)
                     }
                 break
-                case 22: case 27: case 28: case 34: case 35: case 41: case 43: case 52: case 55: case 59: case 69: case 70: case 75: case 83: case 84: case 99: case 107: case 109: case 116: case 117: case 121: case 122:
+                case 22: case 27: case 28: case 34: case 35: case 41: case 43: case 52: case 55: case 59: case 69: case 70: case 75: case 83: case 84: case 99: case 107: case 109: case 116: case 117: case 121: case 122: case 124:
                     if(this.timer>=30){
                         this.battle.combatants[this.user+4].anim[0]+=1/30
                     }else{
@@ -1508,6 +1529,11 @@ class attack{
                         this.battle.combatants[this.user+4].status[20]+=this.damage
                     }else if(this.timer==30&&this.type==122){
                         this.battle.combatants[this.user+4].status[25]++
+                    }else if(this.timer==30&&this.type==124){
+                        entities.particles.push(new particle(this.layer,this.battle.combatants[this.user+4].position.x,this.battle.combatants[this.user+4].position.y-this.battle.combatants[this.user+4].height*0.6,2,270,400,0.5,this.battle.combatants[this.user+4].statusColor[16]))
+                        for(g=0;g<4;g++){
+                            this.battle.combatants[g].status[16]++
+                        }
                     }
                 break
                 case 24: case 25: case 26:
@@ -1967,6 +1993,7 @@ class attack{
             this.battle.stack[0].cancel=true
             this.battle.stacking.use=true
             this.trigger=false
+            this.lastType=this.type
             this.battle.turn()
         }
     }

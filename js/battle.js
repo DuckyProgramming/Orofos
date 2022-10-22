@@ -188,11 +188,35 @@ class battle{
             }
         }
     }
+    enableAttack(){
+        if(this.combatants[this.stack[0].type].attackClass[this.attack.rememberType]==0){
+            this.attack.damage=types.attack[this.attack.type].damage*types.weapon[this.combatants[this.stack[0].type].weapon].damage*this.combatants[this.stack[0].type].damage*(2+max(0,current.combatants[current.stack[0].type].boost[0]))/(2-min(0,current.combatants[current.stack[0].type].boost[0]))
+        }else{
+            this.attack.damage=types.attack[this.attack.type].damage*this.combatants[this.stack[0].type].damage*(2+max(0,current.combatants[current.stack[0].type].boost[0]))/(2-min(0,current.combatants[current.stack[0].type].boost[0]))
+        }
+        this.partyAlive=[]
+        for(e=0;e<4;e++){
+            if(this.combatants[e+4].life>0&&types.attack[this.attack.type].target==3||this.combatants[e+4].life<=0&&types.attack[this.attack.type].target==7||this.combatants[e].life>0&&types.attack[this.attack.type].target!=3&&types.attack[this.attack.type].target!=7){
+                this.partyAlive.push(e)
+            }
+        }
+        if(types.attack[this.attack.type].target==7&&this.partyAlive.length==0){
+            for(e=0;e<4;e++){
+                this.partyAlive.push(e)
+            }
+        }
+        this.attack.target[1]=this.partyAlive[min(floor(random(0,this.partyAlive.length)),this.partyAlive.length-1)]
+        this.attack.accuracy=types.attack[this.attack.type].accuracy
+        this.attack.class=types.attack[this.attack.type].class
+        if(!this.stack[0].cancel){
+            this.attack.set()
+        }
+    }
 	update(){
         switch(stage.scene){
             case 'battle':
-                for(k=0;k<26;k++){
-                    if(k!=0&&k!=3&&k!=12&&k!=14&&k!=23&&k!=25){
+                for(k=0;k<27;k++){
+                    if(k!=0&&k!=3&&k!=12&&k!=14&&k!=23&&k!=25&&k!=26){
                         if(this.combatants[this.stack[0].type].status[k]>0&&!this.stack[0].click){
                             this.combatants[this.stack[0].type].status[k]--
                             if(k==1||k==6||k==8||k==16){
@@ -272,30 +296,11 @@ class battle{
                     if(this.combatants[this.stack[0].type].uses[this.attack.type]>0){
                         this.combatants[this.stack[0].type].uses[this.attack.type]--
                     }
-                    if(this.combatants[this.stack[0].type].attackClass[this.attack.type]==0){
-                        this.attack.type=this.combatants[this.stack[0].type].attacks[this.attack.type]
-                        this.attack.damage=types.attack[this.attack.type].damage*types.weapon[this.combatants[this.stack[0].type].weapon].damage*this.combatants[this.stack[0].type].damage*(2+max(0,current.combatants[current.stack[0].type].boost[0]))/(2-min(0,current.combatants[current.stack[0].type].boost[0]))
-                    }else{
-                        this.attack.type=this.combatants[this.stack[0].type].attacks[this.attack.type]
-                        this.attack.damage=types.attack[this.attack.type].damage*this.combatants[this.stack[0].type].damage*(2+max(0,current.combatants[current.stack[0].type].boost[0]))/(2-min(0,current.combatants[current.stack[0].type].boost[0]))
+                    if(this.combatants[this.stack[0].type].attacks[this.attack.type]!=123){
+                        this.attack.rememberType=this.attack.type
                     }
-                    this.partyAlive=[]
-                    for(e=0;e<4;e++){
-                        if(this.combatants[e+4].life>0&&types.attack[this.attack.type].target==3||this.combatants[e+4].life<=0&&types.attack[this.attack.type].target==7||this.combatants[e].life>0&&types.attack[this.attack.type].target!=3&&types.attack[this.attack.type].target!=7){
-                            this.partyAlive.push(e)
-                        }
-                    }
-                    if(types.attack[this.attack.type].target==7&&this.partyAlive.length==0){
-                        for(e=0;e<4;e++){
-                            this.partyAlive.push(e)
-                        }
-                    }
-                    this.attack.target[1]=this.partyAlive[min(floor(random(0,this.partyAlive.length)),this.partyAlive.length-1)]
-                    this.attack.accuracy=types.attack[this.attack.type].accuracy
-                    this.attack.class=types.attack[this.attack.type].class
-                    if(!this.stack[0].cancel){
-                        this.attack.set()
-                    }
+                    this.attack.type=this.combatants[this.stack[0].type].attacks[this.attack.type]
+                    this.enableAttack()
                 }
                 for(e=0;e<4;e++){
                     if(this.stack[0].type<4){
