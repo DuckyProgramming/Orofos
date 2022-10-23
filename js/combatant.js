@@ -25,27 +25,8 @@ class combatant{
 		this.reward=types.combatant[this.type].reward
 		this.pattern=types.combatant[this.type].pattern
 		this.turn=0
-		this.attacks=[]
-		this.attacksByClass=[[],[]]
-		this.attackClass=[]
-		for(g=0,lg=types.weapon[this.weapon].attacks.length;g<lg;g++){
-			this.attacks.push(types.weapon[this.weapon].attacks[g])
-			this.attacksByClass[0].push(types.weapon[this.weapon].attacks[g])
-			this.attackClass.push(0)
-		} 
-		for(g=0,lg=types.combatant[this.type].attacks.length;g<lg;g++){
-			this.attacks.push(types.combatant[this.type].attacks[g])
-			this.attacksByClass[1].push(types.combatant[this.type].attacks[g])
-			this.attackClass.push(1)
-		}
 		this.base={position:{x:this.position.x,y:this.position.y},life:this.life,uses:[]}
-		this.uses=[]
-		this.attackInfoFade=[]
-		for(g=0,lg=this.attacks.length;g<lg;g++){
-			this.uses.push(types.attack[this.attacks[g]].uses)
-			this.base.uses.push(types.attack[this.attacks[g]].uses)
-			this.attackInfoFade.push(0)
-		}
+		this.startAttacks()
 		this.collect={life:this.life}
 		this.boost=[0,0,0,0]
 		this.boostFade=[0,0,0,0]
@@ -86,7 +67,32 @@ class combatant{
 		this.calcDamage=0
 		this.hit=false
 		this.valued=true
+		this.speech={text:'',time:0,fade:0}
+		this.holding=[false]
 		this.startStatus()
+	}
+	startAttacks(){
+		this.attacks=[]
+		this.attacksByClass=[[],[]]
+		this.attackClass=[]
+		for(g=0,lg=types.weapon[this.weapon].attacks.length;g<lg;g++){
+			this.attacks.push(types.weapon[this.weapon].attacks[g])
+			this.attacksByClass[0].push(types.weapon[this.weapon].attacks[g])
+			this.attackClass.push(0)
+		} 
+		for(g=0,lg=types.combatant[this.type].attacks.length;g<lg;g++){
+			this.attacks.push(types.combatant[this.type].attacks[g])
+			this.attacksByClass[1].push(types.combatant[this.type].attacks[g])
+			this.attackClass.push(1)
+		}
+		this.uses=[]
+		this.base.uses=[]
+		this.attackInfoFade=[]
+		for(g=0,lg=this.attacks.length;g<lg;g++){
+			this.uses.push(types.attack[this.attacks[g]].uses)
+			this.base.uses.push(types.attack[this.attacks[g]].uses)
+			this.attackInfoFade.push(0)
+		}
 	}
 	startStatus(){
 		switch(this.type){
@@ -2628,7 +2634,14 @@ class combatant{
 				this.layer.rotate(atan2(-4-sin(this.rate[0]*2)*3,30))
 				this.layer.image(graphics.minor[1],-4,-4,8,8)
 				this.layer.rotate(-atan2(-4-sin(this.rate[0]*2)*3,30))
-				this.layer.translate(-16-sin(this.rate[0]*2)*6,0)
+				this.layer.translate(-8-sin(this.rate[0]*2)*3,0)
+				this.layer.stroke(255,235,217,this.fade)
+				this.layer.strokeWeight(4)
+				this.layer.line(-4,-30,-8-sin(this.rate[0]*2)*3,0)
+				this.layer.line(4,-30,8+sin(this.rate[0]*2)*3,0)
+				this.layer.line(-6*cos(this.rate[1]),-48,-15*cos(this.rate[1])+this.anim[0]*30+this.anim[1]*36,-24-this.anim[0]*12-this.anim[1]*30)
+				this.layer.line(6*cos(this.rate[1]),-48,15*cos(this.rate[1])+this.anim[0]*15+this.anim[1]*12,-24-this.anim[0]*12-this.anim[1]*30)
+				this.layer.translate(-8-sin(this.rate[0]*2)*3,0)
 				this.layer.rotate(-atan2(-4-sin(this.rate[0]*2)*3,30))
 				this.layer.image(graphics.minor[5],-4,-4,8,8)
 				this.layer.rotate(atan2(-4-sin(this.rate[0]*2)*3,30))
@@ -2637,12 +2650,6 @@ class combatant{
 				this.layer.image(graphics.minor[5],-4,-4,8,8)
 				this.layer.rotate(-atan2(-4-sin(this.rate[0]*2)*3,30))
 				this.layer.translate(-8-sin(this.rate[0]*2)*3,0)
-				this.layer.stroke(255,235,217,this.fade)
-				this.layer.strokeWeight(4)
-				this.layer.line(-4,-30,-8-sin(this.rate[0]*2)*3,0)
-				this.layer.line(4,-30,8+sin(this.rate[0]*2)*3,0)
-				this.layer.line(-6*cos(this.rate[1]),-48,-15*cos(this.rate[1])+this.anim[0]*30+this.anim[1]*36,-24-this.anim[0]*12-this.anim[1]*30)
-				this.layer.line(6*cos(this.rate[1]),-48,15*cos(this.rate[1])+this.anim[0]*15+this.anim[1]*12,-24-this.anim[0]*12-this.anim[1]*30)
 				this.layer.noStroke()
 				this.layer.fill(243,144,153,this.fade)
 				this.layer.triangle(-18,-75,18,-75,9,-59)
@@ -2688,14 +2695,26 @@ class combatant{
 					this.layer.vertex(10-g*2,-27+(g%2)*3)
 				}
 				this.layer.endShape()
+				this.layer.fill(249,218,226,this.fade)
+				this.layer.beginShape()
+				this.layer.vertex(-6,-55)
+				this.layer.vertex(6,-55)
+				for(g=0;g<11;g++){
+					this.layer.vertex(10-g*2,-31-(g%2)*3)
+				}
+				this.layer.endShape()
 				this.layer.stroke(231,201,211,this.fade)
 				this.layer.fill(209,80,84,this.fade)
-				this.layer.quad(1,-49,1,-45,6,-50,6,-54)
-				this.layer.quad(1,-49,1,-45,-6,-50,-6,-54)
+				this.layer.quad(1,-49,1,-45,6,-54,5,-58)
+				this.layer.quad(1,-49,1,-45,-6,-54,-5,-58)
 				this.layer.rect(0,-44,16,3)
 				this.layer.rect(0,-41,16,3)
 				this.layer.stroke(158,57,60,this.fade)
-				this.layer.line(0,-53,2,-53)
+				this.layer.strokeWeight(0.25)
+				this.layer.ellipse(0,-53,2,1)
+				this.layer.ellipse(2,-53,2,1)
+				this.layer.line(1,-53,0,-51.5)
+				this.layer.line(1,-53,2,-51.5)
 				this.layer.noStroke()
 				for(g=1;g<6;g++){
 					this.layer.fill(196+g*38/2,92+g*59/2,98*61/2,this.fade)
@@ -3353,6 +3372,14 @@ class combatant{
 			}else if(dist(inputs.rel.x,inputs.rel.y,this.position.x-21+g*14,this.position.y+64)>6&&this.statusInfoFade[g]>0){
 				this.statusInfoFade[g]-=1/10
 			}
+		}
+		if(this.speech.time>0){
+			this.speech.time--
+			if(this.speech.fade<1){
+				this.speech.fade+=0.1
+			}
+		}else if(this.speech.fade>0){
+			this.speech.fade-=0.1
 		}
 		if(this.life<=0&&this.fade>0){
 			this.fade-=1/30

@@ -19,7 +19,7 @@ class particle{
                 this.sizing=0
                 this.fade=1
             break
-            case 3: case 4: case 5: case 7: case 8:
+            case 3: case 4: case 5: case 7: case 8: case 9:
                 this.sizing=1
                 this.fade=0
                 this.end=0
@@ -71,6 +71,11 @@ class particle{
                     this.layer.fill(this.color[0],this.color[1],this.color[2],this.fade)
                     this.layer.ellipse(0,0,2,1)
                 break
+                case 9:
+                    this.layer.rotate(this.time*6)
+                    this.layer.image(graphics.minor[8],-10,-10,20,20)
+                    this.layer.rotate(this.time*-6)
+                break
             }
             this.layer.scale(1/this.size/this.sizing)
             this.layer.rotate(-this.direction)
@@ -113,7 +118,7 @@ class particle{
                     this.remove=true
                 }
             break
-            case 3: case 4: case 5: case 7: case 8:
+            case 3: case 4: case 5: case 7: case 8: case 9:
                 this.position.x+=sin(this.direction)*this.speed
                 this.position.y-=cos(this.direction)*this.speed
                 if(this.time==this.end&&this.type!=8){

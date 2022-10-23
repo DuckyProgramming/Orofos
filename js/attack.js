@@ -18,7 +18,7 @@ class attack{
         switch(this.type){
             case 1: case 2: case 3: case 4: case 5: case 6: case 22: case 24: case 25: case 26: case 27: case 28: case 31: case 33: case 34: case 35: case 36: case 37: case 38: case 39:
             case 41: case 43: case 45: case 52: case 55: case 59: case 63: case 69: case 70: case 71: case 72: case 73: case 74: case 75: case 77: case 83: case 84: case 85: case 86: case 87:
-            case 88: case 89: case 90: case 96: case 99: case 104: case 106: case 107: case 109: case 116: case 117: case 121: case 122: case 124: case 125:
+            case 88: case 89: case 90: case 96: case 99: case 104: case 106: case 107: case 109: case 116: case 117: case 121: case 122: case 124: case 125: case 129:
                 this.timer=60
             break
             case 7:
@@ -42,7 +42,7 @@ class attack{
                 case 8: case 10: case 11: case 23: case 40: case 44: case 49: case 54: case 57: case 65: case 78: case 82: case 92: case 93: case 94: case 95: case 97: case 112: case 115:
                     this.timer=170-this.user*30+this.target[0]*30
                 break
-                case 9: case 15: case 20: case 29: case 60: case 103: case 114: case 118:
+                case 9: case 15: case 20: case 29: case 60: case 103: case 114: case 118: case 130:
                     this.timer=55-this.user*8+this.target[0]*8
                 break
                 case 12: case 14: case 66: case 98:
@@ -72,7 +72,7 @@ class attack{
                 case 32:
                     this.timer=360-this.user*40
                 break
-                case 42: case 56: case 119: case 120:
+                case 42: case 56: case 119: case 120: case 132:
                     this.timer=230-this.user*30+this.target[0]*30
                 break
                 case 50: case 51:
@@ -94,7 +94,7 @@ class attack{
                     this.type=this.lastType
                     this.battle.enableAttack()
                 break
-                case 127:
+                case 127: case 131:
                     this.timer=76-this.user*8
                 break
                 case 128:
@@ -110,7 +110,7 @@ class attack{
                 case 8: case 10: case 11: case 23: case 40: case 44: case 49: case 54: case 57: case 65: case 78: case 82: case 92: case 93: case 94: case 95: case 97: case 112: case 115:
                     this.timer=170+this.user*30-this.target[1]*30
                 break
-                case 9: case 15: case 20: case 29: case 60: case 103: case 114: case 118:
+                case 9: case 15: case 20: case 29: case 60: case 103: case 114: case 118: case 130:
                     this.timer=55+this.user*8-this.target[1]*8
                 break
                 case 12: case 14:
@@ -140,7 +140,7 @@ class attack{
                 case 32:
                     this.timer=240+this.user*40
                 break
-                case 42: case 56: case 119: case 120:
+                case 42: case 56: case 119: case 120: case 132:
                     this.timer=230+this.user*30-this.target[1]*30
                 break
                 case 50: case 51:
@@ -167,7 +167,7 @@ class attack{
                     this.type=this.lastType
                     this.battle.enableAttack()
                 break
-                case 127:
+                case 127: case 131:
                     this.timer=52+this.user*8
                 break
                 case 128:
@@ -349,7 +349,7 @@ class attack{
                         }
                     }
                 break
-                case 9: case 15: case 20: case 29: case 60: case 81: case 103: case 114: case 118:
+                case 9: case 15: case 20: case 29: case 60: case 81: case 103: case 114: case 118: case 130:
                     if(this.timer>=40-this.user*8+this.target[0]*8){
                         this.battle.combatants[this.user].anim[1]+=1/15
                     }else if(this.timer>=25-this.user*8+this.target[0]*8){
@@ -377,6 +377,10 @@ class attack{
                             if(this.target[0]<3){
                                 this.battle.combatants[this.target[0]+5].take(this.damage,0,this.accuracy,this.user)
                             }
+                        }else if(this.type==130){
+                            this.battle.combatants[this.target[0]+4].holding[0]=true
+                            this.battle.combatants[this.user].weapon=40
+                            this.battle.combatants[this.user].startAttacks()
                         }
                     }
                     if(this.timer==40-this.user*8+this.target[0]*8&&this.type==9){
@@ -409,6 +413,9 @@ class attack{
                         }
                     }else if(this.timer==40-this.user*8+this.target[0]*8&&this.type==118){
                         entities.particles.push(new particle(this.layer,this.battle.combatants[this.user].position.x+25,this.battle.combatants[this.user].position.y-this.battle.combatants[this.user].height*0.7,3,90,3.5,25/2,[50,255,50]))
+                        entities.particles[entities.particles.length-1].end=35-this.user*8+this.target[0]*8
+                    }else if(this.timer==40-this.user*8+this.target[0]*8&&this.type==130){
+                        entities.particles.push(new particle(this.layer,this.battle.combatants[this.user].position.x+25,this.battle.combatants[this.user].position.y-this.battle.combatants[this.user].height*0.7,9,90,4,25/2,[0,0,0]))
                         entities.particles[entities.particles.length-1].end=35-this.user*8+this.target[0]*8
                     }
                 break
@@ -546,7 +553,7 @@ class attack{
                         this.battle.combatants[this.target[0]+4].take(this.damage,1,this.accuracy,this.user)
                     }
                 break
-                case 22: case 27: case 28: case 34: case 35: case 41: case 43: case 52: case 55: case 59: case 69: case 70: case 75: case 83: case 84: case 99: case 107: case 109: case 116: case 117: case 121: case 122: case 124:
+                case 22: case 27: case 28: case 34: case 35: case 41: case 43: case 52: case 55: case 59: case 69: case 70: case 75: case 83: case 84: case 99: case 107: case 109: case 116: case 117: case 121: case 122: case 124: case 129:
                     if(this.timer>=30){
                         this.battle.combatants[this.user].anim[0]+=1/30
                     }else{
@@ -634,6 +641,10 @@ class attack{
                         for(g=0;g<4;g++){
                             this.battle.combatants[g+4].status[16]++
                         }
+                    }else if(this.timer==30&&this.type==129){
+                        this.battle.combatants[this.user].status[20]++
+                        this.battle.combatants[this.user].status[25]++
+                        this.battle.combatants[this.user].life=min(this.battle.combatants[this.user].base.life,this.battle.combatants[this.user].life+10)
                     }
                 break
                 case 24: case 25: case 26:
@@ -726,17 +737,24 @@ class attack{
                         }
                     }
                 break
-                case 42: case 56: case 119: case 120:
+                case 42: case 56: case 119: case 120: case 132:
                     if(this.timer>=160-this.user*15+this.target[0]*15){
                         this.battle.combatants[this.user].position.x+=20/3
                         this.battle.combatants[this.user].rate[0]+=20/3
                     }else if(this.timer>=145-this.user*15+this.target[0]*15||this.timer>=85-this.user*15+this.target[0]*15&&this.timer<100-this.user*15+this.target[0]*15&&this.type==56||this.timer>=115-this.user*15+this.target[0]*15&&this.timer<130-this.user*15+this.target[0]*15&&this.type==56){
                         this.battle.combatants[this.user].anim[0]+=1/15
-                        if(this.type==42){
+                        if(this.type==42||this.type==132){
                             this.battle.combatants[this.target[0]+4].anim[0]+=1/15
                         }
-                    }else if(this.timer>=85-this.user*15+this.target[0]*15&&(this.type==42||this.type==119||this.type==120)){
+                    }else if(this.timer>=85-this.user*15+this.target[0]*15&&(this.type==42||this.type==119||this.type==120||this.type==132)){
                         if((this.timer+this.user*15-this.target[0]*15)%10==0&&this.type==42){
+                            if(this.battle.combatants[this.user].life>0){
+                                this.battle.combatants[this.target[0]+4].take(this.damage,0,this.accuracy,this.user)
+                            }
+                            if(this.battle.combatants[this.target[0]+4].life>0){
+                                this.battle.combatants[this.user].take(this.battle.combatants[this.target[0]+4].damage,0,this.accuracy,this.target[0]+4)
+                            }
+                        }else if((this.timer+this.user*15-this.target[0]*15)%5==0&&this.type==132){
                             if(this.battle.combatants[this.user].life>0){
                                 this.battle.combatants[this.target[0]+4].take(this.damage,0,this.accuracy,this.user)
                             }
@@ -746,7 +764,7 @@ class attack{
                         }
                     }else if(this.timer>=70-this.user*15+this.target[0]*15||this.timer>=100-this.user*15+this.target[0]*15&&this.timer<115-this.user*15+this.target[0]*15&&this.type==56||this.timer>=130-this.user*15+this.target[0]*15&&this.timer<145-this.user*15+this.target[0]*15&&this.type==56){
                         this.battle.combatants[this.user].anim[0]-=1/15
-                        if(this.type==42){
+                        if(this.type==42||this.type==132){
                             this.battle.combatants[this.target[0]+4].anim[0]-=1/15
                         }
                     }else{
@@ -1110,7 +1128,7 @@ class attack{
                         this.battle.combatants[this.user].status[27]+=2
                     }
                 break
-                case 127:
+                case 127: case 131:
                     if(this.timer>=38-this.user*4){
                         this.battle.combatants[this.user].position.x+=25
                         this.battle.combatants[this.user].rate[0]+=25
@@ -1120,7 +1138,13 @@ class attack{
                     }
                     for(g=0;g<4;g++){
                         if(this.timer==50-g*4-this.user*4){
-                            this.battle.combatants[g+4].take(this.damage,0,this.accuracy,this.user)
+                            if(this.type==127){
+                                this.battle.combatants[g+4].take(this.damage,0,this.accuracy,this.user)
+                            }else if(this.battle.combatants[g+4].holding[0]){
+                                this.battle.combatants[g+4].holding[0]=false
+                                this.battle.combatants[this.user].weapon=31
+                                this.battle.combatants[this.user].startAttacks()
+                            }
                         }
                     }
                 break
@@ -1320,7 +1344,7 @@ class attack{
                         }
                     }
                 break
-                case 9: case 15: case 20: case 29: case 60: case 81: case 103: case 114: case 118:
+                case 9: case 15: case 20: case 29: case 60: case 81: case 103: case 114: case 118: case 131:
                     if(this.timer>=40+this.user*8-this.target[1]*8){
                         this.battle.combatants[this.user+4].anim[1]+=1/15
                     }else if(this.timer>=25+this.user*8-this.target[1]*8){
@@ -1348,6 +1372,10 @@ class attack{
                             if(this.target[0]<3){
                                 this.battle.combatants[this.target[0]+1].take(this.damage,0,this.accuracy,this.user+4)
                             }
+                        }else if(this.type==130){
+                            this.battle.combatants[this.target[1]].holding[0]=true
+                            this.battle.combatants[this.user+4].weapon=40
+                            this.battle.combatants[this.user+4].startAttacks()
                         }
                     }
                     if(this.timer==40+this.user*8-this.target[1]*8&&this.type==9){
@@ -1380,6 +1408,9 @@ class attack{
                         }
                     }else if(this.timer==40+this.user*8-this.target[1]*8&&this.type==118){
                         entities.particles.push(new particle(this.layer,this.battle.combatants[this.user+4].position.x-25,this.battle.combatants[this.user+4].position.y-this.battle.combatants[this.user+4].height*0.7,3,270,3.5,25/2,[50,255,50]))
+                        entities.particles[entities.particles.length-1].end=35+this.user*8-this.target[1]*8
+                    }else if(this.timer==40+this.user*8-this.target[1]*8&&this.type==130){
+                        entities.particles.push(new particle(this.layer,this.battle.combatants[this.user+4].position.x-25,this.battle.combatants[this.user+4].position.y-this.battle.combatants[this.user+4].height*0.7,9,270,4,25/2,[0,0,0]))
                         entities.particles[entities.particles.length-1].end=35+this.user*8-this.target[1]*8
                     }
                 break
@@ -1517,7 +1548,7 @@ class attack{
                         this.battle.combatants[this.target[1]].take(this.damage,1,this.accuracy,this.user+4)
                     }
                 break
-                case 22: case 27: case 28: case 34: case 35: case 41: case 43: case 52: case 55: case 59: case 69: case 70: case 75: case 83: case 84: case 99: case 107: case 109: case 116: case 117: case 121: case 122: case 124: 
+                case 22: case 27: case 28: case 34: case 35: case 41: case 43: case 52: case 55: case 59: case 69: case 70: case 75: case 83: case 84: case 99: case 107: case 109: case 116: case 117: case 121: case 122: case 124:  case 129:
                     if(this.timer>=30){
                         this.battle.combatants[this.user+4].anim[0]+=1/30
                     }else{
@@ -1608,6 +1639,10 @@ class attack{
                     }else if(this.timer==30&&this.type==125){
                         entities.particles.push(new particle(this.layer,this.battle.combatants[this.user+4].position.x,this.battle.combatants[this.user+4].position.y-this.battle.combatants[this.user+4].height,2,270,120,0.5,this.battle.combatants[this.user].statusColor[27]))
                         this.battle.combatants[this.user+4].status[27]+=2
+                    }else if(this.timer==30&&this.type==129){
+                        this.battle.combatants[this.user+4].status[20]++
+                        this.battle.combatants[this.user+4].status[25]++
+                        this.battle.combatants[this.user+4].life=min(this.battle.combatants[this.user+4].base.life,this.battle.combatants[this.user+4].life+10)
                     }
                 break
                 case 24: case 25: case 26:
@@ -2084,7 +2119,7 @@ class attack{
                         this.battle.combatants[this.user+4].status[27]+=2
                     }
                 break
-                case 127:
+                case 127: case 131:
                     if(this.timer>=26+this.user*4){
                         this.battle.combatants[this.user].position.x+=25
                         this.battle.combatants[this.user].rate[0]+=25
@@ -2093,8 +2128,14 @@ class attack{
                         this.battle.combatants[this.user].rate[0]-=25
                     }
                     for(g=0;g<4;g++){
-                        if(this.timer==50-g*4-this.user*4){
-                            this.battle.combatants[g+4].take(this.damage,0,this.accuracy,this.user)
+                        if(this.timer==26+g*4+this.user*4){
+                            if(this.type==127){
+                                this.battle.combatants[g].take(this.damage,0,this.accuracy,this.user+4)
+                            }else if(this.battle.combatants[g].holding[0]){
+                                this.battle.combatants[g].holding[0]=false
+                                this.battle.combatants[this.user+4].weapon=31
+                                this.battle.combatants[this.user+4].startAttacks()
+                            }
                         }
                     }
                 break

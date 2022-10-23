@@ -152,7 +152,7 @@ types={
         {name:'Elite Fists',damage:4,attacks:[64,65,66,94,95]},
         {name:'Expert Fists',damage:4,attacks:[64,65,66,94,95,97,98]},
         {name:'Management FBP-35N',damage:10,attacks:[108]},//30
-        {name:'Towhook',damage:4,attacks:[127,128,129,130,131]},
+        {name:'Towhook',damage:4,attacks:[127,128,129,130]},
         {name:'Fire Bomb',damage:3,attacks:[8,112]},
         {name:'Bomb Pack',damage:3,attacks:[8,49,112]},
         {name:'Sharp Stick',damage:4,attacks:[8,115]},
@@ -161,6 +161,7 @@ types={
         {name:'Sawblade',damage:2,attacks:[119,120]},
         {name:'Pencil',damage:2,attacks:[8,115]},
         {name:'Shield',damage:5,attacks:[8,121,122]},
+        {name:'Towhook(Thrown)',damage:2,attacks:[131,132]},//40
     ],attack:[
         {name:'Punch'                   ,damage:1   ,target:0,class:0,uses:0 ,accuracy:1   ,description:'Basic attack'},//0
         {name:'Nerf Damage'             ,damage:0   ,target:0,class:1,uses:0 ,accuracy:1   ,description:'Decreases enemy damage'},
@@ -204,7 +205,7 @@ types={
         {name:'Quack'                   ,damage:1   ,target:0,class:0,uses:0 ,accuracy:0.6 ,description:'Loud noise'},
         {name:'Slam'                    ,damage:9   ,target:0,class:0,uses:10,accuracy:0.8 ,description:'Fall on enemy'},//40
         {name:'Cleanup'                 ,damage:0   ,target:4,class:3,uses:5 ,accuracy:1   ,description:'Remove team stat changes'},
-        {name:'1v1'                     ,damage:4   ,target:0,class:0,uses:5 ,accuracy:1   ,description:'Fight me'},
+        {name:'1v1'                     ,damage:4   ,target:0,class:0,uses:20,accuracy:1   ,description:'Fight me'},
         {name:'Drinks'                  ,damage:1   ,target:4,class:1,uses:10,accuracy:1   ,description:'Share the supply'},
         {name:'Oil Up'                  ,damage:6   ,target:0,class:1,uses:20,accuracy:1   ,description:'Flammable material'},
         {name:'Pass Out'                ,damage:2   ,target:1,class:1,uses:0 ,accuracy:1   ,description:'Fall asleep'},
@@ -291,9 +292,10 @@ types={
         {name:'Petal Dance'             ,damage:2   ,target:2,class:1,uses:10,accuracy:1   ,description:'Throw several petals'},
         {name:'Windslash'               ,damage:0.5 ,target:2,class:0,uses:10,accuracy:1   ,description:'Rush through enemies'},
         {name:'Decisive Stab'           ,damage:1.5 ,target:0,class:0,uses:10,accuracy:1   ,description:'Cause damage and bleeding'},
-        {name:'Punch'                   ,damage:1   ,target:0,class:0,uses:0 ,accuracy:1   ,description:'Basic attack'},
-        {name:'Punch'                   ,damage:1   ,target:0,class:0,uses:0 ,accuracy:1   ,description:'Basic attack'},//130
-        {name:'Punch'                   ,damage:1   ,target:0,class:0,uses:0 ,accuracy:1   ,description:'Basic attack'},
+        {name:'Parry'                   ,damage:0   ,target:0,class:0,uses:5 ,accuracy:1   ,description:'Reverse next attack'},
+        {name:'Throw'                   ,damage:4   ,target:0,class:2,uses:0 ,accuracy:1   ,description:'Throw weapon'},//130
+        {name:'Collect'                 ,damage:0   ,target:2,class:0,uses:0 ,accuracy:1   ,description:'Pick up weapon'},
+        {name:'Rough Combat'            ,damage:0.5 ,target:0,class:0,uses:0 ,accuracy:1   ,description:'Beat up and get beat up'},
     ]
 }
 stage={scene:'battle',scale:1}
