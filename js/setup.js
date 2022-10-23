@@ -10,6 +10,7 @@ function setup(){
     current=new battle(graphics.main,combatants)
     current.set(stage.scene)
     current.setupStack()
+    current.rotate()
     run={fore:[entities.particles]}
 }
 function windowResized(){

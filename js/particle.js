@@ -19,7 +19,7 @@ class particle{
                 this.sizing=0
                 this.fade=1
             break
-            case 3: case 4: case 5: case 7:
+            case 3: case 4: case 5: case 7: case 8:
                 this.sizing=1
                 this.fade=0
                 this.end=0
@@ -67,6 +67,10 @@ class particle{
                     this.layer.strokeWeight(2)
                     this.layer.point(0,0)
                 break
+                case 8:
+                    this.layer.fill(this.color[0],this.color[1],this.color[2],this.fade)
+                    this.layer.ellipse(0,0,2,1)
+                break
             }
             this.layer.scale(1/this.size/this.sizing)
             this.layer.rotate(-this.direction)
@@ -109,10 +113,10 @@ class particle{
                     this.remove=true
                 }
             break
-            case 3: case 4: case 5: case 7:
+            case 3: case 4: case 5: case 7: case 8:
                 this.position.x+=sin(this.direction)*this.speed
                 this.position.y-=cos(this.direction)*this.speed
-                if(this.time==this.end){
+                if(this.time==this.end&&this.type!=8){
                     entities.particles.push(new particle(this.layer,this.position.x,this.position.y,1,this.direction,this.size*this.speed,this.speed/10,this.color))
                 }
                 if(this.time>=this.end){

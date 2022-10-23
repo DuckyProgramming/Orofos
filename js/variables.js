@@ -99,7 +99,7 @@ types={
         {name:'Big Wiper',alt:'',life:78,speed:13,damage:2,attacks:[2,7,110],height:90,reward:20,pattern:0},
         {name:'Wiper Boss',alt:'',life:1,speed:0,damage:0,attacks:[],height:0,reward:0,pattern:0},
         {name:'Wiper Messenger',alt:'',life:1,speed:0,damage:0,attacks:[],height:0,reward:0,pattern:0},
-        {name:'Sakura',alt:'',life:720,speed:8,damage:3,attacks:[124,125],height:72,reward:0,pattern:1},
+        {name:'Sakura',alt:'',life:300,speed:8,damage:3,attacks:[124,125,126],height:72,reward:0,pattern:1},
         {name:'Hider',alt:'',life:1,speed:0,damage:0,attacks:[],height:0,reward:0,pattern:0},//100
         {name:'Fat Hider',alt:'',life:1,speed:0,damage:0,attacks:[],height:0,reward:0,pattern:0},
         {name:'Long Hider',alt:'',life:1,speed:0,damage:0,attacks:[],height:0,reward:0,pattern:0},
@@ -152,7 +152,7 @@ types={
         {name:'Elite Fists',damage:4,attacks:[64,65,66,94,95]},
         {name:'Expert Fists',damage:4,attacks:[64,65,66,94,95,97,98]},
         {name:'Management FBP-35N',damage:10,attacks:[108]},//30
-        {name:'Towhook',damage:4,attacks:[]},
+        {name:'Towhook',damage:4,attacks:[127,128,129,130,131]},
         {name:'Fire Bomb',damage:3,attacks:[8,112]},
         {name:'Bomb Pack',damage:3,attacks:[8,49,112]},
         {name:'Sharp Stick',damage:4,attacks:[8,115]},
@@ -288,6 +288,12 @@ types={
         {name:'Copy'                    ,damage:0   ,target:0,class:0,uses:0 ,accuracy:1   ,description:'Steal enemy attack'},
         {name:'Flash'                   ,damage:0   ,target:2,class:1,uses:1 ,accuracy:1   ,description:"I'm not writing this!"},
         {name:'Calm'                    ,damage:1   ,target:0,class:0,uses:0 ,accuracy:1   ,description:'The remaining peace'},
+        {name:'Petal Dance'             ,damage:2   ,target:2,class:1,uses:10,accuracy:1   ,description:'Throw several petals'},
+        {name:'Windslash'               ,damage:0.5 ,target:2,class:0,uses:10,accuracy:1   ,description:'Rush through enemies'},
+        {name:'Decisive Stab'           ,damage:1.5 ,target:0,class:0,uses:10,accuracy:1   ,description:'Cause damage and bleeding'},
+        {name:'Punch'                   ,damage:1   ,target:0,class:0,uses:0 ,accuracy:1   ,description:'Basic attack'},
+        {name:'Punch'                   ,damage:1   ,target:0,class:0,uses:0 ,accuracy:1   ,description:'Basic attack'},//130
+        {name:'Punch'                   ,damage:1   ,target:0,class:0,uses:0 ,accuracy:1   ,description:'Basic attack'},
     ]
 }
 stage={scene:'battle',scale:1}
@@ -298,10 +304,10 @@ entities={particles:[]}
 run={fore:[]}
 dev={id:false}
 combatants=[
-    {id:4,weapon:6,team:0},
-    {id:5,weapon:6,team:0},
-    {id:6,weapon:6,team:0},
     {id:7,weapon:6,team:0},
+    {id:6,weapon:6,team:0},
+    {id:5,weapon:6,team:0},
+    {id:4,weapon:6,team:0},
     {id:0,weapon:0,team:1},
     {id:0,weapon:0,team:1},
     {id:0,weapon:0,team:1},

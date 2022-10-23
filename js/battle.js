@@ -212,10 +212,27 @@ class battle{
             this.attack.set()
         }
     }
+    rotate(){
+        this.storage=[this.combatants[0],this.combatants[1],this.combatants[2],this.combatants[3],this.combatants[4],this.combatants[5],this.combatants[6],this.combatants[7]]
+        this.combatants[0]=this.storage[7]
+        this.combatants[1]=this.storage[6]
+        this.combatants[2]=this.storage[5]
+        this.combatants[3]=this.storage[4]
+        this.combatants[4]=this.storage[3]
+        this.combatants[5]=this.storage[2]
+        this.combatants[6]=this.storage[1]
+        this.combatants[7]=this.storage[0]
+        for(g=0,lg=this.combatants.length;g<lg;g++){
+            this.combatants[g].team=1-this.combatants[g].team
+            this.combatants[g].flip*=-1
+        }
+        this.set(stage.scene)
+        this.reset()
+    }
 	update(){
         switch(stage.scene){
             case 'battle':
-                for(k=0;k<27;k++){
+                for(k=0;k<28;k++){
                     if(k!=0&&k!=3&&k!=12&&k!=14&&k!=23&&k!=25&&k!=26){
                         if(this.combatants[this.stack[0].type].status[k]>0&&!this.stack[0].click){
                             this.combatants[this.stack[0].type].status[k]--
@@ -228,6 +245,9 @@ class battle{
                             }
                             if(k==17&&this.combatants[this.stack[0].type].status[k]==0){
                                 this.combatants[this.stack[0].type].status[18]+=4
+                            }
+                            if(k==27&&this.combatants[this.stack[0].type].status[k]==0){
+                                this.combatants[this.stack[0].type].status[5]+=4
                             }
                         }
                     }
