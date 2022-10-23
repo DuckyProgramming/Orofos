@@ -162,6 +162,9 @@ types={
         {name:'Pencil',damage:2,attacks:[8,115]},
         {name:'Shield',damage:5,attacks:[8,121,122]},
         {name:'Towhook',damage:2,attacks:[131,132]},//40
+        {name:'Twig',damage:3,attacks:[8]},
+        {name:'Large Medpack',damage:4,attacks:[8,22,52]},
+        {name:'Clustergun',damage:4,attacks:[8,15]},
     ],attack:[
         {name:'Punch'                   ,damage:1   ,target:0,class:0,uses:0 ,accuracy:1   ,description:'Basic attack'},//0
         {name:'Nerf Damage'             ,damage:0   ,target:0,class:1,uses:0 ,accuracy:1   ,description:'Decreases enemy damage'},
@@ -178,7 +181,7 @@ types={
         {name:'Slap'                    ,damage:3   ,target:0,class:0,uses:0 ,accuracy:1   ,description:'Slap twice'},
         {name:'Slap Parade'             ,damage:2   ,target:2,class:0,uses:20,accuracy:1   ,description:'Slap all enemies'},
         {name:'Thunder Slap'            ,damage:4   ,target:0,class:0,uses:10,accuracy:1   ,description:'Slap and confuse'},
-        {name:'Shotgun'                 ,damage:2   ,target:0,class:2,uses:5 ,accuracy:0.8 ,description:'Sprays bullets widely'},
+        {name:'Area Shot'                 ,damage:2   ,target:0,class:2,uses:5 ,accuracy:0.8 ,description:'Sprays bullets widely'},
         {name:'Snipe'                   ,damage:3   ,target:0,class:2,uses:5 ,accuracy:1   ,description:'Ignores defense'},
         {name:'Smash'                   ,damage:1.5 ,target:0,class:0,uses:5 ,accuracy:0.9 ,description:'Hits hard'},
         {name:'Sustain Fire'            ,damage:2   ,target:0,class:2,uses:5 ,accuracy:0.8 ,description:'Fire multiple shots'},
@@ -306,16 +309,16 @@ transition={trigger:false,anim:0,scene:stage.scene}
 inputs={mouse:{x:0,y:0},rel:{x:0,y:0},keys:[[false,false,false,false],[false,false,false,false]]}
 entities={particles:[]}
 run={fore:[]}
-dev={id:false}
+dev={id:false,auto:true}
 combatants=[
-    {id:7,weapon:6,team:0},
-    {id:6,weapon:6,team:0},
-    {id:5,weapon:6,team:0},
-    {id:4,weapon:6,team:0},
-    {id:0,weapon:0,team:1},
-    {id:0,weapon:0,team:1},
-    {id:0,weapon:0,team:1},
-    {id:99,weapon:31,team:1},
+    {id:7,weapon:43,team:0},
+    {id:6,weapon:43,team:0},
+    {id:5,weapon:43,team:0},
+    {id:4,weapon:43,team:0},
+    {id:9,weapon:6,team:1},
+    {id:10,weapon:6,team:1},
+    {id:11,weapon:6,team:1},
+    {id:12,weapon:6,team:1},
 ]
 a=0;b=0;c=0;d=0;e=0;f=0;g=0;h=0;i=0;j=0;k=0;l=0;m=0;n=0;o=0;p=0
 la=0;lb=0;lc=0;ld=0;le=0;lf=0;lg=0;lh=0;li=0;lj=0;lk=0;ll=0;lm=0;ln=0;lo=0;lp=0
