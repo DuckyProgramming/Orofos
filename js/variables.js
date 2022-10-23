@@ -99,7 +99,7 @@ types={
         {name:'Big Wiper',alt:'',life:78,speed:13,damage:2,attacks:[2,7,110],height:90,reward:20,pattern:0},
         {name:'Wiper Boss',alt:'',life:1,speed:0,damage:0,attacks:[],height:0,reward:0,pattern:0},
         {name:'Wiper Messenger',alt:'',life:1,speed:0,damage:0,attacks:[],height:0,reward:0,pattern:0},
-        {name:'Sakura',alt:'',life:300,speed:8,damage:3,attacks:[124,125,126],height:72,reward:0,pattern:1},
+        {name:'Sakura',alt:'',life:300,speed:8,damage:3,attacks:[124,125,126,133],height:72,reward:0,pattern:1},
         {name:'Hider',alt:'',life:1,speed:0,damage:0,attacks:[],height:0,reward:0,pattern:0},//100
         {name:'Fat Hider',alt:'',life:1,speed:0,damage:0,attacks:[],height:0,reward:0,pattern:0},
         {name:'Long Hider',alt:'',life:1,speed:0,damage:0,attacks:[],height:0,reward:0,pattern:0},
@@ -152,7 +152,7 @@ types={
         {name:'Elite Fists',damage:4,attacks:[64,65,66,94,95]},
         {name:'Expert Fists',damage:4,attacks:[64,65,66,94,95,97,98]},
         {name:'Management FBP-35N',damage:10,attacks:[108]},//30
-        {name:'Towhook',damage:4,attacks:[127,128,129,130]},
+        {name:'Towhook',damage:4,attacks:[127,128,129,130,134]},
         {name:'Fire Bomb',damage:3,attacks:[8,112]},
         {name:'Bomb Pack',damage:3,attacks:[8,49,112]},
         {name:'Sharp Stick',damage:4,attacks:[8,115]},
@@ -161,7 +161,7 @@ types={
         {name:'Sawblade',damage:2,attacks:[119,120]},
         {name:'Pencil',damage:2,attacks:[8,115]},
         {name:'Shield',damage:5,attacks:[8,121,122]},
-        {name:'Towhook(Thrown)',damage:2,attacks:[131,132]},//40
+        {name:'Towhook',damage:2,attacks:[131,132]},//40
     ],attack:[
         {name:'Punch'                   ,damage:1   ,target:0,class:0,uses:0 ,accuracy:1   ,description:'Basic attack'},//0
         {name:'Nerf Damage'             ,damage:0   ,target:0,class:1,uses:0 ,accuracy:1   ,description:'Decreases enemy damage'},
@@ -295,7 +295,9 @@ types={
         {name:'Parry'                   ,damage:0   ,target:0,class:0,uses:5 ,accuracy:1   ,description:'Reverse next attack'},
         {name:'Throw'                   ,damage:4   ,target:0,class:2,uses:0 ,accuracy:1   ,description:'Throw weapon'},//130
         {name:'Collect'                 ,damage:0   ,target:2,class:0,uses:0 ,accuracy:1   ,description:'Pick up weapon'},
-        {name:'Rough Combat'            ,damage:0.5 ,target:0,class:0,uses:0 ,accuracy:1   ,description:'Beat up and get beat up'},
+        {name:'Rough Combat'            ,damage:0.25,target:0,class:0,uses:0 ,accuracy:1   ,description:'Beat up and get beat up'},
+        {name:'Silence'                 ,damage:0   ,target:0,class:0,uses:0 ,accuracy:1   ,description:'Cancels abilities'},
+        {name:'Impale'                  ,damage:1   ,target:0,class:5,uses:0 ,accuracy:1   ,description:'Stab and disable'},
     ]
 }
 stage={scene:'battle',scale:1}

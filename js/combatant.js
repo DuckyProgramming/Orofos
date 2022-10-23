@@ -37,11 +37,11 @@ class combatant{
 		this.status=[]
 		this.statusFade=[]
 		this.statusDisplay=[]
-		this.statusColor=[[200,100,0],[255,255,150],[150,255,150],[0,50,100],[230,240,250],[150,0,0],[200,210,220],[255,225,0],[100,200,200],[150,50,0],[60,60,60],[150,100,50],[150,100,100],[255,50,0],[150,50,150],[225,200,100],[248,219,230],[50,255,255],[125,150,150],[60,65,70],[90,95,100],[200,200,255],[50,50,100],[200,125,100],[60,40,100],[255,175,50],[255,161,161],[161,178,203]]
+		this.statusColor=[[200,100,0],[255,255,150],[150,255,150],[0,50,100],[230,240,250],[150,0,0],[200,210,220],[255,225,0],[100,200,200],[150,50,0],[60,60,60],[150,100,50],[150,100,100],[255,50,0],[150,50,150],[225,200,100],[248,219,230],[50,255,255],[125,150,150],[60,65,70],[90,95,100],[200,200,255],[50,50,100],[200,125,100],[60,40,100],[255,175,50],[255,161,161],[161,178,203],[138,141,207]]
 		this.statusInfoFade=[]
-		this.statusName=['Burned','Stun','Confused','Buffer','Inaccurate','Anger','Sleep','Inflated','Fallen','Drunk','Oiled','Hungover','Bomb','Bleed','Control','Headache','Flustered','High','Withdraw','Armored','Reinforced','Shielded','Confidence','Fire Bomb','Absorb','Reflect','Pure','Calm']
+		this.statusName=['Burned','Stun','Confused','Buffer','Inaccurate','Anger','Sleep','Inflated','Fallen','Drunk','Oiled','Hungover','Bomb','Bleed','Control','Headache','Flustered','High','Withdraw','Armored','Reinforced','Shielded','Confidence','Fire Bomb','Absorb','Reflect','Pure','Calm','Impaled']
 		this.statusClass=[]
-		for(g=0;g<28;g++){
+		for(g=0;g<29;g++){
 			this.status.push(0)
 			this.statusFade.push(0)
 			this.statusInfoFade.push(0)
@@ -3219,6 +3219,9 @@ class combatant{
 					if(current.combatants[user].status[23]>0){
 						this.calcDamage*=1.25
 					}
+					if(current.combatants[user].status[28]>0){
+						this.calcDamage*=0.25
+					}
 					if(this.status[9]>0){
 						this.calcDamage*=1.5
 					}
@@ -3250,6 +3253,9 @@ class combatant{
 					if(this.status[27]>0){
 						this.calcDamage*=0.8
 						this.status[5]++
+					}
+					if(this.status[28]>0){
+						this.calcDamage*=2
 					}
 					if(current.combatants[user].status[5]>0&&floor(random(0,2))==0||current.combatants[user].status[9]>0&&floor(random(0,4))==0||current.combatants[user].status[11]>0&&floor(random(0,4))==0){
 						this.calcDamage*=2
