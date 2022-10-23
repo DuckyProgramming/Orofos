@@ -181,7 +181,7 @@ types={
         {name:'Slap'                    ,damage:3   ,target:0,class:0,uses:0 ,accuracy:1   ,description:'Slap twice'},
         {name:'Slap Parade'             ,damage:2   ,target:2,class:0,uses:20,accuracy:1   ,description:'Slap all enemies'},
         {name:'Thunder Slap'            ,damage:4   ,target:0,class:0,uses:10,accuracy:1   ,description:'Slap and confuse'},
-        {name:'Area Shot'                 ,damage:2   ,target:0,class:2,uses:5 ,accuracy:0.8 ,description:'Sprays bullets widely'},
+        {name:'Area Shot'               ,damage:2   ,target:0,class:2,uses:5 ,accuracy:0.8 ,description:'Sprays bullets widely'},
         {name:'Snipe'                   ,damage:3   ,target:0,class:2,uses:5 ,accuracy:1   ,description:'Ignores defense'},
         {name:'Smash'                   ,damage:1.5 ,target:0,class:0,uses:5 ,accuracy:0.9 ,description:'Hits hard'},
         {name:'Sustain Fire'            ,damage:2   ,target:0,class:2,uses:5 ,accuracy:0.8 ,description:'Fire multiple shots'},
@@ -303,13 +303,13 @@ types={
         {name:'Impale'                  ,damage:1   ,target:0,class:5,uses:0 ,accuracy:1   ,description:'Stab and disable'},
     ]
 }
-stage={scene:'battle',scale:1}
+stage={scene:'walk',scale:1}
 graphics={main:0,backgrounds:[],minor:[]}
 transition={trigger:false,anim:0,scene:stage.scene}
 inputs={mouse:{x:0,y:0},rel:{x:0,y:0},keys:[[false,false,false,false],[false,false,false,false]]}
 entities={particles:[]}
 run={fore:[]}
-dev={id:false,auto:true}
+dev={id:false,auto:false}
 combatants=[
     {id:7,weapon:43,team:0},
     {id:6,weapon:43,team:0},

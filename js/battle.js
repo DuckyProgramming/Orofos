@@ -3,6 +3,7 @@ class battle{
 		this.layer=layer
         this.stack=[]
         this.attack=new attack(this.layer,this)
+        this.cut=new this.cut(this.layer,this)
 		this.combatants=[]
 		for(e=0,le=combatants.length;e<le;e++){
 			this.combatants.push(new combatant(this.layer,0,0,combatants[e].id,combatants[e].weapon,combatants[e].team,e))
@@ -57,14 +58,14 @@ class battle{
             case 'walk':
                 this.max=0
                 for(e=0,le=this.combatants.length;e<le;e++){
-                    if(this.combatants[e].team==0){
+                    if(this.combatants[e].team==0&&this.combatants[e].life>0){
                         this.max++
                     }
                 }
                 for(e=0,le=this.combatants.length;e<le;e++){
-                    this.combatants[e].position.x=e*100+400-this.max*50
+                    this.combatants[e].position.x=e*100+500-this.max*50
                     this.combatants[e].position.y=450
-                    this.combatants[e].base.position.x=e*100+400-this.max*50
+                    this.combatants[e].base.position.x=e*100+500-this.max*50
                     this.combatants[e].base.position.y=450
                     this.combatants[e].rate[0]=random(0,360)
                 }
@@ -164,10 +165,20 @@ class battle{
                         this.combatants[e].displayLife()
                     }
                 }
+                for(e=0,le=this.characters.length;e<le;e++){
+                    if(this.characters[e].team==0){
+                        this.characters[e].displaySpeech ()
+                    }
+                }
+                for(e=0,le=this.combatants.length;e<le;e++){
+                    if(this.combatants[e].team==0){
+                        this.combatants[e].displaySpeech()
+                    }
+                }
                 this.layer.noStroke()
                 this.layer.fill(0)
                 this.layer.textSize(20)
-                this.layer.text(ceil(this.totalMoved/150)+'m',450,580)
+                this.layer.text(ceil(this.totalMoved/30)+'m',450,580)
             break
         }
         this.layer.noStroke()
@@ -405,7 +416,7 @@ class battle{
                 if(inputs.keys[0][1]||inputs.keys[1][1]){
                     this.totalMoved++
                     for(e=0,le=this.combatants.length;e<le;e++){
-                        this.combatants[e].rate[0]+=4
+                        this.combatants[e].rate[0]+=10
                     }
                 }
             break

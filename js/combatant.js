@@ -254,6 +254,16 @@ class combatant{
         this.layer.line(-36,72,-36,36)
 		this.layer.translate(-this.base.position.x,-this.base.position.y+this.height/2)
 	}
+	displaySpeech(){
+		this.layer.translate(this.position.x,this.position.y)
+		this.layer.stroke(200,this.fade*this.speech.fade)
+		this.layer.fill(120,this.fade*this.speech.fade)
+		this.layer.rect(0,-this.height-40,100,40)
+		this.layer.fill(0,this.fade*this.speech.fade.fade)
+		this.layer.noStroke()
+		this.layer.text(this.speech.text,-this.height-40)
+		this.layer.translate(-this.position.x,-this.position.y)
+	}
 	display(){
 		this.layer.translate(this.position.x,this.position.y)
 		this.layer.rotate(this.direction)
