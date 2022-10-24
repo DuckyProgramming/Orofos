@@ -165,6 +165,7 @@ types={
         {name:'Twig',damage:3,attacks:[8]},
         {name:'Large Medpack',damage:4,attacks:[8,22,52]},
         {name:'Clustergun',damage:4,attacks:[8,15]},
+        {name:'Sword',damage:9,attacks:[50,51]},
     ],attack:[
         {name:'Punch'                   ,damage:1   ,target:0,class:0,uses:0 ,accuracy:1   ,description:'Basic attack'},//0
         {name:'Nerf Damage'             ,damage:0   ,target:0,class:1,uses:0 ,accuracy:1   ,description:'Decreases enemy damage'},
@@ -311,10 +312,10 @@ entities={particles:[]}
 run={fore:[]}
 dev={id:false,auto:false}
 combatants=[
-    {id:7,weapon:43,team:0},
-    {id:6,weapon:43,team:0},
-    {id:5,weapon:43,team:0},
-    {id:4,weapon:43,team:0},
+    {id:1,weapon:3,team:0},
+    {id:2,weapon:1,team:0},
+    {id:3,weapon:12,team:0},
+    {id:6,weapon:38,team:0},
     {id:9,weapon:6,team:1},
     {id:10,weapon:6,team:1},
     {id:11,weapon:6,team:1},

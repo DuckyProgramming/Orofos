@@ -10,6 +10,7 @@ function setup(){
     current=new battle(graphics.main,combatants)
     current.set(stage.scene)
     current.setupStack()
+    current.cut.setup(1)
     run={fore:[entities.particles]}
 }
 function windowResized(){

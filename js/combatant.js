@@ -256,12 +256,14 @@ class combatant{
 	}
 	displaySpeech(){
 		this.layer.translate(this.position.x,this.position.y)
-		this.layer.stroke(200,this.fade*this.speech.fade)
-		this.layer.fill(120,this.fade*this.speech.fade)
-		this.layer.rect(0,-this.height-40,100,40)
-		this.layer.fill(0,this.fade*this.speech.fade.fade)
+		this.layer.stroke(250,this.fade*this.speech.fade)
+		this.layer.strokeWeight(2)
+		this.layer.fill(200,this.fade*this.speech.fade)
+		this.layer.rect(0,-this.height-60,200,50,5)
+		this.layer.fill(0,this.fade*this.speech.fade)
 		this.layer.noStroke()
-		this.layer.text(this.speech.text,-this.height-40)
+		this.layer.textSize(10)
+		this.layer.text(this.speech.text,0,-this.height-60)
 		this.layer.translate(-this.position.x,-this.position.y)
 	}
 	display(){
@@ -3389,14 +3391,6 @@ class combatant{
 				this.statusInfoFade[g]-=1/10
 			}
 		}
-		if(this.speech.time>0){
-			this.speech.time--
-			if(this.speech.fade<1){
-				this.speech.fade+=0.1
-			}
-		}else if(this.speech.fade>0){
-			this.speech.fade-=0.1
-		}
 		if(this.life<=0&&this.fade>0){
 			this.fade-=1/30
 		}
@@ -3419,5 +3413,16 @@ class combatant{
 			}
 		}
 		this.collect.life=this.collect.life*0.9+this.life*0.1
+	}
+	updateSpeech(){
+		if(this.speech.time>0){
+			this.speech.time--
+			if(this.speech.fade>0&&this.speech.time<5){
+				this.speech.fade-=0.2
+			}
+			else if(this.speech.fade<1){
+				this.speech.fade+=0.2
+			}
+		}
 	}
 }

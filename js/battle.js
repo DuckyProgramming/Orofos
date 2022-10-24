@@ -3,7 +3,7 @@ class battle{
 		this.layer=layer
         this.stack=[]
         this.attack=new attack(this.layer,this)
-        this.cut=new this.cut(this.layer,this)
+        this.cut=new cut(this.layer,this)
 		this.combatants=[]
 		for(e=0,le=combatants.length;e<le;e++){
 			this.combatants.push(new combatant(this.layer,0,0,combatants[e].id,combatants[e].weapon,combatants[e].team,e))
@@ -148,9 +148,7 @@ class battle{
             break
             case 'walk':
                 for(e=0,le=this.characters.length;e<le;e++){
-                    if(this.characters[e].team==0){
-                        this.characters[e].display()
-                    }
+                    this.characters[e].display()
                 }
                 for(e=0,le=this.combatants.length;e<le;e++){
                     if(this.combatants[e].team==0){
@@ -166,9 +164,7 @@ class battle{
                     }
                 }
                 for(e=0,le=this.characters.length;e<le;e++){
-                    if(this.characters[e].team==0){
-                        this.characters[e].displaySpeech ()
-                    }
+                    this.characters[e].displaySpeech()
                 }
                 for(e=0,le=this.combatants.length;e<le;e++){
                     if(this.combatants[e].team==0){
@@ -413,11 +409,14 @@ class battle{
                 }
             break
             case 'walk':
-                if(inputs.keys[0][1]||inputs.keys[1][1]){
+                if((inputs.keys[0][1]||inputs.keys[1][1])&&!this.cut.trigger){
                     this.totalMoved++
                     for(e=0,le=this.combatants.length;e<le;e++){
                         this.combatants[e].rate[0]+=10
                     }
+                }
+                if(this.cut.trigger){
+                    this.cut.update()
                 }
             break
         }
