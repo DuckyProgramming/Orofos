@@ -7,6 +7,7 @@ class cut{
         this.trigger=false
         this.count=0
         this.speed=1
+        this.list=[]
     }
     setup(type){
         this.type=type
@@ -35,7 +36,44 @@ class cut{
                 this.battle.combatants[4]=new combatant(this.layer,1050,450,9,0,1,4)
             break
             case 4:
-                this.battle.story=3
+                this.battle.story=4
+                this.battle.combatants[4]=new combatant(this.layer,1050,450,9,0,1,4)
+                this.battle.combatants[5]=new combatant(this.layer,1150,450,9,41,1,4)
+            break
+            case 5:
+                this.list=[0,1,3,12,38,41]
+                this.battle.combatants[4]=new combatant(this.layer,1050,450,floor(random(9,12)),this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,4)
+                this.battle.combatants[5]=new combatant(this.layer,1150,450,floor(random(9,12)),this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,4)
+            break
+            case 6:
+                this.list=[0,1,3,12,38,41]
+                this.battle.combatants[4]=new combatant(this.layer,1050,450,floor(random(9,13)),this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,4)
+                this.battle.combatants[5]=new combatant(this.layer,1150,450,floor(random(9,13)),this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,4)
+                this.battle.combatants[6]=new combatant(this.layer,1250,450,floor(random(9,13)),this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,4)
+            break
+            case 7:
+                this.list=[0,1,3,12,38,41]
+                this.battle.combatants[4]=new combatant(this.layer,1050,450,floor(random(9,13)),this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,4)
+                this.battle.combatants[5]=new combatant(this.layer,1150,450,floor(random(9,13)),this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,4)
+                this.battle.combatants[6]=new combatant(this.layer,1250,450,floor(random(9,13)),this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,4)
+                this.battle.combatants[7]=new combatant(this.layer,1350,450,floor(random(9,13)),this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,4)
+            break
+            case 8:
+                this.list=[0,1,3,12,38,41]
+                this.battle.story=5
+                this.battle.combatants[4]=new combatant(this.layer,1050,450,67,1,1,4)
+                this.battle.combatants[5]=new combatant(this.layer,1150,450,12,21,1,4)
+            break
+        }
+    }
+    convertBattle(){
+        switch(this.type){
+            case 8:
+                this.battle.story=5
+                this.battle.combatants[4]=new combatant(this.layer,0,450,10,1,1,4)
+                this.battle.combatants[5]=new combatant(this.layer,0,450,11,1,1,4)
+                this.battle.combatants[6]=new combatant(this.layer,0,450,12,1,1,4)
+                this.battle.combatants[7]=new combatant(this.layer,0,450,67,21,1,4)
             break
         }
     }
@@ -304,6 +342,79 @@ class cut{
                                 this.battle.combatants[g].fade=0
                             }
                         }
+                        this.battle.end()
+                        this.trigger=false
+                    }
+                break
+                case 4:
+                    if(this.timer<35){
+                        for(g=0,lg=this.battle.combatants.length;g<lg;g++){
+                            if(this.battle.combatants[g].team==1){
+                                this.battle.combatants[g].position.x-=10
+                                this.battle.combatants[g].rate[0]+=10
+                            }
+                        }
+                    }else if(this.timer==35){
+                        this.battle.combatants[4].speech.text='Another victim ahead.'
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer==65){
+                        this.battle.combatants[5].speech.text='Grab him!'
+                        this.battle.combatants[5].speech.time=60
+                    }else if(this.timer==125){
+                        transition.trigger=true
+                        transition.scene='battle'
+                    }else if(this.timer>=125&&!transition.trigger&&transition.anim>0){
+                        for(g=0,lg=this.battle.combatants.length;g<lg;g++){
+                            if(this.battle.combatants[g].team==1){
+                                this.battle.combatants[g].fade=0
+                            }
+                        }
+                        this.battle.end()
+                        this.trigger=false
+                    }
+                break
+                case 5: case 6: case 7:
+                    if(this.timer<35){
+                        for(g=0,lg=this.battle.combatants.length;g<lg;g++){
+                            if(this.battle.combatants[g].team==1){
+                                this.battle.combatants[g].position.x-=10
+                                this.battle.combatants[g].rate[0]+=10
+                            }
+                        }
+                    }else if(this.timer==35){
+                        transition.trigger=true
+                        transition.scene='battle'
+                    }else if(this.timer>=35&&!transition.trigger&&transition.anim>0){
+                        for(g=0,lg=this.battle.combatants.length;g<lg;g++){
+                            if(this.battle.combatants[g].team==1){
+                                this.battle.combatants[g].fade=0
+                            }
+                        }
+                        this.battle.end()
+                        this.trigger=false
+                    }
+                break
+                case 8:
+                    if(this.timer<35){
+                        for(g=0,lg=this.battle.combatants.length;g<lg;g++){
+                            if(this.battle.combatants[g].team==1){
+                                this.battle.combatants[g].position.x-=10
+                                this.battle.combatants[g].rate[0]+=10
+                            }
+                        }
+                    }else if(this.timer==35){
+                        this.battle.combatants[4].speech.text='What is this?'
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer==95){
+                        transition.trigger=true
+                        transition.scene='battle'
+                    }else if(this.timer>=95&&!transition.trigger&&transition.anim>0){
+                        for(g=0,lg=this.battle.combatants.length;g<lg;g++){
+                            if(this.battle.combatants[g].team==1){
+                                this.battle.combatants[g].fade=0
+                            }
+                        }
+                        this.battle.end()
                         this.trigger=false
                     }
                 break

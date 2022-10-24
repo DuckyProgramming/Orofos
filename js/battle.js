@@ -16,14 +16,26 @@ class battle{
         this.combatantListing=[3,2,1,0,4,5,6,7]
         this.storage=[]
         this.reseting=false
-        this.totalMoved=700
+        this.totalMoved=4400
         this.time=0
         this.setTime=0
         this.speed=1
         this.currency={money:100}
-        this.story=3
+        this.story=4
         this.complete={main:false}
 	}
+    end(){
+        this.attack=new attack(this.layer,this)
+        this.stacking.use=false
+        for(k=0,lk=this.combatants.length;k<lk;k++){
+            for(l=0,ll=this.combatants[k].boost.length;l<ll;l++){
+                this.combatants[k].boost[l]=0
+            }
+            for(l=0,ll=this.combatants[k].status.length;l<ll;l++){
+                this.combatants[k].status[l]=0
+            }
+        }
+    }
     setupStack(){
         while(this.stack.length<20){
             this.time++
@@ -417,13 +429,20 @@ class battle{
                 }
             break
             case 'walk':
+                for(e=0,le=this.combatants.length;e<le;e++){
+                    this.combatants[e].infoFade=0
+                }
                 if((inputs.keys[0][1]||inputs.keys[1][1])&&!this.cut.trigger){
                     this.totalMoved++
                     for(e=0,le=this.combatants.length;e<le;e++){
                         this.combatants[e].rate[0]+=10
                     }
-                    if(this.totalMoved>=800&&this.totalMoved<2000&&floor(random(0,300))==0){
+                    if(this.totalMoved>=800&&this.totalMoved<1800&&floor(random(0,300))==0){
                         this.cut.setup(5)
+                    }else if(this.totalMoved>=1800&&this.totalMoved<2800&&floor(random(0,300))==0){
+                        this.cut.setup(6)
+                    }else if(this.totalMoved>=2800&&this.totalMoved<3800&&floor(random(0,300))==0){
+                        this.cut.setup(7)
                     }
                 }
                 if(this.cut.trigger){
@@ -435,6 +454,8 @@ class battle{
                     this.cut.setup(3)
                 }else if(this.story==3&&this.totalMoved>=750){
                     this.cut.setup(4)
+                }else if(this.story==4&&this.totalMoved>=3800){
+                    this.cut.setup(8)
                 }
             break
         }
