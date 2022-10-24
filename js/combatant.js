@@ -255,7 +255,6 @@ class combatant{
 		this.layer.translate(-this.base.position.x,-this.base.position.y+this.height/2)
 	}
 	displaySpeech(){
-		print(this.speech.fade)
 		this.layer.translate(this.position.x,this.position.y)
 		this.layer.stroke(250,this.fade*this.speech.fade)
 		this.layer.strokeWeight(2)
@@ -3434,6 +3433,15 @@ class combatant{
 				current.currency.money+=this.reward
 				entities.particles.push(new particle(this.layer,this.position.x,this.position.y,6,0,2,1,[255,225,0]))
 				entities.particles[entities.particles.length-1].value='$'+this.reward
+				for(k=0,lk=current.combatants.length;k<lk;k++){
+					if(current.combatants[k].team==0){
+						for(l=0,ll=current.combatants[k].uses.length;l<ll;l++){
+							if(floor(random(0,10))==0){
+								current.combatants[k].uses[l]=types.attack[current.combatants[k].attacks[l]].uses
+							}
+						}
+					}
+				}
 			}
 		}
 		this.collect.life=this.collect.life*0.9+this.life*0.1

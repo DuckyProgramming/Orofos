@@ -16,12 +16,13 @@ class battle{
         this.combatantListing=[3,2,1,0,4,5,6,7]
         this.storage=[]
         this.reseting=false
-        this.totalMoved=450
+        this.totalMoved=700
         this.time=0
         this.setTime=0
         this.speed=1
         this.currency={money:100}
-        this.story=2
+        this.story=3
+        this.complete={main:false}
 	}
     setupStack(){
         while(this.stack.length<20){
@@ -244,6 +245,16 @@ class battle{
 	update(){
         switch(stage.scene){
             case 'battle':
+                this.complete.main=true
+                for(k=0,lk=this.combatants.length;k<lk;k++){
+                    if(this.combatants[k].team==1&&this.combatants[k].life>0){
+                        this.complete.main=false
+                    }
+                }
+                if(this.complete.main){
+                    transition.trigger=true
+                    transition.scene='walk'
+                }
                 for(k=0;k<29;k++){
                     if(k!=0&&k!=3&&k!=12&&k!=14&&k!=23&&k!=25&&k!=26&&k!=28){
                         if(this.combatants[this.stack[0].type].status[k]>0&&!this.stack[0].click){
@@ -411,7 +422,7 @@ class battle{
                     for(e=0,le=this.combatants.length;e<le;e++){
                         this.combatants[e].rate[0]+=10
                     }
-                    if(this.totalMoved>=800&&this.totalMoved<2000&&floor(random(0,300))){
+                    if(this.totalMoved>=800&&this.totalMoved<2000&&floor(random(0,300))==0){
                         this.cut.setup(5)
                     }
                 }
@@ -422,7 +433,7 @@ class battle{
                     this.cut.setup(2)
                 }else if(this.story==2&&this.totalMoved>=500){
                     this.cut.setup(3)
-                }else if(this.story==2&&this.totalMoved>=750){
+                }else if(this.story==3&&this.totalMoved>=750){
                     this.cut.setup(4)
                 }
             break

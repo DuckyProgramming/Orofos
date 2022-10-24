@@ -34,6 +34,9 @@ class cut{
                 this.battle.story=3
                 this.battle.combatants[4]=new combatant(this.layer,1050,450,9,0,1,4)
             break
+            case 4:
+                this.battle.story=3
+            break
         }
     }
     update(){
@@ -295,6 +298,13 @@ class cut{
                     }else if(this.timer==95){
                         transition.trigger=true
                         transition.scene='battle'
+                    }else if(this.timer>=95&&!transition.trigger&&transition.anim>0){
+                        for(g=0,lg=this.battle.combatants.length;g<lg;g++){
+                            if(this.battle.combatants[g].team==1){
+                                this.battle.combatants[g].fade=0
+                            }
+                        }
+                        this.trigger=false
                     }
                 break
             }
