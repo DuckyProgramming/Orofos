@@ -30,6 +30,10 @@ class cut{
                 this.battle.story=2
                 this.battle.characters.push(new combatant(this.layer,1050,450,93,0,1,100))
             break
+            case 3:
+                this.battle.story=3
+                this.battle.combatants[4]=new combatant(this.layer,1050,450,9,0,1,4)
+            break
         }
     }
     update(){
@@ -39,9 +43,7 @@ class cut{
                 this.battle.characters[e].updateSpeech()
             }
             for(e=0,le=this.battle.combatants.length;e<le;e++){
-                if(this.battle.combatants[e].team==0){
-                    this.battle.combatants[e].updateSpeech()
-                }
+                this.battle.combatants[e].updateSpeech()
             }
             switch(this.type){
                 case 0:
@@ -277,6 +279,22 @@ class cut{
                         }
                     }else if(this.timer>=335){
                         this.trigger=false
+                    }
+                break
+                case 3:
+                    if(this.timer<35){
+                        for(g=0,lg=this.battle.combatants.length;g<lg;g++){
+                            if(this.battle.combatants[g].team==1){
+                                this.battle.combatants[g].position.x-=10
+                                this.battle.combatants[g].rate[0]+=10
+                            }
+                        }
+                    }else if(this.timer==35){
+                        this.battle.combatants[4].speech.text='Free money!'
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer==95){
+                        transition.trigger=true
+                        transition.scene='battle'
                     }
                 break
             }

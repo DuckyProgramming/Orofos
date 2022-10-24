@@ -16,12 +16,12 @@ class battle{
         this.combatantListing=[3,2,1,0,4,5,6,7]
         this.storage=[]
         this.reseting=false
-        this.totalMoved=0
+        this.totalMoved=450
         this.time=0
         this.setTime=0
         this.speed=1
         this.currency={money:100}
-        this.story=1
+        this.story=2
 	}
     setupStack(){
         while(this.stack.length<20){
@@ -152,25 +152,21 @@ class battle{
                     this.characters[e].display()
                 }
                 for(e=0,le=this.combatants.length;e<le;e++){
-                    if(this.combatants[e].team==0){
-                        this.combatants[e].display()
-                    }
+                    this.combatants[e].display()
                 }
                 this.layer.noStroke()
                 this.layer.fill(150,125,90)
                 this.layer.rect(450,525,910,150)
                 for(e=0,le=this.combatants.length;e<le;e++){
-                    if(this.combatants[e].team==0){
-                        this.combatants[e].displayLife()
-                    }
+                    this.combatants[e].base.position.x=this.combatants[e].position.x
+                    this.combatants[e].base.position.y=this.combatants[e].position.y
+                    this.combatants[e].displayLife()
                 }
                 for(e=0,le=this.characters.length;e<le;e++){
                     this.characters[e].displaySpeech()
                 }
                 for(e=0,le=this.combatants.length;e<le;e++){
-                    if(this.combatants[e].team==0){
-                        this.combatants[e].displaySpeech()
-                    }
+                    this.combatants[e].displaySpeech()
                 }
                 this.layer.noStroke()
                 this.layer.fill(0)
@@ -415,12 +411,19 @@ class battle{
                     for(e=0,le=this.combatants.length;e<le;e++){
                         this.combatants[e].rate[0]+=10
                     }
+                    if(this.totalMoved>=800&&this.totalMoved<2000&&floor(random(0,300))){
+                        this.cut.setup(5)
+                    }
                 }
                 if(this.cut.trigger){
                     this.cut.update()
                 }
                 if(this.story==1&&this.totalMoved>=250){
                     this.cut.setup(2)
+                }else if(this.story==2&&this.totalMoved>=500){
+                    this.cut.setup(3)
+                }else if(this.story==2&&this.totalMoved>=750){
+                    this.cut.setup(4)
                 }
             break
         }

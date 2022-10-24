@@ -112,7 +112,7 @@ class combatant{
 			break
 			case 73:
 				this.status[14]+=2
-				this.stauts[20]+=4
+				this.status[20]+=4
 			break
 			case 76:
 				this.status[3]++
@@ -255,6 +255,7 @@ class combatant{
 		this.layer.translate(-this.base.position.x,-this.base.position.y+this.height/2)
 	}
 	displaySpeech(){
+		print(this.speech.fade)
 		this.layer.translate(this.position.x,this.position.y)
 		this.layer.stroke(250,this.fade*this.speech.fade)
 		this.layer.strokeWeight(2)
@@ -3187,6 +3188,29 @@ class combatant{
 				this.layer.fill(20,this.fade)
 				this.layer.line(-16,-99,16,-99)
 				this.layer.rect(0,-103,20,8,3)
+			break
+			case 120:
+				this.layer.stroke(240,this.fade)
+				this.layer.strokeWeight(4)
+				this.layer.line(-4,-30,-8-sin(this.rate[0]*2)*3,0)
+				this.layer.line(4,-30,8+sin(this.rate[0]*2)*3,0)
+				this.layer.line(-6*cos(this.rate[1]),-48,-15*cos(this.rate[1])+this.anim[0]*30+this.anim[1]*36,-24-this.anim[0]*12-this.anim[1]*30)
+				this.layer.line(6*cos(this.rate[1]),-48,15*cos(this.rate[1])+this.anim[0]*15+this.anim[1]*12,-24-this.anim[0]*12-this.anim[1]*30)
+				this.layer.noStroke()
+				this.layer.fill(240,this.fade)
+				this.layer.ellipse(0,-45,18,36)
+				this.layer.fill(240,220,180,this.fade)
+				this.layer.ellipse(0,-75,30,30)
+				this.layer.fill(0,this.fade)
+				this.layer.ellipse(4,-72,4,4)
+				this.layer.ellipse(12,-72,4,4)
+				this.layer.fill(200,50,50,this.fade)
+				this.layer.ellipse(-3,-54,5,5)
+				this.layer.stroke(240,this.fade)
+				this.layer.strokeWeight(4)
+				this.layer.fill(240,this.fade)
+				this.layer.line(-16,-84,16,-84)
+				this.layer.rect(0,-88,20,8,3)
 			break
 		}
 		this.layer.scale(1/this.size/this.flip,1/this.size)

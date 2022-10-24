@@ -120,6 +120,7 @@ types={
         {name:'Fat Gent',alt:'',life:50,speed:12,damage:1,attacks:[5,123],height:66,reward:15,pattern:0},
         {name:'Long Gent',alt:'',life:30,speed:6,damage:1,attacks:[4,123],height:84,reward:15,pattern:0},
         {name:'Big Gent',alt:'',life:60,speed:10,damage:2,attacks:[2,7,123],height:90,reward:20,pattern:0},
+        {name:'The Goodman',alt:'',life:200,speed:10,damage:3,attacks:[123],height:75,reward:100,pattern:0},
     ],weapon:[
         {name:'Unarmed',damage:2,attacks:[0]},//0
         {name:'Stick',damage:4,attacks:[8]},
@@ -316,10 +317,10 @@ combatants=[
     {id:2,weapon:1,team:0},
     {id:3,weapon:12,team:0},
     {id:6,weapon:38,team:0},
-    {id:9,weapon:6,team:1},
-    {id:10,weapon:6,team:1},
-    {id:11,weapon:6,team:1},
-    {id:12,weapon:6,team:1},
+    {id:0,weapon:0,team:1},
+    {id:0,weapon:0,team:1},
+    {id:0,weapon:0,team:1},
+    {id:0,weapon:0,team:1},
 ]
 a=0;b=0;c=0;d=0;e=0;f=0;g=0;h=0;i=0;j=0;k=0;l=0;m=0;n=0;o=0;p=0
 la=0;lb=0;lc=0;ld=0;le=0;lf=0;lg=0;lh=0;li=0;lj=0;lk=0;ll=0;lm=0;ln=0;lo=0;lp=0
