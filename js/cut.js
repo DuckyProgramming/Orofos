@@ -16,6 +16,7 @@ class cut{
         this.battle.characters=[]
         switch(this.type){
             case 1:
+                this.battle.story=1
                 this.battle.characters.push(new combatant(this.layer,1050,450,89,0,1,100))
                 this.battle.characters.push(new combatant(this.layer,50,450,89,0,0,101))
                 this.battle.characters.push(new combatant(this.layer,850,450,91,0,1,102))
@@ -23,7 +24,11 @@ class cut{
                 this.battle.characters.push(new combatant(this.layer,1350,450,89,0,1,104))
                 this.battle.characters.push(new combatant(this.layer,1550,450,90,0,0,105))
                 this.battle.characters.push(new combatant(this.layer,2200,450,92,0,1,106))
-                this.battle.characters.push(new combatant(this.layer,2300,450,93,0,1,107))
+                this.battle.characters.push(new combatant(this.layer,2300,450,98,0,1,107))
+            break
+            case 2:
+                this.battle.story=2
+                this.battle.characters.push(new combatant(this.layer,1050,450,93,0,1,100))
             break
         }
     }
@@ -231,6 +236,46 @@ class cut{
                             this.battle.characters[g].position.x-=10
                         }
                     }else if(this.timer>=1415){
+                        this.trigger=false
+                    }
+                break
+                case 2:
+                    if(this.timer<35){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==100){
+                                this.battle.characters[g].position.x-=10
+                                this.battle.characters[g].rate[0]+=10
+                            }
+                        }
+                    }else if(this.timer==35){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==100){
+                                this.battle.characters[g].speech.text='Cobalt Ridge is located directly below\nProximity Asir, you can see it in the sky there.'
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                    }else if(this.timer==95){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==100){
+                                this.battle.characters[g].speech.text='Orofosian atmosphere is quite dusty, but you\nwill always be able to use the stars as a guide.'
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                    }else if(this.timer==155){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==100){
+                                this.battle.characters[g].speech.text='Relatively few travelers go near here.\nThe Bulwarks keep others out of the perimeter.'
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                    }else if(this.timer>=215&&this.timer<335){
+                        for(g=0,lg=this.battle.combatants.length;g<lg;g++){
+                            this.battle.combatants[g].rate[0]+=10
+                        }
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            this.battle.characters[g].position.x-=10
+                        }
+                    }else if(this.timer>=335){
                         this.trigger=false
                     }
                 break

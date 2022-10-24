@@ -21,6 +21,7 @@ class battle{
         this.setTime=0
         this.speed=1
         this.currency={money:100}
+        this.story=1
 	}
     setupStack(){
         while(this.stack.length<20){
@@ -174,7 +175,7 @@ class battle{
                 this.layer.noStroke()
                 this.layer.fill(0)
                 this.layer.textSize(20)
-                this.layer.text(ceil(this.totalMoved/30)+'m',450,580)
+                this.layer.text(ceil(this.totalMoved/5)+'m',450,580)
             break
         }
         this.layer.noStroke()
@@ -417,6 +418,9 @@ class battle{
                 }
                 if(this.cut.trigger){
                     this.cut.update()
+                }
+                if(this.story==1&&this.totalMoved>=250){
+                    this.cut.setup(2)
                 }
             break
         }
