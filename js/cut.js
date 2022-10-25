@@ -8,6 +8,7 @@ class cut{
         this.count=0
         this.speed=1
         this.list=[]
+        this.weapon=[]
     }
     setup(type){
         this.type=type
@@ -63,6 +64,10 @@ class cut{
                 this.battle.story=5
                 this.battle.combatants[4]=new combatant(this.layer,1050,450,67,1,1,4)
                 this.battle.combatants[5]=new combatant(this.layer,1150,450,12,21,1,4)
+            break
+            case 9:
+                this.battle.story=6
+                this.battle.characters.push(new combatant(this.layer,1050,450,93,0,1,100))
             break
         }
     }
@@ -415,6 +420,64 @@ class cut{
                             }
                         }
                         this.battle.end()
+                        this.trigger=false
+                    }
+                break
+                case 9:
+                    if(this.timer<35){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==100){
+                                this.battle.characters[g].position.x-=10
+                                this.battle.characters[g].rate[0]+=10
+                            }
+                        }
+                    }else if(this.timer==35){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==100){
+                                this.battle.characters[g].speech.text='Yes, we Wipers are prepared to offer\nservices to travelers on the road.'
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                    }else if(this.timer==95){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==100){
+                                this.battle.characters[g].speech.text='But for a fee, of course.\nOur resources are never unlimited.'
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                        this.weapon[0]=23
+                    }else if(this.timer==155){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==100){
+                                this.battle.characters[g].speech.text='Is there anything you would like?'
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                        this.layer.strokeWeight(4)
+                        this.layer.stroke(100,85,60)
+                        this.layer.fill(125,105,75)
+                        for(e=0,le=4;e<le;e++){
+                            this.layer.rect(170,90+e*50,300,40)
+                        }
+                        this.layer.fill(0)
+                        this.layer.noStroke()
+                        this.layer.textSize(20)
+                        this.layer.text('Heal',145,90)
+                        this.layer.text('Supply',145,140)
+                        this.layer.text(types.weapon[this.weapon[0]].name,145,190)
+                        this.layer.text('$100',295,90)
+                        this.layer.text('$25',295,140)
+                        this.layer.text('$'+types.weapon[this.weapon[0]].cost,295,190)
+                        this.layer.text('Exit',170,240)
+                        this.timer--
+                    }else if(this.timer>=215&&this.timer<335){
+                        for(g=0,lg=this.battle.combatants.length;g<lg;g++){
+                            this.battle.combatants[g].rate[0]+=10
+                        }
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            this.battle.characters[g].position.x-=10
+                        }
+                    }else if(this.timer>=335){
                         this.trigger=false
                     }
                 break
