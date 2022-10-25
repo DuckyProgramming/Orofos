@@ -3414,16 +3414,6 @@ class combatant{
 				this.statusInfoFade[g]-=1/10
 			}
 		}
-		if(this.life<=0&&this.fade>0){
-			this.fade-=1/30
-		}
-		if(this.life>0&&this.fade<1){
-			this.fade+=1/30
-		}
-		if(this.life<=0&&this.collect.life<=0){
-			this.life=-10000
-			this.collect.life=-10000
-		}
 		if(this.life<=0&&!this.dead){
 			this.dead=true
 			if(this.valued&&this.team==1){
@@ -3444,7 +3434,6 @@ class combatant{
 				}
 			}
 		}
-		this.collect.life=this.collect.life*0.9+this.life*0.1
 	}
 	updateSpeech(){
 		if(this.speech.time>0){
@@ -3456,5 +3445,18 @@ class combatant{
 				this.speech.fade+=0.2
 			}
 		}
+	}
+	updatePassive(){
+		if(this.life<=0&&this.fade>0){
+			this.fade-=1/30
+		}
+		if(this.life>0&&this.fade<1){
+			this.fade+=1/30
+		}
+		if(this.life<=0&&this.collect.life<=0){
+			this.life=-10000
+			this.collect.life=-10000
+		}
+		this.collect.life=this.collect.life*0.9+this.life*0.1
 	}
 }

@@ -8,7 +8,7 @@ class cut{
         this.count=0
         this.speed=1
         this.list=[]
-        this.weapon=[]
+        this.purchase={weapon:[],uses:[],trigger:false,select:0}
     }
     setup(type){
         this.type=type
@@ -445,32 +445,60 @@ class cut{
                                 this.battle.characters[g].speech.time=60
                             }
                         }
-                        this.weapon[0]=23
+                        this.purchase.weapon[0]=23
+                        this.purchase.uses=[1,1,1,1]
                     }else if(this.timer==155){
                         for(g=0,lg=this.battle.characters.length;g<lg;g++){
                             if(this.battle.characters[g].id==100){
                                 this.battle.characters[g].speech.text='Is there anything you would like?'
-                                this.battle.characters[g].speech.time=60
+                                this.battle.characters[g].speech.time=15
                             }
                         }
                         this.layer.strokeWeight(4)
-                        this.layer.stroke(100,85,60)
-                        this.layer.fill(125,105,75)
-                        for(e=0,le=4;e<le;e++){
-                            this.layer.rect(170,90+e*50,300,40)
+                        if(this.purchase.trigger){
+                            this.layer.stroke(100,85,60)
+                            this.layer.fill(125,105,75)
+                            this.layer.rect(170,90,300,40)
+                            this.layer.fill(0)
+                            this.layer.noStroke()
+                            this.layer.textSize(20)
+                            this.layer.text('Select',170,90)
+                            g=0
+                            while(this.battle.combatants[this.purchase.select].life<=0&&g<4){
+                                g++
+                                this.purchase.select=(this.purchase.select+1)%4
+                            }
+                            for(g=0,lg=this.battle.combatants.length;g<lg;g++){
+                                if(this.battle.combatants[g].infoFade<1&&g==this.purchase.select){
+                                    this.battle.combatants[g].infoFade+=0.1
+                                }else if(this.battle.combatants[g].infoFade>0&&g!=this.purchase.select){
+                                    this.battle.combatants[g].infoFade-=0.1
+                                }
+                            }
+                        }else{
+                            for(g=0,lg=4;g<lg;g++){
+                                if(this.purchase.uses[g]<=0){
+                                    this.layer.stroke(60)
+                                    this.layer.fill(75)
+                                }else{
+                                    this.layer.stroke(100,85,60)
+                                    this.layer.fill(125,105,75)
+                                }
+                                this.layer.rect(170,90+g*50,300,40)
+                            }
+                            this.layer.fill(0)
+                            this.layer.noStroke()
+                            this.layer.textSize(20)
+                            this.layer.text('Heal',145,90)
+                            this.layer.text('Supply',145,140)
+                            this.layer.text(types.weapon[this.purchase.weapon[0]].name,145,190)
+                            this.layer.text('$100',295,90)
+                            this.layer.text('$25',295,140)
+                            this.layer.text('$'+types.weapon[this.purchase.weapon[0]].cost,295,190)
+                            this.layer.text('Exit',170,240)
                         }
-                        this.layer.fill(0)
-                        this.layer.noStroke()
-                        this.layer.textSize(20)
-                        this.layer.text('Heal',145,90)
-                        this.layer.text('Supply',145,140)
-                        this.layer.text(types.weapon[this.weapon[0]].name,145,190)
-                        this.layer.text('$100',295,90)
-                        this.layer.text('$25',295,140)
-                        this.layer.text('$'+types.weapon[this.weapon[0]].cost,295,190)
-                        this.layer.text('Exit',170,240)
                         this.timer--
-                    }else if(this.timer>=215&&this.timer<335){
+                    }else if(this.timer>=170&&this.timer<290){
                         for(g=0,lg=this.battle.combatants.length;g<lg;g++){
                             this.battle.combatants[g].rate[0]+=10
                         }
@@ -484,6 +512,79 @@ class cut{
             }
             this.count--
             this.timer++
+        }
+        if(!this.purchase.trigger){
+            for(g=0,lg=this.battle.combatants.length;g<lg;g++){
+                if(this.battle.combatants[g].infoFade>0){
+                    this.battle.combatants[g].infoFade-=0.1
+                }
+            }
+        }
+    }
+    onClick(){
+        switch(this.type){
+            case 9:
+                if(this.timer==155){
+                    if(this.purchase.trigger){
+                        if(pointInsideBox({position:inputs.rel},{position:{x:170,y:90},width:300,height:40})){
+                            this.purchase.trigger=false
+                            this.battle.combatants[this.purchase.select].weapon=this.purchase.weapon[0]
+                        }
+                        for(g=0;g<4;g++){
+                            if(pointInsideBox({position:inputs.rel},{position:{x:this.battle.combatants[g].position.x,y:this.battle.combatants[g].position.y-this.battle.combatants[g].height/2},width:72,height:144})&&this.battle.combatants[g].life>0){
+                                this.purchase.select=g
+                            }
+                        }
+                    }else{
+                        for(g=0;g<4;g++){
+                            if(pointInsideBox({position:inputs.rel},{position:{x:170,y:90+g*50},width:300,height:40})&&this.purchase.uses[g]>0){
+                                this.purchase.uses[g]--
+                                if(g==0&&this.battle.currency.money>=100){
+                                    this.battle.currency.money-=100
+                                    for(h=0,lh=this.battle.combatants.length;h<lh;h++){
+                                        if(this.battle.combatants[h].team==0){
+                                            this.battle.combatants[h].life=this.battle.combatants[h].base.life
+                                        }
+                                    }
+                                    for(h=0,lh=this.battle.characters.length;h<lh;h++){
+                                        if(this.battle.characters[h].id==100){
+                                            entities.particles.push(new particle(this.layer,this.battle.characters[h].position.x,this.battle.characters[h].position.y,6,0,2,1,[255,225,0]))
+                                            entities.particles[entities.particles.length-1].value='-$100'
+                                        }
+                                    }
+                                }else if(g==1&&this.battle.currency.money>=25){
+                                    this.battle.currency.money-=25
+                                    for(h=0,lh=this.battle.combatants.length;h<lh;h++){
+                                        if(this.battle.combatants[h].team==0){
+                                            for(i=0,li=this.battle.combatants[h].uses.length;i<li;i++){
+                                                this.battle.combatants[h].uses[i]=types.attack[this.battle.combatants[h].attacks[i]].uses
+                                            }
+                                        }
+                                    }
+                                    for(h=0,lh=this.battle.characters.length;h<lh;h++){
+                                        if(this.battle.characters[h].id==100){
+                                            entities.particles.push(new particle(this.layer,this.battle.characters[h].position.x,this.battle.characters[h].position.y,6,0,2,1,[255,225,0]))
+                                            entities.particles[entities.particles.length-1].value='-$25'
+                                        }
+                                    }
+                                }else if(g==2&&this.battle.currency.money>=types.weapon[this.purchase.weapon[0]].cost){
+                                    this.purchase.select=0
+                                    this.battle.currency.money-=types.weapon[this.purchase.weapon[0]].cost
+                                    this.purchase.trigger=true
+                                    for(h=0,lh=this.battle.characters.length;h<lh;h++){
+                                        if(this.battle.characters[h].id==100){
+                                            entities.particles.push(new particle(this.layer,this.battle.characters[h].position.x,this.battle.characters[h].position.y,6,0,2,1,[255,225,0]))
+                                            entities.particles[entities.particles.length-1].value='-$'+types.weapon[this.purchase.weapon[0]].cost
+                                        }
+                                    }
+                                }else if(g==3){
+                                    this.timer++
+                                }
+                            }
+                        }
+                    }
+                }
+            break
         }
     }
 }

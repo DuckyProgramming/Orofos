@@ -41,5 +41,10 @@ function mouseClicked(){
                 }
             }
         break
+        case 'walk':
+            if(current.cut.trigger){
+                current.cut.onClick()
+            }
+        break
     }
 }
