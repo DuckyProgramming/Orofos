@@ -3245,6 +3245,9 @@ class combatant{
 					if(current.combatants[user].status[9]>0){
 						this.calcDamage*=2
 					}
+					if(current.combatants[user].status[11]>0){
+						this.calcDamage*=0.6
+					}
 					if(current.combatants[user].status[17]>0){
 						this.calcDamage*=2.5
 					}
@@ -3259,9 +3262,6 @@ class combatant{
 					}
 					if(this.status[9]>0){
 						this.calcDamage*=1.5
-					}
-					if(this.status[11]>0){
-						this.calcDamage*=0.6
 					}
 					if(this.status[17]>0){
 						this.calcDamage*=0.25

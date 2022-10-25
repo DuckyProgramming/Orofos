@@ -16,32 +16,41 @@ class battle{
         this.combatantListing=[3,2,1,0,4,5,6,7]
         this.storage=[]
         this.reseting=false
-        this.totalMoved=4250
+        this.totalMoved=7500
         this.time=0
         this.setTime=0
         this.speed=1
         this.currency={money:500}
-        this.story=6
+        this.story=8
         this.complete={main:false}
 	}
     end(){
+        for(g=0,lg=this.battle.combatants.length;g<lg;g++){
+            if(this.battle.combatants[g].team==1){
+                this.battle.combatants[g].fade=0
+            }
+        }
         entities.particles=[]
+        run={fore:[entities.particles]}
         for(e=0,le=this.combatants.length;e<le;e++){
             this.combatants[e].infoFade=0
         }
         this.attack=new attack(this.layer,this)
         this.stacking.use=false
-        for(k=0,lk=this.combatants.length;k<lk;k++){
-            for(l=0,ll=this.combatants[k].boost.length;l<ll;l++){
-                this.combatants[k].boost[l]=0
+        for(e=0,le=this.combatants.length;e<le;e++){
+            this.combatants[e].boostDisplay=[]
+            this.combatants[e].statusDisplay=[]
+            for(f=0,lf=this.combatants[e].boost.length;f<lf;f++){
+                this.combatants[e].boost[f]=0
             }
-            for(l=0,ll=this.combatants[k].status.length;l<ll;l++){
-                this.combatants[k].status[l]=0
+            for(f=0,lf=this.combatants[e].status.length;f<lf;f++){
+                this.combatants[e].status[f]=0
             }
         }
     }
     setupStack(){
         entities.particles=[]
+        run={fore:[entities.particles]}
         for(e=0,le=this.combatants.length;e<le;e++){
             this.combatants[e].infoFade=0
         }
@@ -60,8 +69,8 @@ class battle{
         }
     }
     reset(){
-        for(g=0,lg=this.stack.length;g<lg;g++){
-            this.stack[g].cancel=true
+        for(e=0,le=this.stack.length;e<le;e++){
+            this.stack[e].cancel=true
         }
         this.setTime=this.stack[0].time
         this.reseting=true
@@ -454,8 +463,12 @@ class battle{
                         this.cut.setup(6)
                     }else if(this.totalMoved>=2800&&this.totalMoved<3800&&floor(random(0,300))==0){
                         this.cut.setup(7)
-                    }else if(this.totalMoved>=4300&&this.totalMoved<5300&&floor(random(0,300))==0){
-                        this.cut.setup(10)
+                    }else if(this.totalMoved>=4350&&this.totalMoved<5350&&floor(random(0,300))==0){
+                        this.cut.setup(11)
+                    }else if(this.totalMoved>=5350&&this.totalMoved<6350&&floor(random(0,300))==0){
+                        this.cut.setup(12)
+                    }else if(this.totalMoved>=6350&&this.totalMoved<7350&&floor(random(0,300))==0){
+                        this.cut.setup(13)
                     }
                 }
                 if(this.cut.trigger){
@@ -471,6 +484,12 @@ class battle{
                     this.cut.setup(8)
                 }else if(this.story==5&&this.totalMoved>=4050){
                     this.cut.setup(9)
+                }else if(this.story==6&&this.totalMoved>=4300){
+                    this.cut.setup(10)
+                }else if(this.story==7&&this.totalMoved>=7350){
+                    this.cut.setup(14)
+                }else if(this.story==8&&this.totalMoved>=7600){
+                    this.cut.setup(15)
                 }
             break
         }
