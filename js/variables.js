@@ -1,14 +1,14 @@
 types={
     combatant:[
         {name:'',alt:'',life:0,speed:0,damage:0,attacks:[],height:0,reward:0,pattern:0},//0
-        {name:'Bill',alt:'',life:28,speed:11,damage:1,attacks:[27,28,29,1],height:75,reward:0,pattern:0},
-        {name:'Tom',alt:'',life:36,speed:15,damage:1,attacks:[30,31,32,2],height:75,reward:0,pattern:0},
-        {name:'Jon',alt:'',life:24,speed:9,damage:1,attacks:[33,34,35,24],height:75,reward:0,pattern:0},
-        {name:'Eddy',alt:'',life:26,speed:12,damage:1,attacks:[36,37,38,25],height:72,reward:0,pattern:0},
-        {name:'Lalex',alt:'',life:32,speed:14,damage:1,attacks:[40,41,42,1],height:78,reward:0,pattern:0},
-        {name:'Scott',alt:'',life:30,speed:8,damage:1,attacks:[43,44,45,2],height:75,reward:0,pattern:0},
-        {name:'Ollie',alt:'',life:28,speed:13,damage:1,attacks:[46,47,48,24],height:75,reward:0,pattern:0},
-        {name:'Duckit',alt:'',life:18,speed:6,damage:1,attacks:[12,13,14,25],height:60,reward:0,pattern:0},
+        {name:'Bill',alt:'',life:28,speed:11,damage:1,attacks:[1,27/*,28,29*/],height:75,reward:0,pattern:0},
+        {name:'Tom',alt:'',life:36,speed:15,damage:1,attacks:[2,30/*,31,32*/],height:75,reward:0,pattern:0},
+        {name:'Jon',alt:'',life:24,speed:9,damage:1,attacks:[24,33/*,34,35*/],height:75,reward:0,pattern:0},
+        {name:'Eddy',alt:'',life:26,speed:12,damage:1,attacks:[25,36/*,37,38*/],height:72,reward:0,pattern:0},
+        {name:'Lalex',alt:'',life:32,speed:14,damage:1,attacks:[1,40/*,41,42*/],height:78,reward:0,pattern:0},
+        {name:'Scott',alt:'',life:30,speed:8,damage:1,attacks:[2,43/*,44,45*/],height:75,reward:0,pattern:0},
+        {name:'Ollie',alt:'',life:28,speed:13,damage:1,attacks:[24,46/*,47,48*/],height:75,reward:0,pattern:0},
+        {name:'Duckit',alt:'',life:18,speed:6,damage:1,attacks:[25,12/*,13,14*/],height:60,reward:0,pattern:0},
         {name:'Human',alt:'',life:10,speed:10,damage:1,attacks:[1],height:75,reward:10,pattern:0},
         {name:'Fat Human',alt:'',life:25,speed:15,damage:1,attacks:[5],height:66,reward:15,pattern:0},//10
         {name:'Long Human',alt:'',life:15,speed:8,damage:1,attacks:[4],height:84,reward:15,pattern:0},

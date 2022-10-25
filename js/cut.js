@@ -43,18 +43,18 @@ class cut{
                 this.battle.combatants[5]=new combatant(this.layer,1150,450,9,41,1,4)
             break
             case 5:
-                this.list=[0,1,3,12,38,41]
+                this.list=[0,1,3,38,41]
                 this.battle.combatants[4]=new combatant(this.layer,1050,450,floor(random(9,12)),this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,4)
                 this.battle.combatants[5]=new combatant(this.layer,1150,450,floor(random(9,12)),this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,4)
             break
             case 6:
-                this.list=[0,1,3,12,38,41]
+                this.list=[0,1,3,38,41]
                 this.battle.combatants[4]=new combatant(this.layer,1050,450,floor(random(9,13)),this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,4)
                 this.battle.combatants[5]=new combatant(this.layer,1150,450,floor(random(9,13)),this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,4)
                 this.battle.combatants[6]=new combatant(this.layer,1250,450,floor(random(9,13)),this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,4)
             break
             case 7:
-                this.list=[0,1,3,12,38,41]
+                this.list=[0,1,3,38,41]
                 this.battle.combatants[4]=new combatant(this.layer,1050,450,floor(random(9,13)),this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,4)
                 this.battle.combatants[5]=new combatant(this.layer,1150,450,floor(random(9,13)),this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,4)
                 this.battle.combatants[6]=new combatant(this.layer,1250,450,floor(random(9,13)),this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,4)
@@ -101,23 +101,44 @@ class cut{
                 this.battle.story=9
                 this.battle.characters.push(new combatant(this.layer,1050,450,93,0,1,100))
             break
+            case 16:
+                this.list=[0,12,38,41]
+                this.battle.combatants[4]=new combatant(this.layer,1050,450,15,this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,4)
+                this.battle.combatants[5]=new combatant(this.layer,1150,450,15,this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,4)
+            break
+            case 17:
+                this.list=[0,12,38,41]
+                this.battle.combatants[4]=new combatant(this.layer,1050,450,15,this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,4)
+                this.battle.combatants[5]=new combatant(this.layer,1150,450,15,this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,4)
+                this.battle.combatants[6]=new combatant(this.layer,1250,450,15,this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,4)
+                this.battle.combatants[7]=new combatant(this.layer,1250,450,15,this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,4)
+            break
+            case 18:
+                this.battle.story=10
+                this.battle.combatants[4]=new combatant(this.layer,1050,450,15,3,1,4)
+                this.battle.combatants[5]=new combatant(this.layer,1150,450,22,4,1,4)
+            break
         }
     }
     convertBattle(){
         switch(this.type){
             case 8:
-                this.battle.story=5
                 this.battle.combatants[4]=new combatant(this.layer,0,450,10,1,1,4)
                 this.battle.combatants[5]=new combatant(this.layer,0,450,11,1,1,4)
                 this.battle.combatants[6]=new combatant(this.layer,0,450,12,1,1,4)
                 this.battle.combatants[7]=new combatant(this.layer,0,450,67,21,1,4)
             break
             case 14:
-                this.battle.story=5
                 this.battle.combatants[4]=new combatant(this.layer,0,450,19,39,1,4)
                 this.battle.combatants[5]=new combatant(this.layer,0,450,20,39,1,4)
                 this.battle.combatants[6]=new combatant(this.layer,0,450,21,39,1,4)
                 this.battle.combatants[7]=new combatant(this.layer,0,450,69,23,1,4)
+            break
+            case 18:
+                this.battle.combatants[4]=new combatant(this.layer,0,450,15,3,1,4)
+                this.battle.combatants[5]=new combatant(this.layer,0,450,15,4,1,4)
+                this.battle.combatants[6]=new combatant(this.layer,0,450,15,16,1,4)
+                this.battle.combatants[7]=new combatant(this.layer,0,450,68,22,1,4)
             break
         }
     }
@@ -411,7 +432,7 @@ class cut{
                         this.trigger=false
                     }
                 break
-                case 5: case 6: case 7: case 11: case 12: case 13:
+                case 5: case 6: case 7: case 11: case 12: case 13: case 16: case 17:
                     if(this.timer<35){
                         for(g=0,lg=this.battle.combatants.length;g<lg;g++){
                             if(this.battle.combatants[g].team==1){
@@ -660,6 +681,28 @@ class cut{
                             this.battle.characters[g].position.x-=10
                         }
                     }else if(this.timer>=170){
+                        this.trigger=false
+                    }
+                break
+                case 18:
+                    if(this.timer<35){
+                        for(g=0,lg=this.battle.combatants.length;g<lg;g++){
+                            if(this.battle.combatants[g].team==1){
+                                this.battle.combatants[g].position.x-=10
+                                this.battle.combatants[g].rate[0]+=10
+                            }
+                        }
+                    }else if(this.timer==35){
+                        this.battle.combatants[5].speech.text="When the Duck Faction began,\nit was unimaginably strong.\nBut my commanders abandoned me."
+                        this.battle.combatants[5].speech.time=60
+                    }else if(this.timer==95){
+                        this.battle.combatants[5].speech.text='The few surviving ducks must be\nprotected to defend the species!'
+                        this.battle.combatants[5].speech.time=60
+                    }else if(this.timer==155){
+                        transition.trigger=true
+                        transition.scene='battle'
+                    }else if(this.timer>=155&&!transition.trigger&&transition.anim>0){
+                        this.battle.end()
                         this.trigger=false
                     }
                 break

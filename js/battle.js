@@ -16,12 +16,12 @@ class battle{
         this.combatantListing=[3,2,1,0,4,5,6,7]
         this.storage=[]
         this.reseting=false
-        this.totalMoved=7500
+        this.totalMoved=7800
         this.time=0
         this.setTime=0
         this.speed=1
         this.currency={money:500}
-        this.story=8
+        this.story=9
         this.complete={main:false}
 	}
     end(){
@@ -469,6 +469,10 @@ class battle{
                         this.cut.setup(12)
                     }else if(this.totalMoved>=6350&&this.totalMoved<7350&&floor(random(0,300))==0){
                         this.cut.setup(13)
+                    }else if(this.totalMoved>=7650&&this.totalMoved<8400&&floor(random(0,300))==0){
+                        this.cut.setup(16)
+                    }else if(this.totalMoved>=8400&&this.totalMoved<9150&&floor(random(0,300))==0){
+                        this.cut.setup(17)
                     }
                 }
                 if(this.cut.trigger){
@@ -490,6 +494,8 @@ class battle{
                     this.cut.setup(14)
                 }else if(this.story==8&&this.totalMoved>=7600){
                     this.cut.setup(15)
+                }else if(this.story==9&&this.totalMoved>=9150){
+                    this.cut.setup(18)
                 }
             break
         }
