@@ -16,18 +16,18 @@ class battle{
         this.combatantListing=[3,2,1,0,4,5,6,7]
         this.storage=[]
         this.reseting=false
-        this.totalMoved=7800
+        this.totalMoved=9600
         this.time=0
         this.setTime=0
         this.speed=1
         this.currency={money:500}
-        this.story=9
+        this.story=10
         this.complete={main:false}
 	}
     end(){
-        for(g=0,lg=this.battle.combatants.length;g<lg;g++){
-            if(this.battle.combatants[g].team==1){
-                this.battle.combatants[g].fade=0
+        for(g=0,lg=this.combatants.length;g<lg;g++){
+            if(this.combatants[g].team==1){
+                this.combatants[g].fade=0
             }
         }
         entities.particles=[]
@@ -496,9 +496,15 @@ class battle{
                     this.cut.setup(15)
                 }else if(this.story==9&&this.totalMoved>=9150){
                     this.cut.setup(18)
+                }else if(this.story==10&&this.totalMoved>=9650){
+                    this.cut.setup(19)
                 }
             break
         }
         this.currency.money=max(0,round(this.currency.money*10)/10)
+        if(this.combatants[0].life<=0&&this.combatants[1].life<=0&&this.combatants[2].life<=0&&this.combatants[3].life<=0){
+            transition.trigger=true
+            transition.scene='defeat'
+        }
 	}
 }

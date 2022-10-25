@@ -3414,6 +3414,10 @@ class combatant{
 				this.statusInfoFade[g]-=1/10
 			}
 		}
+		if(this.type==0){
+			this.life=0
+			this.fade=0
+		}
 		if(this.life<=0&&!this.dead){
 			this.dead=true
 			if(this.valued&&this.team==1){

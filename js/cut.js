@@ -116,7 +116,18 @@ class cut{
             case 18:
                 this.battle.story=10
                 this.battle.combatants[4]=new combatant(this.layer,1050,450,15,3,1,4)
-                this.battle.combatants[5]=new combatant(this.layer,1150,450,22,4,1,4)
+                this.battle.combatants[5]=new combatant(this.layer,1150,450,68,22,1,4)
+            break
+            case 19:
+                this.battle.story=11
+                for(i=0;i<12;i++){
+                    this.battle.characters.push(new combatant(this.layer,1050+i*50,450,30,0,1,100+i))
+                }
+                this.battle.characters.push(new combatant(this.layer,1750,450,72,0,1,112))
+                this.battle.characters.push(new combatant(this.layer,1850,450,33,0,1,113))
+                this.battle.characters.push(new combatant(this.layer,1900,450,33,0,1,114))
+                this.battle.characters.push(new combatant(this.layer,-950,450,33,0,0,115))
+                this.battle.characters.push(new combatant(this.layer,-1000,450,33,0,0,116))
             break
         }
     }
@@ -527,7 +538,7 @@ class cut{
                                 }
                             }
                         }else{
-                            for(g=0,lg=4;g<lg;g++){
+                            for(g=0;g<4;g++){
                                 if(this.purchase.uses[g]<=0){
                                     this.layer.stroke(60)
                                     this.layer.fill(75)
@@ -649,7 +660,7 @@ class cut{
                                 }
                             }
                         }else{
-                            for(g=0,lg=5;g<lg;g++){
+                            for(g=0;g<5;g++){
                                 if(this.purchase.uses[g]<=0){
                                     this.layer.stroke(60)
                                     this.layer.fill(75)
@@ -703,6 +714,127 @@ class cut{
                         transition.scene='battle'
                     }else if(this.timer>=155&&!transition.trigger&&transition.anim>0){
                         this.battle.end()
+                        this.trigger=false
+                    }
+                break
+                case 19:
+                    if(this.timer<70){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].type==30||this.timer<35){
+                                this.battle.characters[g].position.x-=30*(this.battle.characters[g].team*2-1)
+                                this.battle.characters[g].rate[0]+=30
+                            }
+                        }
+                    }
+                    if(this.timer==35){
+                        for(g=0,lg=this.battle.combatants.length;g<lg;g++){
+                            if(this.battle.combatants[g].team==0){
+                                this.battle.combatants[g].life=1
+                            }
+                        }
+                    }else if(this.timer==70){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==112){
+                                this.battle.characters[g].speech.text='Another easy victory.'
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                    }else if(this.timer==130){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==112){
+                                this.battle.characters[g].speech.text='You can take them away now.'
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                    }else if(this.timer>=190&&this.timer<220){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id>112){
+                                this.battle.characters[g].position.x-=10*(this.battle.characters[g].team*2-1)
+                                this.battle.characters[g].rate[0]+=10
+                            }
+                        }
+                    }
+                    if(this.timer>=220&&this.timer<340){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id>112){
+                                this.battle.characters[g].flip=-1
+                                this.battle.characters[g].position.x-=10
+                                this.battle.characters[g].rate[0]+=10
+                            }
+                        }
+                        for(g=0;g<3;g++){
+                            this.battle.combatants[g].position.x-=10
+                            this.battle.combatants[g].rate[0]+=10
+                        }
+                    }else if(this.timer==340){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==112){
+                                this.battle.characters[g].speech.text='I will not lie. I want to see all\nof you annexed into our union,\nas collectivized citizens.'
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                    }else if(this.timer==400){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==112){
+                                this.battle.characters[g].speech.text='But we cannot provide for all of you.\nSo I will offer you a choice.'
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                    }else if(this.timer==460){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==112){
+                                this.battle.characters[g].speech.text='Who should I take from you?'
+                                this.battle.characters[g].speech.time=15
+                            }
+                        }
+                        this.layer.strokeWeight(4)
+                        this.layer.stroke(100,85,60)
+                        this.layer.fill(125,105,75)
+                        for(g=0;g<3;g++){
+                            this.layer.rect(170,90+g*50,300,40)
+                        }
+                        this.layer.fill(0)
+                        this.layer.noStroke()
+                        this.layer.textSize(20)
+                        for(g=0;g<3;g++){
+                            this.layer.text(this.battle.combatants[g].name,170,90+g*50)
+                        }
+                        this.timer--
+                    }else if(this.timer==475){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==112){
+                                this.battle.characters[g].speech.text='I like how you think.\nBring them back.'
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                    }else if(this.timer>=505&&this.timer<625){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id>112){
+                                this.battle.characters[g].flip=1
+                                this.battle.characters[g].position.x+=10
+                                this.battle.characters[g].rate[0]+=10
+                            }
+                        }
+                        for(g=0;g<3;g++){
+                            this.battle.combatants[g].position.x+=10
+                            this.battle.combatants[g].rate[0]+=10
+                        }
+                    }else if(this.timer==625){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==112){
+                                this.battle.characters[g].speech.text='We will see each other again, '+this.battle.combatants[3].name+'.'
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                    }else if(this.timer>=685&&this.timer<745){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id>=112){
+                                this.battle.characters[g].flip=1
+                                this.battle.characters[g].position.x+=10
+                                this.battle.characters[g].rate[0]+=10
+                            }
+                        }
+                    }else if(this.timer>=745){
                         this.trigger=false
                     }
                 break
@@ -794,6 +926,18 @@ class cut{
                                     this.timer++
                                 }
                             }
+                        }
+                    }
+                }
+            break
+            case 19:
+                if(this.timer==460){
+                    for(g=0;g<3;g++){
+                        if(pointInsideBox({position:inputs.rel},{position:{x:170,y:90+g*50},width:300,height:40})){
+                            this.battle.combatants[g].type=0
+                            this.battle.combatants[g].life=0
+                            this.battle.combatants[g].fade=0
+                            this.timer++
                         }
                     }
                 }
