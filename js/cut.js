@@ -283,6 +283,16 @@ class cut{
                 this.battle.story=27
                 this.battle.characters.push(new combatant(this.layer,1050,450,93,0,1,100))
             break
+            case 47:
+                this.battle.story=28
+                this.battle.characters.push(new combatant(this.layer,1150,450,73,0,1,100))
+                this.battle.characters.push(new combatant(this.layer,1000,450,34,0,1,101))
+                this.battle.characters.push(new combatant(this.layer,1050,450,37,0,1,102))
+                this.battle.characters.push(new combatant(this.layer,1100,450,35,0,1,103))
+                this.battle.characters.push(new combatant(this.layer,1400,450,36,0,1,104))
+                this.battle.combatants[4]=new combatant(this.layer,950,450,4,0,1,105)
+                this.battle.combatants[5]=new combatant(this.layer,1050,450,5,0,1,106)
+            break
         }
     }
     convertBattle(){
@@ -1424,7 +1434,7 @@ class cut{
                         if(this.type==46){
                             this.purchase.weapon=[18,19,32,43,44]
                         }
-                        this.purchase.uses=[1,1,1,1,1]
+                        this.purchase.uses=[1,1,1,1,1,1,1,1]
                     }else if(this.timer==35){
                         for(g=0,lg=this.battle.characters.length;g<lg;g++){
                             if(this.battle.characters[g].id==100){
@@ -1507,6 +1517,158 @@ class cut{
                         }
                     }else if(this.timer>=290){
                         this.trigger=false
+                    }
+                break
+                case 47:
+                    if(this.timer<30){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            this.battle.characters[g].position.x-=10
+                            this.battle.characters[g].rate[0]+=10
+                        }
+                        for(g=4,lg=this.battle.combatants.length;g<lg;g++){
+                            this.battle.combatants[g].position.x-=5/3
+                        }
+                    }
+                    if(this.timer<40){
+                        for(g=0,lg=this.battle.combatants.length;g<lg;g++){
+                            this.battle.combatants[g].position.x-=5
+                        }
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            this.battle.characters[g].position.x-=5
+                        }
+                    }else if(this.timer==40){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==100){
+                                this.battle.characters[g].speech.text='Look here, at these two\ngood friends travelling together.'
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                    }else if(this.timer==100){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==100){
+                                this.battle.characters[g].speech.text="They shouldn've messed with\nthe Reichswehr, now should've they?"
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                    }else if(this.timer==160){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==100){
+                                this.battle.characters[g].speech.text='I was going to kill them both,\nbut now that you arrived...'
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                    }else if(this.timer==220){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==100){
+                                this.battle.characters[g].speech.text='Who dies?'
+                                this.battle.characters[g].speech.time=15
+                            }
+                        }
+                        this.layer.strokeWeight(4)
+                        this.layer.stroke(100,85,60)
+                        this.layer.fill(125,105,75)
+                        for(g=0;g<2;g++){
+                            this.layer.rect(170,90+g*50,300,40)
+                        }
+                        this.layer.fill(0)
+                        this.layer.noStroke()
+                        this.layer.textSize(20)
+                        for(g=0;g<2;g++){
+                            this.layer.text(this.battle.combatants[4+g].name,170,90+g*50)
+                        }
+                        this.timer--
+                    }else if(this.timer==235){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==100){
+                                this.battle.characters[g].speech.text='That is what happens when\nyou defy the Reichswehr, '+this.battle.combatants[5-this.purchase.choice].name+'.'
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                    }else if(this.timer>=295&&this.timer<325){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            this.battle.characters[g].flip=1
+                            this.battle.characters[g].position.x+=10
+                            this.battle.characters[g].rate[0]+=10
+                        }
+                        for(g=4,lg=this.battle.combatants.length;g<lg;g++){
+                            this.battle.combatants[g].position.x+=5/3
+                        }
+                    }
+                    if(this.timer>=295&&this.timer<335){
+                        for(g=0,lg=this.battle.combatants.length;g<lg;g++){
+                            this.battle.combatants[g].position.x+=5
+                        }
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            this.battle.characters[g].position.x+=5
+                        }
+                    }
+                    if(this.timer>=1000&&this.timer<1017){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==104){
+                                this.battle.characters[g].position.x-=10
+                                this.battle.characters[g].rate[0]+=10
+                            }
+                        }
+                    }else if(this.timer>=1017&&this.timer<1032){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==104){
+                                this.battle.characters[g].anim[0]+=1/15
+                            }
+                        }
+                    }else if(this.timer>=1032&&this.timer<1047){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==104){
+                                this.battle.characters[g].anim[0]-=1/15
+                            }
+                        }
+                    }else if(this.timer>=1047&&this.timer<1064){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==104){
+                                this.battle.characters[g].position.x+=10
+                                this.battle.characters[g].rate[0]+=10
+                            }
+                        }
+                    }
+                    if(this.timer==1032){
+                        this.battle.combatants[4].life=0
+                    }
+                    if(this.timer==1064){
+                        this.battle.combatants[4].type=0
+                        this.timer=220
+                    }
+                    if(this.timer>=2000&&this.timer<2007){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==104){
+                                this.battle.characters[g].position.x-=10
+                                this.battle.characters[g].rate[0]+=10
+                            }
+                        }
+                    }else if(this.timer>=2007&&this.timer<2022){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==104){
+                                this.battle.characters[g].anim[0]+=1/15
+                            }
+                        }
+                    }else if(this.timer>=2022&&this.timer<2037){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==104){
+                                this.battle.characters[g].anim[0]-=1/15
+                            }
+                        }
+                    }else if(this.timer>=2037&&this.timer<2044){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==104){
+                                this.battle.characters[g].position.x+=10
+                                this.battle.characters[g].rate[0]+=10
+                            }
+                        }
+                    }
+                    if(this.timer==2022){
+                        this.battle.combatants[5].life=0
+                    }
+                    if(this.timer==2044){
+                        this.battle.combatants[5].type=0
+                        this.timer=220
                     }
                 break
             }
@@ -1621,7 +1783,7 @@ class cut{
                 }
             break
             case 46:
-                if(this.timer==35){
+                if(this.timer==155){
                     if(this.purchase.trigger){
                         if(pointInsideBox({position:inputs.rel},{position:{x:170,y:90},width:300,height:40})){
                             this.purchase.trigger=false
@@ -1660,24 +1822,34 @@ class cut{
                                     this.purchase.select=0
                                     this.battle.currency.money-=types.weapon[this.purchase.weapon[2]].cost
                                     this.purchase.trigger=true
-                                    this.purchase.choice=0
+                                    this.purchase.choice=2
                                     this.spendParticle('-$'+types.weapon[this.purchase.weapon[2]].cost)
                                 }else if(g==5&&this.battle.currency.money>=types.weapon[this.purchase.weapon[3]].cost){
                                     this.purchase.select=0
                                     this.battle.currency.money-=types.weapon[this.purchase.weapon[3]].cost
                                     this.purchase.trigger=true
-                                    this.purchase.choice=1
+                                    this.purchase.choice=3
                                     this.spendParticle('-$'+types.weapon[this.purchase.weapon[3]].cost)
                                 }else if(g==6&&this.battle.currency.money>=types.weapon[this.purchase.weapon[4]].cost){
                                     this.purchase.select=0
                                     this.battle.currency.money-=types.weapon[this.purchase.weapon[4]].cost
                                     this.purchase.trigger=true
-                                    this.purchase.choice=1
+                                    this.purchase.choice=4
                                     this.spendParticle('-$'+types.weapon[this.purchase.weapon[4]].cost)
                                 }else if(g==7){
                                     this.timer++
                                 }
                             }
+                        }
+                    }
+                }
+            break
+            case 47:
+                if(this.timer==220){
+                    for(g=0;g<2;g++){
+                        if(pointInsideBox({position:inputs.rel},{position:{x:170,y:90+g*50},width:300,height:40})){
+                            this.timer=1000+g*1000
+                            this.purchase.choice=g
                         }
                     }
                 }
