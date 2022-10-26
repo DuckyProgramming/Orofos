@@ -70,7 +70,7 @@ types={
         {name:'Chonk',alt:'',life:90,speed:20,damage:3,attacks:[75,7],height:120,reward:100,pattern:1},
         {name:'Great Duckus',alt:'',life:72,speed:12,damage:2,attacks:[77,39],height:90,reward:50,pattern:1},
         {name:'Lord Bounce',alt:'',life:150,speed:15,damage:3,attacks:[79,53],height:96,reward:100,pattern:1},
-        {name:'Scrap King',alt:'',life:240,speed:18,damage:3,attacks:[56],height:90,reward:100,pattern:0},//70
+        {name:'Scrap King',alt:'',life:80,speed:18,damage:3,attacks:[56],height:90,reward:100,pattern:0},//70
         {name:'Armored Builder',alt:'',life:180,speed:14,damage:4,attacks:[1,55],height:75,reward:100,pattern:0},
         {name:'Comrade',alt:'',life:288,speed:13,damage:3,attacks:[83,59,84],height:75,reward:100,pattern:1},
         {name:'Militarian',alt:'',life:350,speed:13,damage:4,attacks:[91,60],height:90,reward:100,pattern:1},
@@ -313,7 +313,7 @@ entities={particles:[]}
 run={fore:[]}
 dev={id:false,auto:false}
 combatants=[
-    {id:/*1*/0,weapon:3,team:0},
+    {id:/*1*/8,weapon:3,team:0},
     {id:2,weapon:1,team:0},
     {id:3,weapon:12,team:0},
     {id:6,weapon:38,team:0},

@@ -183,6 +183,33 @@ class cut{
                 this.battle.story=17
                 this.battle.characters.push(new combatant(this.layer,1050,450,93,0,1,100))
             break
+            case 29:
+                this.list=[2,23,35,37]
+                this.battle.combatants[4]=new combatant(this.layer,1050,450,floor(random(22,25)),this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,4)
+                this.battle.combatants[5]=new combatant(this.layer,1150,450,floor(random(22,25)),this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,5)
+            break
+            case 30:
+                this.list=[2,23,35,37]
+                this.battle.combatants[4]=new combatant(this.layer,1050,450,floor(random(22,26)),this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,4)
+                this.battle.combatants[5]=new combatant(this.layer,1150,450,floor(random(22,26)),this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,5)
+                this.battle.combatants[6]=new combatant(this.layer,1250,450,floor(random(22,26)),this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,6)
+            break
+            case 31:
+                this.list=[2,23,35,37]
+                this.battle.combatants[4]=new combatant(this.layer,1050,450,floor(random(22,26)),this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,4)
+                this.battle.combatants[5]=new combatant(this.layer,1150,450,floor(random(22,26)),this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,5)
+                this.battle.combatants[6]=new combatant(this.layer,1250,450,floor(random(22,26)),this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,6)
+                this.battle.combatants[7]=new combatant(this.layer,1350,450,floor(random(22,26)),this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,7)
+            break
+            case 32:
+                this.battle.story=18
+                this.battle.combatants[4]=new combatant(this.layer,1050,450,70,7,1,4)
+                this.battle.combatants[5]=new combatant(this.layer,1150,450,24,43,1,5)
+            break
+            case 33:
+                this.battle.story=19
+                this.battle.characters.push(new combatant(this.layer,1050,450,93,0,1,100))
+            break
         }
     }
     convertBattle(){
@@ -210,6 +237,12 @@ class cut{
                 this.battle.combatants[5]=new combatant(this.layer,0,450,65,0,1,5)
                 this.battle.combatants[6]=new combatant(this.layer,0,450,66,16,1,6)
                 this.battle.combatants[7]=new combatant(this.layer,0,450,87,0,1,7)
+            break
+            case 32:
+                this.battle.combatants[4]=new combatant(this.layer,0,450,22,43,1,4)
+                this.battle.combatants[5]=new combatant(this.layer,0,450,23,43,1,5)
+                this.battle.combatants[6]=new combatant(this.layer,0,450,24,43,1,6)
+                this.battle.combatants[7]=new combatant(this.layer,0,450,70,7,1,7)
             break
         }
     }
@@ -507,7 +540,7 @@ class cut{
                         this.trigger=false
                     }
                 break
-                case 5: case 6: case 7: case 11: case 12: case 13: case 16: case 17: case 23: case 24: case 25:
+                case 5: case 6: case 7: case 11: case 12: case 13: case 16: case 17: case 23: case 24: case 25: case 29: case 30: case 31:
                     if(this.timer<35){
                         for(g=0,lg=this.battle.combatants.length;g<lg;g++){
                             if(this.battle.combatants[g].team==1){
@@ -685,7 +718,7 @@ class cut{
                         this.trigger=false
                     }
                 break
-                case 15: case 28:
+                case 15: case 28: case 33:
                     if(this.timer<35){
                         for(g=0,lg=this.battle.characters.length;g<lg;g++){
                             if(this.battle.characters[g].id==100){
@@ -695,8 +728,10 @@ class cut{
                         }
                         if(this.type==15){
                             this.purchase.weapon=[4,13]
-                        }else{
+                        }else if(this.type==28){
                             this.purchase.weapon=[2,15]
+                        }else if(this.type==33){
+                            this.purchase.weapon=[37,43]
                         }
                         this.purchase.uses=[1,1,1,1,1]
                     }else if(this.timer==35){
@@ -1027,6 +1062,25 @@ class cut{
                         this.trigger=false
                     }
                 break
+                case 32:
+                    if(this.timer<35){
+                        for(g=0,lg=this.battle.combatants.length;g<lg;g++){
+                            if(this.battle.combatants[g].team==1){
+                                this.battle.combatants[g].position.x-=10
+                                this.battle.combatants[g].rate[0]+=10
+                            }
+                        }
+                    }else if(this.timer==35){
+                        this.battle.combatants[4].speech.text="Looks like we found our mark."
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer==95){
+                        transition.trigger=true
+                        transition.scene='battle'
+                    }else if(this.timer>=95&&!transition.trigger&&transition.anim>0){
+                        this.battle.end()
+                        this.trigger=false
+                    }
+                break
             }
             this.count--
             this.timer++
@@ -1075,7 +1129,7 @@ class cut{
                     }
                 }
             break
-            case 15: case 28:
+            case 15: case 28: case 33:
                 if(this.timer==35){
                     if(this.purchase.trigger){
                         if(pointInsideBox({position:inputs.rel},{position:{x:170,y:90},width:300,height:40})){
