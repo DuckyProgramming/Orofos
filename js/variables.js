@@ -80,7 +80,7 @@ types={
         {name:'Big Duck',alt:'',life:30,speed:7,damage:1,attacks:[39,93],height:75,reward:10,pattern:0},
         {name:'Big Quack Bridgade',alt:'',life:45,speed:6,damage:1,attacks:[39,63,93],height:75,reward:20,pattern:0},
         {name:'Elite Agent Duck',alt:'',life:60,speed:7,damage:2,attacks:[],height:60,reward:30,pattern:0},
-        {name:'Master Quack',alt:'',life:324,speed:10,damage:4,attacks:[96,39,63],height:75,reward:100,pattern:1},//80
+        {name:'Master Quack',alt:'',life:162,speed:10,damage:3,attacks:[96,39,63],height:75,reward:100,pattern:1},//80
         {name:'Duck 006',alt:'',life:240,speed:13,damage:4,attacks:[93],height:75,reward:100,pattern:0},
         {name:'MoneyMaster',alt:'',life:384,speed:12,damage:3,attacks:[1,101],height:90,reward:100,pattern:0},
         {name:'Roger Reviv',alt:'',life:600,speed:22,damage:4,attacks:[102,68],height:75,reward:100,pattern:1},
@@ -313,7 +313,7 @@ entities={particles:[]}
 run={fore:[]}
 dev={id:false,auto:false}
 combatants=[
-    {id:/*1*/8,weapon:3,team:0},
+    {id:/*1*/0,weapon:3,team:0},
     {id:2,weapon:1,team:0},
     {id:3,weapon:12,team:0},
     {id:6,weapon:38,team:0},

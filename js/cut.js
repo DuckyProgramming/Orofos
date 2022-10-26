@@ -108,10 +108,10 @@ class cut{
             break
             case 17:
                 this.list=[0,12,38,41]
-                this.battle.combatants[4]=new combatant(this.layer,1050,450,15,this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,4)
-                this.battle.combatants[5]=new combatant(this.layer,1150,450,15,this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,5)
-                this.battle.combatants[6]=new combatant(this.layer,1250,450,15,this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,6)
-                this.battle.combatants[7]=new combatant(this.layer,1250,450,15,this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,7)
+                this.battle.combatants[4]=new combatant(this.layer,1050,450,15+floor(random(0,1.5))*62,this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,4)
+                this.battle.combatants[5]=new combatant(this.layer,1150,450,15+floor(random(0,1.5))*62,this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,5)
+                this.battle.combatants[6]=new combatant(this.layer,1250,450,15+floor(random(0,1.5))*62,this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,6)
+                this.battle.combatants[7]=new combatant(this.layer,1250,450,15+floor(random(0,1.5))*62,this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,7)
             break
             case 18:
                 this.battle.story=10
@@ -262,6 +262,27 @@ class cut{
                 this.battle.story=25
                 this.battle.characters.push(new combatant(this.layer,1050,450,93,0,1,100))
             break
+            case 43:
+                this.list=[0,12,38,41]
+                this.battle.combatants[4]=new combatant(this.layer,1050,450,47,this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,4)
+                this.battle.combatants[5]=new combatant(this.layer,1150,450,47,this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,5)
+            break
+            case 44:
+                this.list=[0,12,38,41]
+                this.battle.combatants[4]=new combatant(this.layer,1050,450,47+floor(random(0,1.5))*31,this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,4)
+                this.battle.combatants[5]=new combatant(this.layer,1150,450,47+floor(random(0,1.5))*31,this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,5)
+                this.battle.combatants[6]=new combatant(this.layer,1250,450,47+floor(random(0,1.5))*31,this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,6)
+                this.battle.combatants[7]=new combatant(this.layer,1250,450,47+floor(random(0,1.5))*31,this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,7)
+            break
+            case 45:
+                this.battle.story=26
+                this.battle.combatants[4]=new combatant(this.layer,1050,450,80,37,1,4)
+                this.battle.combatants[5]=new combatant(this.layer,1150,450,78,2,1,5)
+            break
+            case 46:
+                this.battle.story=27
+                this.battle.characters.push(new combatant(this.layer,1050,450,93,0,1,100))
+            break
         }
     }
     convertBattle(){
@@ -301,6 +322,12 @@ class cut{
                 this.battle.combatants[5]=new combatant(this.layer,0,450,41,1,1,5)
                 this.battle.combatants[6]=new combatant(this.layer,0,450,74,2,1,6)
                 this.battle.combatants[7]=new combatant(this.layer,0,450,75,2,1,7)
+            break
+            case 45:
+                this.battle.combatants[4]=new combatant(this.layer,0,450,78,2,1,4)
+                this.battle.combatants[5]=new combatant(this.layer,0,450,78,2,1,5)
+                this.battle.combatants[6]=new combatant(this.layer,0,450,78,2,1,6)
+                this.battle.combatants[7]=new combatant(this.layer,0,450,80,37,1,7)
             break
         }
     }
@@ -600,7 +627,7 @@ class cut{
                         this.trigger=false
                     }
                 break
-                case 5: case 6: case 7: case 11: case 12: case 13: case 16: case 17: case 23: case 24: case 25: case 29: case 30: case 31: case 34: case 35: case 36:
+                case 5: case 6: case 7: case 11: case 12: case 13: case 16: case 17: case 23: case 24: case 25: case 29: case 30: case 31: case 34: case 35: case 36: case 43: case 44:
                     if(this.timer<35){
                         for(g=0,lg=this.battle.combatants.length;g<lg;g++){
                             if(this.battle.combatants[g].team==1){
@@ -1364,7 +1391,124 @@ class cut{
                         this.timer=460
                     }
                 break
-                
+                case 45:
+                    if(this.timer<35){
+                        for(g=0,lg=this.battle.combatants.length;g<lg;g++){
+                            if(this.battle.combatants[g].team==1){
+                                this.battle.combatants[g].position.x-=10
+                                this.battle.combatants[g].rate[0]+=10
+                            }
+                        }
+                    }else if(this.timer==35){
+                        this.battle.combatants[4].speech.text="The Quack Brigade has weakened\nto its final breaking point."
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer==95){
+                        this.battle.combatants[4].speech.text='This may very wel be its last\nbattle before its dissolution.'
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer==155){
+                        transition.trigger=true
+                        transition.scene='battle'
+                    }else if(this.timer>=155&&!transition.trigger&&transition.anim>0){
+                        this.battle.end()
+                        this.trigger=false
+                    }
+                break
+                case 46:
+                    if(this.timer<35){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==100){
+                                this.battle.characters[g].position.x-=10
+                                this.battle.characters[g].rate[0]+=10
+                            }
+                        }
+                        if(this.type==46){
+                            this.purchase.weapon=[18,19,32,43,44]
+                        }
+                        this.purchase.uses=[1,1,1,1,1]
+                    }else if(this.timer==35){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==100){
+                                this.battle.characters[g].speech.text="This have become quite chaotic.\nJust up the hill, there was\na huge convoy battle."
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                    }else if(this.timer==95){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==100){
+                                this.battle.characters[g].speech.text='I picked up all the leftover pieces.\nWe could surely use them.'
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                    }else if(this.timer==155){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==100){
+                                this.battle.characters[g].speech.text='Is there anything you would like?'
+                                this.battle.characters[g].speech.time=15
+                            }
+                        }
+                        this.layer.strokeWeight(4)
+                        if(this.purchase.trigger){
+                            this.layer.stroke(100,85,60)
+                            this.layer.fill(125,105,75)
+                            this.layer.rect(170,90,300,40)
+                            this.layer.fill(0)
+                            this.layer.noStroke()
+                            this.layer.textSize(20)
+                            this.layer.text('Select',170,90)
+                            g=0
+                            while(this.battle.combatants[this.purchase.select].life<=0&&g<4){
+                                g++
+                                this.purchase.select=(this.purchase.select+1)%4
+                            }
+                            for(g=0,lg=this.battle.combatants.length;g<lg;g++){
+                                if(this.battle.combatants[g].infoFade<1&&g==this.purchase.select){
+                                    this.battle.combatants[g].infoFade+=0.1
+                                }else if(this.battle.combatants[g].infoFade>0&&g!=this.purchase.select){
+                                    this.battle.combatants[g].infoFade-=0.1
+                                }
+                            }
+                        }else{
+                            for(g=0;g<8;g++){
+                                if(this.purchase.uses[g]<=0){
+                                    this.layer.stroke(60)
+                                    this.layer.fill(75)
+                                }else{
+                                    this.layer.stroke(100,85,60)
+                                    this.layer.fill(125,105,75)
+                                }
+                                this.layer.rect(170,90+g*50,300,40)
+                            }
+                            this.layer.fill(0)
+                            this.layer.noStroke()
+                            this.layer.textSize(20)
+                            this.layer.text('Heal',145,90)
+                            this.layer.text('Supply',145,140)
+                            this.layer.text(types.weapon[this.purchase.weapon[0]].name,145,190)
+                            this.layer.text(types.weapon[this.purchase.weapon[1]].name,145,240)
+                            this.layer.text(types.weapon[this.purchase.weapon[2]].name,145,290)
+                            this.layer.text(types.weapon[this.purchase.weapon[3]].name,145,340)
+                            this.layer.text(types.weapon[this.purchase.weapon[4]].name,145,390)
+                            this.layer.text('$100',295,90)
+                            this.layer.text('$25',295,140)
+                            this.layer.text('$'+types.weapon[this.purchase.weapon[0]].cost,295,190)
+                            this.layer.text('$'+types.weapon[this.purchase.weapon[1]].cost,295,240)
+                            this.layer.text('$'+types.weapon[this.purchase.weapon[2]].cost,295,290)
+                            this.layer.text('$'+types.weapon[this.purchase.weapon[3]].cost,295,340)
+                            this.layer.text('$'+types.weapon[this.purchase.weapon[4]].cost,295,390)
+                            this.layer.text('Exit',170,440)
+                        }
+                        this.timer--
+                    }else if(this.timer>=170&&this.timer<290){
+                        for(g=0,lg=this.battle.combatants.length;g<lg;g++){
+                            this.battle.combatants[g].rate[0]+=10
+                        }
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            this.battle.characters[g].position.x-=10
+                        }
+                    }else if(this.timer>=290){
+                        this.trigger=false
+                    }
+                break
             }
             this.count--
             this.timer++
@@ -1472,6 +1616,68 @@ class cut{
                         if(pointInsideBox({position:inputs.rel},{position:{x:170,y:90+g*50},width:300,height:40})){
                             this.battle.combatants[g].type=0
                             this.timer++
+                        }
+                    }
+                }
+            break
+            case 46:
+                if(this.timer==35){
+                    if(this.purchase.trigger){
+                        if(pointInsideBox({position:inputs.rel},{position:{x:170,y:90},width:300,height:40})){
+                            this.purchase.trigger=false
+                            this.battle.combatants[this.purchase.select].weapon=this.purchase.weapon[this.purchase.choice]
+                        }
+                        for(g=0;g<4;g++){
+                            if(pointInsideBox({position:inputs.rel},{position:{x:this.battle.combatants[g].position.x,y:this.battle.combatants[g].position.y-this.battle.combatants[g].height/2},width:72,height:144})&&this.battle.combatants[g].life>0){
+                                this.purchase.select=g
+                            }
+                        }
+                    }else{
+                        for(g=0;g<8;g++){
+                            if(pointInsideBox({position:inputs.rel},{position:{x:170,y:90+g*50},width:300,height:40})&&this.purchase.uses[g]>0){
+                                this.purchase.uses[g]--
+                                if(g==0&&this.battle.currency.money>=100){
+                                    this.battle.currency.money-=100
+                                    this.healParty()
+                                    this.spendParticle('-$100')
+                                }else if(g==1&&this.battle.currency.money>=25){
+                                    this.battle.currency.money-=25
+                                    this.refillParty()
+                                    this.spendParticle('-$25')
+                                }else if(g==2&&this.battle.currency.money>=types.weapon[this.purchase.weapon[0]].cost){
+                                    this.purchase.select=0
+                                    this.battle.currency.money-=types.weapon[this.purchase.weapon[0]].cost
+                                    this.purchase.trigger=true
+                                    this.purchase.choice=0
+                                    this.spendParticle('-$'+types.weapon[this.purchase.weapon[0]].cost)
+                                }else if(g==3&&this.battle.currency.money>=types.weapon[this.purchase.weapon[1]].cost){
+                                    this.purchase.select=0
+                                    this.battle.currency.money-=types.weapon[this.purchase.weapon[1]].cost
+                                    this.purchase.trigger=true
+                                    this.purchase.choice=1
+                                    this.spendParticle('-$'+types.weapon[this.purchase.weapon[1]].cost)
+                                }else if(g==4&&this.battle.currency.money>=types.weapon[this.purchase.weapon[2]].cost){
+                                    this.purchase.select=0
+                                    this.battle.currency.money-=types.weapon[this.purchase.weapon[2]].cost
+                                    this.purchase.trigger=true
+                                    this.purchase.choice=0
+                                    this.spendParticle('-$'+types.weapon[this.purchase.weapon[2]].cost)
+                                }else if(g==5&&this.battle.currency.money>=types.weapon[this.purchase.weapon[3]].cost){
+                                    this.purchase.select=0
+                                    this.battle.currency.money-=types.weapon[this.purchase.weapon[3]].cost
+                                    this.purchase.trigger=true
+                                    this.purchase.choice=1
+                                    this.spendParticle('-$'+types.weapon[this.purchase.weapon[3]].cost)
+                                }else if(g==6&&this.battle.currency.money>=types.weapon[this.purchase.weapon[4]].cost){
+                                    this.purchase.select=0
+                                    this.battle.currency.money-=types.weapon[this.purchase.weapon[4]].cost
+                                    this.purchase.trigger=true
+                                    this.purchase.choice=1
+                                    this.spendParticle('-$'+types.weapon[this.purchase.weapon[4]].cost)
+                                }else if(g==7){
+                                    this.timer++
+                                }
+                            }
                         }
                     }
                 }
