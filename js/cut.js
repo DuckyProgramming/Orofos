@@ -210,6 +210,58 @@ class cut{
                 this.battle.story=19
                 this.battle.characters.push(new combatant(this.layer,1050,450,93,0,1,100))
             break
+            case 34:
+                this.list=[2,6,7,15,39]
+                this.battle.combatants[4]=new combatant(this.layer,1050,450,floor(random(38,40)),this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,4)
+                this.battle.combatants[5]=new combatant(this.layer,1150,450,floor(random(38,40)),this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,5)
+            break
+            case 35:
+                this.list=[2,6,7,15,39]
+                this.battle.combatants[4]=new combatant(this.layer,1050,450,floor(random(38,42)),this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,4)
+                this.battle.combatants[5]=new combatant(this.layer,1150,450,floor(random(38,42)),this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,5)
+                this.battle.combatants[6]=new combatant(this.layer,1250,450,floor(random(38,42)),this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,6)
+            break
+            case 36:
+                this.list=[2,6,7,15,39]
+                this.battle.combatants[4]=new combatant(this.layer,1050,450,floor(random(38,42)),this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,4)
+                this.battle.combatants[5]=new combatant(this.layer,1150,450,floor(random(38,42)),this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,5)
+                this.battle.combatants[6]=new combatant(this.layer,1250,450,floor(random(38,42)),this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,6)
+                this.battle.combatants[7]=new combatant(this.layer,1350,450,floor(random(38,42)),this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,7)
+            break
+            case 37:
+                this.battle.story=20
+                this.battle.combatants[4]=new combatant(this.layer,1050,450,74,2,1,4)
+                this.battle.combatants[5]=new combatant(this.layer,1150,450,75,2,1,5)
+            break
+            case 38:
+                this.battle.story=21
+                this.battle.characters.push(new combatant(this.layer,1050,450,93,0,1,100))
+            break
+            case 39:
+                this.battle.story=22
+                this.battle.combatants[4]=new combatant(this.layer,1050,450,49,13,1,4)
+                this.battle.combatants[5]=new combatant(this.layer,1150,450,50,8,1,5)
+                this.battle.combatants[6]=new combatant(this.layer,1250,450,51,2,1,6)
+            break
+            case 40:
+                this.battle.story=23
+                for(i=0;i<12;i++){
+                    this.battle.characters.push(new combatant(this.layer,-150-i*50,450,30,0,0,100+i))
+                }
+                this.battle.characters.push(new combatant(this.layer,1750,450,72,0,1,112))
+                this.battle.characters.push(new combatant(this.layer,1850,450,33,0,1,113))
+                this.battle.characters.push(new combatant(this.layer,1900,450,33,0,1,114))
+                this.battle.characters.push(new combatant(this.layer,-950,450,33,0,0,115))
+                this.battle.characters.push(new combatant(this.layer,-1000,450,33,0,0,116))
+            break
+            case 41:
+                this.battle.story=24
+                this.battle.combatants[4]=new combatant(this.layer,1050,450,9,2,1,4)
+            break
+            case 42:
+                this.battle.story=25
+                this.battle.characters.push(new combatant(this.layer,1050,450,93,0,1,100))
+            break
         }
     }
     convertBattle(){
@@ -243,6 +295,12 @@ class cut{
                 this.battle.combatants[5]=new combatant(this.layer,0,450,23,43,1,5)
                 this.battle.combatants[6]=new combatant(this.layer,0,450,24,43,1,6)
                 this.battle.combatants[7]=new combatant(this.layer,0,450,70,7,1,7)
+            break
+            case 37:
+                this.battle.combatants[4]=new combatant(this.layer,0,450,40,1,1,4)
+                this.battle.combatants[5]=new combatant(this.layer,0,450,41,1,1,5)
+                this.battle.combatants[6]=new combatant(this.layer,0,450,74,2,1,6)
+                this.battle.combatants[7]=new combatant(this.layer,0,450,75,2,1,7)
             break
         }
     }
@@ -495,7 +553,7 @@ class cut{
                         this.trigger=false
                     }
                 break
-                case 3: case 20:
+                case 3: case 20: case 41:
                     if(this.timer<35){
                         for(g=0,lg=this.battle.combatants.length;g<lg;g++){
                             if(this.battle.combatants[g].team==1){
@@ -506,6 +564,8 @@ class cut{
                     }else if(this.timer==35){
                         if(this.type==20){
                             this.battle.combatants[4].speech.text='You look...weak.'
+                        }else if(this.type==41){
+                            this.battle.combatants[4].speech.text="This'll be easy!"
                         }else{
                             this.battle.combatants[4].speech.text='Free money!'
                         }
@@ -540,7 +600,7 @@ class cut{
                         this.trigger=false
                     }
                 break
-                case 5: case 6: case 7: case 11: case 12: case 13: case 16: case 17: case 23: case 24: case 25: case 29: case 30: case 31:
+                case 5: case 6: case 7: case 11: case 12: case 13: case 16: case 17: case 23: case 24: case 25: case 29: case 30: case 31: case 34: case 35: case 36:
                     if(this.timer<35){
                         for(g=0,lg=this.battle.combatants.length;g<lg;g++){
                             if(this.battle.combatants[g].team==1){
@@ -573,12 +633,15 @@ class cut{
                     }else if(this.timer>=95&&!transition.trigger&&transition.anim>0){
                         this.battle.end()
                         this.trigger=false
-                        for(g=0,lg=this.battle.combatants.length;g<lg;g++){
+                        for(g=0;g<4;g++){
                             if(this.battle.combatants[g].team==0){
                                 this.battle.combatants[g].life=round(this.battle.combatants[g].life*1.2)
                                 this.battle.combatants[g].base.life=this.battle.combatants[g].life
                                 this.battle.combatants[g].collect.life=this.battle.combatants[g].life
                             }
+                        }
+                        for(g=1;g<9;g++){
+                            types.combatant[g].life=round(types.combatant[g].life*1.2)
                         }
                     }
                 break
@@ -718,7 +781,7 @@ class cut{
                         this.trigger=false
                     }
                 break
-                case 15: case 28: case 33:
+                case 15: case 28: case 33: case 38:
                     if(this.timer<35){
                         for(g=0,lg=this.battle.characters.length;g<lg;g++){
                             if(this.battle.characters[g].id==100){
@@ -732,6 +795,8 @@ class cut{
                             this.purchase.weapon=[2,15]
                         }else if(this.type==33){
                             this.purchase.weapon=[37,43]
+                        }else if(this.type==38){
+                            this.purchase.weapon=[6,14]
                         }
                         this.purchase.uses=[1,1,1,1,1]
                     }else if(this.timer==35){
@@ -950,7 +1015,7 @@ class cut{
                         this.trigger=false
                     }
                 break
-                case 21:
+                case 21: case 42:
                     if(this.timer<35){
                         for(g=0,lg=this.battle.characters.length;g<lg;g++){
                             if(this.battle.characters[g].id==100){
@@ -961,14 +1026,22 @@ class cut{
                     }else if(this.timer==35){
                         for(g=0,lg=this.battle.characters.length;g<lg;g++){
                             if(this.battle.characters[g].id==100){
-                                this.battle.characters[g].speech.text="Woah, what happened to you?\nWe can't be having this happen..."
+                                if(this.type==42){
+                                    this.battle.characters[g].speech.text="Those Reds did this, didn't they?\nThey own this area of Orofos."
+                                }else{
+                                    this.battle.characters[g].speech.text="Woah, what happened to you?\nWe can't be having this happen..."
+                                }
                                 this.battle.characters[g].speech.time=60
                             }
                         }
                     }else if(this.timer==95){
                         for(g=0,lg=this.battle.characters.length;g<lg;g++){
                             if(this.battle.characters[g].id==100){
-                                this.battle.characters[g].speech.text="Here's a heal, on the house.\nYou'll need it."
+                                if(this.type==42){
+                                    this.battle.characters[g].speech.text="Their boss is one of the most\npowerful people on the planet.\nNot much we can do, I'm afraid."
+                                }else{
+                                    this.battle.characters[g].speech.text="Here's a heal, on the house.\nYou'll need it."
+                                }
                                 this.battle.characters[g].speech.time=60
                             }
                         }
@@ -1081,6 +1154,217 @@ class cut{
                         this.trigger=false
                     }
                 break
+                case 37:
+                    if(this.timer<35){
+                        for(g=0,lg=this.battle.combatants.length;g<lg;g++){
+                            if(this.battle.combatants[g].team==1){
+                                this.battle.combatants[g].position.x-=10
+                                this.battle.combatants[g].rate[0]+=10
+                            }
+                        }
+                    }else if(this.timer==35){
+                        this.battle.combatants[4].speech.text="We understand our gang may\nbe one of the weakest..."
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer==95){
+                        this.battle.combatants[5].speech.text='But this is our one chance\nto finally score a victory.'
+                        this.battle.combatants[5].speech.time=60
+                    }else if(this.timer==155){
+                        transition.trigger=true
+                        transition.scene='battle'
+                    }else if(this.timer>=155&&!transition.trigger&&transition.anim>0){
+                        this.battle.end()
+                        this.trigger=false
+                        for(g=0;g<4;g++){
+                            if(this.battle.combatants[g].team==0){
+                                this.battle.combatants[g].life=round(this.battle.combatants[g].life*1.2)
+                                this.battle.combatants[g].base.life=this.battle.combatants[g].life
+                                this.battle.combatants[g].collect.life=this.battle.combatants[g].life
+                            }
+                        }
+                        for(g=1;g<9;g++){
+                            types.combatant[g].life=round(types.combatant[g].life*1.2)
+                        }
+                    }
+                break
+                case 39:
+                    if(this.timer<35){
+                        for(g=0,lg=this.battle.combatants.length;g<lg;g++){
+                            if(this.battle.combatants[g].team==1){
+                                this.battle.combatants[g].position.x-=10
+                                this.battle.combatants[g].rate[0]+=10
+                            }
+                        }
+                    }else if(this.timer==35){
+                        this.battle.combatants[4].speech.text="You look pretty rich,\nlet's change that."
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer==95){
+                        this.battle.combatants[5].speech.text="This is a very profitable oppurtunity."
+                        this.battle.combatants[5].speech.time=60
+                    }else if(this.timer==155){
+                        transition.trigger=true
+                        transition.scene='battle'
+                    }else if(this.timer>=155&&!transition.trigger&&transition.anim>0){
+                        this.battle.end()
+                        this.trigger=false
+                    }
+                break
+                case 40:
+                    if(this.timer<70){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].type==30||this.timer<35){
+                                this.battle.characters[g].position.x-=30*(this.battle.characters[g].team*2-1)
+                                this.battle.characters[g].rate[0]+=30
+                            }
+                        }
+                    }
+                    if(this.timer==35){
+                        for(g=0,lg=this.battle.combatants.length;g<lg;g++){
+                            if(this.battle.combatants[g].team==0){
+                                this.battle.combatants[g].life=1
+                            }
+                        }
+                    }else if(this.timer==70){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==112){
+                                this.battle.characters[g].speech.text='Not much of a challenge,\nare you?'
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                    }else if(this.timer==130){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==112){
+                                this.battle.characters[g].speech.text='You must be getting\npretty frustrated now.'
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                    }else if(this.timer>=190&&this.timer<220){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id>112){
+                                this.battle.characters[g].position.x-=10*(this.battle.characters[g].team*2-1)
+                                this.battle.characters[g].rate[0]+=10
+                            }
+                        }
+                    }
+                    if(this.timer>=220&&this.timer<340){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id>112){
+                                this.battle.characters[g].flip=-1
+                                this.battle.characters[g].position.x-=10
+                                this.battle.characters[g].rate[0]+=10
+                            }
+                        }
+                        for(g=0;g<3;g++){
+                            this.battle.combatants[g].position.x-=10
+                            this.battle.combatants[g].rate[0]+=10
+                        }
+                    }else if(this.timer==340){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==112){
+                                this.battle.characters[g].speech.text='We need more of you. And we will keep\ndoing so until we have all of you.'
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                    }else if(this.timer==400){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==112){
+                                this.battle.characters[g].speech.text="I think you know where this is going."
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                    }else if(this.timer==460){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==112){
+                                this.battle.characters[g].speech.text='Who will it be, then?'
+                                this.battle.characters[g].speech.time=15
+                            }
+                        }
+                        this.layer.strokeWeight(4)
+                        this.layer.stroke(100,85,60)
+                        this.layer.fill(125,105,75)
+                        for(g=0;g<4;g++){
+                            this.layer.rect(170,90+g*50,300,40)
+                        }
+                        this.layer.fill(0)
+                        this.layer.noStroke()
+                        this.layer.textSize(20)
+                        for(g=0;g<3;g++){
+                            this.layer.text(this.battle.combatants[g].name,170,90+g*50)
+                        }
+                        this.layer.text("No",170,240)
+                        this.timer--
+                    }else if(this.timer==475){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==112){
+                                this.battle.characters[g].speech.text='I know you hate me for this,\nbut do not worry.'
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                    }else if(this.timer>=505&&this.timer<625){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id>112){
+                                this.battle.characters[g].flip=1
+                                this.battle.characters[g].position.x+=10
+                                this.battle.characters[g].rate[0]+=10
+                            }
+                        }
+                        for(g=0;g<3;g++){
+                            this.battle.combatants[g].position.x+=10
+                            this.battle.combatants[g].rate[0]+=10
+                        }
+                    }else if(this.timer==625){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==112){
+                                this.battle.characters[g].speech.text="It'll be over before you know it."
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                    }else if(this.timer>=685&&this.timer<745){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id>=112){
+                                this.battle.characters[g].flip=1
+                                this.battle.characters[g].position.x+=10
+                                this.battle.characters[g].rate[0]+=10
+                            }
+                        }
+                    }else if(this.timer>=745&&this.timer<1000){
+                        this.trigger=false
+                    }
+                    if(this.timer>=1000&&this.timer<1007){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==112){
+                                this.battle.characters[g].position.x-=10
+                                this.battle.characters[g].rate[0]+=10
+                            }
+                        }
+                    }else if(this.timer>=1007&&this.timer<1022){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==112){
+                                this.battle.characters[g].anim[0]+=1/15
+                            }
+                        }
+                    }else if(this.timer>=1022&&this.timer<1037){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==112){
+                                this.battle.characters[g].anim[0]-=1/15
+                            }
+                        }
+                    }else if(this.timer>=1037&&this.timer<1044){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==112){
+                                this.battle.characters[g].position.x+=10
+                                this.battle.characters[g].rate[0]+=10
+                            }
+                        }
+                    }
+                    if(this.timer==1022){
+                        this.battle.combatants[3].life=0
+                    }
+                    if(this.timer==1044){
+                        this.battle.combatants[3].type=0
+                        this.timer=460
+                    }
+                break
+                
             }
             this.count--
             this.timer++
@@ -1129,7 +1413,7 @@ class cut{
                     }
                 }
             break
-            case 15: case 28: case 33:
+            case 15: case 28: case 33: case 38:
                 if(this.timer==35){
                     if(this.purchase.trigger){
                         if(pointInsideBox({position:inputs.rel},{position:{x:170,y:90},width:300,height:40})){
@@ -1173,8 +1457,17 @@ class cut{
                     }
                 }
             break
-            case 19:
+            case 19: case 40:
                 if(this.timer==460){
+                    if(pointInsideBox({position:inputs.rel},{position:{x:170,y:240},width:300,height:40})&&this.type==40){
+                        this.timer=1000
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==112){
+                                this.battle.characters[g].speech.text="That's how it is, then?"
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                    }
                     for(g=0;g<3;g++){
                         if(pointInsideBox({position:inputs.rel},{position:{x:170,y:90+g*50},width:300,height:40})){
                             this.battle.combatants[g].type=0

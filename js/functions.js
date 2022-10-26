@@ -50,3 +50,24 @@ function updateMouse(layer){
 	inputs.rel.x=(inputs.mouse.x-width/2)/stage.scale+layer.width/2
 	inputs.rel.y=(inputs.mouse.y-height/2)/stage.scale+layer.height/2
 }
+function resetState(type){
+	switch(type){
+		case 0:
+			combatants=[
+				{id:1,weapon:3,team:0},
+				{id:2,weapon:1,team:0},
+				{id:3,weapon:12,team:0},
+				{id:6,weapon:38,team:0},
+				{id:0,weapon:0,team:1},
+				{id:0,weapon:0,team:1},
+				{id:0,weapon:0,team:1},
+				{id:0,weapon:0,team:1},
+			]
+		break
+		case 1:
+			current.story=0
+			current.totalMoved=0
+			current.cut.setup(1)
+		break
+	}
+}

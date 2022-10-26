@@ -1,13 +1,27 @@
 function setup(){
     createCanvas(windowWidth-50,windowHeight-50)
     setupGraphics()
+    //resetState(0)
     for(a=0,la=combatants.length;a<la;a++){
         //this.combatants[a].id=floor(random(9,types.combatant.length))
     }
     for(a=0,la=combatants.length;a<la;a++){
         //this.combatants[a].weapon=floor(random(0,types.weapon.length))
     }
+
+    for(g=1;g<9;g++){
+        types.combatant[g].life=round(types.combatant[g].life*1.2)
+    }
+    for(g=1;g<9;g++){
+        types.combatant[g].life=round(types.combatant[g].life*1.2)
+    }
+    types.combatant[1].attacks.push(28)
+    types.combatant[2].attacks.push(31)
+    types.combatant[3].attacks.push(34)
+    types.combatant[6].attacks.push(44)
+
     current=new battle(graphics.main,combatants)
+    //resetState(1)
     current.set(stage.scene)
     current.setupStack()
     //current.cut.setup(1)
