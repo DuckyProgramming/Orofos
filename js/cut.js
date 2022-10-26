@@ -1593,6 +1593,33 @@ class cut{
                         for(g=4,lg=this.battle.combatants.length;g<lg;g++){
                             this.battle.combatants[g].position.x+=5/3
                         }
+                    }else if(this.timer==335){
+                        if(this.battle.combatants[0].type==0){
+                            this.battle.combatants[0]=new combatant(this.layer,1050,450,5-this.purchase.choice,6-this.purchase.choice,1,0)
+                        }else if(this.battle.combatants[0].type==1){
+                            this.battle.combatants[1]=new combatant(this.layer,1150,450,5-this.purchase.choice,6-this.purchase.choice,1,1)
+                        }else if(this.battle.combatants[0].type==2){
+                            this.battle.combatants[2]=new combatant(this.layer,1250,450,5-this.purchase.choice,6-this.purchase.choice,1,2)
+                        }else if(this.battle.combatants[0].type==3){
+                            this.battle.combatants[3]=new combatant(this.layer,1350,450,5-this.purchase.choice,6-this.purchase.choice,1,3)
+                        }
+                        this.battle.combatants[4].type=0
+                        this.battle.combatants[5].type=0
+                    }else if(this.timer>=335&&this.timer<410){
+                        for(g=0,lg=this.battle.combatants.length;g<lg;g++){
+                            if(this.battle.combatants[g].type==5-this.purchase.choice){
+                                this.battle.combatants[g].position.x-=10
+                                this.battle.combatants[g].rate[0]+=10
+                            }
+                        }
+                    }else if(this.timer==410){
+                        for(g=0,lg=this.battle.combatants.length;g<lg;g++){
+                            if(this.battle.combatants[g].type==5-this.purchase.choice){
+                                this.battle.combatants[g].team=0
+                                this.battle.combatants[g].flip=1
+                            }
+                        }
+                        this.trigger=false
                     }
                     if(this.timer>=295&&this.timer<335){
                         for(g=0,lg=this.battle.combatants.length;g<lg;g++){
