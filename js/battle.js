@@ -16,12 +16,12 @@ class battle{
         this.combatantListing=[3,2,1,0,4,5,6,7]
         this.storage=[]
         this.reseting=false
-        this.totalMoved=9600
+        this.totalMoved=14150
         this.time=0
         this.setTime=0
         this.speed=1
         this.currency={money:500}
-        this.story=10
+        this.story=16
         this.complete={main:false}
 	}
     end(){
@@ -94,9 +94,9 @@ class battle{
                     }
                 }
                 for(e=0,le=this.combatants.length;e<le;e++){
-                    this.combatants[e].position.x=e*100+500-this.max*50
+                    this.combatants[e].position.x=e*100+300
                     this.combatants[e].position.y=450
-                    this.combatants[e].base.position.x=e*100+500-this.max*50
+                    this.combatants[e].base.position.x=e*100+300
                     this.combatants[e].base.position.y=450
                     this.combatants[e].rate[0]=random(0,360)
                 }
@@ -473,6 +473,12 @@ class battle{
                         this.cut.setup(16)
                     }else if(this.totalMoved>=8400&&this.totalMoved<9150&&floor(random(0,300))==0){
                         this.cut.setup(17)
+                    }else if(this.totalMoved>=10450&&this.totalMoved<11450&&floor(random(0,300))==0){
+                        this.cut.setup(23)
+                    }else if(this.totalMoved>=11450&&this.totalMoved<12450&&floor(random(0,300))==0){
+                        this.cut.setup(24)
+                    }else if(this.totalMoved>=12450&&this.totalMoved<13450&&floor(random(0,300))==0){
+                        this.cut.setup(25)
                     }
                 }
                 if(this.cut.trigger){
@@ -498,6 +504,18 @@ class battle{
                     this.cut.setup(18)
                 }else if(this.story==10&&this.totalMoved>=9650){
                     this.cut.setup(19)
+                }else if(this.story==11&&this.totalMoved>=9900){
+                    this.cut.setup(20)
+                }else if(this.story==12&&this.totalMoved>=10150){
+                    this.cut.setup(21)
+                }else if(this.story==13&&this.totalMoved>=10400){
+                    this.cut.setup(22)
+                }else if(this.story==14&&this.totalMoved>=13450){
+                    this.cut.setup(26)
+                }else if(this.story==15&&this.totalMoved>=13700){
+                    this.cut.setup(27)
+                }else if(this.story==16&&this.totalMoved>=13850){
+                    this.cut.setup(28)
                 }
             break
         }

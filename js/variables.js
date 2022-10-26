@@ -1,14 +1,14 @@
 types={
     combatant:[
         {name:'',alt:'',life:0,speed:0,damage:0,attacks:[],height:0,reward:0,pattern:0},//0
-        {name:'Bill',alt:'',life:28,speed:11,damage:1,attacks:[1,27/*,28,29*/],height:75,reward:0,pattern:0},
-        {name:'Tom',alt:'',life:36,speed:15,damage:1,attacks:[2,30/*,31,32*/],height:75,reward:0,pattern:0},
-        {name:'Jon',alt:'',life:24,speed:9,damage:1,attacks:[24,33/*,34,35*/],height:75,reward:0,pattern:0},
-        {name:'Eddy',alt:'',life:26,speed:12,damage:1,attacks:[25,36/*,37,38*/],height:72,reward:0,pattern:0},
-        {name:'Lalex',alt:'',life:32,speed:14,damage:1,attacks:[1,40/*,41,42*/],height:78,reward:0,pattern:0},
-        {name:'Scott',alt:'',life:30,speed:8,damage:1,attacks:[2,43/*,44,45*/],height:75,reward:0,pattern:0},
-        {name:'Ollie',alt:'',life:28,speed:13,damage:1,attacks:[24,46/*,47,48*/],height:75,reward:0,pattern:0},
-        {name:'Duckit',alt:'',life:18,speed:6,damage:1,attacks:[25,12/*,13,14*/],height:60,reward:0,pattern:0},
+        {name:'Bill',alt:'',life:28,speed:11,damage:1,attacks:[1,27/*,29*/],height:75,reward:0,pattern:0},
+        {name:'Tom',alt:'',life:36,speed:15,damage:1,attacks:[2,30/*,32*/],height:75,reward:0,pattern:0},
+        {name:'Jon',alt:'',life:24,speed:9,damage:1,attacks:[24,33/*,35*/],height:75,reward:0,pattern:0},
+        {name:'Eddy',alt:'',life:26,speed:12,damage:1,attacks:[25,36,37/*,38*/],height:72,reward:0,pattern:0},
+        {name:'Lalex',alt:'',life:32,speed:14,damage:1,attacks:[1,40,41/*,42*/],height:78,reward:0,pattern:0},
+        {name:'Scott',alt:'',life:30,speed:8,damage:1,attacks:[2,43/*,45*/],height:75,reward:0,pattern:0},
+        {name:'Ollie',alt:'',life:28,speed:13,damage:1,attacks:[24,46,47,48],height:75,reward:0,pattern:0},
+        {name:'Duckit',alt:'',life:18,speed:6,damage:1,attacks:[25,12,13/*,14*/],height:60,reward:0,pattern:0},
         {name:'Human',alt:'',life:10,speed:10,damage:1,attacks:[1],height:75,reward:10,pattern:0},
         {name:'Fat Human',alt:'',life:25,speed:15,damage:1,attacks:[5],height:66,reward:15,pattern:0},//10
         {name:'Long Human',alt:'',life:15,speed:8,damage:1,attacks:[4],height:84,reward:15,pattern:0},
@@ -87,7 +87,7 @@ types={
         {name:'Cook',alt:'',life:360,speed:12,damage:2,attacks:[99,7,100],height:90,reward:100,pattern:1},
         {name:'Big Duck Force',alt:'',life:60,speed:10,damage:1,attacks:[39,93],height:75,reward:20,pattern:0},
         {name:'General Duckion',alt:'',life:400,speed:12,damage:4,attacks:[103,39,70],height:75,reward:100,pattern:1},
-        {name:'Joking Jimmy',alt:'',life:500,speed:11,damage:2,attacks:[104],height:66,reward:100,pattern:0},
+        {name:'Joking Jimmy',alt:'',life:150,speed:11,damage:1,attacks:[104],height:66,reward:100,pattern:0},
         {name:'Director Illyesc',alt:'',life:900,speed:18,damage:2,attacks:[105,106,107],height:78,reward:10000,pattern:1},
         {name:'Bulwark',alt:'',life:30,speed:15,damage:1,attacks:[1,109],height:75,reward:10,pattern:0},
         {name:'Fat Bulwark',alt:'',life:75,speed:23,damage:1,attacks:[5,109],height:66,reward:15,pattern:0},//90
@@ -239,9 +239,9 @@ types={
         {name:'Slash'                   ,damage:3   ,target:0,class:0,uses:0 ,accuracy:0.9 ,description:'Major bleed'},
         {name:'Get High'                ,damage:3   ,target:1,class:1,uses:1 ,accuracy:1   ,description:'Take the good stuff'},
         {name:'Entrench'                ,damage:2   ,target:1,class:1,uses:5 ,accuracy:1   ,description:'Armor yourself heavily'},//70
-        {name:'Verbal Burn'             ,damage:3   ,target:0,class:2,uses:1 ,accuracy:0.4 ,description:'Burn him up'},
-        {name:'Verbal Confusion'        ,damage:10  ,target:0,class:2,uses:1 ,accuracy:0.6 ,description:'Extreme confusion'},
-        {name:'Emotional Reduction'     ,damage:10  ,target:0,class:2,uses:1 ,accuracy:0.6 ,description:'Emotional suffering'},
+        {name:'Verbal Burn'             ,damage:2   ,target:0,class:2,uses:1 ,accuracy:0.4 ,description:'Burn him up'},
+        {name:'Verbal Confusion'        ,damage:5   ,target:0,class:2,uses:1 ,accuracy:0.6 ,description:'Extreme confusion'},
+        {name:'Emotional Reduction'     ,damage:5   ,target:0,class:2,uses:1 ,accuracy:0.6 ,description:'Emotional suffering'},
         {name:'Waste Time'              ,damage:1   ,target:0,class:2,uses:1 ,accuracy:1   ,description:'Get bored'},
         {name:'Chonk Up'                ,damage:1   ,target:1,class:1,uses:1 ,accuracy:1   ,description:'Prepare for pain'},
         {name:'Wide Smash'              ,damage:3   ,target:0,class:0,uses:0 ,accuracy:0.4 ,description:'Inaccurate heavy smash'},
@@ -313,7 +313,7 @@ entities={particles:[]}
 run={fore:[]}
 dev={id:false,auto:false}
 combatants=[
-    {id:1,weapon:3,team:0},
+    {id:/*1*/0,weapon:3,team:0},
     {id:2,weapon:1,team:0},
     {id:3,weapon:12,team:0},
     {id:6,weapon:38,team:0},
