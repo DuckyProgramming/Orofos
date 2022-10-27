@@ -20,6 +20,14 @@ function setup(){
     types.combatant[3].attacks.push(34)
     types.combatant[6].attacks.push(44)
 
+    types.combatant[1].attacks.push(29)
+    types.combatant[2].attacks.push(32)
+    types.combatant[3].attacks.push(35)
+    types.combatant[4].attacks.push(38)
+    types.combatant[5].attacks.push(42)
+    types.combatant[6].attacks.push(45)
+    types.combatant[8].attacks.push(14)
+
     current=new battle(graphics.main,combatants)
     //resetState(1)
     current.set(stage.scene)

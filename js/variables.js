@@ -1,14 +1,14 @@
 types={
     combatant:[
         {name:'',alt:'',life:0,speed:0,damage:0,attacks:[],height:0,reward:0,pattern:0},//0
-        {name:'Bill',alt:'',life:28,speed:11,damage:1,attacks:[1,27/*,29*/],height:75,reward:0,pattern:0},
-        {name:'Tom',alt:'',life:36,speed:15,damage:1,attacks:[2,30/*,32*/],height:75,reward:0,pattern:0},
-        {name:'Jon',alt:'',life:24,speed:9,damage:1,attacks:[24,33/*,35*/],height:75,reward:0,pattern:0},
-        {name:'Eddy',alt:'',life:26,speed:12,damage:1,attacks:[25,36,37/*,38*/],height:72,reward:0,pattern:0},
-        {name:'Lalex',alt:'',life:32,speed:14,damage:1,attacks:[1,40,41/*,42*/],height:78,reward:0,pattern:0},
-        {name:'Scott',alt:'',life:30,speed:8,damage:1,attacks:[2,43/*,45*/],height:75,reward:0,pattern:0},
+        {name:'Bill',alt:'',life:28,speed:11,damage:1,attacks:[1,27],height:75,reward:0,pattern:0},
+        {name:'Tom',alt:'',life:36,speed:15,damage:1,attacks:[2,30],height:75,reward:0,pattern:0},
+        {name:'Jon',alt:'',life:24,speed:9,damage:1,attacks:[24,33],height:75,reward:0,pattern:0},
+        {name:'Eddy',alt:'',life:26,speed:12,damage:1,attacks:[25,36,37],height:72,reward:0,pattern:0},
+        {name:'Lalex',alt:'',life:32,speed:14,damage:1,attacks:[1,40,41],height:78,reward:0,pattern:0},
+        {name:'Scott',alt:'',life:30,speed:8,damage:1,attacks:[2,43],height:75,reward:0,pattern:0},
         {name:'Ollie',alt:'',life:28,speed:13,damage:1,attacks:[24,46,47,48],height:75,reward:0,pattern:0},
-        {name:'Duckit',alt:'',life:18,speed:6,damage:1,attacks:[25,12,13/*,14*/],height:60,reward:0,pattern:0},
+        {name:'Duckit',alt:'',life:18,speed:6,damage:1,attacks:[25,12,13],height:60,reward:0,pattern:0},
         {name:'Human',alt:'',life:10,speed:10,damage:1,attacks:[1],height:75,reward:10,pattern:0},
         {name:'Fat Human',alt:'',life:25,speed:15,damage:1,attacks:[5],height:66,reward:15,pattern:0},//10
         {name:'Long Human',alt:'',life:15,speed:8,damage:1,attacks:[4],height:84,reward:15,pattern:0},
@@ -71,7 +71,7 @@ types={
         {name:'Great Duckus',alt:'',life:72,speed:12,damage:2,attacks:[77,39],height:90,reward:50,pattern:1},
         {name:'Lord Bounce',alt:'',life:150,speed:15,damage:3,attacks:[79,53],height:96,reward:100,pattern:1},
         {name:'Scrap King',alt:'',life:80,speed:18,damage:3,attacks:[56],height:90,reward:100,pattern:0},//70
-        {name:'Armored Builder',alt:'',life:180,speed:14,damage:4,attacks:[1,55],height:75,reward:100,pattern:0},
+        {name:'Armored Builder',alt:'',life:180,speed:14,damage:3,attacks:[1,55],height:75,reward:100,pattern:0},
         {name:'Comrade',alt:'',life:288,speed:13,damage:3,attacks:[83,59,84],height:75,reward:100,pattern:1},
         {name:'Militarian',alt:'',life:350,speed:13,damage:4,attacks:[91,60],height:90,reward:100,pattern:1},
         {name:'Nerfmaster',alt:'',life:96,speed:12,damage:2,attacks:[85,86,87],height:75,reward:50,pattern:0},
@@ -84,7 +84,7 @@ types={
         {name:'Duck 006',alt:'',life:240,speed:13,damage:4,attacks:[93],height:75,reward:100,pattern:0},
         {name:'MoneyMaster',alt:'',life:384,speed:12,damage:3,attacks:[1,101],height:90,reward:100,pattern:0},
         {name:'Roger Reviv',alt:'',life:600,speed:22,damage:4,attacks:[102,68],height:75,reward:100,pattern:1},
-        {name:'Cook',alt:'',life:360,speed:12,damage:2,attacks:[99,7,100],height:90,reward:100,pattern:1},
+        {name:'Cook',alt:'',life:80,speed:12,damage:2,attacks:[99,7,100],height:90,reward:100,pattern:1},
         {name:'Big Duck Force',alt:'',life:60,speed:10,damage:1,attacks:[39,93],height:75,reward:20,pattern:0},
         {name:'General Duckion',alt:'',life:400,speed:12,damage:4,attacks:[103,39,70],height:75,reward:100,pattern:1},
         {name:'Joking Jimmy',alt:'',life:150,speed:11,damage:1,attacks:[104],height:66,reward:100,pattern:0},
