@@ -313,7 +313,7 @@ entities={particles:[]}
 run={fore:[]}
 dev={id:false,auto:false}
 combatants=[
-    {id:/*1*/0,weapon:3,team:0},
+    {id:/*1*/5,weapon:/*3*/6,team:0},
     {id:2,weapon:1,team:0},
     {id:3,weapon:12,team:0},
     {id:6,weapon:38,team:0},

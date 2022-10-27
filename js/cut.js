@@ -293,6 +293,67 @@ class cut{
                 this.battle.combatants[4]=new combatant(this.layer,950,450,4,0,1,105)
                 this.battle.combatants[5]=new combatant(this.layer,1050,450,5,0,1,106)
             break
+            case 48:
+                this.battle.story=29
+                this.battle.combatants[4]=new combatant(this.layer,1050,450,52,13,1,4)
+                this.battle.combatants[5]=new combatant(this.layer,1150,450,52,13,1,5)
+                this.battle.combatants[6]=new combatant(this.layer,1150,450,52,13,1,6)
+            break
+            case 49:
+                this.list=[13,15,23,35,39]
+                this.battle.combatants[4]=new combatant(this.layer,1050,450,floor(random(111,114)),this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,4)
+                this.battle.combatants[5]=new combatant(this.layer,1150,450,floor(random(111,114)),this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,5)
+            break
+            case 50:
+                this.list=[13,15,23,35,39]
+                this.battle.combatants[4]=new combatant(this.layer,1050,450,floor(random(111,115)),this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,4)
+                this.battle.combatants[5]=new combatant(this.layer,1150,450,floor(random(111,115)),this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,5)
+                this.battle.combatants[6]=new combatant(this.layer,1250,450,floor(random(111,115)),this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,6)
+            break
+            case 51:
+                this.list=[13,15,23,35,39]
+                this.battle.combatants[4]=new combatant(this.layer,1050,450,floor(random(111,115)),this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,4)
+                this.battle.combatants[5]=new combatant(this.layer,1150,450,floor(random(111,115)),this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,5)
+                this.battle.combatants[6]=new combatant(this.layer,1250,450,floor(random(111,115)),this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,6)
+                this.battle.combatants[7]=new combatant(this.layer,1350,450,floor(random(111,115)),this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,7)
+            break
+            case 52:
+                this.battle.story=30
+                this.battle.combatants[4]=new combatant(this.layer,1050,450,115,6,1,4)
+                this.battle.combatants[5]=new combatant(this.layer,1150,450,111,39,1,5)
+            break
+            case 53:
+                this.battle.story=31
+                this.battle.characters.push(new combatant(this.layer,1050,450,93,0,1,100))
+            break
+
+            case 55:
+                this.list=[13,15,23,35,39]
+                this.battle.combatants[4]=new combatant(this.layer,1050,450,floor(random(57,60)),this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,4)
+                this.battle.combatants[5]=new combatant(this.layer,1150,450,floor(random(57,60)),this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,5)
+            break
+            case 56:
+                this.list=[13,15,23,35,39]
+                this.battle.combatants[4]=new combatant(this.layer,1050,450,floor(random(57,61)),this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,4)
+                this.battle.combatants[5]=new combatant(this.layer,1150,450,floor(random(57,61)),this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,5)
+                this.battle.combatants[6]=new combatant(this.layer,1250,450,floor(random(57,61)),this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,6)
+            break
+            case 57:
+                this.list=[13,15,23,35,39]
+                this.battle.combatants[4]=new combatant(this.layer,1050,450,floor(random(57,61)),this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,4)
+                this.battle.combatants[5]=new combatant(this.layer,1150,450,floor(random(57,61)),this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,5)
+                this.battle.combatants[6]=new combatant(this.layer,1250,450,floor(random(57,61)),this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,6)
+                this.battle.combatants[7]=new combatant(this.layer,1350,450,floor(random(57,61)),this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,7)
+            break
+            case 58:
+                this.battle.story=33
+                this.battle.combatants[4]=new combatant(this.layer,1050,450,115,6,1,4)
+                this.battle.combatants[5]=new combatant(this.layer,1150,450,111,39,1,5)
+            break
+            case 59:
+                this.battle.story=34
+                this.battle.characters.push(new combatant(this.layer,1050,450,93,0,1,100))
+            break
         }
     }
     convertBattle(){
@@ -338,6 +399,12 @@ class cut{
                 this.battle.combatants[5]=new combatant(this.layer,0,450,78,2,1,5)
                 this.battle.combatants[6]=new combatant(this.layer,0,450,78,2,1,6)
                 this.battle.combatants[7]=new combatant(this.layer,0,450,80,37,1,7)
+            break
+            case 52:
+                this.battle.combatants[4]=new combatant(this.layer,0,450,112,23,1,4)
+                this.battle.combatants[5]=new combatant(this.layer,0,450,113,35,1,5)
+                this.battle.combatants[6]=new combatant(this.layer,0,450,114,39,1,6)
+                this.battle.combatants[7]=new combatant(this.layer,0,450,115,6,1,7)
             break
         }
     }
@@ -637,7 +704,8 @@ class cut{
                         this.trigger=false
                     }
                 break
-                case 5: case 6: case 7: case 11: case 12: case 13: case 16: case 17: case 23: case 24: case 25: case 29: case 30: case 31: case 34: case 35: case 36: case 43: case 44:
+                case 5: case 6: case 7: case 11: case 12: case 13: case 16: case 17: case 23: case 24: case 25: case 29: case 30: case 31: case 34: case 35: case 36: case 43: case 44: case 49:
+                case 50: case 51: case 55: case 56: case 57:
                     if(this.timer<35){
                         for(g=0,lg=this.battle.combatants.length;g<lg;g++){
                             if(this.battle.combatants[g].team==1){
@@ -818,7 +886,7 @@ class cut{
                         this.trigger=false
                     }
                 break
-                case 15: case 28: case 33: case 38:
+                case 15: case 28: case 33: case 38: case 53:
                     if(this.timer<35){
                         for(g=0,lg=this.battle.characters.length;g<lg;g++){
                             if(this.battle.characters[g].id==100){
@@ -834,6 +902,8 @@ class cut{
                             this.purchase.weapon=[37,43]
                         }else if(this.type==38){
                             this.purchase.weapon=[6,14]
+                        }else if(this.type==53){
+                            this.purchase.weapon=[23,35]
                         }
                         this.purchase.uses=[1,1,1,1,1]
                     }else if(this.timer==35){
@@ -1096,7 +1166,7 @@ class cut{
                         this.healParty()
                     }
                 break
-                case 22:
+                case 22: case 48:
                     if(this.timer<35){
                         for(g=0,lg=this.battle.combatants.length;g<lg;g++){
                             if(this.battle.combatants[g].team==1){
@@ -1104,8 +1174,11 @@ class cut{
                                 this.battle.combatants[g].rate[0]+=10
                             }
                         }
-                    }else if(this.timer==35){
+                    }else if(this.timer==35&&this.type==22){
                         this.battle.combatants[4].speech.text="Heh, look right there.\nThat's our next score."
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer==35&&this.type==48){
+                        this.battle.combatants[4].speech.text="Let's get our share of the profits!\nTime to get paid."
                         this.battle.combatants[4].speech.time=60
                     }else if(this.timer==95){
                         transition.trigger=true
@@ -1698,6 +1771,35 @@ class cut{
                         this.timer=220
                     }
                 break
+                case 52:
+                    if(this.timer<35){
+                        for(g=0,lg=this.battle.combatants.length;g<lg;g++){
+                            if(this.battle.combatants[g].team==1){
+                                this.battle.combatants[g].position.x-=10
+                                this.battle.combatants[g].rate[0]+=10
+                            }
+                        }
+                    }else if(this.timer==35){
+                        this.battle.combatants[4].speech.text="I'm the boss of the Shielders,\nand I must protect my men."
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer==95){
+                        transition.trigger=true
+                        transition.scene='battle'
+                    }else if(this.timer>=95&&!transition.trigger&&transition.anim>0){
+                        this.battle.end()
+                        this.trigger=false
+                        for(g=0;g<4;g++){
+                            if(this.battle.combatants[g].team==0){
+                                this.battle.combatants[g].life=round(this.battle.combatants[g].life*1.2)
+                                this.battle.combatants[g].base.life=this.battle.combatants[g].life
+                                this.battle.combatants[g].collect.life=this.battle.combatants[g].life
+                            }
+                        }
+                        for(g=1;g<9;g++){
+                            types.combatant[g].life=round(types.combatant[g].life*1.2)
+                        }
+                    }
+                break
             }
             this.count--
             this.timer++
@@ -1746,7 +1848,7 @@ class cut{
                     }
                 }
             break
-            case 15: case 28: case 33: case 38:
+            case 15: case 28: case 33: case 38: case 53:
                 if(this.timer==35){
                     if(this.purchase.trigger){
                         if(pointInsideBox({position:inputs.rel},{position:{x:170,y:90},width:300,height:40})){
