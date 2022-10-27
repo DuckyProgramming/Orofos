@@ -443,6 +443,10 @@ class cut{
                 this.battle.story=41
                 this.battle.characters.push(new combatant(this.layer,1050,450,93,0,1,100))
             break
+            case 75:
+                this.battle.story=42
+                this.battle.characters.push(new combatant(this.layer,-150,450,98,0,0,100))
+            break
         }
     }
     convertBattle(){
@@ -2089,6 +2093,58 @@ class cut{
                         for(g=1;g<9;g++){
                             types.combatant[g].life=round(types.combatant[g].life*1.2)
                         }
+                    }
+                break
+                case 75:
+                    if(this.timer<85){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==100){
+                                this.battle.characters[g].position.x+=10
+                                this.battle.characters[g].rate[0]+=10
+                            }
+                        }
+                    }else if(this.timer==85){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==100){
+                                this.battle.characters[g].flip=-1
+                                this.battle.characters[g].speech.text="Good to finally be back here,\nthe auction's just ahead."
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                    }else if(this.timer==145){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==100){
+                                this.battle.characters[g].speech.text="There's been an awful lot\nof carnage back there,\nhopefully most people made it."
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                    }else if(this.timer==205){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==100){
+                                this.battle.characters[g].speech.text="Your boss said he had\nsomething great to pay with,\nguess we'll see what it is soon."
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                    }else if(this.timer==265){
+                        this.battle.combatants[this.firstAlive].speech.text='I guess so... he was quite\ngenerous with his offer.'
+                        this.battle.combatants[this.firstAlive].speech.time=60
+                    }else if(this.timer==325){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==100){
+                                this.battle.characters[g].speech.text="This'll probably be the last\ntime we see each other.\nEnjoy the auction, I guess."
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                    }else if(this.timer>=385&&this.timer<420){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==100){
+                                this.battle.characters[g].flip=1
+                                this.battle.characters[g].position.x+=10
+                                this.battle.characters[g].rate[0]+=10
+                            }
+                        }
+                    }else if(this.timer>=420){
+                        this.trigger=false
                     }
                 break
             }
