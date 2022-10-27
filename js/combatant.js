@@ -256,11 +256,11 @@ class combatant{
 	}
 	displaySpeech(){
 		this.layer.translate(this.position.x,this.position.y)
-		this.layer.stroke(250,this.fade*this.speech.fade)
+		this.layer.stroke(250,this.speech.fade)
 		this.layer.strokeWeight(2)
-		this.layer.fill(200,this.fade*this.speech.fade)
+		this.layer.fill(200,this.speech.fade)
 		this.layer.rect(0,-this.height-60,200,50,5)
-		this.layer.fill(0,this.fade*this.speech.fade)
+		this.layer.fill(0,this.speech.fade)
 		this.layer.noStroke()
 		this.layer.textSize(10)
 		this.layer.text(this.speech.text,0,-this.height-60)

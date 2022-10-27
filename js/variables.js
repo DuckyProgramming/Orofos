@@ -306,7 +306,7 @@ types={
     ]
 }
 stage={scene:'walk',scale:1}
-graphics={main:0,backgrounds:[],minor:[]}
+graphics={main:0,backgrounds:[],minor:[],character:[],characters:[]}
 transition={trigger:false,anim:0,scene:stage.scene}
 inputs={mouse:{x:0,y:0},rel:{x:0,y:0},keys:[[false,false,false,false],[false,false,false,false]]}
 entities={particles:[]}

@@ -176,6 +176,9 @@ class battle{
                 }
             break
             case 'walk':
+                this.layer.noStroke()
+                this.layer.fill(90,75,54)
+                this.layer.rect(900+40000-this.totalMoved,350,600,200)
                 for(e=0,le=this.characters.length;e<le;e++){
                     this.characters[e].display()
                 }
