@@ -462,13 +462,10 @@ class cut{
                 for(h=0;h<25;h++){
                     graphics.characters.push(new combatant(graphics.character[1],425+h*15,450,this.list[min(floor(random(0,this.list.length)),this.list.length-1)],0,0,100+h))
                 }
-                for(h=0,lh=graphics.characters.length;h<lh;h++){
-                    graphics.characters[h].display()
-                }
                 this.battle.characters.push(new combatant(this.layer,1150,250,97,0,1,150))
                 this.battle.characters.push(new combatant(this.layer,1050,250,93,0,1,151))
                 this.battle.characters.push(new combatant(this.layer,1250,250,93,0,1,152))
-                this.battle.characters.push(new combatant(this.layer,1150,250,9,0,1,153))
+                this.battle.characters.push(new combatant(this.layer,1150,250,99,0,1,153))
                 for(h=0;h<6;h++){
                     this.battle.characters.push(new combatant(this.layer,100+h*50,450,0,0,1,200+h))
                 }
@@ -2174,6 +2171,9 @@ class cut{
                     }
                 break
                 case 76:
+                    if(this.timer<50){
+                        graphics.characters[this.timer].display()
+                    }
                     this.layer.image(graphics.character[0],max(-100,900-this.timer*10),0)
                     this.layer.image(graphics.character[1],max(-100,900-this.timer*10),0)
                     if(this.timer<40){
@@ -2187,7 +2187,7 @@ class cut{
                                 this.battle.characters[g].rate[0]+=4
                             }
                         }
-                    }else if(this.timer>=140&&this.timer<240){
+                    }else if(this.timer>=240&&this.timer<340){
                         for(g=0,lg=this.battle.characters.length;g<lg;g++){
                             if(this.battle.characters[g].id==151||this.battle.characters[g].id==152){
                                 this.battle.characters[g].position.x+=4
@@ -2198,15 +2198,98 @@ class cut{
                                 this.battle.characters[g].rate[0]+=0.5
                             }
                         }
-                    }else if(this.timer>=240&&this.timer<340){
+                    }else if(this.timer>=340&&this.timer<440){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==150){
+                                this.battle.characters[g].position.x-=0.5
+                                this.battle.characters[g].rate[0]+=0.5
+                            }
+                        }
+                    }else if(this.timer>=500&&this.timer<600){
+                        if(this.timer==500){
+                            for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                                if(this.battle.characters[g].id==151){
+                                    this.battle.characters[g].position.x+=50
+                                }else if(this.battle.characters[g].id==152){
+                                    this.battle.characters[g].position.x-=50
+                                }
+                            }
+                        }
                         for(g=0,lg=this.battle.characters.length;g<lg;g++){
                             if(this.battle.characters[g].id==151||this.battle.characters[g].id==152||this.battle.characters[g].id==153){
                                 this.battle.characters[g].position.x-=4
                                 this.battle.characters[g].rate[0]+=4
                             }
-                            if(this.battle.characters[g].id==150){
-                                this.battle.characters[g].position.x-=0.5
-                                this.battle.characters[g].rate[0]+=0.5
+                        }
+                    }else if(this.timer>=615&&this.timer<625){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==152){
+                                this.battle.characters[g].position.x-=2
+                                this.battle.characters[g].rate[0]-=2
+                                this.battle.characters[g].anim[0]+=1/10
+                            }
+                        }
+                    }else if(this.timer>=625&&this.timer<650){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==152||this.battle.characters[g].id==153){
+                                this.battle.characters[g].position.x-=2
+                                this.battle.characters[g].rate[0]+=2
+                            }else if(this.battle.characters[g].id==151){
+                                this.battle.characters[g].position.x+=4
+                                this.battle.characters[g].rate[0]+=4
+                            }
+                        }
+                    }else if(this.timer>=650&&this.timer<660){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==152){
+                                this.battle.characters[g].position.x+=2
+                                this.battle.characters[g].rate[0]+=2
+                                this.battle.characters[g].anim[0]-=1/10
+                            }else if(this.battle.characters[g].id==153){
+                                this.battle.characters[g].anim[5]-=1/10
+                            }
+                        }
+                    }
+                    if(this.timer>=625&&this.timer<635){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==153){
+                                this.battle.characters[g].anim[5]+=1/10
+                            }
+                        }
+                    }else if(this.timer>=680&&this.timer<690||this.timer>=780&&this.timer<790||this.timer>=880&&this.timer<890){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==152){
+                                this.battle.characters[g].position.x-=2
+                                this.battle.characters[g].rate[0]-=2
+                                this.battle.characters[g].anim[0]+=1/10
+                            }else if(this.battle.characters[g].id==153){
+                                this.battle.characters[g].anim[floor(this.timer/100)]+=1/10
+                            }
+                        }
+                    }else if(this.timer>=690&&this.timer<700||this.timer>=790&&this.timer<800||this.timer>=890&&this.timer<900){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==152){
+                                this.battle.characters[g].position.x+=2
+                                this.battle.characters[g].rate[0]+=2
+                                this.battle.characters[g].anim[0]-=1/10
+                            }
+                        }
+                    }else if(this.timer>=940&&this.timer<950){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==152){
+                                this.battle.characters[g].position.x-=2
+                                this.battle.characters[g].rate[0]-=2
+                                this.battle.characters[g].anim[0]+=1/10
+                            }
+                        }
+                    }else if(this.timer>=950&&this.timer<1000){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==151||this.battle.characters[g].id==152||this.battle.characters[g].id==153){
+                                this.battle.characters[g].position.x+=4
+                                this.battle.characters[g].rate[0]+=4
+                                if(this.battle.characters[g].id==151){
+                                    this.battle.characters[g].flip=1
+                                }
                             }
                         }
                     }
@@ -2249,6 +2332,55 @@ class cut{
                         for(g=0,lg=this.battle.characters.length;g<lg;g++){
                             if(this.battle.characters[g].id==150){
                                 this.battle.characters[g].speech.text="But it looks like the lots\nfor today are ready.\nBring her in, men!"
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                    }else if(this.timer==660){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==150){
+                                this.battle.characters[g].speech.text="This entire operation has come at my expense,\nso I hope that we'll act honorably."
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                    }else if(this.timer==720){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==150){
+                                this.battle.characters[g].speech.text="None of us would like to see someone like\nher go to waste, now would we?"
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                    }else if(this.timer==780){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==150){
+                                this.battle.characters[g].speech.text="We'll get to her, of course.\nBut let's start with something else."
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                    }else if(this.timer==840){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==150){
+                                this.battle.characters[g].speech.text="You see, my associates have\nbrought in a lot more\nthan just this little flower."
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                    }else if(this.timer==900){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==150){
+                                this.battle.characters[g].speech.text="Rare Management technology,\nsome of the best in the galaxy.\nI'm sure we can put it to good use."
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                    }else if(this.timer==960){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==150){
+                                this.battle.characters[g].speech.text="I expect that all of you will maintain\nthe peace here, wouldn't want those\nweapons used against each other."
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                    }else if(this.timer==1020){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==150){
+                                this.battle.characters[g].speech.text="Let us begin with-"
                                 this.battle.characters[g].speech.time=60
                             }
                         }
