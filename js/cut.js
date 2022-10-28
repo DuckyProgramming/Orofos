@@ -674,6 +674,50 @@ class cut{
                 this.battle.story=63
                 this.genDead()
             break
+            case 114:
+                this.battle.story=64
+                this.battle.combatants[4]=new combatant(this.layer,1050,450,92,2,1,4)
+                this.battle.combatants[5]=new combatant(this.layer,1150,450,92,2,1,5)
+                this.battle.combatants[6]=new combatant(this.layer,1250,450,92,2,1,6)
+                this.battle.combatants[7]=new combatant(this.layer,1350,450,92,2,1,7)
+            break
+            case 115:
+                this.battle.story=65
+                this.battle.combatants[4]=new combatant(this.layer,1050,450,96,21,1,4)
+                this.battle.combatants[4].life*=2/3
+            break
+            case 116:
+                this.battle.story=66
+                this.battle.combatants[4]=new combatant(this.layer,1050,450,16,2,1,4)
+                this.battle.combatants[5]=new combatant(this.layer,1150,450,16,2,1,5)
+            break
+            case 117:
+                this.battle.story=67
+                this.battle.combatants[4]=new combatant(this.layer,1050,450,16,2,1,4)
+                this.battle.combatants[5]=new combatant(this.layer,1150,450,16,2,1,5)
+                this.battle.combatants[6]=new combatant(this.layer,1250,450,16,2,1,6)
+            break
+            case 118:
+                this.battle.story=68
+                this.battle.combatants[4]=new combatant(this.layer,1050,450,16,2,1,4)
+                this.battle.combatants[5]=new combatant(this.layer,1150,450,16,2,1,5)
+                this.battle.combatants[6]=new combatant(this.layer,1250,450,16,2,1,6)
+                this.battle.combatants[7]=new combatant(this.layer,1350,450,17,2,1,7)
+            break
+            case 119:
+                this.battle.story=69
+                this.battle.combatants[4]=new combatant(this.layer,1050,450,105,9,1,4)
+                this.battle.combatants[5]=new combatant(this.layer,1150,450,17,2,1,5)
+            break
+            case 120:
+                this.battle.story=70
+                this.genDead()
+            break
+            case 121:
+                this.battle.story=71
+                this.battle.combatants[4]=new combatant(this.layer,1050,450,98,2,1,4)
+                this.battle.combatants[4].life*=0.75
+            break
         }
     }
     convertBattle(){
@@ -787,6 +831,13 @@ class cut{
                         this.battle.combatants[6]=new combatant(this.layer,0,450,56,44,1,6)
                         this.battle.combatants[7]=new combatant(this.layer,0,450,83,5,1,7)
                     break
+                    case 119:
+                        this.battle.combatants[4]=new combatant(this.layer,1050,450,16,2,1,4)
+                        this.battle.combatants[5]=new combatant(this.layer,1150,450,16,2,1,5)
+                        this.battle.combatants[6]=new combatant(this.layer,1250,450,17,2,1,6)
+                        this.battle.combatants[7]=new combatant(this.layer,1350,450,105,9,1,7)
+                    break
+
                 }
             break
         }
@@ -1089,7 +1140,7 @@ class cut{
                 break
                 case 5: case 6: case 7: case 11: case 12: case 13: case 16: case 17: case 23: case 24: case 25: case 29: case 30: case 31: case 34: case 35: case 36: case 43: case 44: case 49:
                 case 50: case 51: case 55: case 56: case 57: case 60: case 61: case 62: case 65: case 66: case 70: case 71: case 72: case 79: case 80: case 81: case 85: case 86: case 87: case 91:
-                case 92: case 96: case 97: case 98: case 102: case 103: case 104: case 109: case 110: case 111:
+                case 92: case 96: case 97: case 98: case 102: case 103: case 104: case 109: case 110: case 111: case 116: case 117: case 118:
                     if(this.timer<35){
                         for(g=0,lg=this.battle.combatants.length;g<lg;g++){
                             if(this.battle.combatants[g].team==1){
@@ -2908,7 +2959,7 @@ class cut{
                         }
                     }
                 break
-                case 83: case 89: case 94: case 100: case 106: case 113:
+                case 83: case 89: case 94: case 100: case 106: case 113: case 120:
                     if(this.timer<90){
                         for(g=0,lg=this.battle.combatants.length;g<lg;g++){
                             if(g<4){
@@ -2929,6 +2980,8 @@ class cut{
                             this.purchase.weapon=[14,32]
                         }else if(this.type==113){
                             this.purchase.weapon=[13,15]
+                        }else if(this.type==120){
+                            this.purchase.weapon=[2,9]
                         }
                         this.purchase.uses=[1,1,1,1,1]
                     }else if(this.timer==90){
@@ -3384,6 +3437,154 @@ class cut{
                         this.trigger=false
                     }
                 break
+                case 114:
+                    if(this.timer<35){
+                        for(g=0,lg=this.battle.combatants.length;g<lg;g++){
+                            if(this.battle.combatants[g].team==1){
+                                this.battle.combatants[g].position.x-=10
+                                this.battle.combatants[g].rate[0]+=10
+                            }
+                        }
+                    }else if(this.timer==35){
+                        this.battle.combatants[4].speech.text="You can't be stopped, can you?\nThere's no end to what you'll do."
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer==95){
+                        this.battle.combatants[4].speech.text="Can you imagine what you've\ndestroyed? All the bodies...\nthey should be giving you nightmares."
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer==155){
+                        this.battle.combatants[4].speech.text="But that's not how you work,\nis it? You don't care about all\nthose lives. Just obstacles."
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer==215){
+                        this.battle.combatants[4].speech.text="Just walk away.\nYou don't have to do this.\nThat girl isn't even that-whatever."
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer==275){
+                        transition.trigger=true
+                        transition.scene='battle'
+                    }else if(this.timer>=275&&!transition.trigger&&transition.anim>0){
+                        this.battle.end()
+                        this.trigger=false
+                    }
+                break
+                case 115:
+                    if(this.timer<35||this.timer>=335&&this.timer<455){
+                        for(g=0,lg=this.battle.combatants.length;g<lg;g++){
+                            if(this.battle.combatants[g].team==1){
+                                this.battle.combatants[g].position.x-=10
+                                this.battle.combatants[g].rate[0]+=10
+                            }
+                        }
+                    }else if(this.timer==35){
+                        this.battle.combatants[4].speech.text="It's over. We all failed.\nThis is the end of the Wipers.\nOur last moments."
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer==95){
+                        this.battle.combatants[this.firstAlive].speech.text="What happened at the meetup?"
+                        this.battle.combatants[this.firstAlive].speech.time=60
+                    }else if(this.timer==155){
+                        this.battle.combatants[4].speech.text="Desert Control Raid.\nWe got absolutely demolished.\nThey're going after the Hiders next."
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer==215){
+                        this.battle.combatants[this.firstAlive].speech.text="Desert Control?"
+                        this.battle.combatants[this.firstAlive].speech.time=60
+                    }else if(this.timer==275){
+                        this.battle.combatants[4].speech.text="Former Management Soldiers.\nThey're crazy powerful. You\nshould turn around right here."
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer>=455){
+                        this.trigger=false
+                    }
+                break
+                case 119:
+                    if(this.timer<35){
+                        for(g=0,lg=this.battle.combatants.length;g<lg;g++){
+                            if(this.battle.combatants[g].team==1){
+                                this.battle.combatants[g].position.x-=10
+                                this.battle.combatants[g].rate[0]+=10
+                            }
+                        }
+                    }else if(this.timer==35){
+                        this.battle.combatants[4].speech.text="You know, the other factions,\nthey have one fatal weakness.\nTheir greatest mistake."
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer==95){
+                        this.battle.combatants[4].speech.text="They forget their past. How they\ngot here. Why now they reside\non a desolate ball of dirt and sand."
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer==155){
+                        this.battle.combatants[4].speech.text="The Desert Control, Management\ndeserters hiding from the almighty\nhand of Managemental Discipline."
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer==215){
+                        this.battle.combatants[4].speech.text="The Communists, or the Reds, exiled\nin the wake of their defeat during\nthe Human Empire Civil War."
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer==275){
+                        this.battle.combatants[4].speech.text="The Bulwarks, mercenaries outlawed by\nthe Management, who retreated to the\nlast safe place for their business."
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer==305){
+                        this.battle.combatants[this.firstAlive].speech.text="They never told us about that..."
+                        this.battle.combatants[this.firstAlive].speech.time=60
+                    }else if(this.timer==335){
+                        this.battle.combatants[4].speech.text="The Imperialists, or the Reichswehr,\npast supporters of a military coup\nin the High Corporate Conglomerate."
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer==395){
+                        this.battle.combatants[4].speech.text="The Cartel, the only faction\nwith means to leave, trapped\nin their old ways for eternity."
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer==455){
+                        this.battle.combatants[4].speech.text="The Scrappers, deported following the\ndissolution of the Originian guilds,\nalong with others sent to Alicu."
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer==515){
+                        this.battle.combatants[4].speech.text="The Ducks, united since their escape\nfrom genocide, but unable to\nmaintain allegiance in their ranks."
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer==575){
+                        this.battle.combatants[4].speech.text="And the Wipers, in disguise,\nbut always, the remains of\nDark Star! THE ONES WHO GOT\nUS ALL HERE IN THE FIRST PLACE!"
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer==635){
+                        transition.trigger=true
+                        transition.scene='battle'
+                    }else if(this.timer>=635&&!transition.trigger&&transition.anim>0){
+                        this.battle.end()
+                        this.trigger=false
+                    }
+                break
+                case 121:
+                    if(this.timer<25||this.timer>=265&&this.timer<275||this.timer>=755&&this.timer<840){
+                        this.battle.combatants[4].position.x-=10
+                        this.battle.combatants[4].rate[0]+=10
+                    }else if(this.timer==25){
+                        this.battle.combatants[4].speech.text="It's over.\nThe ambush...it's over."
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer==85){
+                        this.battle.combatants[4].speech.text="There's no Wiper coordination left.\nThe faction has essentially\njust disbanded. It's a massacre."
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer==145){
+                        this.battle.combatants[4].speech.text="There's a lot of us left,\nof course, but we can't\norganize ourselves anymore."
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer==205){
+                        this.battle.combatants[4].speech.text="I need to go.\nThere's nothing left,\nfrom when we were powerful."
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer==275){
+                        this.battle.combatants[this.firstAlive].speech.text="Wait, stop."
+                        this.battle.combatants[this.firstAlive].speech.time=60
+                    }else if(this.timer==335){
+                        this.battle.combatants[this.firstAlive].speech.text="The Commandant said something\nabout the Wipers and Dark Star."
+                        this.battle.combatants[this.firstAlive].speech.time=60
+                    }else if(this.timer==395){
+                        this.battle.combatants[4].speech.text="Guess the secret's\nout now, huh?"
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer==455){
+                        this.battle.combatants[4].speech.text="Yes, we're former pirates,\ndefeated by the Management.\nThis was the only place to go."
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer==515){
+                        this.battle.combatants[4].speech.text='The "associates" are pirates who\nstill roam the depths of space.'
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer==575){
+                        this.battle.combatants[this.firstAlive].speech.text="What's up ahead?"
+                        this.battle.combatants[this.firstAlive].speech.time=60
+                    }else if(this.timer==635){
+                        this.battle.combatants[4].speech.text="The Bombers.\nThey're preparing to attack the Hiders.\nProbably won't see you coming."
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer==695){
+                        this.battle.combatants[this.firstAlive].speech.text="Thanks. Don't die just yet.\nWe could always use a friend like you."
+                        this.battle.combatants[this.firstAlive].speech.time=60
+                    }else if(this.timer>=840){
+                        this.trigger=false
+                    }
+                break
                 
             }
             this.count--
@@ -3433,7 +3634,7 @@ class cut{
                     }
                 }
             break
-            case 15: case 28: case 33: case 38: case 53: case 59: case 64: case 68: case 74:
+            case 15: case 28: case 33: case 38: case 53: case 59: case 64: case 68: case 74: case 120:
                 if(this.timer==35){
                     if(this.purchase.trigger){
                         if(pointInsideBox({position:inputs.rel},{position:{x:170,y:90},width:300,height:40})){
@@ -3624,7 +3825,7 @@ class cut{
                     }
                 }
             break
-            
+
         }
     }
     spendParticle(value){

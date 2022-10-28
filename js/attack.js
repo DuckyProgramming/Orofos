@@ -1142,7 +1142,7 @@ class attack{
                     }
                     if(this.timer==15){
                         for(g=0;g<4;g++){
-                            this.battle.combatants[g].boost[floor(random(0,2))]++
+                            this.battle.combatants[g].boost[floor(random(0,2))]--
                         }
                     }
                 break
@@ -2159,7 +2159,7 @@ class attack{
                     }
                     if(this.timer==15){
                         for(g=0;g<4;g++){
-                            this.battle.combatants[g+4].boost[floor(random(0,2))]++
+                            this.battle.combatants[g+4].boost[floor(random(0,2))]--
                         }
                     }
                 break
