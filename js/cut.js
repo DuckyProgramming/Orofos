@@ -506,11 +506,7 @@ class cut{
             break
             case 83:
                 this.battle.story=47
-                this.list=[9,10,11,12,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,47,48,49,50,51,52,53,54,55,56,57,58,59,60,62,63,64,65,66,77,78,79,85,93,94,95,96,100,10,102,103,106,107,108,109,111,112,113,114,116,117,118,119]
-                for(h=0;h<4;h++){
-                    this.battle.combatants[4+h]=new combatant(this.layer,1050+h*200+random(-50,50),450,this.list[min(floor(random(0,this.list.length)),this.list.length-1)],0,1,4+h)
-                    this.battle.combatants[4+h].die()
-                }
+                this.genDead()
             break
             case 84:
                 this.battle.story=48
@@ -544,11 +540,7 @@ class cut{
             break
             case 89:
                 this.battle.story=50
-                this.list=[9,10,11,12,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,47,48,49,50,51,52,53,54,55,56,57,58,59,60,62,63,64,65,66,77,78,79,85,93,94,95,96,100,10,102,103,106,107,108,109,111,112,113,114,116,117,118,119]
-                for(h=0;h<4;h++){
-                    this.battle.combatants[4+h]=new combatant(this.layer,1050+h*200+random(-50,50),450,this.list[min(floor(random(0,this.list.length)),this.list.length-1)],0,1,4+h)
-                    this.battle.combatants[4+h].die()
-                }
+                this.genDead()
             break
             case 90:
                 this.battle.story=51
@@ -574,11 +566,7 @@ class cut{
             break
             case 94:
                 this.battle.story=53
-                this.list=[9,10,11,12,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,47,48,49,50,51,52,53,54,55,56,57,58,59,60,62,63,64,65,66,77,78,79,85,93,94,95,96,100,10,102,103,106,107,108,109,111,112,113,114,116,117,118,119]
-                for(h=0;h<4;h++){
-                    this.battle.combatants[4+h]=new combatant(this.layer,1050+h*200+random(-50,50),450,this.list[min(floor(random(0,this.list.length)),this.list.length-1)],0,1,4+h)
-                    this.battle.combatants[4+h].die()
-                }
+                this.genDead()
             break
             case 95:
                 this.battle.story=54
@@ -610,11 +598,7 @@ class cut{
             break
             case 100:
                 this.battle.story=56
-                this.list=[9,10,11,12,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,47,48,49,50,51,52,53,54,55,56,57,58,59,60,62,63,64,65,66,77,78,79,85,93,94,95,96,100,10,102,103,106,107,108,109,111,112,113,114,116,117,118,119]
-                for(h=0;h<4;h++){
-                    this.battle.combatants[4+h]=new combatant(this.layer,1050+h*200+random(-50,50),450,this.list[min(floor(random(0,this.list.length)),this.list.length-1)],0,1,4+h)
-                    this.battle.combatants[4+h].die()
-                }
+                this.genDead()
             break
             case 101:
                 this.battle.story=57
@@ -648,11 +632,7 @@ class cut{
             break
             case 106:
                 this.battle.story=59
-                this.list=[9,10,11,12,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,47,48,49,50,51,52,53,54,55,56,57,58,59,60,62,63,64,65,66,77,78,79,85,93,94,95,96,100,10,102,103,106,107,108,109,111,112,113,114,116,117,118,119]
-                for(h=0;h<4;h++){
-                    this.battle.combatants[4+h]=new combatant(this.layer,1050+h*200+random(-50,50),450,this.list[min(floor(random(0,this.list.length)),this.list.length-1)],0,1,4+h)
-                    this.battle.combatants[4+h].die()
-                }
+                this.genDead()
             break
             case 107:
                 this.battle.story=60
@@ -661,110 +641,153 @@ class cut{
                 this.battle.combatants[6]=new combatant(this.layer,1250,450,92,6,1,6)
                 this.battle.combatants[7]=new combatant(this.layer,1350,450,92,6,1,7)
             break
+            case 108:
+                this.battle.story=61
+                this.battle.combatants[4]=new combatant(this.layer,1050,450,67,1,1,4)
+                this.battle.combatants[5]=new combatant(this.layer,1100,450,68,22,1,5)
+                this.battle.combatants[6]=new combatant(this.layer,1150,450,69,23,1,6)
+            break
+            case 109:
+                this.list=[8,14,15,23,44]
+                this.battle.combatants[4]=new combatant(this.layer,1050,450,floor(random(53,56)),this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,4)
+                this.battle.combatants[5]=new combatant(this.layer,1150,450,floor(random(53,56)),this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,5)
+            break
+            case 110:
+                this.list=[8,14,15,23,44]
+                this.battle.combatants[4]=new combatant(this.layer,1050,450,floor(random(53,57)),this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,4)
+                this.battle.combatants[5]=new combatant(this.layer,1150,450,floor(random(53,57)),this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,5)
+                this.battle.combatants[6]=new combatant(this.layer,1250,450,floor(random(53,57)),this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,6)
+            break
+            case 111:
+                this.list=[8,14,15,23,44]
+                this.battle.combatants[4]=new combatant(this.layer,1050,450,floor(random(53,57)),this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,4)
+                this.battle.combatants[5]=new combatant(this.layer,1150,450,floor(random(53,57)),this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,5)
+                this.battle.combatants[6]=new combatant(this.layer,1250,450,floor(random(53,57)),this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,6)
+                this.battle.combatants[7]=new combatant(this.layer,1350,450,floor(random(53,57)),this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,7)
+            break
+            case 112:
+                this.battle.story=62
+                this.battle.combatants[4]=new combatant(this.layer,1050,450,83,5,1,4)
+                this.battle.combatants[5]=new combatant(this.layer,1150,450,56,44,1,5)
+            break
+            case 113:
+                this.battle.story=63
+                this.genDead()
+            break
         }
     }
     convertBattle(){
-        switch(this.type){
-            case 8:
-                this.battle.combatants[4]=new combatant(this.layer,0,450,10,1,1,4)
-                this.battle.combatants[5]=new combatant(this.layer,0,450,11,1,1,5)
-                this.battle.combatants[6]=new combatant(this.layer,0,450,12,1,1,6)
-                this.battle.combatants[7]=new combatant(this.layer,0,450,67,21,1,7)
-            break
-            case 14:
-                this.battle.combatants[4]=new combatant(this.layer,0,450,19,39,1,4)
-                this.battle.combatants[5]=new combatant(this.layer,0,450,20,39,1,5)
-                this.battle.combatants[6]=new combatant(this.layer,0,450,21,39,1,6)
-                this.battle.combatants[7]=new combatant(this.layer,0,450,69,23,1,7)
-            break
-            case 18:
-                this.battle.combatants[4]=new combatant(this.layer,0,450,15,3,1,4)
-                this.battle.combatants[5]=new combatant(this.layer,0,450,15,4,1,5)
-                this.battle.combatants[6]=new combatant(this.layer,0,450,15,16,1,6)
-                this.battle.combatants[7]=new combatant(this.layer,0,450,68,22,1,7)
-            break
-            case 26:
-                this.battle.combatants[4]=new combatant(this.layer,0,450,64,0,1,4)
-                this.battle.combatants[5]=new combatant(this.layer,0,450,65,0,1,5)
-                this.battle.combatants[6]=new combatant(this.layer,0,450,66,16,1,6)
-                this.battle.combatants[7]=new combatant(this.layer,0,450,87,0,1,7)
-            break
-            case 32:
-                this.battle.combatants[4]=new combatant(this.layer,0,450,22,43,1,4)
-                this.battle.combatants[5]=new combatant(this.layer,0,450,23,43,1,5)
-                this.battle.combatants[6]=new combatant(this.layer,0,450,24,43,1,6)
-                this.battle.combatants[7]=new combatant(this.layer,0,450,70,7,1,7)
-            break
-            case 37:
-                this.battle.combatants[4]=new combatant(this.layer,0,450,40,1,1,4)
-                this.battle.combatants[5]=new combatant(this.layer,0,450,41,1,1,5)
-                this.battle.combatants[6]=new combatant(this.layer,0,450,74,2,1,6)
-                this.battle.combatants[7]=new combatant(this.layer,0,450,75,2,1,7)
-            break
-            case 45:
-                this.battle.combatants[4]=new combatant(this.layer,0,450,78,2,1,4)
-                this.battle.combatants[5]=new combatant(this.layer,0,450,78,2,1,5)
-                this.battle.combatants[6]=new combatant(this.layer,0,450,78,2,1,6)
-                this.battle.combatants[7]=new combatant(this.layer,0,450,80,37,1,7)
-            break
-            case 52:
-                this.battle.combatants[4]=new combatant(this.layer,0,450,112,23,1,4)
-                this.battle.combatants[5]=new combatant(this.layer,0,450,113,35,1,5)
-                this.battle.combatants[6]=new combatant(this.layer,0,450,114,39,1,6)
-                this.battle.combatants[7]=new combatant(this.layer,0,450,115,6,1,7)
-            break
-            case 54:
-                for(g=0,lg=this.battle.combatants.length;g<lg;g++){
-                    this.battle.combatants[g].flip=1-this.battle.combatants[g].team*2
+        switch(stage.scene){
+            case 'battle':
+                switch(this.type){
+                    case 8:
+                        this.battle.combatants[4]=new combatant(this.layer,0,450,10,1,1,4)
+                        this.battle.combatants[5]=new combatant(this.layer,0,450,11,1,1,5)
+                        this.battle.combatants[6]=new combatant(this.layer,0,450,12,1,1,6)
+                        this.battle.combatants[7]=new combatant(this.layer,0,450,67,21,1,7)
+                    break
+                    case 14:
+                        this.battle.combatants[4]=new combatant(this.layer,0,450,19,39,1,4)
+                        this.battle.combatants[5]=new combatant(this.layer,0,450,20,39,1,5)
+                        this.battle.combatants[6]=new combatant(this.layer,0,450,21,39,1,6)
+                        this.battle.combatants[7]=new combatant(this.layer,0,450,69,23,1,7)
+                    break
+                    case 18:
+                        this.battle.combatants[4]=new combatant(this.layer,0,450,15,3,1,4)
+                        this.battle.combatants[5]=new combatant(this.layer,0,450,15,4,1,5)
+                        this.battle.combatants[6]=new combatant(this.layer,0,450,15,16,1,6)
+                        this.battle.combatants[7]=new combatant(this.layer,0,450,68,22,1,7)
+                    break
+                    case 26:
+                        this.battle.combatants[4]=new combatant(this.layer,0,450,64,0,1,4)
+                        this.battle.combatants[5]=new combatant(this.layer,0,450,65,0,1,5)
+                        this.battle.combatants[6]=new combatant(this.layer,0,450,66,16,1,6)
+                        this.battle.combatants[7]=new combatant(this.layer,0,450,87,0,1,7)
+                    break
+                    case 32:
+                        this.battle.combatants[4]=new combatant(this.layer,0,450,22,43,1,4)
+                        this.battle.combatants[5]=new combatant(this.layer,0,450,23,43,1,5)
+                        this.battle.combatants[6]=new combatant(this.layer,0,450,24,43,1,6)
+                        this.battle.combatants[7]=new combatant(this.layer,0,450,70,7,1,7)
+                    break
+                    case 37:
+                        this.battle.combatants[4]=new combatant(this.layer,0,450,40,1,1,4)
+                        this.battle.combatants[5]=new combatant(this.layer,0,450,41,1,1,5)
+                        this.battle.combatants[6]=new combatant(this.layer,0,450,74,2,1,6)
+                        this.battle.combatants[7]=new combatant(this.layer,0,450,75,2,1,7)
+                    break
+                    case 45:
+                        this.battle.combatants[4]=new combatant(this.layer,0,450,78,2,1,4)
+                        this.battle.combatants[5]=new combatant(this.layer,0,450,78,2,1,5)
+                        this.battle.combatants[6]=new combatant(this.layer,0,450,78,2,1,6)
+                        this.battle.combatants[7]=new combatant(this.layer,0,450,80,37,1,7)
+                    break
+                    case 52:
+                        this.battle.combatants[4]=new combatant(this.layer,0,450,112,23,1,4)
+                        this.battle.combatants[5]=new combatant(this.layer,0,450,113,35,1,5)
+                        this.battle.combatants[6]=new combatant(this.layer,0,450,114,39,1,6)
+                        this.battle.combatants[7]=new combatant(this.layer,0,450,115,6,1,7)
+                    break
+                    case 54:
+                        for(g=0,lg=this.battle.combatants.length;g<lg;g++){
+                            this.battle.combatants[g].flip=1-this.battle.combatants[g].team*2
+                        }
+                    break
+                    case 58:
+                        this.battle.combatants[4]=new combatant(this.layer,0,450,58,1,1,4)
+                        this.battle.combatants[5]=new combatant(this.layer,0,450,59,2,1,5)
+                        this.battle.combatants[6]=new combatant(this.layer,0,450,60,16,1,6)
+                        this.battle.combatants[7]=new combatant(this.layer,0,450,84,15,1,7)
+                    break
+                    case 67:
+                        this.battle.combatants[4]=new combatant(this.layer,0,450,48,20,1,4)
+                        this.battle.combatants[5]=new combatant(this.layer,0,450,48,20,1,5)
+                        this.battle.combatants[6]=new combatant(this.layer,0,450,79,28,1,6)
+                        this.battle.combatants[7]=new combatant(this.layer,0,450,81,29,1,7)
+                    break
+                    case 73:
+                        this.battle.combatants[4]=new combatant(this.layer,0,450,43,7,1,4)
+                        this.battle.combatants[5]=new combatant(this.layer,0,450,44,6,1,5)
+                        this.battle.combatants[6]=new combatant(this.layer,0,450,45,5,1,6)
+                        this.battle.combatants[7]=new combatant(this.layer,0,450,76,27,1,7)
+                    break
+                    case 82:
+                        this.battle.combatants[4]=new combatant(this.layer,0,450,31,18,1,4)
+                        this.battle.combatants[5]=new combatant(this.layer,0,450,32,19,1,5)
+                        this.battle.combatants[6]=new combatant(this.layer,0,450,this.give,8,1,6)
+                        this.battle.combatants[7]=new combatant(this.layer,0,450,72,26,1,7)
+                    break
+                    case 88:
+                        this.battle.combatants[4]=new combatant(this.layer,0,450,117,45,1,4)
+                        this.battle.combatants[5]=new combatant(this.layer,0,450,118,44,1,5)
+                        this.battle.combatants[6]=new combatant(this.layer,0,450,119,42,1,6)
+                        this.battle.combatants[7]=new combatant(this.layer,0,450,120,37,1,7)
+                    break
+                    case 93:
+                        this.battle.combatants[4]=new combatant(this.layer,0,450,62,14,1,4)
+                        this.battle.combatants[5]=new combatant(this.layer,0,450,62,24,1,5)
+                        this.battle.combatants[6]=new combatant(this.layer,0,450,85,43,1,6)
+                        this.battle.combatants[7]=new combatant(this.layer,0,450,86,36,1,7)
+                    break
+                    case 99:
+                        this.battle.combatants[4]=new combatant(this.layer,0,450,50,13,1,4)
+                        this.battle.combatants[5]=new combatant(this.layer,0,450,51,5,1,5)
+                        this.battle.combatants[6]=new combatant(this.layer,0,450,52,28,1,6)
+                        this.battle.combatants[7]=new combatant(this.layer,0,450,82,17,1,7)
+                    break
+                    case 105:
+                        this.battle.combatants[4]=new combatant(this.layer,0,450,35,24,1,4)
+                        this.battle.combatants[5]=new combatant(this.layer,0,450,36,5,1,5)
+                        this.battle.combatants[6]=new combatant(this.layer,0,450,37,6,1,6)
+                        this.battle.combatants[7]=new combatant(this.layer,0,450,73,2,1,7)
+                    break
+                    case 112:
+                        this.battle.combatants[4]=new combatant(this.layer,0,450,54,15,1,4)
+                        this.battle.combatants[5]=new combatant(this.layer,0,450,55,23,1,5)
+                        this.battle.combatants[6]=new combatant(this.layer,0,450,56,44,1,6)
+                        this.battle.combatants[7]=new combatant(this.layer,0,450,83,5,1,7)
+                    break
                 }
-            break
-            case 58:
-                this.battle.combatants[4]=new combatant(this.layer,0,450,58,1,1,4)
-                this.battle.combatants[5]=new combatant(this.layer,0,450,59,2,1,5)
-                this.battle.combatants[6]=new combatant(this.layer,0,450,60,16,1,6)
-                this.battle.combatants[7]=new combatant(this.layer,0,450,84,15,1,7)
-            break
-            case 67:
-                this.battle.combatants[4]=new combatant(this.layer,0,450,48,20,1,4)
-                this.battle.combatants[5]=new combatant(this.layer,0,450,48,20,1,5)
-                this.battle.combatants[6]=new combatant(this.layer,0,450,79,28,1,6)
-                this.battle.combatants[7]=new combatant(this.layer,0,450,81,29,1,7)
-            break
-            case 73:
-                this.battle.combatants[4]=new combatant(this.layer,0,450,43,7,1,4)
-                this.battle.combatants[5]=new combatant(this.layer,0,450,44,6,1,5)
-                this.battle.combatants[6]=new combatant(this.layer,0,450,45,5,1,6)
-                this.battle.combatants[7]=new combatant(this.layer,0,450,76,27,1,7)
-            break
-            case 82:
-                this.battle.combatants[4]=new combatant(this.layer,0,450,31,18,1,4)
-                this.battle.combatants[5]=new combatant(this.layer,0,450,32,19,1,5)
-                this.battle.combatants[6]=new combatant(this.layer,0,450,this.give,8,1,6)
-                this.battle.combatants[7]=new combatant(this.layer,0,450,72,26,1,7)
-            break
-            case 88:
-                this.battle.combatants[4]=new combatant(this.layer,0,450,117,45,1,4)
-                this.battle.combatants[5]=new combatant(this.layer,0,450,118,44,1,5)
-                this.battle.combatants[6]=new combatant(this.layer,0,450,119,42,1,6)
-                this.battle.combatants[7]=new combatant(this.layer,0,450,120,37,1,7)
-            break
-            case 93:
-                this.battle.combatants[4]=new combatant(this.layer,0,450,62,14,1,4)
-                this.battle.combatants[5]=new combatant(this.layer,0,450,62,24,1,5)
-                this.battle.combatants[6]=new combatant(this.layer,0,450,85,43,1,6)
-                this.battle.combatants[7]=new combatant(this.layer,0,450,86,36,1,7)
-            break
-            case 99:
-                this.battle.combatants[4]=new combatant(this.layer,0,450,50,13,1,4)
-                this.battle.combatants[5]=new combatant(this.layer,0,450,51,5,1,5)
-                this.battle.combatants[6]=new combatant(this.layer,0,450,52,28,1,6)
-                this.battle.combatants[7]=new combatant(this.layer,0,450,82,17,1,7)
-            break
-            case 105:
-                this.battle.combatants[4]=new combatant(this.layer,0,450,35,24,1,4)
-                this.battle.combatants[5]=new combatant(this.layer,0,450,36,5,1,5)
-                this.battle.combatants[6]=new combatant(this.layer,0,450,37,6,1,6)
-                this.battle.combatants[7]=new combatant(this.layer,0,450,73,2,1,7)
             break
         }
     }
@@ -1066,7 +1089,7 @@ class cut{
                 break
                 case 5: case 6: case 7: case 11: case 12: case 13: case 16: case 17: case 23: case 24: case 25: case 29: case 30: case 31: case 34: case 35: case 36: case 43: case 44: case 49:
                 case 50: case 51: case 55: case 56: case 57: case 60: case 61: case 62: case 65: case 66: case 70: case 71: case 72: case 79: case 80: case 81: case 85: case 86: case 87: case 91:
-                case 92: case 96: case 97: case 98: case 102: case 103: case 104:
+                case 92: case 96: case 97: case 98: case 102: case 103: case 104: case 109: case 110: case 111:
                     if(this.timer<35){
                         for(g=0,lg=this.battle.combatants.length;g<lg;g++){
                             if(this.battle.combatants[g].team==1){
@@ -2885,7 +2908,7 @@ class cut{
                         }
                     }
                 break
-                case 83: case 89: case 94: case 100: case 106:
+                case 83: case 89: case 94: case 100: case 106: case 113:
                     if(this.timer<90){
                         for(g=0,lg=this.battle.combatants.length;g<lg;g++){
                             if(g<4){
@@ -2904,6 +2927,8 @@ class cut{
                             this.purchase.weapon=[1,34]
                         }else if(this.type==106){
                             this.purchase.weapon=[14,32]
+                        }else if(this.type==113){
+                            this.purchase.weapon=[13,15]
                         }
                         this.purchase.uses=[1,1,1,1,1]
                     }else if(this.timer==90){
@@ -3277,6 +3302,89 @@ class cut{
                         this.trigger=false
                     }
                 break
+                case 108:
+                    if(this.timer<35){
+                        for(g=0,lg=this.battle.combatants.length;g<lg;g++){
+                            if(this.battle.combatants[g].team==1){
+                                this.battle.combatants[g].position.x-=10
+                                this.battle.combatants[g].rate[0]+=10
+                            }
+                        }
+                    }else if(this.timer==35){
+                        this.battle.combatants[4].speech.text="This is the end of\nthe road for you."
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer==95){
+                        this.battle.combatants[5].speech.text="We're here on the behalf of all\nwho have died in the last week."
+                        this.battle.combatants[5].speech.time=60
+                    }else if(this.timer==155){
+                        this.battle.combatants[6].speech.text="Can you not see the destruction\nyou've wrought? How many\nyou've killed in your path?"
+                        this.battle.combatants[6].speech.time=60
+                    }else if(this.timer==215){
+                        this.battle.combatants[4].speech.text="And what has it all been\nfor? One last oppurtunity to\nenjoy yourself at a girl's expense?"
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer==275){
+                        this.battle.combatants[5].speech.text="For the good of all of\nus, who want to keep\nthe relative peace on Orofos..."
+                        this.battle.combatants[5].speech.time=60
+                    }else if(this.timer==335){
+                        this.battle.combatants[6].speech.text="There's no question about it.\nSomebody has to deal with you\nbefore you ruin the planet."
+                        this.battle.combatants[6].speech.time=60
+                    }else if(this.timer==395){
+                        this.battle.combatants[4].speech.text="And with the strongest men\naround here all dead, only\nwe can act to save everybody."
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer==455){
+                        this.battle.combatants[5].speech.text="It's ok, we all know\nwhat type of people this\nplace creates. This is a kindness."
+                        this.battle.combatants[5].speech.time=60
+                    }else if(this.timer==515){
+                        transition.trigger=true
+                        transition.scene='battle'
+                    }else if(this.timer>=515&&!transition.trigger&&transition.anim>0){
+                        this.battle.end()
+                        this.timer=1000
+                        this.battle.combatants[4]=new combatant(this.layer,700,450,67,1,1,4)
+                        this.battle.combatants[5]=new combatant(this.layer,750,450,68,22,1,5)
+                        this.battle.combatants[6]=new combatant(this.layer,800,450,69,23,1,6)
+                        this.battle.combatants[4].life=1
+                        this.battle.combatants[5].life=1
+                        this.battle.combatants[6].life=1
+                    }else if(this.timer==1060){
+                        this.battle.combatants[4].speech.text="You may think it's over now,\nbut heed our warnings..."
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer==1120){
+                        this.battle.combatants[5].speech.text="You're planning to assault\nthe Hider base and take\nyour prize from them, but..."
+                        this.battle.combatants[5].speech.time=60
+                        this.battle.combatants[4].life=0
+                    }else if(this.timer==1180){
+                        this.battle.combatants[6].speech.text="You will never surpass the Ma-"
+                        this.battle.combatants[6].speech.time=30
+                        this.battle.combatants[5].life=0
+                    }else if(this.timer>=1210){
+                        this.battle.combatants[6].life=0
+                        this.trigger=false
+                    }
+                    if(this.timer>=900&&this.timer<1000){
+                        this.timer=900
+                    }
+                break
+                case 112:
+                    if(this.timer<35){
+                        for(g=0,lg=this.battle.combatants.length;g<lg;g++){
+                            if(this.battle.combatants[g].team==1){
+                                this.battle.combatants[g].position.x-=10
+                                this.battle.combatants[g].rate[0]+=10
+                            }
+                        }
+                    }else if(this.timer==35){
+                        this.battle.combatants[4].speech.text="Might need some backup here.\nThey've arrived.\nEvacuate all facilities if possible."
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer==95){
+                        transition.trigger=true
+                        transition.scene='battle'
+                    }else if(this.timer>=95&&!transition.trigger&&transition.anim>0){
+                        this.battle.end()
+                        this.trigger=false
+                    }
+                break
+                
             }
             this.count--
             this.timer++
@@ -3464,7 +3572,7 @@ class cut{
                     }
                 }
             break
-            case 83: case 89: case 94: case 100: case 106:
+            case 83: case 89: case 94: case 100: case 106: case 113: 
                 if(this.timer==90){
                     if(this.purchase.trigger){
                         if(pointInsideBox({position:inputs.rel},{position:{x:170,y:90},width:300,height:40})){
@@ -3557,6 +3665,13 @@ class cut{
                     this.battle.combatants[h].uses[i]=min(types.attack[this.battle.combatants[h].attacks[i]].uses,ceil(types.attack[this.battle.combatants[h].attacks[i]].uses/2+this.battle.combatants[h].uses[i]/2))
                 }
             }
+        }
+    }
+    genDead(){
+        this.list=[9,10,11,12,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,47,48,49,50,51,52,53,54,55,56,57,58,59,60,62,63,64,65,66,77,78,79,85,93,94,95,96,100,10,102,103,106,107,108,109,111,112,113,114,116,117,118,119]
+        for(h=0;h<4;h++){
+            this.battle.combatants[4+h]=new combatant(this.layer,1050+h*200+random(-50,50),450,this.list[min(floor(random(0,this.list.length)),this.list.length-1)],0,1,4+h)
+            this.battle.combatants[4+h].die()
         }
     }
 }

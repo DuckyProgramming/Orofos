@@ -16,7 +16,7 @@ function displayTransition(layer,transition){
 		if(transition.anim>1.1){
 			transition.trigger = false
 			stage.scene=transition.scene
-			current.cut.convertBattle()
+			current.cut.convertBattle(stage.scene)
 			current.set(stage.scene)
 			current.stack=[]
 			current.setupStack()
