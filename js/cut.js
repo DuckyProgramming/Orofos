@@ -2151,6 +2151,9 @@ class cut{
                     }else if(this.timer==265){
                         this.battle.combatants[this.firstAlive].speech.text='I guess so... he was quite\ngenerous with his offer.'
                         this.battle.combatants[this.firstAlive].speech.time=60
+                        for(g=0;g<4;g++){
+                            this.battle.combatants[g].life=max(this.battle.combatants[g].life,1)
+                        }
                     }else if(this.timer==325){
                         for(g=0,lg=this.battle.characters.length;g<lg;g++){
                             if(this.battle.characters[g].id==100){
@@ -2571,6 +2574,20 @@ class cut{
                                 this.battle.characters[g].speech.time=60
                             }
                         }
+                    }else if(this.timer==1080){
+                        this.battle.combatants[0].speech.text="We need to get moving.\nThey're all over the place now.\nWe can't survive near here."
+                        this.battle.combatants[0].speech.time=60
+                    }else if(this.timer==1140){
+                        this.battle.combatants[1].speech.text="We still need to find the girl.\nWhere did they take her?"
+                        this.battle.combatants[1].speech.time=60
+                    }else if(this.timer==1200){
+                        this.battle.combatants[2].speech.text="Forward, somewhere. Those\nWipers took her behind the rock.\nReally, we don't know."
+                        this.battle.combatants[2].speech.time=60
+                    }else if(this.timer==1260){
+                        this.battle.combatants[3].speech.text="Let's just get of here,\nwe don't want to get killed."
+                        this.battle.combatants[3].speech.time=60
+                    }else if(this.timer>=1260){
+                        this.trigger=false
                     }
                 break
             }
