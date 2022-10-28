@@ -463,11 +463,11 @@ class cut{
                     graphics.characters.push(new combatant(graphics.character[1],425+h*15,450,this.list[min(floor(random(0,this.list.length)),this.list.length-1)],0,0,100+h))
                 }
                 this.battle.characters.push(new combatant(this.layer,1150,250,97,0,1,150))
+                this.battle.characters.push(new combatant(this.layer,1150,250,99,0,1,153))
                 this.battle.characters.push(new combatant(this.layer,1050,250,93,0,1,151))
                 this.battle.characters.push(new combatant(this.layer,1250,250,93,0,1,152))
-                this.battle.characters.push(new combatant(this.layer,1150,250,99,0,1,153))
                 for(h=0;h<6;h++){
-                    this.battle.characters.push(new combatant(this.layer,100+h*50,450,0,0,1,200+h))
+                    this.battle.characters.push(new combatant(this.layer,100+h*100,350,0,0,1,200+h))
                 }
             break
         }
@@ -2174,8 +2174,8 @@ class cut{
                     if(this.timer<50){
                         graphics.characters[this.timer].display()
                     }
-                    this.layer.image(graphics.character[0],max(-100,900-this.timer*10),0)
-                    this.layer.image(graphics.character[1],max(-100,900-this.timer*10),0)
+                    this.layer.image(graphics.character[0],max(-100,900-this.timer*10)+max(0,this.timer-1050)*-10,0)
+                    this.layer.image(graphics.character[1],max(-100,900-this.timer*10)+max(0,this.timer-1050)*10,0)
                     if(this.timer<40){
                         for(g=0,lg=this.battle.combatants.length;g<lg;g++){
                             this.battle.combatants[g].position.x-=5
@@ -2282,7 +2282,7 @@ class cut{
                                 this.battle.characters[g].anim[0]+=1/10
                             }
                         }
-                    }else if(this.timer>=950&&this.timer<1000){
+                    }else if(this.timer>=950&&this.timer<1020){
                         for(g=0,lg=this.battle.characters.length;g<lg;g++){
                             if(this.battle.characters[g].id==151||this.battle.characters[g].id==152||this.battle.characters[g].id==153){
                                 this.battle.characters[g].position.x+=4
@@ -2290,6 +2290,179 @@ class cut{
                                 if(this.battle.characters[g].id==151){
                                     this.battle.characters[g].flip=1
                                 }
+                            }
+                        }
+                    }
+                    if(this.timer==600){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==153){
+                                this.battle.characters[g].speech.text="Stop, please!"
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                    }else if(this.timer==610){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==153){
+                                this.battle.characters[g].speech.text="Be quiet."
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                    }else if(this.timer==690){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==153){
+                                this.battle.characters[g].speech.text="Get off me!"
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                    }else if(this.timer==700){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==152){
+                                this.battle.characters[g].speech.text="Can't, boss's orders."
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                    }else if(this.timer==790){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==153){
+                                this.battle.characters[g].speech.text="Why would you do this?"
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                    }else if(this.timer==800){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==152){
+                                this.battle.characters[g].speech.text="I don't think you\nneed to know."
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                    }else if(this.timer==890){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==153){
+                                this.battle.characters[g].speech.text="Please, I can't go on any longer.\nYou can just let me go on,\nI won't cause you any problems,\nI'll give you anything..."
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                    }else if(this.timer==900){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==152){
+                                this.battle.characters[g].speech.text="Look, just shut up already.\nNobody is listening."
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                    }
+                    if(this.timer==120){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==200){
+                                this.battle.characters[g].speech.text="Wow. I never thought we could\nall come together like this."
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                    }else if(this.timer==180){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==201){
+                                this.battle.characters[g].speech.text="Good to know that there\nare no monsters on Orofos."
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                    }else if(this.timer==240){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==200){
+                                this.battle.characters[g].speech.text="What do you mean? There's never\nbeen any monsters, only people."
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                    }else if(this.timer==300){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==201){
+                                this.battle.characters[g].speech.text="You probably get\nwhat I mean now."
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                    }
+                    if(this.timer==150){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==202){
+                                this.battle.characters[g].speech.text="Do you think she's like\nwhat they say she is?"
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                    }else if(this.timer==210){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==203){
+                                this.battle.characters[g].speech.text="I hope so. I killed six\npeople just to get here."
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                    }else if(this.timer==270){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==202){
+                                this.battle.characters[g].speech.text="Wow. I thought we were all\nhere to gather peacefully,\nnot to fight each other."
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                    }else if(this.timer==330){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==203){
+                                this.battle.characters[g].speech.text="Well, what do we know."
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                    }
+                    if(this.timer==420){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==200){
+                                this.battle.characters[g].speech.text="Well, there she is.\nA little underwhelming,\nwouldn't you agree?"
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                    }else if(this.timer==480){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==201){
+                                this.battle.characters[g].speech.text="Underwhelming? This is your\none chance to enjoy\nlife and it's underwhelming?"
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                    }else if(this.timer==540){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==200){
+                                this.battle.characters[g].speech.text="She just looks...weak.\nLike she'd never put up a fight.\nToo easy to pacify."
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                    }else if(this.timer==600){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==201){
+                                this.battle.characters[g].speech.text="Is that not what you want?\nYou shouldn't want any trouble,\nyou want things to go...smoothly."
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                    }
+                    if(this.timer==450){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==202){
+                                this.battle.characters[g].speech.text="Well, she doesn't exactly\nmeet my standards. I\nwouldn't invest too heavily."
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                    }else if(this.timer==510){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==203){
+                                this.battle.characters[g].speech.text="But it's your only chance.\nFail now, you may never feel\nthe embrace of a woman again."
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                    }else if(this.timer==570){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==202){
+                                this.battle.characters[g].speech.text="Stop teasing me. You had\na family too before we\nended up in this dump, remember?"
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                    }else if(this.timer==630){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==203){
+                                this.battle.characters[g].speech.text="I try my best to forget."
+                                this.battle.characters[g].speech.time=60
                             }
                         }
                     }
@@ -2338,7 +2511,7 @@ class cut{
                     }else if(this.timer==660){
                         for(g=0,lg=this.battle.characters.length;g<lg;g++){
                             if(this.battle.characters[g].id==150){
-                                this.battle.characters[g].speech.text="This entire operation has come at my expense,\nso I hope that we'll act honorably."
+                                this.battle.characters[g].speech.text="This entire operation\nhas come at my expense,\nso I hope that we'll act honorably."
                                 this.battle.characters[g].speech.time=60
                             }
                         }
@@ -2381,6 +2554,20 @@ class cut{
                         for(g=0,lg=this.battle.characters.length;g<lg;g++){
                             if(this.battle.characters[g].id==150){
                                 this.battle.characters[g].speech.text="Let us begin with-"
+                                this.battle.characters[g].speech.time=30
+                                entities.particles.push(new particle(this.layer,this.battle.characters[g].position.x-900,this.battle.characters[g].position.y-this.battle.characters[g].height,3,90,10,30,[100,50,100]))
+                                entities.particles[entities.particles.length-1].end=30
+                            }
+                        }
+                    }else if(this.timer==1035){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==150){
+                                this.battle.characters[g].life=0
+                            }else if(this.battle.characters[g].id==200){
+                                this.battle.characters[g].speech.text="What just happened?"
+                                this.battle.characters[g].speech.time=60
+                            }else if(this.battle.characters[g].id==203){
+                                this.battle.characters[g].speech.text="Run!"
                                 this.battle.characters[g].speech.time=60
                             }
                         }
