@@ -69,6 +69,8 @@ class combatant{
 		this.valued=true
 		this.speech={text:'',time:0,fade:0}
 		this.holding=[false]
+		this.offset={x:0,y:0}
+		this.dieTrigger=false
 		this.startStatus()
 	}
 	startAttacks(){
@@ -267,7 +269,7 @@ class combatant{
 		this.layer.translate(-this.position.x,-this.position.y)
 	}
 	display(){
-		this.layer.translate(this.position.x,this.position.y)
+		this.layer.translate(this.position.x+this.offset.x,this.position.y+this.offset.y)
 		this.layer.rotate(this.direction)
 		this.layer.scale(this.size*this.flip,this.size)
 		switch(this.type){
@@ -3243,7 +3245,7 @@ class combatant{
 		}
 		this.layer.scale(1/this.size/this.flip,1/this.size)
 		this.layer.rotate(-this.direction)
-		this.layer.translate(-this.position.x,-this.position.y)
+		this.layer.translate(-this.position.x-this.offset.x,-this.position.y-this.offset.y)
 	}
 	take(damage,spec,accuracy,user){
 		if(this.life>0){
@@ -3484,7 +3486,7 @@ class combatant{
 			this.life=0
 			this.fade=0
 		}
-		if(this.life<=0&&this.fade>0){
+		if(this.life<=0&&this.fade>0&&!this.dieTrigger){
 			this.fade-=1/30
 		}
 		if(this.life>0&&this.fade<1){
@@ -3495,5 +3497,13 @@ class combatant{
 			this.collect.life=-10000
 		}
 		this.collect.life=this.collect.life*0.9+this.life*0.1
+	}
+	die(){
+		this.life=0
+		this.dieTrigger=true
+		this.flip=floor(random(0,2))*2-1
+		this.direction-=this.flip*90
+		this.offset.x+=this.flip*this.height/2
+		this.position.y-=10
 	}
 }

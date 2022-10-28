@@ -232,7 +232,11 @@ class attack{
                 case 4: case 5: case 6:
                     if(this.timer==45){
                         entities.particles.push(new particle(this.layer,this.battle.combatants[this.user].position.x,this.battle.combatants[this.user].position.y-this.battle.combatants[this.user].height,2,90,120,1,this.battle.combatants[this.user].boostColor[this.type-4]))
-                        this.battle.combatants[this.user].boost[this.type-4]++
+                        if(this.type==4){
+                            this.battle.combatants[this.user].boost[this.type-4]+=max(floor(this.damage),1)
+                        }else{
+                            this.battle.combatants[this.user].boost[this.type-4]++
+                        }
                         if(this.type==6){
                             this.battle.reset()
                         }
@@ -1238,7 +1242,11 @@ class attack{
                 case 4: case 5: case 6:
                     if(this.timer==45){
                         entities.particles.push(new particle(this.layer,this.battle.combatants[this.user+4].position.x,this.battle.combatants[this.user+4].position.y-this.battle.combatants[this.user+4].height,2,270,120,1,this.battle.combatants[this.user+4].boostColor[this.type-4]))
-                        this.battle.combatants[this.user+4].boost[this.type-4]++
+                        if(this.type==4){
+                            this.battle.combatants[this.user+4].boost[this.type-4]+=max(floor(this.damage),1)
+                        }else{
+                            this.battle.combatants[this.user+4].boost[this.type-4]++
+                        }
                         if(this.type==6){
                             this.battle.reset()
                         }

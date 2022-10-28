@@ -98,12 +98,12 @@ types={
         {name:'Long Wiper',alt:'',life:39,speed:9,damage:1,attacks:[4,110],height:84,reward:15,pattern:0},
         {name:'Big Wiper',alt:'',life:78,speed:13,damage:2,attacks:[2,7,110],height:90,reward:20,pattern:0},
         {name:'Wiper Boss',alt:'',life:1,speed:0,damage:0,attacks:[],height:75,reward:0,pattern:0},
-        {name:'Wiper Messenger',alt:'',life:1,speed:0,damage:0,attacks:[],height:75,reward:0,pattern:0},
+        {name:'Wiper Messenger',alt:'',life:26,speed:0,damage:0,attacks:[],height:75,reward:0,pattern:0},
         {name:'Sakura',alt:'',life:300,speed:8,damage:3,attacks:[124,125,126,133],height:72,reward:0,pattern:1},
-        {name:'Hider',alt:'',life:1,speed:0,damage:0,attacks:[],height:75,reward:0,pattern:0},//100
-        {name:'Fat Hider',alt:'',life:1,speed:0,damage:0,attacks:[],height:66,reward:0,pattern:0},
-        {name:'Long Hider',alt:'',life:1,speed:0,damage:0,attacks:[],height:84,reward:0,pattern:0},
-        {name:'Big Hider',alt:'',life:1,speed:0,damage:0,attacks:[],height:90,reward:0,pattern:0},
+        {name:'Hider',alt:'',life:30,speed:0,damage:0,attacks:[],height:75,reward:0,pattern:0},//100
+        {name:'Fat Hider',alt:'',life:75,speed:0,damage:0,attacks:[],height:66,reward:0,pattern:0},
+        {name:'Long Hider',alt:'',life:45,speed:0,damage:0,attacks:[],height:84,reward:0,pattern:0},
+        {name:'Big Hider',alt:'',life:90,speed:0,damage:0,attacks:[],height:90,reward:0,pattern:0},
         {name:'Hider Boss',alt:'',life:1,speed:0,damage:0,attacks:[],height:120,reward:0,pattern:0},
         {name:'The Commandant',alt:'',life:375,speed:15,damage:3,attacks:[111],height:78,reward:100,pattern:1},
         {name:'Bomber',alt:'',life:25,speed:10,damage:1,attacks:[1],height:75,reward:10,pattern:0},
@@ -167,6 +167,7 @@ types={
         {name:'Large Medpack',damage:4,attacks:[8,22,52],cost:250},
         {name:'Clustergun',damage:4,attacks:[8,15],cost:325},
         {name:'Sword',damage:9,attacks:[50,51],cost:350},
+        {name:'Big Lighter',damage:3,attacks:[8,10],cost:300},
     ],attack:[
         {name:'Punch'                   ,damage:1   ,target:0,class:0,uses:0 ,accuracy:1   ,description:'Basic attack'},//0
         {name:'Nerf Damage'             ,damage:0   ,target:0,class:1,uses:0 ,accuracy:1   ,description:'Decreases enemy damage'},
