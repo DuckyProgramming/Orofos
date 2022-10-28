@@ -2812,7 +2812,7 @@ class cut{
                     this.layer.rect(this.battle.combatants[4].position.x,this.battle.combatants[4].position.y+125,6,250)
                     this.layer.rect(this.battle.combatants[4].position.x-20,this.battle.combatants[4].position.y+125,6,250)
                     this.layer.rect(this.battle.combatants[4].position.x+20,this.battle.combatants[4].position.y+125,6,250)
-                    this.layer.fill(100)
+                    this.layer.fill(100,(2020-this.timer)/15)
                     this.layer.rect(this.battle.combatants[4].position.x-15,this.battle.combatants[4].position.y-this.battle.combatants[4].height/2-10,10,100)
                     this.layer.rect(this.battle.combatants[4].position.x+15,this.battle.combatants[4].position.y-this.battle.combatants[4].height/2-10,10,100)
                     this.layer.rect(this.battle.combatants[4].position.x-45,this.battle.combatants[4].position.y-this.battle.combatants[4].height/2-10,10,100)
@@ -2884,8 +2884,36 @@ class cut{
                     }else if(this.timer>=1070-this.purchase.choice*10&&this.timer<2000){
                         this.timer=2000
                     }
-                    if(this.timer>=2000&&this.timer<2025){
-                    }else if(this.timer==2025){
+                    if(this.timer>=2000&&this.timer<2020){
+                        this.battle.combatants[4].position.y+=25/2
+                    }else if(this.timer==2020){
+                        this.battle.combatants[this.purchase.choice].life=0
+                    }
+                    if(this.timer>=2035&&this.timer<2045){
+                        for(g=0,lg=this.battle.combatants.length;g<lg;g++){
+                            if(g>=4){
+                                this.battle.combatants[g].rate[0]+=10
+                                this.battle.combatants[g].position.x+=10
+                            }
+                        }
+                    }else if(this.timer==2060){
+                        this.battle.combatants[4].speech.text="Uhhh, I didn't think\nthat would happen."
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer==2120){
+                        this.battle.combatants[4].speech.text="Is there some way I can\nrepay you for your loss?"
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer==2180){
+                        this.battle.combatants[4].speech.text="I don't have money,\nso I guess I'll join you."
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer>=2240&&this.timer<2290-this.purchase.choice*10){
+                        this.battle.combatants[4].rate[0]+=10
+                        this.battle.combatants[4].position.x-=10
+                    }else if(this.timer>=2290-this.purchase.choice*10){
+                        this.battle.storage=[this.battle.combatants[this.purchase.choice],this.battle.combatants[4]]
+                        this.battle.combatants[this.purchase.choice]=this.battle.storage[1]
+                        this.battle.combatants[this.purchase.choice].flip=1
+                        this.battle.combatants[4]=this.battle.storage[0]
+                        this.trigger=false
                     }
                 break
             }

@@ -655,6 +655,17 @@ class attack{
                             this.battle.combatants[this.target[0]+4].uses[g]=0
                         }
                     }
+                    if(this.type==124){
+                        if(this.timer>=30){
+                            this.battle.combatants[this.user].anim[7]+=1/30
+                            this.battle.combatants[this.user].anim[8]+=1/30
+                            this.battle.combatants[this.user].anim[9]+=1/30
+                        }else{
+                            this.battle.combatants[this.user].anim[7]-=1/30
+                            this.battle.combatants[this.user].anim[8]-=1/30
+                            this.battle.combatants[this.user].anim[9]-=1/30
+                        }
+                    }
                 break
                 case 24: case 25: case 26:
                     if(this.timer==45){
@@ -1666,6 +1677,17 @@ class attack{
                         entities.particles.push(new particle(this.layer,this.battle.combatants[this.target[1]].position.x,this.battle.combatants[this.target[1]].position.y-this.battle.combatants[this.target[1]].height*0.6,2,90,80,0.5,[207,90,101]))
                         for(g=0,lg=this.battle.combatants[this.target[1]].uses.length;g<lg;g++){
                             this.battle.combatants[this.target[1]].uses[g]=0
+                        }
+                    }
+                    if(this.type==124){
+                        if(this.timer>=30){
+                            this.battle.combatants[this.user+4].anim[7]+=1/30
+                            this.battle.combatants[this.user+4].anim[8]+=1/30
+                            this.battle.combatants[this.user+4].anim[9]+=1/30
+                        }else{
+                            this.battle.combatants[this.user+4].anim[7]-=1/30
+                            this.battle.combatants[this.user+4].anim[8]-=1/30
+                            this.battle.combatants[this.user+4].anim[9]-=1/30
                         }
                     }
                 break
