@@ -14,6 +14,7 @@ function setup(){
         types.combatant[g].life=round(types.combatant[g].life*1.2)
         types.combatant[g].life=round(types.combatant[g].life*1.2)
         types.combatant[g].life=round(types.combatant[g].life*1.2)
+        types.combatant[g].life=round(types.combatant[g].life*1.2)
     }
     types.combatant[1].attacks.push(28)
     types.combatant[2].attacks.push(31)

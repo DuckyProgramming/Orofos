@@ -82,7 +82,7 @@ types={
         {name:'Elite Agent Duck',alt:'',life:60,speed:7,damage:2,attacks:[],height:60,reward:30,pattern:0},
         {name:'Master Quack',alt:'',life:162,speed:10,damage:3,attacks:[96,39,63],height:75,reward:100,pattern:1},//80
         {name:'Duck 006',alt:'',life:135,speed:13,damage:4,attacks:[93],height:75,reward:100,pattern:0},
-        {name:'MoneyMaster',alt:'',life:384,speed:12,damage:3,attacks:[1,101],height:90,reward:100,pattern:0},
+        {name:'MoneyMaster',alt:'',life:256,speed:12,damage:3,attacks:[1,101],height:90,reward:100,pattern:0},
         {name:'Roger Reviv',alt:'',life:600,speed:22,damage:4,attacks:[102,68],height:75,reward:100,pattern:1},
         {name:'Cook',alt:'',life:80,speed:12,damage:2,attacks:[99,7,100],height:90,reward:100,pattern:1},
         {name:'Big Duck Force',alt:'',life:60,speed:10,damage:1,attacks:[39,93],height:75,reward:20,pattern:0},
@@ -106,11 +106,11 @@ types={
         {name:'Big Hider',alt:'',life:90,speed:0,damage:0,attacks:[],height:90,reward:0,pattern:0},
         {name:'Hider Boss',alt:'',life:1,speed:0,damage:0,attacks:[],height:120,reward:0,pattern:0},
         {name:'The Commandant',alt:'',life:375,speed:15,damage:3,attacks:[111],height:78,reward:100,pattern:1},
-        {name:'Bomber',alt:'',life:25,speed:10,damage:1,attacks:[1],height:75,reward:10,pattern:0},
-        {name:'Fat Bomber',alt:'',life:63,speed:15,damage:1,attacks:[5],height:66,reward:15,pattern:0},
-        {name:'Long Bomber',alt:'',life:38,speed:8,damage:1,attacks:[4],height:84,reward:15,pattern:0},
-        {name:'Big Bomber',alt:'',life:75,speed:12,damage:2,attacks:[2,7],height:90,reward:20,pattern:0},
-        {name:'The Deflagrator',alt:'',life:750,speed:14,damage:2,attacks:[113,114],height:90,reward:100,pattern:1},//110
+        {name:'Bomber',alt:'',life:25,speed:10,damage:2,attacks:[1],height:75,reward:10,pattern:0},
+        {name:'Fat Bomber',alt:'',life:63,speed:15,damage:2,attacks:[5],height:66,reward:15,pattern:0},
+        {name:'Long Bomber',alt:'',life:38,speed:8,damage:2,attacks:[4],height:84,reward:15,pattern:0},
+        {name:'Big Bomber',alt:'',life:75,speed:12,damage:3,attacks:[2,7],height:90,reward:20,pattern:0},
+        {name:'The Deflagrator',alt:'',life:600,speed:14,damage:3,attacks:[113,114],height:90,reward:100,pattern:1},//110
         {name:'Shielder',alt:'',life:32,speed:10,damage:0.5,attacks:[1,116],height:75,reward:10,pattern:0},
         {name:'Fat Shielder',alt:'',life:80,speed:15,damage:0.5,attacks:[5,116],height:66,reward:15,pattern:0},
         {name:'Long Shielder',alt:'',life:48,speed:8,damage:0.5,attacks:[4,116],height:84,reward:15,pattern:0},

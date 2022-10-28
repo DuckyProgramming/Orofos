@@ -16,17 +16,18 @@ class battle{
         this.combatantListing=[3,2,1,0,4,5,6,7]
         this.storage=[]
         this.reseting=false
-        this.totalMoved=49400
+        this.totalMoved=52950
         this.time=0
         this.setTime=0
         this.speed=1
         this.currency={money:500}
-        this.story=53
+        this.story=56
         this.complete={main:false}
 	}
     end(){
         for(g=4,lg=this.combatants.length;g<lg;g++){
             this.combatants[g].fade=0
+            this.combatants[g].type=0
         }
         entities.particles=[]
         run={fore:[entities.particles]}
@@ -224,7 +225,7 @@ class battle{
         }
     }
     enableAttack(){
-        if(this.combatants[this.stack[0].type].attackClass[this.attack.type]==0){
+        if(this.combatants[this.stack[0].type].attackClass[this.attack.rememberType]==0){
             this.attack.damage=types.attack[this.attack.type].damage*types.weapon[this.combatants[this.stack[0].type].weapon].damage*this.combatants[this.stack[0].type].damage*(2+max(0,current.combatants[current.stack[0].type].boost[0]))/(2-min(0,current.combatants[current.stack[0].type].boost[0]))
         }else{
             this.attack.damage=types.attack[this.attack.type].damage*this.combatants[this.stack[0].type].damage*(2+max(0,current.combatants[current.stack[0].type].boost[0]))/(2-min(0,current.combatants[current.stack[0].type].boost[0]))
@@ -374,6 +375,9 @@ class battle{
                     this.attack.type=this.possibleAttack[min(floor(random(0,this.possibleAttack.length)),this.possibleAttack.length-1)]
                     if(this.combatants[this.stack[0].type].uses[this.attack.type]>0){
                         this.combatants[this.stack[0].type].uses[this.attack.type]--
+                    }
+                    if(this.combatants[this.stack[0].type].attacks[this.attack.type]!=123){
+                        this.attack.rememberType=this.attack.type
                     }
                     this.attack.type=this.combatants[this.stack[0].type].attacks[this.attack.type]
                     this.enableAttack()
@@ -538,6 +542,12 @@ class battle{
                             this.cut.setup(91)
                         }else if(this.totalMoved>=48400&&this.totalMoved<49150&&floor(random(0,300))==0){
                             this.cut.setup(92)
+                        }else if(this.totalMoved>=49700&&this.totalMoved<50700&&floor(random(0,300))==0){
+                            this.cut.setup(96)
+                        }else if(this.totalMoved>=50700&&this.totalMoved<51700&&floor(random(0,300))==0){
+                            this.cut.setup(97)
+                        }else if(this.totalMoved>=51700&&this.totalMoved<52700&&floor(random(0,300))==0){
+                            this.cut.setup(98)
                         }
                     }
                 }
@@ -648,6 +658,12 @@ class battle{
                     this.cut.setup(93)
                 }else if(this.story==52&&this.totalMoved>=49400){
                     this.cut.setup(94)
+                }else if(this.story==53&&this.totalMoved>=49650){
+                    this.cut.setup(95)
+                }else if(this.story==54&&this.totalMoved>=52700){
+                    this.cut.setup(99)
+                }else if(this.story==55&&this.totalMoved>=52950){
+                    this.cut.setup(100)
                 }
             break
         }

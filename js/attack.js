@@ -13,6 +13,7 @@ class attack{
         this.accuracy=0
         this.lastType=0
         this.lastDamage=0
+        this.rememberType=0
     }
     set(){
         switch(this.type){
@@ -207,7 +208,7 @@ class attack{
                         }else if(this.type==101&&this.battle.combatants[this.target[0]+4].hit){
                             this.battle.currency.money+=25
                             entities.particles.push(new particle(this.battle.layer,this.battle.combatants[this.user].position.x,this.battle.combatants[this.user].position.y,6,0,2,1,[255,225,0]))
-                            entities.particles[entities.particles.length-1].value='$5'
+                            entities.particles[entities.particles.length-1].value='$25'
                         }
                     }
                     if(this.timer>=40-this.user*10+this.target[0]*10&&this.timer<50-this.user*10+this.target[0]*10&&this.type==61){
@@ -1225,7 +1226,7 @@ class attack{
                             this.battle.currency.money-=5
                             entities.particles.push(new particle(this.battle.layer,this.battle.combatants[this.user+4].position.x,this.battle.combatants[this.user+4].position.y,6,0,2,1,[255,225,0]))
                             entities.particles[entities.particles.length-1].value='-$5'
-                        }else if(this.type==102&&this.battle.combatants[this.target[1]].hit){
+                        }else if(this.type==101&&this.battle.combatants[this.target[1]].hit){
                             this.battle.currency.money-=25
                             entities.particles.push(new particle(this.battle.layer,this.battle.combatants[this.user+4].position.x,this.battle.combatants[this.user+4].position.y,6,0,2,1,[255,225,0]))
                             entities.particles[entities.particles.length-1].value='-$25'
