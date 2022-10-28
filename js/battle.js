@@ -16,7 +16,7 @@ class battle{
         this.combatantListing=[3,2,1,0,4,5,6,7]
         this.storage=[]
         this.reseting=false
-        this.totalMoved=56500
+        this.totalMoved=56750
         this.time=0
         this.setTime=0
         this.speed=1
@@ -676,6 +676,8 @@ class battle{
                     this.cut.setup(105)
                 }else if(this.story==58&&this.totalMoved>=56500){
                     this.cut.setup(106)
+                }else if(this.story==59&&this.totalMoved>=56750){
+                    this.cut.setup(107)
                 }
             break
         }

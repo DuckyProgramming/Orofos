@@ -654,6 +654,13 @@ class cut{
                     this.battle.combatants[4+h].die()
                 }
             break
+            case 107:
+                this.battle.story=60
+                this.battle.combatants[4]=new combatant(this.layer,1050,450,90,6,1,4)
+                this.battle.combatants[5]=new combatant(this.layer,1150,450,91,6,1,5)
+                this.battle.combatants[6]=new combatant(this.layer,1250,450,92,6,1,6)
+                this.battle.combatants[7]=new combatant(this.layer,1350,450,92,6,1,7)
+            break
         }
     }
     convertBattle(){
@@ -3238,6 +3245,34 @@ class cut{
                         transition.trigger=true
                         transition.scene='battle'
                     }else if(this.timer>=215&&!transition.trigger&&transition.anim>0){
+                        this.battle.end()
+                        this.trigger=false
+                    }
+                break
+                case 107:
+                    if(this.timer<35){
+                        for(g=0,lg=this.battle.combatants.length;g<lg;g++){
+                            if(this.battle.combatants[g].team==1){
+                                this.battle.combatants[g].position.x-=10
+                                this.battle.combatants[g].rate[0]+=10
+                            }
+                        }
+                    }else if(this.timer==35){
+                        this.battle.combatants[4].speech.text="Accept it. You never were\nworth anything to us.\nYou were but a freeloader."
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer==95){
+                        this.battle.combatants[4].speech.text="You destroyed our entire\nbusiness. The rich kids never\ngo to Orofosian markets anymore."
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer==155){
+                        this.battle.combatants[4].speech.text="The only thing we can still\ndo is to carry on our\nwork of protection and murder."
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer==215){
+                        this.battle.combatants[4].speech.text="And that murder can\nonly start with you."
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer==275){
+                        transition.trigger=true
+                        transition.scene='battle'
+                    }else if(this.timer>=275&&!transition.trigger&&transition.anim>0){
                         this.battle.end()
                         this.trigger=false
                     }
