@@ -12,7 +12,7 @@ class attack{
         this.class=0
         this.accuracy=0
         this.lastType=0
-        this.rememberType=0
+        this.lastDamage=0
     }
     set(){
         switch(this.type){
@@ -42,7 +42,7 @@ class attack{
                 case 8: case 10: case 11: case 23: case 40: case 44: case 49: case 54: case 57: case 65: case 78: case 82: case 92: case 93: case 94: case 95: case 97: case 112: case 115:
                     this.timer=170-this.user*30+this.target[0]*30
                 break
-                case 9: case 15: case 20: case 29: case 60: case 103: case 114: case 118: case 130:
+                case 9: case 15: case 20: case 29: case 60: case 81: case 103: case 114: case 118: case 130:
                     this.timer=55-this.user*8+this.target[0]*8
                 break
                 case 12: case 14: case 66: case 98:
@@ -110,7 +110,7 @@ class attack{
                 case 8: case 10: case 11: case 23: case 40: case 44: case 49: case 54: case 57: case 65: case 78: case 82: case 92: case 93: case 94: case 95: case 97: case 112: case 115:
                     this.timer=170+this.user*30-this.target[1]*30
                 break
-                case 9: case 15: case 20: case 29: case 60: case 103: case 114: case 118: case 130:
+                case 9: case 15: case 20: case 29: case 60: case 81: case 103: case 114: case 118: case 130:
                     this.timer=55+this.user*8-this.target[1]*8
                 break
                 case 12: case 14:
@@ -2221,6 +2221,7 @@ class attack{
             this.battle.stacking.use=true
             this.trigger=false
             this.lastType=this.type
+            this.lastDamage=this.damage
             this.battle.turn()
         }
     }

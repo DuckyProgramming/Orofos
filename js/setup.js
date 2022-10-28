@@ -11,8 +11,8 @@ function setup(){
 
     for(g=1;g<9;g++){
         types.combatant[g].life=round(types.combatant[g].life*1.2)
-    }
-    for(g=1;g<9;g++){
+        types.combatant[g].life=round(types.combatant[g].life*1.2)
+        types.combatant[g].life=round(types.combatant[g].life*1.2)
         types.combatant[g].life=round(types.combatant[g].life*1.2)
     }
     types.combatant[1].attacks.push(28)

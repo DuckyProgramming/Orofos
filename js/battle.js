@@ -16,12 +16,12 @@ class battle{
         this.combatantListing=[3,2,1,0,4,5,6,7]
         this.storage=[]
         this.reseting=false
-        this.totalMoved=44050
+        this.totalMoved=47600
         this.time=0
         this.setTime=0
         this.speed=1
         this.currency={money:500}
-        this.story=47
+        this.story=50
         this.complete={main:false}
 	}
     end(){
@@ -224,11 +224,7 @@ class battle{
         }
     }
     enableAttack(){
-        if(this.combatants[this.stack[0].type].attackClass[this.attack.rememberType]==0){
-            this.attack.damage=types.attack[this.attack.type].damage*types.weapon[this.combatants[this.stack[0].type].weapon].damage*this.combatants[this.stack[0].type].damage*(2+max(0,current.combatants[current.stack[0].type].boost[0]))/(2-min(0,current.combatants[current.stack[0].type].boost[0]))
-        }else{
-            this.attack.damage=types.attack[this.attack.type].damage*this.combatants[this.stack[0].type].damage*(2+max(0,current.combatants[current.stack[0].type].boost[0]))/(2-min(0,current.combatants[current.stack[0].type].boost[0]))
-        }
+        this.attack.damage=this.attack.lastDamage
         this.partyAlive=[]
         if(this.stack[0].type<4){
             for(e=0;e<4;e++){
@@ -374,9 +370,6 @@ class battle{
                     this.attack.type=this.possibleAttack[min(floor(random(0,this.possibleAttack.length)),this.possibleAttack.length-1)]
                     if(this.combatants[this.stack[0].type].uses[this.attack.type]>0){
                         this.combatants[this.stack[0].type].uses[this.attack.type]--
-                    }
-                    if(this.combatants[this.stack[0].type].attacks[this.attack.type]!=123){
-                        this.attack.rememberType=this.attack.type
                     }
                     this.attack.type=this.combatants[this.stack[0].type].attacks[this.attack.type]
                     this.enableAttack()
@@ -531,6 +524,12 @@ class battle{
                             this.cut.setup(80)
                         }else if(this.totalMoved>=42550&&this.totalMoved<43550&&floor(random(0,300))==0){
                             this.cut.setup(81)
+                        }else if(this.totalMoved>=44100&&this.totalMoved<45100&&floor(random(0,300))==0){
+                            this.cut.setup(85)
+                        }else if(this.totalMoved>=45100&&this.totalMoved<46100&&floor(random(0,300))==0){
+                            this.cut.setup(86)
+                        }else if(this.totalMoved>=46100&&this.totalMoved<47100&&floor(random(0,300))==0){
+                            this.cut.setup(87)
                         }
                     }
                 }
@@ -631,6 +630,12 @@ class battle{
                     this.cut.setup(83)
                 }else if(this.story==47&&this.totalMoved>=44050){
                     this.cut.setup(84)
+                }else if(this.story==48&&this.totalMoved>=47100){
+                    this.cut.setup(88)
+                }else if(this.story==49&&this.totalMoved>=47350){
+                    this.cut.setup(89)
+                }else if(this.story==50&&this.totalMoved>=47600){
+                    this.cut.setup(90)
                 }
             break
         }

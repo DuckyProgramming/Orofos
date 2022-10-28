@@ -120,7 +120,7 @@ types={
         {name:'Fat Gent',alt:'',life:50,speed:12,damage:1,attacks:[5,123],height:66,reward:15,pattern:0},
         {name:'Long Gent',alt:'',life:30,speed:6,damage:1,attacks:[4,123],height:84,reward:15,pattern:0},
         {name:'Big Gent',alt:'',life:60,speed:10,damage:2,attacks:[2,7,123],height:90,reward:20,pattern:0},
-        {name:'The Goodman',alt:'',life:200,speed:10,damage:3,attacks:[123],height:75,reward:100,pattern:0},
+        {name:'The Goodman',alt:'',life:200,speed:10,damage:3,attacks:[123],height:75,reward:100,pattern:0},//120
     ],weapon:[
         {name:'Unarmed',damage:2,attacks:[0],cost:0},//0
         {name:'Stick',damage:4,attacks:[8],cost:25},
