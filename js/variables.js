@@ -86,7 +86,7 @@ types={
         {name:'Roger Reviv',alt:'',life:600,speed:22,damage:4,attacks:[102,68],height:75,reward:100,pattern:1},
         {name:'Cook',alt:'',life:80,speed:12,damage:2,attacks:[99,7,100],height:90,reward:100,pattern:1},
         {name:'Big Duck Force',alt:'',life:60,speed:10,damage:1,attacks:[39,93],height:75,reward:20,pattern:0},
-        {name:'General Duckion',alt:'',life:400,speed:12,damage:4,attacks:[103,39,70],height:75,reward:100,pattern:1},
+        {name:'General Duckion',alt:'',life:200,speed:12,damage:3,attacks:[103,39,70],height:75,reward:100,pattern:1},
         {name:'Joking Jimmy',alt:'',life:150,speed:11,damage:1,attacks:[104],height:66,reward:100,pattern:0},
         {name:'Director Illyesc',alt:'',life:900,speed:18,damage:2,attacks:[105,106,107],height:78,reward:10000,pattern:1},
         {name:'Bulwark',alt:'',life:30,speed:15,damage:1,attacks:[1,109],height:75,reward:10,pattern:0},
@@ -272,7 +272,7 @@ types={
         {name:'Dust Storm'              ,damage:1   ,target:2,class:0,uses:5 ,accuracy:1   ,description:'Attack with strange dust'},//100
         {name:'Cash Out'                ,damage:1   ,target:0,class:0,uses:0 ,accuracy:1   ,description:'Take lots of cash'},
         {name:'Airstrike'               ,damage:5   ,target:2,class:2,uses:1 ,accuracy:1   ,description:'Attack from the skies'},
-        {name:'Crack Shot'              ,damage:12  ,target:0,class:2,uses:1 ,accuracy:1   ,description:'Fire a powerful blow'},
+        {name:'Crack Shot'              ,damage:8   ,target:0,class:2,uses:1 ,accuracy:1   ,description:'Fire a powerful blow'},
         {name:'Verbal Destruction'      ,damage:1   ,target:0,class:2,uses:0 ,accuracy:0.6 ,description:'Annihlate him with words'},
         {name:'Monologue'               ,damage:0   ,target:2,class:1,uses:1 ,accuracy:1   ,description:'Discuss the future'},
         {name:'Arrogance'               ,damage:1   ,target:1,class:0,uses:10,accuracy:1   ,description:'Laugh in your power'},

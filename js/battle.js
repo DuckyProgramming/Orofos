@@ -16,12 +16,12 @@ class battle{
         this.combatantListing=[3,2,1,0,4,5,6,7]
         this.storage=[]
         this.reseting=false
-        this.totalMoved=47600
+        this.totalMoved=49400
         this.time=0
         this.setTime=0
         this.speed=1
         this.currency={money:500}
-        this.story=50
+        this.story=53
         this.complete={main:false}
 	}
     end(){
@@ -224,7 +224,11 @@ class battle{
         }
     }
     enableAttack(){
-        this.attack.damage=this.attack.lastDamage
+        if(this.combatants[this.stack[0].type].attackClass[this.attack.type]==0){
+            this.attack.damage=types.attack[this.attack.type].damage*types.weapon[this.combatants[this.stack[0].type].weapon].damage*this.combatants[this.stack[0].type].damage*(2+max(0,current.combatants[current.stack[0].type].boost[0]))/(2-min(0,current.combatants[current.stack[0].type].boost[0]))
+        }else{
+            this.attack.damage=types.attack[this.attack.type].damage*this.combatants[this.stack[0].type].damage*(2+max(0,current.combatants[current.stack[0].type].boost[0]))/(2-min(0,current.combatants[current.stack[0].type].boost[0]))
+        }
         this.partyAlive=[]
         if(this.stack[0].type<4){
             for(e=0;e<4;e++){
@@ -530,6 +534,10 @@ class battle{
                             this.cut.setup(86)
                         }else if(this.totalMoved>=46100&&this.totalMoved<47100&&floor(random(0,300))==0){
                             this.cut.setup(87)
+                        }else if(this.totalMoved>=47650&&this.totalMoved<48400&&floor(random(0,300))==0){
+                            this.cut.setup(91)
+                        }else if(this.totalMoved>=48400&&this.totalMoved<49150&&floor(random(0,300))==0){
+                            this.cut.setup(92)
                         }
                     }
                 }
@@ -636,6 +644,10 @@ class battle{
                     this.cut.setup(89)
                 }else if(this.story==50&&this.totalMoved>=47600){
                     this.cut.setup(90)
+                }else if(this.story==51&&this.totalMoved>=49150){
+                    this.cut.setup(93)
+                }else if(this.story==52&&this.totalMoved>=49400){
+                    this.cut.setup(94)
                 }
             break
         }

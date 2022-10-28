@@ -93,6 +93,7 @@ class attack{
                     }
                     this.type=this.lastType
                     this.battle.enableAttack()
+                    this.damage=this.lastDamage
                 break
                 case 127: case 131:
                     this.timer=76-this.user*8
@@ -166,6 +167,7 @@ class attack{
                     }
                     this.type=this.lastType
                     this.battle.enableAttack()
+                    this.damage=this.lastDamage
                 break
                 case 127: case 131:
                     this.timer=52+this.user*8
