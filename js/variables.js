@@ -82,7 +82,7 @@ types={
         {name:'Elite Agent Duck',alt:'',life:60,speed:7,damage:2,attacks:[],height:60,reward:30,pattern:0},
         {name:'Master Quack',alt:'',life:162,speed:10,damage:3,attacks:[96,39,63],height:75,reward:100,pattern:1},//80
         {name:'Duck 006',alt:'',life:135,speed:13,damage:4,attacks:[93],height:75,reward:100,pattern:0},
-        {name:'MoneyMaster',alt:'',life:256,speed:12,damage:3,attacks:[1,101],height:90,reward:100,pattern:0},
+        {name:'MoneyMaster',alt:'',life:320,speed:12,damage:3,attacks:[1,101],height:90,reward:100,pattern:0},
         {name:'Roger Reviv',alt:'',life:600,speed:22,damage:4,attacks:[102,68],height:75,reward:100,pattern:1},
         {name:'Cook',alt:'',life:80,speed:12,damage:2,attacks:[99,7,100],height:90,reward:100,pattern:1},
         {name:'Big Duck Force',alt:'',life:60,speed:10,damage:1,attacks:[39,93],height:75,reward:20,pattern:0},
