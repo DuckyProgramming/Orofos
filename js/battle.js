@@ -740,10 +740,20 @@ class battle{
         }
         this.currency.money=max(0,round(this.currency.money*10)/10)
         if(this.combatants[0].life<=0&&this.combatants[1].life<=0&&this.combatants[2].life<=0&&this.combatants[3].life<=0){
-            if(this.cut.trigger&&this.cut.type==132&&this.cut.timer>=5000&&this.cut.timer<6500){
+            if(this.cut.trigger&&this.cut.type==132&&this.cut.timer>=15000){
+            }else if(this.cut.trigger&&this.cut.type==132&&this.cut.timer>=11000&&this.cut.timer<15000){
+                transition.trigger=true
+                transition.scene='end'
+            }else if(this.cut.trigger&&this.cut.type==132&&this.cut.timer>=6500&&this.cut.timer<11000){
+                transition.trigger=true
+                transition.scene='walk'
+                this.cut.timer=15000
+                this.cut.ending=3
+            }else if(this.cut.trigger&&this.cut.type==132&&this.cut.timer>=5000&&this.cut.timer<6500){
                 transition.trigger=true
                 transition.scene='walk'
                 this.cut.timer=10000
+                this.cut.ending=2
                 for(g=0;g<4;g++){
                     this.combatants[g].life=1
                 }

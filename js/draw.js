@@ -42,6 +42,13 @@ function draw(){
                 }
             }
         break
+        case 'end':
+            graphics.main.background(100)
+            graphics.main.fill(0)
+            graphics.main.textSize(100)
+            graphics.main.noStroke()
+            graphics.main.text(current.cut.ending,graphics.main.width/2,graphics.main.height/2)
+        break
     }
     stage.scale=min(width/graphics.main.width,height/graphics.main.height)
     displayTransition(graphics.main,transition)

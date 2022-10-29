@@ -910,18 +910,35 @@ class cut{
                         this.battle.combatants[7]=new combatant(this.layer,0,450,83,5,1,7)
                     break
                     case 119:
-                        this.battle.combatants[4]=new combatant(this.layer,1050,450,16,2,1,4)
-                        this.battle.combatants[5]=new combatant(this.layer,1150,450,16,2,1,5)
-                        this.battle.combatants[6]=new combatant(this.layer,1250,450,17,2,1,6)
-                        this.battle.combatants[7]=new combatant(this.layer,1350,450,105,9,1,7)
+                        this.battle.combatants[4]=new combatant(this.layer,0,450,16,2,1,4)
+                        this.battle.combatants[5]=new combatant(this.layer,0,450,16,2,1,5)
+                        this.battle.combatants[6]=new combatant(this.layer,0,450,17,2,1,6)
+                        this.battle.combatants[7]=new combatant(this.layer,0,450,105,9,1,7)
                     break
                     case 126:
-                        this.battle.combatants[4]=new combatant(this.layer,1050,450,107,14,1,4)
-                        this.battle.combatants[5]=new combatant(this.layer,1150,450,108,32,1,5)
-                        this.battle.combatants[6]=new combatant(this.layer,1250,450,109,45,1,6)
-                        this.battle.combatants[7]=new combatant(this.layer,1350,450,110,33,1,7)
+                        this.battle.combatants[4]=new combatant(this.layer,0,450,107,14,1,4)
+                        this.battle.combatants[5]=new combatant(this.layer,0,450,108,32,1,5)
+                        this.battle.combatants[6]=new combatant(this.layer,0,450,109,45,1,6)
+                        this.battle.combatants[7]=new combatant(this.layer,0,450,110,33,1,7)
                     break
-
+                    case 132:
+                        if(this.timer>=7000&&this.timer<8000){
+                            this.battle.combatants[4]=new combatant(this.layer,0,450,46,10,1,4)
+                            this.battle.combatants[5]=new combatant(this.layer,0,450,46,10,1,5)
+                            this.battle.combatants[6]=new combatant(this.layer,0,450,46,10,1,6)
+                            this.battle.combatants[7]=new combatant(this.layer,0,450,46,10,1,7)
+                        }else if(this.timer>=8000&&this.timer<9000){
+                            this.battle.combatants[4]=new combatant(this.layer,0,450,13,9,1,4)
+                            this.battle.combatants[5]=new combatant(this.layer,0,450,13,9,1,5)
+                            this.battle.combatants[6]=new combatant(this.layer,0,450,13,9,1,6)
+                            this.battle.combatants[7]=new combatant(this.layer,0,450,13,9,1,7)
+                        }else if(this.timer>=9000&&this.timer<10000){
+                            this.battle.combatants[4]=new combatant(this.layer,0,450,61,9,1,4)
+                            this.battle.combatants[5]=new combatant(this.layer,0,450,61,9,1,5)
+                            this.battle.combatants[6]=new combatant(this.layer,0,450,14,10,1,6)
+                            this.battle.combatants[7]=new combatant(this.layer,0,450,88,30,1,7)
+                        }
+                    break
                 }
             break
         }
@@ -4057,7 +4074,7 @@ class cut{
                                 this.battle.characters[g].rate[0]+=5
                             }
                         }
-                    }else if(this.timer>=3415&&this.timer<4000||this.timer>=4435&&this.timer<5000||this.timer==11660){
+                    }else if(this.timer>=3415&&this.timer<4000||this.timer>=4435&&this.timer<5000||this.timer==11660||this.timer==16450){
                         transition.trigger=true
                         transition.scene='end'
                     }else if(this.timer==4015){
@@ -4187,7 +4204,6 @@ class cut{
                         this.battle.combatants[4]=new combatant(this.layer,750,450,99,31,1,4)
                         this.battle.combatants[4].life=1
                         this.timer=6500
-                        this.speed=1
                     }
                     if(this.timer>=6500&&this.timer<6550){
                         for(g=0,lg=this.battle.combatants.length;g<lg;g++){
@@ -4206,8 +4222,8 @@ class cut{
                         this.battle.combatants[2].speech.text="Well, boys, we got her."
                         this.battle.combatants[2].speech.time=60
                         this.battle.characters.push(new combatant(this.layer,1050,450,88,0,1,100))
-                        this.battle.characters.push(new combatant(this.layer,1000,450,13,0,1,101))
-                        this.battle.characters.push(new combatant(this.layer,1100,450,13,0,1,102))
+                        this.battle.characters.push(new combatant(this.layer,1000,450,61,0,1,101))
+                        this.battle.characters.push(new combatant(this.layer,1100,450,61,0,1,102))
                     }else if(this.timer>=6700&&this.timer<6780){
                         for(g=0,lg=this.battle.characters.length;g<lg;g++){
                             if(this.battle.characters[g].id==100||this.timer<6760){
@@ -4227,6 +4243,66 @@ class cut{
                                 this.battle.characters[g].speech.time=60
                             }
                         }
+                    }else if(this.timer==6840){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==100){
+                                this.battle.characters[g].speech.text="Return our possessions."
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                    }else if(this.timer==6900){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==100){
+                                this.battle.characters[g].speech.text="Make this easy on yourselves."
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                    }else if(this.timer==6960){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==100){
+                                this.battle.characters[g].speech.text="I guess not."
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                    }else if(this.timer==7020){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==100){
+                                this.battle.characters[g].speech.text="We'll do it how you want it, then."
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                    }else if(this.timer==7080){
+                        transition.trigger=true
+                        transition.scene='battle'
+                    }else if(this.timer>=7080&&this.timer<8000&&!transition.trigger&&transition.anim>0){
+                        this.battle.end()
+                        this.timer=8000
+                    }else if(this.timer==8060){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==100){
+                                this.battle.characters[g].speech.text="Deal with our problems."
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                    }else if(this.timer==8120){
+                        transition.trigger=true
+                        transition.scene='battle'
+                    }else if(this.timer>=8120&&this.timer<9000&&!transition.trigger&&transition.anim>0){
+                        this.battle.end()
+                        this.timer=9000
+                    }else if(this.timer==9060){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==100){
+                                this.battle.characters[g].speech.text="Alright. I'll do it myself."
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                    }else if(this.timer==9120){
+                        transition.trigger=true
+                        transition.scene='battle'
+                    }else if(this.timer>=9120&&this.timer<10000&&!transition.trigger&&transition.anim>0){
+                        this.battle.end()
+                        this.timer=20000
                     }
                     if(this.timer>=10000&&this.timer<11000&&!transition.trigger&&transition.anim>0){
                         this.timer=11000
@@ -4265,6 +4341,42 @@ class cut{
                     }else if(this.timer>=11420&&this.timer<11660){
                         this.battle.combatants[4].position.x+=2
                         this.battle.combatants[4].rate[0]+=2
+                    }
+                    if(this.timer>=15000&&this.timer<16000&&!transition.trigger&&transition.anim>0){
+                        this.speed=1
+                        this.battle.combatants[4]=new combatant(this.layer,750,450,99,31,1,4)
+                        this.timer=16000
+                        this.battle.combatants[5].type=0
+                        this.battle.combatants[6].type=0
+                        this.battle.combatants[7].type=0
+                        this.battle.combatants[5].fade=0
+                        this.battle.combatants[6].fade=0
+                        this.battle.combatants[7].fade=0
+                    }else if(this.timer==16030){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==100){
+                                this.battle.characters[g].speech.text="Fools."
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                    }else if(this.timer==16090){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==100){
+                                this.battle.characters[g].speech.text="Come on. We're going home."
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                    }else if(this.timer>=16150&&this.timer<16450){
+                        this.battle.combatants[4].flip=1
+                        this.battle.combatants[4].position.x+=2
+                        this.battle.combatants[4].rate[0]+=2
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            this.battle.characters[g].flip=1
+                            this.battle.characters[g].position.x+=2
+                            this.battle.characters[g].rate[0]+=2
+                        }
+                    }else if(this.timer==20030){
+                        this.ending=4
                     }
                 break
             }
@@ -4514,8 +4626,8 @@ class cut{
                     if(pointInsideBox({position:inputs.rel},{position:{x:170,y:140},width:300,height:40})){
                         this.timer++
                         this.battle.characters.push(new combatant(this.layer,1050,450,88,0,1,100))
-                        this.battle.characters.push(new combatant(this.layer,1000,450,13,0,1,101))
-                        this.battle.characters.push(new combatant(this.layer,1100,450,13,0,1,102))
+                        this.battle.characters.push(new combatant(this.layer,1000,450,61,0,1,101))
+                        this.battle.characters.push(new combatant(this.layer,1100,450,61,0,1,102))
                     }
                 }else if(this.timer==3030){
                     if(pointInsideBox({position:inputs.rel},{position:{x:170,y:90},width:300,height:40})){

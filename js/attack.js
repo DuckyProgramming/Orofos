@@ -2183,10 +2183,10 @@ class attack{
                 break
                 case 127: case 131:
                     if(this.timer>=26+this.user*4){
-                        this.battle.combatants[this.user+4].position.x+=25
+                        this.battle.combatants[this.user+4].position.x-=25
                         this.battle.combatants[this.user+4].rate[0]+=25
                     }else{
-                        this.battle.combatants[this.user+4].position.x-=25
+                        this.battle.combatants[this.user+4].position.x+=25
                         this.battle.combatants[this.user+4].rate[0]-=25
                     }
                     for(g=0;g<4;g++){
