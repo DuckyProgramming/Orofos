@@ -752,8 +752,48 @@ class cut{
             break
             case 127:
                 this.battle.story=74
-                this.battle.combatants[4]=new combatant(this.layer,1050,450,93,2,1,4)
-                this.battle.combatants[5]=new combatant(this.layer,1150,450,94,2,1,5)
+            break
+            case 128:
+                this.battle.story=75
+                this.battle.combatants[4]=new combatant(this.layer,1050,450,93,0,1,4)
+                this.battle.combatants[5]=new combatant(this.layer,1150,450,94,0,1,5)
+                this.battle.combatants[4].life*=0.2
+                this.battle.combatants[5].life*=0.2
+            break
+            case 129:
+                this.battle.story=76
+                this.battle.combatants[4]=new combatant(this.layer,1050,450,95,0,1,4)
+                this.battle.combatants[5]=new combatant(this.layer,1150,450,96,0,1,5)
+                this.battle.combatants[6]=new combatant(this.layer,1250,450,94,0,1,6)
+                this.battle.combatants[4].life*=0.2
+                this.battle.combatants[5].life*=0.2
+                this.battle.combatants[6].life*=0.2
+            break
+            case 130:
+                this.battle.story=77
+                this.battle.combatants[4]=new combatant(this.layer,1050,450,94,0,1,4)
+                this.battle.combatants[5]=new combatant(this.layer,1150,450,96,0,1,5)
+                this.battle.combatants[6]=new combatant(this.layer,1250,450,95,0,1,6)
+                this.battle.combatants[7]=new combatant(this.layer,1350,450,93,0,1,7)
+                this.battle.combatants[4].life*=0.2
+                this.battle.combatants[5].life*=0.2
+                this.battle.combatants[6].life*=0.2
+                this.battle.combatants[7].life*=0.2
+            break
+            case 131:
+                this.battle.story=78
+                this.battle.combatants[4]=new combatant(this.layer,1050,450,96,0,1,4)
+                this.battle.combatants[5]=new combatant(this.layer,1150,450,93,0,1,5)
+                this.battle.combatants[6]=new combatant(this.layer,1250,450,94,0,1,6)
+                this.battle.combatants[7]=new combatant(this.layer,1350,450,95,0,1,7)
+                this.battle.combatants[4].life*=0.2
+                this.battle.combatants[5].life*=0.2
+                this.battle.combatants[6].life*=0.2
+                this.battle.combatants[7].life*=0.2
+            break
+            case 132:
+                this.battle.story=79
+                this.battle.combatants[5]=new combatant(this.layer,-150,450,98,2,0,5)
             break
         }
     }
@@ -1183,7 +1223,7 @@ class cut{
                 break
                 case 5: case 6: case 7: case 11: case 12: case 13: case 16: case 17: case 23: case 24: case 25: case 29: case 30: case 31: case 34: case 35: case 36: case 43: case 44: case 49:
                 case 50: case 51: case 55: case 56: case 57: case 60: case 61: case 62: case 65: case 66: case 70: case 71: case 72: case 79: case 80: case 81: case 85: case 86: case 87: case 91:
-                case 92: case 96: case 97: case 98: case 102: case 103: case 104: case 109: case 110: case 111: case 116: case 117: case 118: case 123: case 124: case 125: case 127: case 128: case 129: case 130:
+                case 92: case 96: case 97: case 98: case 102: case 103: case 104: case 109: case 110: case 111: case 116: case 117: case 118: case 123: case 124: case 125: case 128: case 129: case 130: case 131:
                     if(this.timer<35){
                         for(g=0,lg=this.battle.combatants.length;g<lg;g++){
                             if(this.battle.combatants[g].team==1){
@@ -3696,6 +3736,65 @@ class cut{
                         for(g=1;g<9;g++){
                             types.combatant[g].life=round(types.combatant[g].life*1.2)
                         }
+                    }
+                break
+                case 127:
+                    if(this.timer==0){
+                        for(g=0;g<4;g++){
+                            this.battle.combatants[g].life=max(this.battle.combatants[g].life,this.battle.combatants[g].base.life)
+                        }
+                    }else if(this.timer==5){
+                        this.battle.combatants[0].speech.text="That's the Bombers taken care of.\nNow it's just the Hiders left."
+                        this.battle.combatants[0].speech.time=60
+                    }else if(this.timer==65){
+                        this.battle.combatants[3].speech.text="Well, looking ahead, not quite."
+                        this.battle.combatants[3].speech.time=60
+                    }else if(this.timer>=125){
+                        this.trigger=false
+                    }
+                break
+                case 132:
+                    if(this.timer<85){
+                        this.battle.combatants[5].position.x+=10
+                        this.battle.combatants[5].rate[0]+=10
+                    }else if(this.timer==85){
+                        this.battle.combatants[5].flip=-1
+                        this.battle.combatants[5].speech.text="Well, here we are.\nReady to take on the\nHiders and claim your prize?"
+                        this.battle.combatants[5].speech.time=60
+                    }else if(this.timer==145){
+                        this.battle.combatants[5].speech.text="I'm not in much shape to fight,\nbut I'll help you out right now."
+                        this.battle.combatants[5].speech.time=60
+                    }else if(this.timer==205){
+                        this.battle.combatants[5].speech.text="Go on, finish off the Hiders.\nI won't be far behind."
+                        this.battle.combatants[5].speech.time=60
+                    }else if(this.timer>=265&&this.timer<445){
+                        for(g=0,lg=this.battle.combatants.length;g<lg;g++){
+                            if(g<4){
+                                this.battle.combatants[g].rate[0]+=5
+                            }else if(g==5){
+                                this.battle.combatants[g].position.x-=5
+                            }
+                        }
+                    }else if(this.timer>=445&&this.timer<1645){
+                        for(g=0,lg=this.battle.combatants.length;g<lg;g++){
+                            if(g<4){
+                                this.battle.combatants[g].rate[0]+=5
+                            }
+                        }
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            this.battle.characters[g].position.x-=5
+                        }
+                    }
+                    if(this.timer>=175&&this.timer<190){
+                        this.battle.combatants[5].anim[0]+=1/15
+                    }else if(this.timer>=190&&this.timer<205){
+                        this.battle.combatants[5].anim[0]-=1/15
+                    }
+                    if(this.timer==190){
+                        this.healParty()
+                        this.refillParty()
+                    }else if(this.timer==265){
+                        this.battle.combatants[5].flip=1
                     }
                 break
             }

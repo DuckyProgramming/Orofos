@@ -16,12 +16,12 @@ class battle{
         this.combatantListing=[3,2,1,0,4,5,6,7]
         this.storage=[]
         this.reseting=false
-        this.totalMoved=65850
+        this.totalMoved=66666
         this.time=0
         this.setTime=0
         this.speed=1
         this.currency={money:500}
-        this.story=73
+        this.story=76
         this.complete={main:false}
 	}
     end(){
@@ -203,10 +203,12 @@ class battle{
                 for(e=0,le=this.combatants.length;e<le;e++){
                     this.combatants[e].displaySpeech()
                 }
-                this.layer.noStroke()
-                this.layer.fill(0)
-                this.layer.textSize(20)
-                this.layer.text(ceil(this.totalMoved/5)+'m',450,580)
+                if(this.cut.type!==132||!this.cut.trigger){
+                    this.layer.noStroke()
+                    this.layer.fill(0)
+                    this.layer.textSize(20)
+                    this.layer.text(ceil(this.totalMoved/5)+'m',450,580)
+                }
             break
         }
         this.layer.noStroke()
@@ -723,12 +725,16 @@ class battle{
                     this.cut.setup(126)
                 }else if(this.story==73&&this.totalMoved>=65850){
                     this.cut.setup(127)
-                }else if(this.story==73&&this.totalMoved>=66100){
+                }else if(this.story==74&&this.totalMoved>=66100){
                     this.cut.setup(128)
-                }else if(this.story==74&&this.totalMoved>=66350){
+                }else if(this.story==75&&this.totalMoved>=66200){
                     this.cut.setup(129)
-                }else if(this.story==75&&this.totalMoved>=66600){
+                }else if(this.story==76&&this.totalMoved>=66300){
                     this.cut.setup(130)
+                }else if(this.story==77&&this.totalMoved>=66400){
+                    this.cut.setup(131)
+                }else if(this.story==78&&this.totalMoved>=66666){
+                    this.cut.setup(132)
                 }
             break
         }
