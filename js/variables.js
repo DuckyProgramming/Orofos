@@ -99,7 +99,7 @@ types={
         {name:'Big Wiper',alt:'',life:78,speed:13,damage:3,attacks:[2,7,110],height:90,reward:20,pattern:0},
         {name:'Wiper Boss',alt:'',life:1,speed:0,damage:0,attacks:[],height:75,reward:0,pattern:0},
         {name:'Wiper Messenger',alt:'',life:26,speed:0,damage:0,attacks:[],height:75,reward:0,pattern:0},
-        {name:'Sakura',alt:'',life:300,speed:8,damage:3,attacks:[124,125,126,133],height:72,reward:0,pattern:1},
+        {name:'Sakura',alt:'',life:300,speed:1,damage:3000,attacks:[124,125,126,133],height:72,reward:0,pattern:1},
         {name:'Hider',alt:'',life:30,speed:0,damage:0,attacks:[],height:75,reward:0,pattern:0},//100
         {name:'Fat Hider',alt:'',life:75,speed:0,damage:0,attacks:[],height:66,reward:0,pattern:0},
         {name:'Long Hider',alt:'',life:45,speed:0,damage:0,attacks:[],height:84,reward:0,pattern:0},

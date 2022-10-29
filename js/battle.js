@@ -740,8 +740,17 @@ class battle{
         }
         this.currency.money=max(0,round(this.currency.money*10)/10)
         if(this.combatants[0].life<=0&&this.combatants[1].life<=0&&this.combatants[2].life<=0&&this.combatants[3].life<=0){
-            transition.trigger=true
-            transition.scene='defeat'
+            if(this.cut.trigger&&this.cut.type==132&&this.cut.timer>=5000&&this.cut.timer<6500){
+                transition.trigger=true
+                transition.scene='walk'
+                this.cut.timer=10000
+                for(g=0;g<4;g++){
+                    this.combatants[g].life=1
+                }
+            }else{
+                transition.trigger=true
+                transition.scene='defeat'
+            }
         }
 	}
 }

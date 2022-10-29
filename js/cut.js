@@ -6,7 +6,7 @@ class cut{
         this.timer=0
         this.trigger=false
         this.count=0
-        this.speed=1
+        this.speed=10
         this.list=[]
         this.purchase={weapon:[],uses:[],trigger:false,select:0,choice:0}
         this.firstAlive=-1
@@ -928,9 +928,11 @@ class cut{
     }
     update(){
         this.count+=this.speed
-        this.firstAlive=3
-        while(this.battle.combatants[this.firstAlive].life<=0&&this.firstAlive>=0){
-            this.firstAlive--
+        if(this.type!=132){
+            this.firstAlive=3
+            while(this.battle.combatants[this.firstAlive].life<=0&&this.firstAlive>=0){
+                this.firstAlive--
+            }
         }
         while(this.count>0){
             for(e=0,le=this.battle.characters.length;e<le;e++){
@@ -4055,7 +4057,7 @@ class cut{
                                 this.battle.characters[g].rate[0]+=5
                             }
                         }
-                    }else if(this.timer>=3415&&this.timer<4000||this.timer>=4435&&this.timer<5000){
+                    }else if(this.timer>=3415&&this.timer<4000||this.timer>=4435&&this.timer<5000||this.timer==11660){
                         transition.trigger=true
                         transition.scene='end'
                     }else if(this.timer==4015){
@@ -4178,7 +4180,59 @@ class cut{
                         transition.scene='battle'
                     }else if(this.timer>=5960&&this.timer<6500&&!transition.trigger&&transition.anim>0){
                         this.battle.end()
-                        this.timer=6000
+                        for(g=0,lg=this.battle.combatants.length;g<lg;g++){
+                            this.battle.combatants[g].position.x-=100
+                        }
+                        this.healParty()
+                        this.battle.combatants[4]=new combatant(this.layer,700,450,99,31,1,4)
+                        this.battle.combatants[4].life=1
+                        this.timer=6500
+                    }else if(this.timer>=6500&&this.timer<6550){
+                        for(g=0,lg=this.battle.combatants.length;g<lg;g++){
+                            if(g<4){
+                                this.battle.combatants[g].position.x+=2
+                                this.battle.combatants[g].rate[0]+=2
+                            }
+                        }
+                    }
+                    if(this.timer>=10000&&this.timer<11000&&!transition.trigger&&transition.anim>0){
+                        this.timer=11000
+                        this.battle.combatants[4]=new combatant(this.layer,700,450,99,31,1,4)
+                        for(g=0;g<4;g++){
+                            this.battle.combatants[g].position.x-=100
+                            this.battle.combatants[g].life=1
+                        }
+                    }
+                    if(this.timer==11060){
+                        this.battle.combatants[4].speech.text="I'm sorry that it\nhas to be this way."
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer==11120){
+                        this.battle.combatants[4].speech.text="You'll be forgiven. All\nof you. Because I can\nunderstand what you want."
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer==11180){
+                        this.battle.combatants[4].speech.text="There are no good people\non Orofos, I guess."
+                        this.battle.combatants[4].speech.time=60
+                        this.speed=1
+                    }else if(this.timer==11240){
+                        this.battle.combatants[4].speech.text="Sorry."
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer>=11300&&this.timer<11320){
+                        this.battle.combatants[4].position.x-=25
+                        this.battle.combatants[4].rate[0]+=25
+                        for(g=0;g<4;g++){
+                            if(this.timer==11318-g*4){
+                                this.battle.combatants[g].life=0
+                            }
+                        }
+                    }else if(this.timer>=11320&&this.timer<11340){
+                        this.battle.combatants[4].position.x+=25
+                        this.battle.combatants[4].rate[0]+=25
+                    }else if(this.timer==11360){
+                        this.battle.combatants[4].speech.text="You didn't deserve this.\nNone of us did."
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer>=11420&&this.timer<11660){
+                        this.battle.combatants[4].position.x+=2
+                        this.battle.combatants[4].rate[0]+=2
                     }
                 break
             }
