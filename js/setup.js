@@ -1,7 +1,7 @@
 function setup(){
     createCanvas(windowWidth-50,windowHeight-50)
     setupGraphics()
-    //resetState(0)
+    /*resetState(0)
     for(a=0,la=combatants.length;a<la;a++){
         //this.combatants[a].id=floor(random(9,types.combatant.length))
     }
@@ -31,13 +31,12 @@ function setup(){
     types.combatant[4].attacks.push(38)
     types.combatant[5].attacks.push(42)
     types.combatant[6].attacks.push(45)
-    types.combatant[8].attacks.push(14)
-
+    types.combatant[8].attacks.push(14)*/
     current=new battle(graphics.main,combatants)
     //resetState(1)
     current.set(stage.scene)
     current.setupStack()
-    //current.cut.setup(1)
+    current.cut.setup(1)
     run={fore:[entities.particles]}
 }
 function windowResized(){

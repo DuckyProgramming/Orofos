@@ -6,7 +6,7 @@ class cut{
         this.timer=0
         this.trigger=false
         this.count=0
-        this.speed=10
+        this.speed=1
         this.list=[]
         this.purchase={weapon:[],uses:[],trigger:false,select:0,choice:0}
         this.firstAlive=-1
@@ -3796,9 +3796,6 @@ class cut{
                             }
                         }
                     }else if(this.timer>=445&&this.timer<1645){
-                        if(this.timer<=1345){
-                            this.timer=1345
-                        }
                         if(this.timer%30==15&&this.timer<1345){
                             this.battle.characters.push(new combatant(this.layer,1050+random(-50,50),450+random(0,10),floor(random(100,104)),0,1,100))
                             this.battle.characters[this.battle.characters.length-1].die()
@@ -4074,7 +4071,7 @@ class cut{
                                 this.battle.characters[g].rate[0]+=5
                             }
                         }
-                    }else if(this.timer>=3415&&this.timer<4000||this.timer>=4435&&this.timer<5000||this.timer==11660||this.timer==16450){
+                    }else if(this.timer>=3415&&this.timer<4000||this.timer>=4435&&this.timer<5000||this.timer==11660||this.timer==16450||this.timer==20755){
                         transition.trigger=true
                         transition.scene='end'
                     }else if(this.timer==4015){
@@ -4303,6 +4300,10 @@ class cut{
                     }else if(this.timer>=9120&&this.timer<10000&&!transition.trigger&&transition.anim>0){
                         this.battle.end()
                         this.timer=20000
+                        this.healParty()
+                        this.battle.combatants[4]=new combatant(this.layer,700,450,99,31,1,4)
+                        this.battle.combatants[4].life=1
+                        this.battle.characters=[]
                     }
                     if(this.timer>=10000&&this.timer<11000&&!transition.trigger&&transition.anim>0){
                         this.timer=11000
@@ -4375,8 +4376,40 @@ class cut{
                             this.battle.characters[g].position.x+=2
                             this.battle.characters[g].rate[0]+=2
                         }
-                    }else if(this.timer==20030){
+                    }
+                    if(this.timer>=20030&&this.timer<20155){
+                        for(g=0,lg=this.battle.combatants.length;g<lg;g++){
+                            if(g<4){
+                                this.battle.combatants[g].position.x+=2
+                                this.battle.combatants[g].rate[0]+=2
+                            }
+                        }
                         this.ending=4
+                    }else if(this.timer==20155){
+                        this.battle.combatants[4].speech.text="There's no point in trying to escape now..."
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer==20215){
+                        this.battle.combatants[3].speech.text="I guess not."
+                        this.battle.combatants[3].speech.time=60
+                    }else if(this.timer==20275){
+                        this.battle.combatants[2].speech.text="Guess we won."
+                        this.battle.combatants[2].speech.time=60
+                    }else if(this.timer==20335){
+                        this.battle.combatants[4].speech.text="But did you? I mean..."
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer==20395){
+                        this.battle.combatants[4].speech.text="What will you do now? Is there\nanything left for you? Am I the\nonly object of value to you?"
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer==20455){
+                        this.battle.combatants[4].speech.text="So go on. Have your fun with me.\nJust know that once that\nwears off, it's all over."
+                        this.battle.combatants[4].speech.time=60
+                    }
+                    if(this.timer>=20155&&this.timer<20755){
+                        for(g=0,lg=this.battle.combatants.length;g<lg;g++){
+                            this.battle.combatants[g].position.x-=2
+                            this.battle.combatants[g].rate[0]+=2
+                            this.battle.combatants[g].flip=-1
+                        }
                     }
                 break
             }

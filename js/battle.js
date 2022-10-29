@@ -16,12 +16,12 @@ class battle{
         this.combatantListing=[3,2,1,0,4,5,6,7]
         this.storage=[]
         this.reseting=false
-        this.totalMoved=66666
+        this.totalMoved=0
         this.time=0
         this.setTime=0
         this.speed=1
         this.currency={money:500}
-        this.story=78
+        this.story=0
         this.complete={main:false}
 	}
     end(){
