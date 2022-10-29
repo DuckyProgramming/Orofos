@@ -3923,7 +3923,10 @@ class cut{
                             }
                         }
                     }
-                    if(this.timer==2580){
+                    if(this.timer==2520){
+                        this.battle.combatants[4].speech.text="I have missed you, Illysec."
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer==2580){
                         this.battle.combatants[5].life=0
                     }else if(this.timer==3160){
                         this.battle.currency.money+=100000
@@ -3934,21 +3937,23 @@ class cut{
                             }
                         }
                     }
-                    if(this.timer>=2520&&this.timer<2640){
+                    if(this.timer>=2580&&this.timer<2640){
                         this.battle.combatants[4].flip=1
-                        this.battle.combatants[4].position.x+=0.5
-                        this.battle.combatants[4].rate[0]+=0.5
+                        this.battle.combatants[4].position.x++
+                        this.battle.combatants[4].rate[0]++
                         for(g=0,lg=this.battle.characters.length;g<lg;g++){
                             if(this.battle.characters[g].id==101||this.battle.characters[g].id==102){
                                 this.battle.characters[g].flip=1
-                                this.battle.characters[g].position.x+=0.5
-                                this.battle.characters[g].rate[0]+=0.5
+                                this.battle.characters[g].position.x++
+                                this.battle.characters[g].rate[0]++
                             }
                         }
                     }else if(this.timer==2640){
                         this.battle.combatants[4].flip=-1
                         this.battle.combatants[4].speech.text="No, Illysec!\nThey...they helped me get here!\nI wouldn't be here without their help!"
                         this.battle.combatants[4].speech.time=60
+                    }else if(this.timer>=2645&&this.timer<2660){
+                        this.battle.combatants[4].anim[5]+=1/15
                     }else if(this.timer==2700){
                         this.battle.combatants[4].speech.text="Please, I'm begging you!\nWhatever you do, don't kill them!\nThey're good people!"
                         this.battle.combatants[4].speech.time=60
@@ -3963,6 +3968,8 @@ class cut{
                         if(this.timer==2820){
                             this.battle.combatants[4].speech.text="No, just don't kill them!\nThey don't deserve to die!"
                             this.battle.combatants[4].speech.time=60
+                        }else if(this.timer>=2835&&this.timer<2850){
+                            this.battle.combatants[4].anim[5]-=1/15
                         }
                         this.battle.combatants[4].position.x+=2
                         this.battle.combatants[4].rate[0]+=2
@@ -3976,14 +3983,26 @@ class cut{
                             }
                         }
                     }else if(this.timer==2940){
-                        this.battle.combatants[4].speech.text="I don't trust Sakura.\nNot one bit. But I'll take\nher word for this one."
-                        this.battle.combatants[4].speech.time=60
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==100){
+                                this.battle.characters[g].speech.text="I don't trust Sakura.\nNot one bit. But I'll take\nher word for this one."
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
                     }else if(this.timer==3000){
-                        this.battle.combatants[4].speech.text="(Curse you,\nManagement Composite Organisms!)"
-                        this.battle.combatants[4].speech.time=30
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==100){
+                                this.battle.characters[g].speech.text="(Curse you,\nManagement Composite Organisms!)"
+                                this.battle.characters[g].speech.time=30
+                            }
+                        }
                     }else if(this.timer==3030){
-                        this.battle.combatants[4].speech.text="I must thank you for helping us resolve\nour issue. Using the Management's resources,\nwe can compensate you in many ways."
-                        this.battle.combatants[4].speech.time=15
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==100){
+                                this.battle.characters[g].speech.text="I must thank you for helping us resolve our\nissue. Using the Management's resources,\nwe can compensate you in many ways."
+                                this.battle.characters[g].speech.time=15
+                            }
+                        }
                         this.layer.strokeWeight(4)
                         this.layer.stroke(100,85,60)
                         this.layer.fill(125,105,75)
@@ -3996,8 +4015,12 @@ class cut{
                         this.layer.text('A way out',170,140)
                         this.timer--
                     }else if(this.timer==3045){
-                        this.battle.combatants[4].speech.text="As you wish."
-                        this.battle.combatants[4].speech.time=60
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==100){
+                                this.battle.characters[g].speech.text="As you wish."
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
                     }else if(this.timer>=3145&&this.timer<3160){
                         for(g=0,lg=this.battle.characters.length;g<lg;g++){
                             if(this.battle.characters[g].id==100){
@@ -4011,21 +4034,151 @@ class cut{
                             }
                         }
                     }else if(this.timer==3175){
-                        this.battle.combatants[4].speech.text="The Management is eternally grateful."
-                        this.battle.combatants[4].speech.time=60
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==100){
+                                this.battle.characters[g].speech.text="The Management is eternally grateful."
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
                     }else if(this.timer==3235){
-                        this.battle.combatants[4].speech.text="Goodbye."
-                        this.battle.combatants[4].speech.time=60
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==100){
+                                this.battle.characters[g].speech.text="Goodbye."
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
                     }else if(this.timer>=3295&&this.timer<3415){
                         for(g=0,lg=this.battle.characters.length;g<lg;g++){
                             if(this.battle.characters[g].id==100){
+                                this.battle.characters[g].flip=1
                                 this.battle.characters[g].position.x+=5
                                 this.battle.characters[g].rate[0]+=5
                             }
                         }
-                    }else if(this.timer>=3415){
+                    }else if(this.timer>=3415&&this.timer<4000||this.timer>=4435&&this.timer<5000){
                         transition.trigger=true
                         transition.scene='end'
+                    }else if(this.timer==4015){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==100){
+                                this.battle.characters[g].speech.text="You want to leave Orofos?\nThat's a strange request,\nbut it's one I can grant."
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                    }else if(this.timer==4075){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==100){
+                                this.battle.characters[g].speech.text="The Management can bring you anywhere,\nbut I won't be responsible for that.\nYou can go anywhere in the galaxy."
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                    }else if(this.timer==4135){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==100){
+                                this.battle.characters[g].speech.text="At best you can hope to become a\ncivilian on Origin. At worst you'll\nbe conscripted into the military."
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                    }else if(this.timer==4195){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==100){
+                                this.battle.characters[g].speech.text="But wherever they send you, at\nleast you'll be safe. Anything\nwould be better than Orofos."
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                    }else if(this.timer==4255){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==100){
+                                this.battle.characters[g].speech.text="You can be assured that we'll take\ngood care of Sakura. Those\npirates will see consequences, don't worry."
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                    }else if(this.timer==4315){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==100){
+                                this.battle.characters[g].speech.text="Orofos will be the same disaster\nas it was before, but that\nwon't be our problem, will it?"
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                    }
+                    if(this.timer>=4075&&this.timer<4435){
+                        for(g=0,lg=this.battle.combatants.length;g<lg;g++){
+                            this.battle.combatants[g].rate[0]+=2
+                        }
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==100){
+                                this.battle.characters[g].flip=1
+                                this.battle.characters[g].rate[0]+=2
+                            }
+                        }
+                    }
+                    if(this.timer>=4075&&this.timer<4155){
+                        for(g=0,lg=this.battle.combatants.length;g<lg;g++){
+                            this.battle.combatants[g].position.x+=5/2
+                        }
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==100){
+                                this.battle.characters[g].position.x+=5/2
+                            }
+                        }
+                    }else if(this.timer==5060){
+                        this.battle.combatants[4].flip=-1
+                        this.battle.combatants[4].speech.text="I guess not.\nYou really are all the same.\nJust here to enjoy me, I guess."
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer==5120){
+                        this.battle.combatants[4].speech.text="You can't imagine the possibility\nof working together, can you?"
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer==5180){
+                        this.battle.combatants[4].speech.text="Think about it.\nYou betrayed the Bulwarks,\nand fought every other faction."
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer==5240){
+                        this.battle.combatants[4].speech.text="I was the only person who could've\nbeen on your side. And you\ndecided to fight against me as well."
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer==5300){
+                        this.battle.combatants[4].speech.text="Guess you've had this coming."
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer>=5360&&this.timer<5485){
+                        this.battle.combatants[5].position.x+=15/2
+                        this.battle.combatants[5].rate[0]+=15/2
+                    }else if(this.timer==5485){
+                        this.battle.combatants[5].speech.text="Sakura."
+                        this.battle.combatants[5].speech.time=60
+                    }else if(this.timer==5545){
+                        this.battle.combatants[5].speech.text="The Wipers used to be the\nstrongest faction around.\nNot anymore. And I know why."
+                        this.battle.combatants[5].speech.time=60
+                    }else if(this.timer==5605){
+                        this.battle.combatants[5].speech.text="It all got worse because of\nthe auction. That's how the\nentire faction collapsed in a day."
+                        this.battle.combatants[5].speech.time=60
+                    }else if(this.timer==5665){
+                        this.battle.combatants[5].speech.text="And it was because of you.\nIf we had never received you,\nthe auction would have never happened."
+                        this.battle.combatants[5].speech.time=60
+                    }else if(this.timer==5725){
+                        this.battle.combatants[5].speech.text="My plight, the death of everyone I knew,\nit was all because of you."
+                        this.battle.combatants[5].speech.time=60
+                    }else if(this.timer==5785){
+                        this.battle.combatants[4].speech.text="You think I wanted to be here?\nYou were the ones who had me kidnapped\nand sold. I wanted none of this!"
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer==5845){
+                        this.battle.combatants[5].speech.text="You'll pay!"
+                        this.battle.combatants[5].speech.time=60
+                    }else if(this.timer>=5875&&this.timer<5885){
+                        this.battle.combatants[4].position.x-=25
+                        this.battle.combatants[4].rate[0]+=25
+                    }else if(this.timer>=5885&&this.timer<5895){
+                        if(this.timer==5885){
+                            this.battle.combatants[5].life=0
+                        }
+                        this.battle.combatants[4].position.x+=25
+                        this.battle.combatants[4].rate[0]+=25
+                    }else if(this.timer==5900){
+                        this.battle.combatants[4].speech.text="You shouldn't have done that."
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer==5960){
+                        transition.trigger=true
+                        transition.scene='battle'
+                    }else if(this.timer>=5960&&this.timer<6500&&!transition.trigger&&transition.anim>0){
+                        this.battle.end()
+                        this.timer=6000
                     }
                 break
             }

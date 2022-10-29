@@ -21,7 +21,7 @@ class battle{
         this.setTime=0
         this.speed=1
         this.currency={money:500}
-        this.story=76
+        this.story=78
         this.complete={main:false}
 	}
     end(){
