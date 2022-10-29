@@ -2,7 +2,7 @@ types={
     combatant:[
         {name:'',alt:'',life:0,speed:0,damage:0,attacks:[],height:0,reward:0,pattern:0},//0
         {name:'Bill',alt:'',life:28,speed:11,damage:1,attacks:[1,27],height:75,reward:0,pattern:0},
-        {name:'Tom',alt:'',life:36,speed:15,damage:1,attacks:[2,30],height:75,reward:0,pattern:0},
+        {name:'Tom',alt:'',life:36,speed:15,damage:100,attacks:[2,30],height:75,reward:0,pattern:0},
         {name:'Jon',alt:'',life:24,speed:9,damage:1,attacks:[24,33],height:75,reward:0,pattern:0},
         {name:'Eddy',alt:'',life:26,speed:12,damage:1,attacks:[25,36,37],height:72,reward:0,pattern:0},
         {name:'Lalex',alt:'',life:32,speed:14,damage:1,attacks:[1,40,41],height:78,reward:0,pattern:0},
@@ -99,7 +99,7 @@ types={
         {name:'Big Wiper',alt:'',life:78,speed:13,damage:3,attacks:[2,7,110],height:90,reward:20,pattern:0},
         {name:'Wiper Boss',alt:'',life:1,speed:0,damage:0,attacks:[],height:75,reward:0,pattern:0},
         {name:'Wiper Messenger',alt:'',life:26,speed:0,damage:0,attacks:[],height:75,reward:0,pattern:0},
-        {name:'Sakura',alt:'',life:300,speed:1,damage:3000,attacks:[124,125,126,133],height:72,reward:0,pattern:1},
+        {name:'Sakura',alt:'',life:300,speed:8,damage:6,attacks:[124,125,126,133],height:72,reward:0,pattern:1},
         {name:'Hider',alt:'',life:30,speed:0,damage:0,attacks:[],height:75,reward:0,pattern:0},//100
         {name:'Fat Hider',alt:'',life:75,speed:0,damage:0,attacks:[],height:66,reward:0,pattern:0},
         {name:'Long Hider',alt:'',life:45,speed:0,damage:0,attacks:[],height:84,reward:0,pattern:0},

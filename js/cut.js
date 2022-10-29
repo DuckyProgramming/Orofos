@@ -4184,14 +4184,47 @@ class cut{
                             this.battle.combatants[g].position.x-=100
                         }
                         this.healParty()
-                        this.battle.combatants[4]=new combatant(this.layer,700,450,99,31,1,4)
+                        this.battle.combatants[4]=new combatant(this.layer,750,450,99,31,1,4)
                         this.battle.combatants[4].life=1
                         this.timer=6500
-                    }else if(this.timer>=6500&&this.timer<6550){
+                        this.speed=1
+                    }
+                    if(this.timer>=6500&&this.timer<6550){
                         for(g=0,lg=this.battle.combatants.length;g<lg;g++){
                             if(g<4){
                                 this.battle.combatants[g].position.x+=2
                                 this.battle.combatants[g].rate[0]+=2
+                            }
+                        }
+                    }else if(this.timer==6550){
+                        this.battle.combatants[4].speech.text="Please, don't kill me! I'll do anything-"
+                        this.battle.combatants[4].speech.time=30
+                    }else if(this.timer==6580){
+                        this.battle.combatants[3].speech.text="Quiet."
+                        this.battle.combatants[3].speech.time=60
+                    }else if(this.timer==6640){
+                        this.battle.combatants[2].speech.text="Well, boys, we got her."
+                        this.battle.combatants[2].speech.time=60
+                        this.battle.characters.push(new combatant(this.layer,1050,450,88,0,1,100))
+                        this.battle.characters.push(new combatant(this.layer,1000,450,13,0,1,101))
+                        this.battle.characters.push(new combatant(this.layer,1100,450,13,0,1,102))
+                    }else if(this.timer>=6700&&this.timer<6780){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==100||this.timer<6760){
+                                this.battle.characters[g].position.x-=5
+                            }
+                        }
+                        for(g=0,lg=this.battle.combatants.length;g<lg;g++){
+                            if(g<4){
+                                this.battle.combatants[g].position.x-=1.25
+                                this.battle.combatants[g].rate[0]+=1.25
+                            }
+                        }
+                    }else if(this.timer==6780){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==100){
+                                this.battle.characters[g].speech.text="Gentlemen."
+                                this.battle.characters[g].speech.time=60
                             }
                         }
                     }
@@ -4212,7 +4245,6 @@ class cut{
                     }else if(this.timer==11180){
                         this.battle.combatants[4].speech.text="There are no good people\non Orofos, I guess."
                         this.battle.combatants[4].speech.time=60
-                        this.speed=1
                     }else if(this.timer==11240){
                         this.battle.combatants[4].speech.text="Sorry."
                         this.battle.combatants[4].speech.time=60
