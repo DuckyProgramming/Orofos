@@ -71,3 +71,10 @@ function resetState(type){
 		break
 	}
 }
+function displayEnd(layer,end){
+	layer.image(graphics.end,0,0)
+	layer.fill(0)
+	layer.textSize(20)
+	layer.noStroke()
+	layer.text(end,20,20)
+}

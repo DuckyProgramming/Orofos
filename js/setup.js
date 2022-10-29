@@ -38,6 +38,9 @@ function setup(){
     current.setupStack()
     current.cut.setup(1)
     run={fore:[entities.particles]}
+
+
+    setupEnd(current.cut.ending)
 }
 function windowResized(){
     resizeCanvas(windowWidth-50,windowHeight-50)

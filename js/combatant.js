@@ -2644,11 +2644,11 @@ class combatant{
 				if(this.anim[6]<1){
 					this.layer.translate(-8-sin(this.rate[0]*2)*3,0)
 					this.layer.rotate(-atan2(-4-sin(this.rate[0]*2)*3,30))
-					this.layer.image(graphics.minor[1],-4*(1-this.anim[6]),-4*(1-this.anim[6]),8*(1-this.anim[6]),8*(1-this.anim[6]))
+					this.layer.image(graphics.minor[1],-4*(1-this.anim[6])*this.fade,-4*(1-this.anim[6])*this.fade,8*(1-this.anim[6])*this.fade,8*(1-this.anim[6])*this.fade)
 					this.layer.rotate(atan2(-4-sin(this.rate[0]*2)*3,30))
 					this.layer.translate(16+sin(this.rate[0]*2)*6,0)
 					this.layer.rotate(atan2(-4-sin(this.rate[0]*2)*3,30))
-					this.layer.image(graphics.minor[1],-4*(1-this.anim[6]),-4*(1-this.anim[6]),8*(1-this.anim[6]),8*(1-this.anim[6]))
+					this.layer.image(graphics.minor[1],-4*(1-this.anim[6])*this.fade,-4*(1-this.anim[6])*this.fade,8*(1-this.anim[6])*this.fade,8*(1-this.anim[6])*this.fade)
 					this.layer.rotate(-atan2(-4-sin(this.rate[0]*2)*3,30))
 					this.layer.translate(-8-sin(this.rate[0]*2)*3,0)
 				}
@@ -2715,11 +2715,11 @@ class combatant{
 				if(this.anim[6]<1){
 					this.layer.translate(-8-sin(this.rate[0]*2)*3,0)
 					this.layer.rotate(-atan2(-4-sin(this.rate[0]*2)*3,30))
-					this.layer.image(graphics.minor[5],-4*(1-this.anim[6]),-4*(1-this.anim[6]),8*(1-this.anim[6]),8*(1-this.anim[6]))
+					this.layer.image(graphics.minor[5],-4*(1-this.anim[6])*this.fade,-4*(1-this.anim[6])*this.fade,8*(1-this.anim[6])*this.fade,8*(1-this.anim[6])*this.fade)
 					this.layer.rotate(atan2(-4-sin(this.rate[0]*2)*3,30))
 					this.layer.translate(16+sin(this.rate[0]*2)*6,0)
 					this.layer.rotate(atan2(-4-sin(this.rate[0]*2)*3,30))
-					this.layer.image(graphics.minor[5],-4*(1-this.anim[6]),-4*(1-this.anim[6]),8*(1-this.anim[6]),8*(1-this.anim[6]))
+					this.layer.image(graphics.minor[5],-4*(1-this.anim[6])*this.fade,-4*(1-this.anim[6])*this.fade,8*(1-this.anim[6])*this.fade,8*(1-this.anim[6])*this.fade)
 					this.layer.rotate(-atan2(-4-sin(this.rate[0]*2)*3,30))
 					this.layer.translate(-8-sin(this.rate[0]*2)*3,0)
 				}
@@ -2741,20 +2741,32 @@ class combatant{
 				this.layer.strokeWeight(1)
 				this.layer.line(-3,-60,1,-54)
 				this.layer.line(3,-60,1,-54)
+				this.layer.noStroke()
+				this.layer.fill(178,163,192,this.fade*(1-this.anim[9]))
+				this.layer.rect(0,-55.5,12,1)
 				this.layer.stroke(216,168,182,this.fade*(1-this.anim[9]))
 				this.layer.fill(251,242,245,this.fade*(1-this.anim[9]))
 				this.layer.beginShape()
 				this.layer.vertex(-6,-55)
 				this.layer.vertex(6,-55)
-				this.layer.vertex(10,-27)
-				this.layer.vertex(-10,-27)
+				this.layer.vertex(10,-28)
+				this.layer.vertex(9,-27)
+				this.layer.vertex(-9,-27)
+				this.layer.vertex(-10,-28)
 				this.layer.endShape()
 				this.layer.noStroke()
 				this.layer.beginShape()
 				this.layer.vertex(-6,-55)
 				this.layer.vertex(6,-55)
 				for(g=0;g<11;g++){
-					this.layer.vertex(10-g*2,-27+(g%2)*3)
+					this.layer.vertex(10-g*2,-28+(g%2)*3)
+				}
+				this.layer.endShape()
+				this.layer.beginShape()
+				this.layer.vertex(-6,-55)
+				this.layer.vertex(6,-55)
+				for(g=0;g<11;g++){
+					this.layer.vertex(10-g*2,-26-(g%2)*3)
 				}
 				this.layer.endShape()
 				this.layer.fill(249,218,226,this.fade*(1-this.anim[9]))
@@ -2762,9 +2774,29 @@ class combatant{
 				this.layer.vertex(-6,-55)
 				this.layer.vertex(6,-55)
 				for(g=0;g<11;g++){
-					this.layer.vertex(10-g*2,-31-(g%2)*3)
+					this.layer.vertex(10.4-g*2.05,-29-g*0.6+(g%2)*3)
 				}
 				this.layer.endShape()
+				this.layer.beginShape()
+				this.layer.vertex(-6,-55)
+				this.layer.vertex(6,-55)
+				for(g=0;g<11;g++){
+					this.layer.vertex(10.4-g*2.05,-25-g*0.6-(g%2)*3)
+				}
+				this.layer.endShape()
+				this.layer.fill(114,40,119,this.fade*(1-this.anim[8]))
+				for(g=0;g<5;g++){
+					this.layer.ellipse(8-g*4,-27,0.25,1)
+					this.layer.ellipse(8.5-g*4,-27,0.125,0.5)
+					this.layer.ellipse(7.5-g*4,-27,0.125,0.5)
+				}
+				for(g=0;g<4;g++){
+					this.layer.ellipse(6-g*4,-27.5,0.125,0.5)
+				}
+				this.layer.fill(229,217,234,this.fade*(1-this.anim[8]))
+				for(g=0;g<10;g++){
+					//this.layer.ellipse(9-g*2,-40,2,4)
+				}
 				this.layer.stroke(231,201,211,this.fade*(1-this.anim[8]))
 				this.layer.fill(209,80,84,this.fade*(1-this.anim[8]))
 				this.layer.quad(1,-49,1,-45,6,-54,5,-58)
@@ -2780,7 +2812,7 @@ class combatant{
 				this.layer.line(1,-53,2,-51.5)
 				this.layer.noStroke()
 				for(g=1;g<6;g++){
-					this.layer.fill(196+g*38/2,92+g*59/2,98*61/2,this.fade)
+					this.layer.fill(206+g*38/3,107+g*59/3,113+g*61/3,this.fade)
 					this.layer.quad(13.5-(g%2)*2,-72+g*3,12-(g%2)*2,-66+g*3,10.5-(g%2)*2,-72+g*3,12-(g%2)*2,-78+g*3)
 				}
 				this.layer.fill(255,239,224,this.fade)
@@ -2804,11 +2836,11 @@ class combatant{
 				this.layer.triangle(-18,-75,9,-75,-18,-69)
 				this.layer.triangle(-18,-75,9,-75,-9,-66)
 				this.layer.stroke(111,23,27,this.fade)
-				this.layer.strokeWeight(1)
+				this.layer.strokeWeight(0.5)
 				this.layer.line(13,-58.5,9,-58.5)
-				this.layer.image(graphics.minor[6],-20,-100,30,30)
+				this.layer.image(graphics.minor[6],-5-15*this.fade,-77.5-22.5*this.fade,30*this.fade,45*this.fade)
 				if(this.anim[8]<1){
-					this.layer.image(graphics.minor[7],-3-15*(1-this.anim[8]),-42-15*(1-this.anim[8]),30*(1-this.anim[8]),30*(1-this.anim[8]))
+					this.layer.image(graphics.minor[7],-3-15*(1-this.anim[8])*this.fade,-42-15*(1-this.anim[8])*this.fade,30*(1-this.anim[8])*this.fade,30*(1-this.anim[8])*this.fade)
 				}
 				this.layer.translate(0,2)
 			break

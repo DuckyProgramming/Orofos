@@ -11,7 +11,7 @@ class cut{
         this.purchase={weapon:[],uses:[],trigger:false,select:0,choice:0}
         this.firstAlive=-1
         this.give=0
-        this.ending=-1
+        this.ending=0
     }
     setup(type){
         this.type=type
@@ -940,6 +940,9 @@ class cut{
                         }
                     break
                 }
+            break
+            case 'end':
+                setupEnd(this.ending)
             break
         }
     }

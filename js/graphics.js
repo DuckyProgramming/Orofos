@@ -10,7 +10,7 @@ function setupGraphics(){
 	graphics.minor.push(createGraphics(200,200))
 	graphics.minor.push(createGraphics(200,200))
 	graphics.minor.push(createGraphics(40,40))
-	graphics.minor.push(createGraphics(80,80))
+	graphics.minor.push(createGraphics(80,120))
 	graphics.minor.push(createGraphics(80,80))
 	graphics.minor.push(createGraphics(200,200))
     angleMode(DEGREES)
@@ -184,7 +184,7 @@ function setupGraphics(){
 	graphics.minor[2].bezierVertex(140,120,80,90,140,22)
 	graphics.minor[2].endShape()
 	graphics.minor[2].ellipse(100,100,60,60)
-	graphics.minor[2].image(graphics.minor[6],60,60,80,80)
+	graphics.minor[2].image(graphics.minor[6],60,60,80,120)
 	graphics.minor[2].image(graphics.minor[1],80,12.5,40,40)
 	graphics.minor[2].image(graphics.minor[5],80,12.5,40,40)
 	for(a=0;a<2;a++){
@@ -237,5 +237,17 @@ function setupGraphics(){
 			graphics.minor[3+a].strokeWeight(6)
 			graphics.minor[3+a].line(85,85,115,115)
 		}
+	}
+}
+function setupEnd(end){
+	graphics.end=createGraphics(graphics.main.width,graphics.main.height)
+	setupLayer(graphics.end)
+	switch(end){
+		case 0:
+			graphics.end.background(200,170,120)
+			graphics.characters.push(new combatant(graphics.end,450,580,99,0,0,0))
+			graphics.characters[0].size=6
+			//graphics.characters[0].display()
+		break
 	}
 }
