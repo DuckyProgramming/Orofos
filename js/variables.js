@@ -13,7 +13,7 @@ types={
         {name:'Fat Human',alt:'',life:25,speed:15,damage:1,attacks:[5],height:66,reward:15,pattern:0},//10
         {name:'Long Human',alt:'',life:15,speed:8,damage:1,attacks:[4],height:84,reward:15,pattern:0},
         {name:'Big Human',alt:'',life:30,speed:12,damage:2,attacks:[2,7],height:90,reward:20,pattern:0},
-/**/    {name:'Management Soldier',alt:'',life:240,speed:9,damage:2,attacks:[],height:78,reward:80,pattern:0},
+        {name:'Management Soldier',alt:'',life:240,speed:9,damage:2,attacks:[],height:78,reward:80,pattern:0},
         {name:'Management Officer',alt:'',life:150,speed:9,damage:2,attacks:[],height:78,reward:160,pattern:0},
         {name:'Duck',alt:'',life:12,speed:6,damage:1,attacks:[39],height:60,reward:5,pattern:0},
         {name:'Desert Control',alt:'Soldier',life:120,speed:9,damage:2,attacks:[],height:78,reward:20,pattern:0},
@@ -88,7 +88,7 @@ types={
         {name:'Big Duck Force',alt:'',life:60,speed:10,damage:1,attacks:[39,93],height:75,reward:20,pattern:0},
         {name:'General Duckion',alt:'',life:240,speed:12,damage:3,attacks:[103,39,70],height:75,reward:100,pattern:1},
         {name:'Joking Jimmy',alt:'',life:150,speed:11,damage:1,attacks:[104],height:66,reward:100,pattern:0},
-/**/    {name:'Director Illyesc',alt:'',life:900,speed:18,damage:2,attacks:[105,106,107],height:78,reward:10000,pattern:1},
+        {name:'Director Illyesc',alt:'',life:900,speed:18,damage:2,attacks:[105,106,107],height:78,reward:10000,pattern:1},
         {name:'Bulwark',alt:'',life:30,speed:15,damage:1,attacks:[1,109],height:75,reward:10,pattern:0},
         {name:'Fat Bulwark',alt:'',life:75,speed:23,damage:1,attacks:[5,109],height:66,reward:15,pattern:0},//90
         {name:'Long Bulwark',alt:'',life:45,speed:12,damage:1,attacks:[4,109],height:84,reward:15,pattern:0},
@@ -99,7 +99,7 @@ types={
         {name:'Big Wiper',alt:'',life:78,speed:13,damage:3,attacks:[2,7,110],height:90,reward:20,pattern:0},
         {name:'Wiper Boss',alt:'',life:1,speed:0,damage:0,attacks:[],height:75,reward:0,pattern:0},
         {name:'Wiper Messenger',alt:'',life:26,speed:0,damage:0,attacks:[],height:75,reward:0,pattern:0},
-/**/    {name:'Sakura',alt:'',life:300,speed:8,damage:3,attacks:[124,125,126,133],height:72,reward:0,pattern:1},
+        {name:'Sakura',alt:'',life:300,speed:8,damage:3,attacks:[124,125,126,133],height:72,reward:0,pattern:1},
         {name:'Hider',alt:'',life:30,speed:0,damage:0,attacks:[],height:75,reward:0,pattern:0},//100
         {name:'Fat Hider',alt:'',life:75,speed:0,damage:0,attacks:[],height:66,reward:0,pattern:0},
         {name:'Long Hider',alt:'',life:45,speed:0,damage:0,attacks:[],height:84,reward:0,pattern:0},

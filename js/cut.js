@@ -11,6 +11,7 @@ class cut{
         this.purchase={weapon:[],uses:[],trigger:false,select:0,choice:0}
         this.firstAlive=-1
         this.give=0
+        this.ending=-1
     }
     setup(type){
         this.type=type
@@ -3776,6 +3777,24 @@ class cut{
                             }
                         }
                     }else if(this.timer>=445&&this.timer<1645){
+                        if(this.timer<=1345){
+                            this.timer=1345
+                        }
+                        if(this.timer%30==15&&this.timer<1345){
+                            this.battle.characters.push(new combatant(this.layer,1050+random(-50,50),450+random(0,10),floor(random(100,104)),0,1,100))
+                            this.battle.characters[this.battle.characters.length-1].die()
+                        }else if(this.timer==1405){
+                            this.battle.characters.push(new combatant(this.layer,1050+random(-50,50),450+random(0,10),104,0,1,100))
+                            this.battle.characters[this.battle.characters.length-1].die()
+                            this.battle.combatants[4]=new combatant(this.layer,950,450,99,31,1,4)
+                            this.battle.combatants[4].flip=1
+                        }else if(this.timer==600){
+                            this.battle.combatants[3].speech.text="They're all dead.\nSo many of them, all killed."
+                            this.battle.combatants[3].speech.time=60
+                        }else if(this.timer==900){
+                            this.battle.combatants[3].speech.text="This is a massacre."
+                            this.battle.combatants[3].speech.time=60
+                        }
                         for(g=0,lg=this.battle.combatants.length;g<lg;g++){
                             if(g<4){
                                 this.battle.combatants[g].rate[0]+=5
@@ -3783,6 +3802,15 @@ class cut{
                         }
                         for(g=0,lg=this.battle.characters.length;g<lg;g++){
                             this.battle.characters[g].position.x-=5
+                            if(this.battle.characters[g].position.x<-150){
+                                this.battle.characters.splice(g,1)
+                                g--
+                                lg--
+                            }
+                        }
+                    }else if(this.timer>=1645&&this.timer<1725){
+                        for(g=0,lg=this.battle.combatants.length;g<lg;g++){
+                            this.battle.combatants[g].position.x-=5/2
                         }
                     }
                     if(this.timer>=175&&this.timer<190){
@@ -3795,6 +3823,209 @@ class cut{
                         this.refillParty()
                     }else if(this.timer==265){
                         this.battle.combatants[5].flip=1
+                    }else if(this.timer==1725){
+                        this.battle.combatants[4].speech.text="Wait...stop, please."
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer==1785){
+                        this.battle.combatants[4].speech.text="You know, it doesn't...\ndoesn't have to be this way.\nIt...never had to be."
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer==1845){
+                        this.battle.combatants[4].speech.text="I know you want to...\nyou know what I mean.\nBut you don't have to..."
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer==1905){
+                        this.battle.combatants[4].speech.text="Please just listen to me...\nYou don't have to this...\nYou can just leave..."
+                        this.battle.combatants[4].speech.time=15
+                        this.layer.strokeWeight(4)
+                        this.layer.stroke(100,85,60)
+                        this.layer.fill(125,105,75)
+                        this.layer.rect(170,90,300,40)
+                        this.layer.rect(170,140,300,40)
+                        this.layer.fill(0)
+                        this.layer.noStroke()
+                        this.layer.textSize(20)
+                        this.layer.text('I have to do this',170,90)
+                        this.layer.text("I don't have to do this",170,140)
+                        this.timer--
+                    }else if(this.timer>=1920&&this.timer<1940){
+                        for(g=0,lg=this.battle.combatants.length;g<lg;g++){
+                            if(g<4){
+                                this.battle.combatants[g].position.x-=5/2
+                                this.battle.combatants[g].rate[0]+=5/2
+                            }
+                        }
+                    }else if(this.timer==1940){
+                        this.battle.combatants[4].flip=-1
+                        this.battle.combatants[4].speech.text="Thanks for showing you care.\nThe other people here...didn't.\nYou've seen what happened to them."
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer==2000){
+                        this.battle.combatants[4].speech.text="I understand what you...wanted\nfrom me. What all of you wanted.\nYou all think so...similarly."
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer==2060){
+                        this.battle.combatants[4].speech.text="But you really aren't all...the same.\nSome of you really do have\na sense of...morality."
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer==2120){
+                        this.battle.combatants[4].speech.text="If you keep your..end of the...\ndeal, I'll try my best to help\nyou out as much as I can."
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer>=2135&&this.timer<2260){
+                        this.battle.combatants[5].position.x+=7
+                        this.battle.combatants[5].rate[0]+=7
+                    }else if(this.timer==2260){
+                        this.battle.combatants[5].speech.text="Well, I guess that's just how\nit is. No sense in changing things\nwhen all of you are against me."
+                        this.battle.combatants[5].speech.time=60
+                    }else if(this.timer==2320){
+                        this.battle.combatants[5].speech.text="If this is what you want,\nthis is what I'll take."
+                        this.battle.combatants[5].speech.time=60
+                    }else if(this.timer>=2380&&this.timer<2460){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==100||this.timer<2440){
+                                this.battle.characters[g].position.x-=5
+                            }
+                        }
+                    }else if(this.timer==2460){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==100){
+                                this.battle.characters[g].speech.text="It's good to see you again, Sakura.\nWe'll finish up for now."
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                    }else if(this.timer>=2520&&this.timer<2540||this.timer>=2620&&this.timer<2640){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==100){
+                                this.battle.characters[g].position.x-=5/4
+                                this.battle.characters[g].rate[0]+=5/4
+                            }
+                        }
+                    }else if(this.timer>=2540&&this.timer<2555){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==100){
+                                this.battle.characters[g].anim[0]+=1/10
+                            }
+                        }
+                    }else if(this.timer>=2575&&this.timer<2590){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==100){
+                                this.battle.characters[g].anim[0]-=1/10
+                            }
+                        }
+                    }else if(this.timer==2555){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==100){
+                                this.battle.characters[g].speech.text="Deal with our little witness problem..."
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                    }
+                    if(this.timer==2575){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==100){
+                                entities.particles.push(new particle(this.layer,this.battle.characters[g].position.x-25,this.battle.characters[g].position.y-this.battle.characters[g].height*0.7,3,270,3,25/2,[50,255,50]))
+                                entities.particles[entities.particles.length-1].end=5
+                            }
+                        }
+                    }
+                    if(this.timer==2580){
+                        this.battle.combatants[5].life=0
+                    }else if(this.timer==3160){
+                        this.battle.currency.money+=100000
+                        for(h=0,lh=this.battle.characters.length;h<lh;h++){
+                            if(this.battle.characters[h].id==100){
+                                entities.particles.push(new particle(this.layer,this.battle.characters[h].position.x,this.battle.characters[h].position.y,6,0,2,1,[255,225,0]))
+                                entities.particles[entities.particles.length-1].value=100000
+                            }
+                        }
+                    }
+                    if(this.timer>=2520&&this.timer<2640){
+                        this.battle.combatants[4].flip=1
+                        this.battle.combatants[4].position.x+=0.5
+                        this.battle.combatants[4].rate[0]+=0.5
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==101||this.battle.characters[g].id==102){
+                                this.battle.characters[g].flip=1
+                                this.battle.characters[g].position.x+=0.5
+                                this.battle.characters[g].rate[0]+=0.5
+                            }
+                        }
+                    }else if(this.timer==2640){
+                        this.battle.combatants[4].flip=-1
+                        this.battle.combatants[4].speech.text="No, Illysec!\nThey...they helped me get here!\nI wouldn't be here without their help!"
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer==2700){
+                        this.battle.combatants[4].speech.text="Please, I'm begging you!\nWhatever you do, don't kill them!\nThey're good people!"
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer==2760){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==100){
+                                this.battle.characters[g].speech.text="Take her away."
+                                this.battle.characters[g].speech.time=60
+                            }
+                        }
+                    }else if(this.timer>=2820&&this.timer<2940){
+                        if(this.timer==2820){
+                            this.battle.combatants[4].speech.text="No, just don't kill them!\nThey don't deserve to die!"
+                            this.battle.combatants[4].speech.time=60
+                        }
+                        this.battle.combatants[4].position.x+=2
+                        this.battle.combatants[4].rate[0]+=2
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==101||this.battle.characters[g].id==102){
+                                this.battle.characters[g].position.x+=2
+                                this.battle.characters[g].rate[0]+=2
+                            }else if(this.battle.characters[g].id==100){
+                                this.battle.characters[g].position.x--
+                                this.battle.characters[g].rate[0]++
+                            }
+                        }
+                    }else if(this.timer==2940){
+                        this.battle.combatants[4].speech.text="I don't trust Sakura.\nNot one bit. But I'll take\nher word for this one."
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer==3000){
+                        this.battle.combatants[4].speech.text="(Curse you,\nManagement Composite Organisms!)"
+                        this.battle.combatants[4].speech.time=30
+                    }else if(this.timer==3030){
+                        this.battle.combatants[4].speech.text="I must thank you for helping us resolve\nour issue. Using the Management's resources,\nwe can compensate you in many ways."
+                        this.battle.combatants[4].speech.time=15
+                        this.layer.strokeWeight(4)
+                        this.layer.stroke(100,85,60)
+                        this.layer.fill(125,105,75)
+                        this.layer.rect(170,90,300,40)
+                        this.layer.rect(170,140,300,40)
+                        this.layer.fill(0)
+                        this.layer.noStroke()
+                        this.layer.textSize(20)
+                        this.layer.text('Money',170,90)
+                        this.layer.text('A way out',170,140)
+                        this.timer--
+                    }else if(this.timer==3045){
+                        this.battle.combatants[4].speech.text="As you wish."
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer>=3145&&this.timer<3160){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==100){
+                                this.battle.characters[g].anim[0]+=1/15
+                            }
+                        }
+                    }else if(this.timer>=3160&&this.timer<3175){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==100){
+                                this.battle.characters[g].anim[0]-=1/15
+                            }
+                        }
+                    }else if(this.timer==3175){
+                        this.battle.combatants[4].speech.text="The Management is eternally grateful."
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer==3235){
+                        this.battle.combatants[4].speech.text="Goodbye."
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer>=3295&&this.timer<3415){
+                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
+                            if(this.battle.characters[g].id==100){
+                                this.battle.characters[g].position.x+=5
+                                this.battle.characters[g].rate[0]+=5
+                            }
+                        }
+                    }else if(this.timer>=3415){
+                        transition.trigger=true
+                        transition.scene='end'
                     }
                 break
             }
@@ -4036,7 +4267,28 @@ class cut{
                     }
                 }
             break
-
+            case 132:
+                if(this.timer==1905){
+                    if(pointInsideBox({position:inputs.rel},{position:{x:170,y:90},width:300,height:40})){
+                        this.timer=5000
+                    }
+                    if(pointInsideBox({position:inputs.rel},{position:{x:170,y:140},width:300,height:40})){
+                        this.timer++
+                        this.battle.characters.push(new combatant(this.layer,1050,450,88,0,1,100))
+                        this.battle.characters.push(new combatant(this.layer,1000,450,13,0,1,101))
+                        this.battle.characters.push(new combatant(this.layer,1100,450,13,0,1,102))
+                    }
+                }else if(this.timer==3030){
+                    if(pointInsideBox({position:inputs.rel},{position:{x:170,y:90},width:300,height:40})){
+                        this.timer++
+                        this.ending=0
+                    }
+                    if(pointInsideBox({position:inputs.rel},{position:{x:170,y:140},width:300,height:40})){
+                        this.timer=4000
+                        this.ending=1
+                    }
+                }
+            break
         }
     }
     spendParticle(value){
@@ -4082,7 +4334,7 @@ class cut{
     genDead(){
         this.list=[9,10,11,12,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,47,48,49,50,51,52,53,54,55,56,57,58,59,60,62,63,64,65,66,77,78,79,85,93,94,95,96,100,10,102,103,106,107,108,109,111,112,113,114,116,117,118,119]
         for(h=0;h<4;h++){
-            this.battle.combatants[4+h]=new combatant(this.layer,1050+h*200+random(-50,50),450,this.list[min(floor(random(0,this.list.length)),this.list.length-1)],0,1,4+h)
+            this.battle.combatants[4+h]=new combatant(this.layer,1050+h*200+random(-50,50),450+random(0,10),this.list[min(floor(random(0,this.list.length)),this.list.length-1)],0,1,4+h)
             this.battle.combatants[4+h].die()
         }
     }
