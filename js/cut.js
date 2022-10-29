@@ -718,6 +718,43 @@ class cut{
                 this.battle.combatants[4]=new combatant(this.layer,1050,450,98,2,1,4)
                 this.battle.combatants[4].life*=0.75
             break
+            case 122:
+                this.battle.story=72
+                this.battle.combatants[4]=new combatant(this.layer,1050,450,15,44,1,4)
+                this.battle.combatants[4].life*=4
+                this.battle.combatants[4].base.life*=4
+                this.battle.combatants[4].collect.life*=4
+                this.battle.combatants[4].damage*=4
+                this.battle.combatants[4].name='Broken Duck'
+            break
+            case 123:
+                this.list=[14,32,45]
+                this.battle.combatants[4]=new combatant(this.layer,1050,450,floor(random(106,109)),this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,4)
+                this.battle.combatants[5]=new combatant(this.layer,1150,450,floor(random(106,109)),this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,5)
+            break
+            case 124:
+                this.list=[14,32,45]
+                this.battle.combatants[4]=new combatant(this.layer,1050,450,floor(random(106,110)),this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,4)
+                this.battle.combatants[5]=new combatant(this.layer,1150,450,floor(random(106,110)),this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,5)
+                this.battle.combatants[6]=new combatant(this.layer,1250,450,floor(random(106,110)),this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,6)
+            break
+            case 125:
+                this.list=[14,32,45]
+                this.battle.combatants[4]=new combatant(this.layer,1050,450,floor(random(106,110)),this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,4)
+                this.battle.combatants[5]=new combatant(this.layer,1150,450,floor(random(106,110)),this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,5)
+                this.battle.combatants[6]=new combatant(this.layer,1250,450,floor(random(106,110)),this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,6)
+                this.battle.combatants[7]=new combatant(this.layer,1350,450,floor(random(106,110)),this.list[min(floor(random(0,this.list.length)),this.list.length-1)],1,7)
+            break
+            case 126:
+                this.battle.story=73
+                this.battle.combatants[4]=new combatant(this.layer,1050,450,110,33,1,4)
+                this.battle.combatants[5]=new combatant(this.layer,1150,450,109,45,1,5)
+            break
+            case 127:
+                this.battle.story=74
+                this.battle.combatants[4]=new combatant(this.layer,1050,450,93,2,1,4)
+                this.battle.combatants[5]=new combatant(this.layer,1150,450,94,2,1,5)
+            break
         }
     }
     convertBattle(){
@@ -836,6 +873,12 @@ class cut{
                         this.battle.combatants[5]=new combatant(this.layer,1150,450,16,2,1,5)
                         this.battle.combatants[6]=new combatant(this.layer,1250,450,17,2,1,6)
                         this.battle.combatants[7]=new combatant(this.layer,1350,450,105,9,1,7)
+                    break
+                    case 126:
+                        this.battle.combatants[4]=new combatant(this.layer,1050,450,107,14,1,4)
+                        this.battle.combatants[5]=new combatant(this.layer,1150,450,108,32,1,5)
+                        this.battle.combatants[6]=new combatant(this.layer,1250,450,109,45,1,6)
+                        this.battle.combatants[7]=new combatant(this.layer,1350,450,110,33,1,7)
                     break
 
                 }
@@ -1140,7 +1183,7 @@ class cut{
                 break
                 case 5: case 6: case 7: case 11: case 12: case 13: case 16: case 17: case 23: case 24: case 25: case 29: case 30: case 31: case 34: case 35: case 36: case 43: case 44: case 49:
                 case 50: case 51: case 55: case 56: case 57: case 60: case 61: case 62: case 65: case 66: case 70: case 71: case 72: case 79: case 80: case 81: case 85: case 86: case 87: case 91:
-                case 92: case 96: case 97: case 98: case 102: case 103: case 104: case 109: case 110: case 111: case 116: case 117: case 118:
+                case 92: case 96: case 97: case 98: case 102: case 103: case 104: case 109: case 110: case 111: case 116: case 117: case 118: case 123: case 124: case 125: case 127: case 128: case 129: case 130:
                     if(this.timer<35){
                         for(g=0,lg=this.battle.combatants.length;g<lg;g++){
                             if(this.battle.combatants[g].team==1){
@@ -2915,7 +2958,7 @@ class cut{
                         this.battle.combatants[4].speech.text="I wouldn't head forward if I\nwere you. The Wipers got\nambushed and a huge fight began."
                         this.battle.combatants[4].speech.time=60
                     }else if(this.timer==95){
-                        this.battle.combatants[this.firstAlive].speech.text="Aren't you going to fight us?."
+                        this.battle.combatants[this.firstAlive].speech.text="Aren't you going to fight us?"
                         this.battle.combatants[this.firstAlive].speech.time=60
                     }else if(this.timer==155){
                         this.battle.combatants[4].speech.text="I'm not insane. I\nknow any battle I can't win.\nIt comes with experience."
@@ -3435,6 +3478,16 @@ class cut{
                     }else if(this.timer>=95&&!transition.trigger&&transition.anim>0){
                         this.battle.end()
                         this.trigger=false
+                        for(g=0;g<4;g++){
+                            if(this.battle.combatants[g].team==0){
+                                this.battle.combatants[g].life=round(this.battle.combatants[g].life*1.2)
+                                this.battle.combatants[g].base.life=this.battle.combatants[g].life
+                                this.battle.combatants[g].collect.life=this.battle.combatants[g].life
+                            }
+                        }
+                        for(g=1;g<9;g++){
+                            types.combatant[g].life=round(types.combatant[g].life*1.2)
+                        }
                     }
                 break
                 case 114:
@@ -3455,7 +3508,7 @@ class cut{
                         this.battle.combatants[4].speech.text="But that's not how you work,\nis it? You don't care about all\nthose lives. Just obstacles."
                         this.battle.combatants[4].speech.time=60
                     }else if(this.timer==215){
-                        this.battle.combatants[4].speech.text="Just walk away.\nYou don't have to do this.\nThat girl isn't even that-whatever."
+                        this.battle.combatants[4].speech.text="You can still stop.\nThat girl isn't even that-whatever.\nDamn it, this isn't going to work."
                         this.battle.combatants[4].speech.time=60
                     }else if(this.timer==275){
                         transition.trigger=true
@@ -3585,7 +3638,66 @@ class cut{
                         this.trigger=false
                     }
                 break
-                
+                case 122:
+                    if(this.timer<35){
+                        for(g=0,lg=this.battle.combatants.length;g<lg;g++){
+                            if(this.battle.combatants[g].team==1){
+                                this.battle.combatants[g].position.x-=10
+                                this.battle.combatants[g].rate[0]+=10
+                            }
+                        }
+                    }else if(this.timer==35){
+                        this.battle.combatants[4].speech.text="You remember me, don't you?\nHow I said I wasn't going to fight you?"
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer==95){
+                        this.battle.combatants[this.firstAlive].speech.text="You didn't want to."
+                        this.battle.combatants[this.firstAlive].speech.time=60
+                    }else if(this.timer==155){
+                        this.battle.combatants[4].speech.text="Times since then have\nchanged. You have to stop.\nYou can't keep doing this."
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer==215){
+                        this.battle.combatants[this.firstAlive].speech.text="Doing what?"
+                        this.battle.combatants[this.firstAlive].speech.time=60
+                    }else if(this.timer==275){
+                        this.battle.combatants[4].speech.text="I know I can't win. But if I do,\nI will have saved the world."
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer==335){
+                        transition.trigger=true
+                        transition.scene='battle'
+                    }else if(this.timer>=335&&!transition.trigger&&transition.anim>0){
+                        this.battle.end()
+                        this.trigger=false
+                    }
+                break
+                case 126:
+                    if(this.timer<35){
+                        for(g=0,lg=this.battle.combatants.length;g<lg;g++){
+                            if(this.battle.combatants[g].team==1){
+                                this.battle.combatants[g].position.x-=10
+                                this.battle.combatants[g].rate[0]+=10
+                            }
+                        }
+                    }else if(this.timer==35){
+                        this.battle.combatants[4].speech.text="Well, look who just arrived.\nGuess it's time to finish this."
+                        this.battle.combatants[4].speech.time=60
+                    }else if(this.timer==95){
+                        transition.trigger=true
+                        transition.scene='battle'
+                    }else if(this.timer>=95&&!transition.trigger&&transition.anim>0){
+                        this.battle.end()
+                        this.trigger=false
+                        for(g=0;g<4;g++){
+                            if(this.battle.combatants[g].team==0){
+                                this.battle.combatants[g].life=round(this.battle.combatants[g].life*1.2)
+                                this.battle.combatants[g].base.life=this.battle.combatants[g].life
+                                this.battle.combatants[g].collect.life=this.battle.combatants[g].life
+                            }
+                        }
+                        for(g=1;g<9;g++){
+                            types.combatant[g].life=round(types.combatant[g].life*1.2)
+                        }
+                    }
+                break
             }
             this.count--
             this.timer++

@@ -16,12 +16,12 @@ class battle{
         this.combatantListing=[3,2,1,0,4,5,6,7]
         this.storage=[]
         this.reseting=false
-        this.totalMoved=62300
+        this.totalMoved=65850
         this.time=0
         this.setTime=0
         this.speed=1
         this.currency={money:500}
-        this.story=70
+        this.story=73
         this.complete={main:false}
 	}
     end(){
@@ -565,6 +565,12 @@ class battle{
                             this.cut.setup(110)
                         }else if(this.totalMoved>=59050&&this.totalMoved<60050&&floor(random(0,300))==0){
                             this.cut.setup(111)
+                        }else if(this.totalMoved>=62600&&this.totalMoved<63600&&floor(random(0,300))==0){
+                            this.cut.setup(123)
+                        }else if(this.totalMoved>=63600&&this.totalMoved<64600&&floor(random(0,300))==0){
+                            this.cut.setup(124)
+                        }else if(this.totalMoved>=64600&&this.totalMoved<65600&&floor(random(0,300))==0){
+                            this.cut.setup(125)
                         }
                     }
                 }
@@ -711,6 +717,18 @@ class battle{
                     this.cut.setup(120)
                 }else if(this.story==70&&this.totalMoved>=62300){
                     this.cut.setup(121)
+                }else if(this.story==71&&this.totalMoved>=62550){
+                    this.cut.setup(122)
+                }else if(this.story==72&&this.totalMoved>=65600){
+                    this.cut.setup(126)
+                }else if(this.story==73&&this.totalMoved>=65850){
+                    this.cut.setup(127)
+                }else if(this.story==73&&this.totalMoved>=66100){
+                    this.cut.setup(128)
+                }else if(this.story==74&&this.totalMoved>=66350){
+                    this.cut.setup(129)
+                }else if(this.story==75&&this.totalMoved>=66600){
+                    this.cut.setup(130)
                 }
             break
         }

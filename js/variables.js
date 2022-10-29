@@ -106,7 +106,7 @@ types={
         {name:'Big Hider',alt:'',life:90,speed:0,damage:0,attacks:[],height:90,reward:0,pattern:0},
         {name:'Hider Boss',alt:'',life:450,speed:0,damage:0,attacks:[],height:120,reward:0,pattern:0},
         {name:'The Commandant',alt:'',life:375,speed:15,damage:2,attacks:[111],height:78,reward:100,pattern:1},
-/**/    {name:'Bomber',alt:'',life:25,speed:10,damage:2,attacks:[1],height:75,reward:10,pattern:0},
+        {name:'Bomber',alt:'',life:25,speed:10,damage:2,attacks:[1],height:75,reward:10,pattern:0},
         {name:'Fat Bomber',alt:'',life:63,speed:15,damage:2,attacks:[5],height:66,reward:15,pattern:0},
         {name:'Long Bomber',alt:'',life:38,speed:8,damage:2,attacks:[4],height:84,reward:15,pattern:0},
         {name:'Big Bomber',alt:'',life:75,speed:12,damage:3,attacks:[2,7],height:90,reward:20,pattern:0},

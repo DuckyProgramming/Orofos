@@ -1128,7 +1128,7 @@ class attack{
                                 this.battle.combatants[g+4].status[h]=0
                             }
                         }else if(this.timer==130-g*10-this.user*10&&this.type==113){
-                            this.battle.combatants[g+4].status[0]++
+                            this.battle.combatants[g+4].status[0]+=3
                         }
                     }
                 break
@@ -2145,7 +2145,7 @@ class attack{
                                 this.battle.combatants[3-g].status[h]=0
                             }
                         }else if(this.timer==100-g*10+this.user*10&&this.type==113){
-                            this.battle.combatants[3-g].status[0]++
+                            this.battle.combatants[3-g].status[0]+=3
                         }
                     }
                 break
