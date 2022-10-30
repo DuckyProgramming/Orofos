@@ -43,7 +43,10 @@ function draw(){
             }
         break
         case 'end':
-            displayEnd(graphics.main,current.cut.ending)
+            displayEnd(graphics.main)
+        break
+        case 'menu':
+            displayMenu(graphics.main)
         break
     }
     stage.scale=min(width/graphics.main.width,height/graphics.main.height)

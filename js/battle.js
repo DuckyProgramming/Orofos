@@ -759,7 +759,8 @@ class battle{
                 }
             }else{
                 transition.trigger=true
-                transition.scene='defeat'
+                transition.scene='end'
+                this.cut.ending=-1
             }
         }
 	}

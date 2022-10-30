@@ -3,12 +3,11 @@ function setup(){
     setupGraphics()
     /*resetState(0)
     for(a=0,la=combatants.length;a<la;a++){
-        //this.combatants[a].id=floor(random(9,types.combatant.length))
+        this.combatants[a].id=floor(random(9,types.combatant.length))
     }
     for(a=0,la=combatants.length;a<la;a++){
-        //this.combatants[a].weapon=floor(random(0,types.weapon.length))
+        this.combatants[a].weapon=floor(random(0,types.weapon.length))
     }
-
     for(g=1;g<9;g++){
         types.combatant[g].life=round(types.combatant[g].life*1.2)
         types.combatant[g].life=round(types.combatant[g].life*1.2)
@@ -38,9 +37,6 @@ function setup(){
     current.setupStack()
     current.cut.setup(1)
     run={fore:[entities.particles]}
-
-
-    setupEnd(current.cut.ending)
 }
 function windowResized(){
     resizeCanvas(windowWidth-50,windowHeight-50)

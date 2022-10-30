@@ -11,7 +11,9 @@ class cut{
         this.purchase={weapon:[],uses:[],trigger:false,select:0,choice:0}
         this.firstAlive=-1
         this.give=0
-        this.ending=0
+        this.ending=-1
+        this.totalLife=0
+        this.totalBaseLife=0
     }
     setup(type){
         this.type=type
@@ -3821,7 +3823,7 @@ class cut{
                         }
                         for(g=0,lg=this.battle.characters.length;g<lg;g++){
                             this.battle.characters[g].position.x-=5
-                            if(this.battle.characters[g].position.x<-150){
+                            if(this.battle.characters[g].position.x<-100){
                                 this.battle.characters.splice(g,1)
                                 g--
                                 lg--
@@ -4202,6 +4204,7 @@ class cut{
                         }
                         this.healParty()
                         this.battle.combatants[4]=new combatant(this.layer,750,450,99,31,1,4)
+                        this.battle.combatants[4].anim[6]=1
                         this.battle.combatants[4].life=1
                         this.timer=6500
                     }
@@ -4303,9 +4306,12 @@ class cut{
                     }else if(this.timer>=9120&&this.timer<10000&&!transition.trigger&&transition.anim>0){
                         this.battle.end()
                         this.timer=20000
+                        this.totalLife=this.battle.combatants[0].life+this.battle.combatants[1].life+this.battle.combatants[2].life+this.battle.combatants[3].life
+                        this.totalBaseLife=this.battle.combatants[0].base.life+this.battle.combatants[1].base.life+this.battle.combatants[2].base.life+this.battle.combatants[3].base.life
                         this.healParty()
                         this.battle.combatants[4]=new combatant(this.layer,700,450,99,31,1,4)
                         this.battle.combatants[4].life=1
+                        this.battle.combatants[4].anim[6]=1
                         this.battle.characters=[]
                     }
                     if(this.timer>=10000&&this.timer<11000&&!transition.trigger&&transition.anim>0){

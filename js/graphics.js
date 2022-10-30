@@ -5,11 +5,11 @@ function setupGraphics(){
 		graphics.backgrounds[a].noStroke();
 	}
 	graphics.minor.push(createGraphics(200,200))
-	graphics.minor.push(createGraphics(40,40))
+	graphics.minor.push(createGraphics(160,160))
 	graphics.minor.push(createGraphics(200,200))
 	graphics.minor.push(createGraphics(200,200))
 	graphics.minor.push(createGraphics(200,200))
-	graphics.minor.push(createGraphics(40,40))
+	graphics.minor.push(createGraphics(160,160))
 	graphics.minor.push(createGraphics(160,240))
 	graphics.minor.push(createGraphics(160,160))
 	graphics.minor.push(createGraphics(200,200))
@@ -52,26 +52,26 @@ function setupGraphics(){
 	}
 	graphics.minor[1].noStroke()
 	graphics.minor[1].fill(224,181,156)
-	graphics.minor[1].ellipse(20,20,30,30)
+	graphics.minor[1].ellipse(80,80,120,120)
 	graphics.minor[1].fill(204,139,122)
-	graphics.minor[1].rect(20,20,30,1.5)
-	graphics.minor[1].rect(20,14.5,28,1.5)
-	graphics.minor[1].rect(20,25.5,28,1.5)
-	graphics.minor[1].rect(20,9,20,1.5)
-	graphics.minor[1].rect(20,31,20,1.5)
+	graphics.minor[1].rect(80,80,120,6)
+	graphics.minor[1].quad(24,55,136,55,137,61,23,61)
+	graphics.minor[1].quad(24,105,136,105,137,99,23,99)
+	graphics.minor[1].quad(41,33,119,33,124,39,36,39)
+	graphics.minor[1].quad(41,127,119,127,124,121,36,121)
 	graphics.minor[5].stroke(201,61,96)
-	graphics.minor[5].strokeWeight(6)
-	graphics.minor[5].line(8,12.5,20,34.25)
-	graphics.minor[5].line(32,12.5,20,34.25)
+	graphics.minor[5].strokeWeight(24)
+	graphics.minor[5].line(32,50,80,137)
+	graphics.minor[5].line(128,50,80,137)
 	graphics.minor[5].stroke(233,216,194)
-	graphics.minor[5].strokeWeight(2)
-	graphics.minor[5].point(20,33)
-	graphics.minor[5].point(16,26)
-	graphics.minor[5].point(24,26)
-	graphics.minor[5].point(12,19)
-	graphics.minor[5].point(28,19)
-	graphics.minor[5].point(8,12)
-	graphics.minor[5].point(32,12)
+	graphics.minor[5].strokeWeight(8)
+	graphics.minor[5].point(80,132)
+	graphics.minor[5].point(64,104)
+	graphics.minor[5].point(96,104)
+	graphics.minor[5].point(48,76)
+	graphics.minor[5].point(112,76)
+	graphics.minor[5].point(32,48)
+	graphics.minor[5].point(128,48)
 	graphics.minor[6].translate(80,140)
 	graphics.minor[6].scale(0.8)
 	graphics.minor[6].noStroke()
@@ -184,7 +184,7 @@ function setupGraphics(){
 	graphics.minor[2].bezierVertex(140,120,80,90,140,22)
 	graphics.minor[2].endShape()
 	graphics.minor[2].ellipse(100,100,60,60)
-	graphics.minor[2].image(graphics.minor[6],60,60,80,120)
+	graphics.minor[2].image(graphics.minor[6],60,40,80,120)
 	graphics.minor[2].image(graphics.minor[1],80,12.5,40,40)
 	graphics.minor[2].image(graphics.minor[5],80,12.5,40,40)
 	for(a=0;a<2;a++){
@@ -241,13 +241,152 @@ function setupGraphics(){
 }
 function setupEnd(end){
 	graphics.end=createGraphics(graphics.main.width,graphics.main.height)
+	graphics.characters=[]
 	setupLayer(graphics.end)
 	switch(end){
+		case -1:
+			graphics.end.background(200,170,120)
+			graphics.end.image(graphics.backgrounds[0],0,0)
+			for(a=0;a<4;a++){
+				graphics.characters.push(new combatant(graphics.end,150+a*200,550+random(0,20),current.combatants[a].type,0,0,0))
+				graphics.characters[a].size=2
+				graphics.characters[a].die()
+				graphics.characters[a].display()
+			}
+			graphics.end.noStroke()
+            graphics.end.fill(150,125,90)
+            graphics.end.rect(450,575,910,50)
+			graphics.end.fill(0)
+			graphics.end.textSize(40)
+			graphics.end.noStroke()
+			graphics.end.text('Game End\nDefeat',graphics.end.width/2,100)
+		break
 		case 0:
 			graphics.end.background(200,170,120)
-			graphics.characters.push(new combatant(graphics.end,450,580,99,0,0,0))
-			graphics.characters[0].size=6
-			//graphics.characters[0].display()
+			graphics.end.image(graphics.backgrounds[0],0,0)
+			for(a=0;a<4;a++){
+				graphics.characters.push(new combatant(graphics.end,100+a*100,550,current.combatants[a].type,0,0,0))
+				graphics.characters[a].size=2
+				graphics.characters[a].display()
+			}
+			graphics.characters.push(new combatant(graphics.end,650,550,122,0,0,0))
+			graphics.characters.push(new combatant(graphics.end,700,550,121,0,0,0))
+			graphics.characters.push(new combatant(graphics.end,750,550,123,0,0,0))
+			graphics.characters.push(new combatant(graphics.end,800,550,122,0,0,0))
+			graphics.characters[4].display()
+			graphics.characters[5].display()
+			graphics.characters[6].display()
+			graphics.characters[7].display()
+			graphics.end.noStroke()
+            graphics.end.fill(150,125,90)
+            graphics.end.rect(450,575,910,50)
+			graphics.end.fill(0)
+			graphics.end.textSize(40)
+			graphics.end.noStroke()
+			graphics.end.text('Game End\nVictory',graphics.end.width/2,100)
+		break
+		case 1:
+			graphics.end.background(200,170,120)
+			graphics.end.image(graphics.backgrounds[0],0,0)
+			graphics.characters.push(new combatant(graphics.end,50,550,current.combatants[0].type,0,0,0))
+			for(a=0;a<3;a++){
+				graphics.characters.push(new combatant(graphics.end,250+a*150,500-a*75,current.combatants[a+1].type,0,0,0))
+			}
+			graphics.characters.push(new combatant(graphics.end,800,230,88,0,0,0))
+			for(a=0;a<4;a++){
+				graphics.characters[a].size=2
+				graphics.characters[a+1].direction-=20
+			}
+			graphics.characters[4].size=2
+			for(a=0;a<5;a++){
+				graphics.characters[a].display()
+			}
+			graphics.end.noStroke()
+            graphics.end.fill(150,125,90)
+            graphics.end.rect(450,575,910,50)
+			graphics.end.fill(100)
+			graphics.end.quad(150,550,200,550,1100,100,1050,100)
+			graphics.end.fill(0)
+			graphics.end.textSize(40)
+			graphics.end.noStroke()
+			graphics.end.text('Game End\nVictory',graphics.end.width/2,100)
+		break
+		case 2:
+			graphics.end.background(200,170,120)
+			graphics.end.image(graphics.backgrounds[0],0,0)
+			for(a=0;a<4;a++){
+				graphics.characters.push(new combatant(graphics.end,150+a*200,550+random(0,20),current.combatants[a].type,0,0,0))
+				graphics.characters[a].size=2
+				graphics.characters[a].die()
+				graphics.characters[a].display()
+			}
+			graphics.characters.push(new combatant(graphics.end,450,550,99,0,1,0))
+			graphics.characters[4].size=2
+			graphics.characters[4].display()
+			graphics.end.noStroke()
+            graphics.end.fill(150,125,90)
+            graphics.end.rect(450,575,910,50)
+			graphics.end.fill(0)
+			graphics.end.textSize(40)
+			graphics.end.noStroke()
+			graphics.end.text('Game End\nDefeat',graphics.end.width/2,100)
+		break
+		case 3:
+			graphics.end.background(200,170,120)
+			graphics.end.image(graphics.backgrounds[0],0,0)
+			for(a=0;a<4;a++){
+				graphics.characters.push(new combatant(graphics.end,150+a*200,550+random(0,20),current.combatants[a].type,0,0,0))
+				graphics.characters[a].size=2
+				graphics.characters[a].die()
+				graphics.characters[a].display()
+			}
+			graphics.characters.push(new combatant(graphics.end,600,550,88,0,0,0))
+			graphics.characters.push(new combatant(graphics.end,500,550,61,0,0,0))
+			graphics.characters.push(new combatant(graphics.end,800,550,61,0,1,0))
+			graphics.characters.push(new combatant(graphics.end,700,550,99,0,1,0))
+			for(a=0;a<4;a++){
+				graphics.characters[a+4].size=2
+				graphics.characters[a+4].display()
+			}
+			graphics.end.noStroke()
+            graphics.end.fill(150,125,90)
+            graphics.end.rect(450,575,910,50)
+			graphics.end.fill(0)
+			graphics.end.textSize(40)
+			graphics.end.noStroke()
+			graphics.end.text('Game End\nDefeat',graphics.end.width/2,100)
+		break
+		case 4:
+			graphics.end.background(200,170,120)
+			graphics.end.image(graphics.backgrounds[0],0,0)
+			for(a=0;a<4;a++){
+				graphics.characters.push(new combatant(graphics.end,200+a*100+floor(a/2)*200,550,current.combatants[a].type,0,1,0))
+				graphics.characters[a].size=2
+				graphics.characters[a].display()
+			}
+			graphics.characters.push(new combatant(graphics.end,450,550,99,0,1,0))
+			graphics.characters[4].anim[5]=1
+			if(current.cut.totalLife>current.cut.totalBaseLife*0.2){
+				graphics.characters[4].anim[6]=1
+			}
+			if(current.cut.totalLife>current.cut.totalBaseLife*0.4){
+				graphics.characters[4].anim[7]=1
+			}
+			if(current.cut.totalLife>current.cut.totalBaseLife*0.6){
+				graphics.characters[4].anim[8]=1
+			}
+			if(current.cut.totalLife>current.cut.totalBaseLife*0.8){
+				graphics.characters[4].anim[9]=1
+			}
+			graphics.characters[4].size=2
+			graphics.characters[4].display()
+			graphics.end.noStroke()
+            graphics.end.fill(150,125,90)
+            graphics.end.rect(450,575,910,50)
+			graphics.end.fill(0)
+			graphics.end.textSize(40)
+			graphics.end.noStroke()
+			graphics.end.text('Game End\nVictory',graphics.end.width/2,100)
 		break
 	}
 }

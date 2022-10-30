@@ -121,6 +121,9 @@ types={
         {name:'Long Gent',alt:'',life:30,speed:6,damage:1,attacks:[4,123],height:84,reward:15,pattern:0},
         {name:'Big Gent',alt:'',life:60,speed:10,damage:2,attacks:[2,7,123],height:90,reward:20,pattern:0},
         {name:'The Goodman',alt:'',life:200,speed:10,damage:3,attacks:[123],height:75,reward:100,pattern:0},//120
+        {name:'Director Illyesc',alt:'',life:900,speed:18,damage:2,attacks:[105,106,107],height:78,reward:10000,pattern:1},
+        {name:'Management',alt:'Special Forces',life:360,speed:9,damage:3,attacks:[],height:78,reward:120,pattern:0},
+        {name:'Sakura',alt:'',life:300,speed:8,damage:6,attacks:[124,125,126,133],height:72,reward:0,pattern:1},
     ],weapon:[
         {name:'Unarmed',damage:2,attacks:[0],cost:0},//0
         {name:'Stick',damage:4,attacks:[8],cost:25},
@@ -306,7 +309,7 @@ types={
         {name:'Impale'                  ,damage:1   ,target:0,class:5,uses:0 ,accuracy:1   ,description:'Stab and disable'},
     ]
 }
-stage={scene:'end',scale:1}
+stage={scene:'menu',scale:1}
 graphics={main:0,backgrounds:[],minor:[],character:[],characters:[],end:0}
 transition={trigger:false,anim:0,scene:stage.scene}
 inputs={mouse:{x:0,y:0},rel:{x:0,y:0},keys:[[false,false,false,false],[false,false,false,false]]}

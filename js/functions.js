@@ -71,10 +71,22 @@ function resetState(type){
 		break
 	}
 }
-function displayEnd(layer,end){
+function displayEnd(layer){
 	layer.image(graphics.end,0,0)
-	layer.fill(0)
-	layer.textSize(20)
+}
+function displayMenu(layer){
+	layer.background(200,170,120)
+	layer.image(graphics.backgrounds[0],0,0)
 	layer.noStroke()
-	layer.text(end,20,20)
+	layer.fill(150,125,90)
+	layer.rect(450,575,910,50)
+	layer.fill(0)
+	layer.noStroke()
+	layer.textSize(80)
+	layer.text('Orofos',layer.width/2,100)
+	layer.textSize(16)
+	layer.text('Ducky Programming',layer.width/2,150)
+	layer.image(graphics.minor[4],100,200,200,200)
+	layer.image(graphics.minor[3],350,200,200,200)
+	layer.image(graphics.minor[2],600,200,200,200)
 }
