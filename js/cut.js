@@ -964,16 +964,6 @@ class cut{
                 this.battle.combatants[e].updateSpeech()
             }
             switch(this.type){
-                case 0:
-                    if(this.timer<30){
-                        for(g=0,lg=this.battle.characters.length;g<lg;g++){
-                            if(this.battle.characters[g].id==100){
-                                this.battle.characters[g].position.x-=10
-                                this.battle.characters[g].rate[0]+=10
-                            }
-                        }
-                    }
-                break
                 case 1:
                     if(this.timer<35){
                         for(g=0,lg=this.battle.characters.length;g<lg;g++){
@@ -1094,7 +1084,7 @@ class cut{
                     }else if(this.timer>=935&&this.timer<1055){
                         for(g=0,lg=this.battle.characters.length;g<lg;g++){
                             if(this.battle.characters[g].id==106){
-                                this.battle.characters[g].flip=-1
+                                this.battle.characters[g].flip=1
                                 this.battle.characters[g].rate[0]+=10
                                 this.battle.characters[g].position.x+=10
                             }
@@ -1119,6 +1109,7 @@ class cut{
                     }else if(this.timer==1055){
                         for(g=0,lg=this.battle.characters.length;g<lg;g++){
                             if(this.battle.characters[g].id==106){
+                                this.battle.characters[g].flip=-1
                                 this.battle.characters[g].speech.text="We have big plans for what we'll do with\nher. We could set up a place...\nfor others to enjoy themselves."
                                 this.battle.characters[g].speech.time=60
                             }

@@ -46,5 +46,59 @@ function mouseClicked(){
                 current.cut.onClick()
             }
         break
+        case 'menu':
+            if(pointInsideBox({position:inputs.rel},{position:{x:graphics.main.width/2-160,y:400},width:60,height:60})&&stage.difficulty>=0){
+                stage.difficulty--
+            }else if(pointInsideBox({position:inputs.rel},{position:{x:graphics.main.width/2+160,y:400},width:60,height:60})&&stage.difficulty<=0){
+                stage.difficulty++
+            }else if(pointInsideBox({position:inputs.rel},{position:{x:graphics.main.width/2-370,y:300},width:60,height:60})&&stage.speed[0]>0.5){
+                stage.speed[0]--
+                if(stage.speed[0]==0){
+                    stage.speed[0]=0.5
+                }
+            }else if(pointInsideBox({position:inputs.rel},{position:{x:graphics.main.width/2+370,y:300},width:60,height:60})&&stage.speed[2]<5){
+                stage.speed[2]++
+                if(stage.speed[2]==1.5){
+                    stage.speed[2]=1
+                }
+            }else if(pointInsideBox({position:inputs.rel},{position:{x:graphics.main.width/2+190,y:300},width:60,height:60})&&stage.speed[2]>0.5){
+                stage.speed[2]--
+                if(stage.speed[2]==0){
+                    stage.speed[2]=0.5
+                }
+            }else if(pointInsideBox({position:inputs.rel},{position:{x:graphics.main.width/2-190,y:300},width:60,height:60})&&stage.speed[0]<5){
+                stage.speed[0]++
+                if(stage.speed[0]==1.5){
+                    stage.speed[0]=1
+                }
+            }else if(pointInsideBox({position:inputs.rel},{position:{x:graphics.main.width/2-90,y:300},width:60,height:60})&&stage.speed[1]>0.5){
+                stage.speed[1]--
+                if(stage.speed[1]==0){
+                    stage.speed[1]=0.5
+                }
+            }else if(pointInsideBox({position:inputs.rel},{position:{x:graphics.main.width/2+90,y:300},width:60,height:60})&&stage.speed[1]<5){
+                stage.speed[1]++
+                if(stage.speed[1]==1.5){
+                    stage.speed[1]=1
+                }
+            }else if(pointInsideBox({position:inputs.rel},{position:{x:graphics.main.width/2,y:500},width:120,height:60})){
+                transition.trigger=true
+                transition.scene='walk'
+                if(stage.difficulty==-1){
+                    for(g=1;g<9;g++){
+                        types.combatant[g].damage=round(types.combatant[g].damage*15)/10
+                    }
+                }else if(stage.difficulty==1){
+                    for(g=1;g<9;g++){
+                        types.combatant[g].life=round(types.combatant[g].life*0.75)
+                    }
+                }
+                current=new battle(graphics.main,combatants)
+                current.cut.setup(1)
+                current.walkSpeed=stage.speed[0]
+                current.speed=stage.speed[1]
+                current.cut.speed=stage.speed[2]
+            }
+        break
     }
 }

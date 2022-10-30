@@ -309,7 +309,7 @@ types={
         {name:'Impale'                  ,damage:1   ,target:0,class:5,uses:0 ,accuracy:1   ,description:'Stab and disable'},
     ]
 }
-stage={scene:'menu',scale:1}
+stage={scene:'menu',scale:1,difficulty:0,speed:[1,1,1]}
 graphics={main:0,backgrounds:[],minor:[],character:[],characters:[],end:0}
 transition={trigger:false,anim:0,scene:stage.scene}
 inputs={mouse:{x:0,y:0},rel:{x:0,y:0},keys:[[false,false,false,false],[false,false,false,false]]}

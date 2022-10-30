@@ -20,9 +20,11 @@ class battle{
         this.time=0
         this.setTime=0
         this.speed=1
+        this.walkSpeed=1
         this.currency={money:500}
         this.story=0
         this.complete={main:false}
+        this.count=0
 	}
     end(){
         for(e=4,le=this.combatants.length;e<le;e++){
@@ -433,9 +435,9 @@ class battle{
                     this.setupStack()
                     this.reseting=false
                 }else if(this.attack.timer>0){
-                    this.attack.timer=round(this.attack.timer-1)
-                    this.attack.update()
-                    if(this.speed>0&&this.attack.timer>0){
+                    this.count+=this.speed
+                    while(this.attack.timer>0&&this.count>0){
+                        this.count--
                         this.attack.timer=round(this.attack.timer-1)
                         this.attack.update()
                     }
@@ -461,8 +463,10 @@ class battle{
                 }
             break
             case 'walk':
-                for(e=0;e<this.speed+1;e++){
-                    if((inputs.keys[0][1]||inputs.keys[1][1])&&!this.cut.trigger){
+                if((inputs.keys[0][1]||inputs.keys[1][1])&&!this.cut.trigger){
+                    this.count+=this.walkSpeed*2
+                    while(this.count>0){
+                        this.count--
                         this.totalMoved++
                         for(f=0,lf=this.combatants.length;f<lf;f++){
                             this.combatants[f].rate[0]+=10

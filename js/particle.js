@@ -73,7 +73,7 @@ class particle{
                 break
                 case 9:
                     this.layer.rotate(this.time*6)
-                    this.layer.image(graphics.minor[8],-10,-10,20,20)
+                    this.layer.image(graphics.minor[8],-10*this.fade,-10*this.fade,20*this.fade,20*this.fade)
                     this.layer.rotate(this.time*-6)
                 break
             }
