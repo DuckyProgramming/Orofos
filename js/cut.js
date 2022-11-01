@@ -1275,7 +1275,7 @@ class cut{
                         for(g=0;g<4;g++){
                             if(this.battle.combatants[g].team==0){
                                 this.battle.combatants[g].base.life=round(this.battle.combatants[g].base.life*1.2)
-                                this.battle.combatants[g].life=round(this.battle.combatants[g].base.life*12)/10
+                                this.battle.combatants[g].life=round(this.battle.combatants[g].life*1.2)
                                 this.battle.combatants[g].collect.life=this.battle.combatants[g].life
                             }
                         }
@@ -1832,7 +1832,7 @@ class cut{
                         for(g=0;g<4;g++){
                             if(this.battle.combatants[g].team==0){
                                 this.battle.combatants[g].base.life=round(this.battle.combatants[g].base.life*1.2)
-                                this.battle.combatants[g].life=round(this.battle.combatants[g].base.life*12)/10
+                                this.battle.combatants[g].life=round(this.battle.combatants[g].life*1.2)
                                 this.battle.combatants[g].collect.life=this.battle.combatants[g].life
                             }
                         }
@@ -2336,7 +2336,7 @@ class cut{
                         for(g=0;g<4;g++){
                             if(this.battle.combatants[g].team==0){
                                 this.battle.combatants[g].base.life=round(this.battle.combatants[g].base.life*1.2)
-                                this.battle.combatants[g].life=round(this.battle.combatants[g].base.life*12)/10
+                                this.battle.combatants[g].life=round(this.battle.combatants[g].life*1.2)
                                 this.battle.combatants[g].collect.life=this.battle.combatants[g].life
                             }
                         }
@@ -2419,7 +2419,7 @@ class cut{
                         for(g=0;g<4;g++){
                             if(this.battle.combatants[g].team==0){
                                 this.battle.combatants[g].base.life=round(this.battle.combatants[g].base.life*1.2)
-                                this.battle.combatants[g].life=round(this.battle.combatants[g].base.life*12)/10
+                                this.battle.combatants[g].life=round(this.battle.combatants[g].life*1.2)
                                 this.battle.combatants[g].collect.life=this.battle.combatants[g].life
                             }
                         }
@@ -2504,7 +2504,7 @@ class cut{
                         for(g=0;g<4;g++){
                             if(this.battle.combatants[g].team==0){
                                 this.battle.combatants[g].base.life=round(this.battle.combatants[g].base.life*1.2)
-                                this.battle.combatants[g].life=round(this.battle.combatants[g].base.life*12)/10
+                                this.battle.combatants[g].life=round(this.battle.combatants[g].life*1.2)
                                 this.battle.combatants[g].collect.life=this.battle.combatants[g].life
                             }
                         }
@@ -3364,7 +3364,7 @@ class cut{
                         for(g=0;g<4;g++){
                             if(this.battle.combatants[g].team==0){
                                 this.battle.combatants[g].base.life=round(this.battle.combatants[g].base.life*1.2)
-                                this.battle.combatants[g].life=round(this.battle.combatants[g].base.life*12)/10
+                                this.battle.combatants[g].life=round(this.battle.combatants[g].life*1.2)
                                 this.battle.combatants[g].collect.life=this.battle.combatants[g].life
                             }
                         }
@@ -3537,7 +3537,7 @@ class cut{
                         for(g=0;g<4;g++){
                             if(this.battle.combatants[g].team==0){
                                 this.battle.combatants[g].base.life=round(this.battle.combatants[g].base.life*1.2)
-                                this.battle.combatants[g].life=round(this.battle.combatants[g].base.life*12)/10
+                                this.battle.combatants[g].life=round(this.battle.combatants[g].life*1.2)
                                 this.battle.combatants[g].collect.life=this.battle.combatants[g].life
                             }
                         }
@@ -3745,7 +3745,7 @@ class cut{
                         for(g=0;g<4;g++){
                             if(this.battle.combatants[g].team==0){
                                 this.battle.combatants[g].base.life=round(this.battle.combatants[g].base.life*1.2)
-                                this.battle.combatants[g].life=round(this.battle.combatants[g].base.life*12)/10
+                                this.battle.combatants[g].life=round(this.battle.combatants[g].life*1.2)
                                 this.battle.combatants[g].collect.life=this.battle.combatants[g].life
                             }
                         }
@@ -4451,7 +4451,7 @@ class cut{
                                     this.refillParty()
                                     this.spendParticle('-$25')
                                 }else if(g==2&&this.battle.currency.money>=types.weapon[this.purchase.weapon[0]].cost){
-                                    this.purchase.select=0
+																	this.purchase.select=0
                                     this.battle.currency.money-=types.weapon[this.purchase.weapon[0]].cost
                                     this.purchase.trigger=true
                                     this.purchase.choice=0
